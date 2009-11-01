@@ -1,7 +1,7 @@
 === GD Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://www.dev4press.com/donate/
-Version: 0.4.0
+Version: 0.4.1
 Tags: gdragon, tools, taxonomy, custom taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 2.8.4
@@ -38,5 +38,8 @@ GD Taxonomies Tools is a plugin that can be used to expand custom taxonomies sup
 2. Taxonomy Terms Cloud Widget
 
 == Changelog ==
+= 0.4.1 =
+* Fixed broken post deletion
+
 = 0.4.0 =
 * First public release

@@ -26,7 +26,7 @@ foreach ($gdtxall as $tax) {
     <td style="text-align: right;"><strong><?php echo count(get_terms($tax_data->name)); ?></strong></td>
     <td style="text-align: right;">
         <?php if (!$default && $istaxtool) { ?>
-        <a onclick="return areYouSure()" class="ttoption-del" href="<?php echo $tt_url; ?>&action=delete"><?php _e("delete", "gd-taxonomies-tools"); ?></a> |
+        <a onclick="return areYouSure()" class="ttoption-del" href="<?php echo $tt_url; ?>&action=deltax"><?php _e("delete", "gd-taxonomies-tools"); ?></a> |
         <a class="ttoption" href="<?php echo $tt_url; ?>&action=edit"><?php _e("edit", "gd-taxonomies-tools"); ?></a> |
         <?php } ?>
         <a class="ttoption" href="<?php echo $edit_term_url; ?>"><?php _e("terms", "gd-taxonomies-tools"); ?></a>
