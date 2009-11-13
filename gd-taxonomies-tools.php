@@ -4,7 +4,7 @@
 Plugin Name: GD Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Taxonomies Tools is plugin for management and tools collection for working with custom taxonomies.
-Version: 0.4.1
+Version: 0.5.0
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 */
@@ -19,6 +19,7 @@ require_once(dirname(__FILE__)."/gdragon/gd_debug.php");
 require_once(dirname(__FILE__)."/gdragon/gd_functions.php");
 require_once(dirname(__FILE__)."/gdragon/gd_wordpress.php");
 require_once(dirname(__FILE__)."/widgets/gdtt-terms-cloud.php");
+require_once(dirname(__FILE__)."/widgets/gdtt-terms-list.php");
 
 if (!class_exists('GDTaxonomiesTools')) {
     class GDTaxonomiesTools {
@@ -125,11 +126,13 @@ if (!class_exists('GDTaxonomiesTools')) {
             add_filter('plugin_action_links', array(&$this, 'plugin_actions'), 10, 2);
             add_action('after_plugin_row', array(&$this,'plugin_check_version'), 10, 2);
 
-            add_action("sm_buildmap", array(&$this, 'expand_sitemap'));
+            if ($this->o["sitemap_expand"] == 1)
+                add_action("sm_buildmap", array(&$this, 'expand_sitemap'));
         }
 
         function widgets_init() {
             register_widget("gdttTermsCloud");
+            register_widget("gdttTermsList");
         }
 
         function expand_sitemap() {
@@ -445,6 +448,9 @@ if (!class_exists('GDTaxonomiesTools')) {
             $gdtt_debug->dump($msg, $obj, $block, $mode);
         }
     }
+
+    include(GDTAXTOOLS_PATH."code/fnc/general.php");
+
 }
 
 ?>

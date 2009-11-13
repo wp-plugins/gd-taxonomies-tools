@@ -2,10 +2,10 @@
 
 class GDTTDefaults {
     var $default_options = array(
-        "version" => "0.4.1",
-        "date" => "2009.11.01.",
+        "version" => "0.5.0",
+        "date" => "2009.11.13.",
         "status" => "Beta",
-        "build" => 21,
+        "build" => 23,
         "edition" => "lite",
         "tax_internal" => 0,
         "delete_taxonomy_db" => 0,

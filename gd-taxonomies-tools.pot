@@ -93,10 +93,10 @@ msgid "This is the display name for the taxonomy."
 msgstr ""
 
 #: forms/admin/taxonomy.form.php:21
-#: gd-taxonomies-tools.php:154
-#: gd-taxonomies-tools.php:355
-#: gd-taxonomies-tools.php:355
-#: gd-taxonomies-tools.php:394
+#: gd-taxonomies-tools.php:157
+#: gd-taxonomies-tools.php:358
+#: gd-taxonomies-tools.php:358
+#: gd-taxonomies-tools.php:397
 msgid "Settings"
 msgstr ""
 
@@ -190,6 +190,7 @@ msgstr ""
 
 #: forms/modules/general.php:15
 #: forms/modules/general.php:20
+#: widgets/gdtt-terms-list.php:52
 msgid "posts"
 msgstr ""
 
@@ -255,7 +256,7 @@ msgid "wordpress plugin page"
 msgstr ""
 
 #: forms/modules/info.php:38
-#: gd-taxonomies-tools.php:155
+#: gd-taxonomies-tools.php:158
 msgid "Donate"
 msgstr ""
 
@@ -361,14 +362,17 @@ msgid "plugin for custom taxonomies managment"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/basic.php:2
+#: widgets/gdtt-terms-list/basic.php:2
 msgid "Title"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/basic.php:8
+#: widgets/gdtt-terms-list/basic.php:8
 msgid "Maximum terms to show"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/display.php:2
+#: widgets/gdtt-terms-list/display.php:8
 msgid "Additional CSS class"
 msgstr ""
 
@@ -385,58 +389,77 @@ msgid "Largest term size"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/filter.php:2
+#: widgets/gdtt-terms-list/filter.php:2
 msgid "Taxonomy"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/filter.php:10
+#: widgets/gdtt-terms-list/filter.php:10
 msgid "Sort by"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/filter.php:13
+#: widgets/gdtt-terms-list/filter.php:13
 msgid "Term name"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/filter.php:14
+#: widgets/gdtt-terms-list/filter.php:14
 msgid "Posts count"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/filter.php:19
+#: widgets/gdtt-terms-list/filter.php:19
 msgid "Order"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/filter.php:22
+#: widgets/gdtt-terms-list/filter.php:22
 msgid "Ascending"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/filter.php:23
+#: widgets/gdtt-terms-list/filter.php:23
 msgid "Descending"
+msgstr ""
+
+#: widgets/gdtt-terms-list/display.php:2
+msgid "Show number of posts"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud.php:18
 msgid "Display cloud with taxonomy terms."
 msgstr ""
 
-#: gd-taxonomies-tools.php:165
-#: gd-taxonomies-tools.php:354
-#: gd-taxonomies-tools.php:354
-#: gd-taxonomies-tools.php:420
+#: widgets/gdtt-terms-list.php:16
+msgid "Display list with taxonomy terms."
+msgstr ""
+
+#: widgets/gdtt-terms-list.php:52
+msgid "post"
+msgstr ""
+
+#: gd-taxonomies-tools.php:168
+#: gd-taxonomies-tools.php:357
+#: gd-taxonomies-tools.php:357
+#: gd-taxonomies-tools.php:423
 msgid "Taxonomies"
 msgstr ""
 
-#: gd-taxonomies-tools.php:353
-#: gd-taxonomies-tools.php:353
+#: gd-taxonomies-tools.php:356
+#: gd-taxonomies-tools.php:356
 msgid "Front Page"
 msgstr ""
 
-#: gd-taxonomies-tools.php:405
+#: gd-taxonomies-tools.php:408
 msgid "Tools"
 msgstr ""
 
-#: gd-taxonomies-tools.php:424
+#: gd-taxonomies-tools.php:427
 msgid "Add new Taxonomy"
 msgstr ""
 
-#: gd-taxonomies-tools.php:428
+#: gd-taxonomies-tools.php:431
 msgid "Edit Taxonomy"
 msgstr ""
 
