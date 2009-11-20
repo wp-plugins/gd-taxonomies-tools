@@ -27,7 +27,7 @@
                     <?php _e("Domain", "gd-taxonomies-tools"); ?>:
                 </td>
                 <td width="230" valign="top" colspan="3">
-                    <select<?php echo $wpv == 28 ? " disabled" : ""; ?> name="tax[domain]" class="input-text-middle">
+                    <select<?php echo $wpv < 30 ? " disabled" : ""; ?> name="tax[domain]" class="input-text-middle">
                         <option value="post"<?php echo $tax["domain"] == "post" ? ' selected="selected"' : ''; ?>><?php _e("Posts", "gd-taxonomies-tools"); ?></option>
                         <option value="link"<?php echo $tax["domain"] == "link" ? ' selected="selected"' : ''; ?>><?php _e("Links", "gd-taxonomies-tools"); ?></option>
                     </select>
@@ -38,7 +38,7 @@
                     <?php _e("Hierarchical", "gd-taxonomies-tools"); ?>:
                 </td>
                 <td width="230" valign="top" colspan="3">
-                    <select<?php echo $wpv == 28 ? " disabled" : ""; ?> name="tax[hierarchy]" class="input-text-middle">
+                    <select<?php echo $wpv < 30 ? " disabled" : ""; ?> name="tax[hierarchy]" class="input-text-middle">
                         <option value="no"<?php echo $tax["hierarchy"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
                         <option value="yes"<?php echo $tax["hierarchy"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
                     </select>
@@ -51,7 +51,7 @@
                 <td width="230" valign="top">
                     <select name="tax[rewrite]" class="input-text-middle">
                         <option value="yes_name"<?php echo $tax["rewrite"] == "yes_name" ? ' selected="selected"' : ''; ?>><?php _e("Yes, using name", "gd-taxonomies-tools"); ?></option>
-                        <?php if ($wpv != 28) { ?><option value="yes_custom"<?php echo $tax["rewrite"] == "yes_custom" ? ' selected="selected"' : ''; ?>><?php _e("Yes, custom value", "gd-taxonomies-tools"); ?></option><?php } ?>
+                        <?php if ($wpv > 29) { ?><option value="yes_custom"<?php echo $tax["rewrite"] == "yes_custom" ? ' selected="selected"' : ''; ?>><?php _e("Yes, custom value", "gd-taxonomies-tools"); ?></option><?php } ?>
                         <option value="no"<?php echo $tax["rewrite"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
                     </select>
                 </td>
@@ -59,7 +59,7 @@
                     <?php _e("Custom", "gd-taxonomies-tools"); ?>:
                 </td>
                 <td valign="top">
-                    <input<?php echo $wpv == 28 ? " disabled" : ""; ?> type="text" value="<?php echo $tax["rewrite_custom"]; ?>" name="tax[rewrite_custom]" class="input-text-middle" />
+                    <input<?php echo $wpv < 30 ? " disabled" : ""; ?> type="text" value="<?php echo $tax["rewrite_custom"]; ?>" name="tax[rewrite_custom]" class="input-text-middle" />
                 </td>
             </tr>
             <tr>
@@ -83,7 +83,7 @@
         </table>
         <div class="gdsr-table-split"></div>
         <?php _e("For rewrite and query custom variables use only lower case letters and no special characters except for the underscore.", "gd-taxonomies-tools"); ?><br />
-        <?php if ($wpv == 28) _e("With WP 2.8.x not all options work, and they are disabled.", "gd-taxonomies-tools"); ?>
+        <?php if ($wpv < 30) _e("With WP 2.8.x and WP 2.9.x not all options work, and they are disabled. Once the WordPress starts supporting this option, they will be enabled.", "gd-taxonomies-tools"); ?>
     </td>
 </tr>
 <tr><th scope="row"><?php _e("Status", "gd-taxonomies-tools"); ?></th>

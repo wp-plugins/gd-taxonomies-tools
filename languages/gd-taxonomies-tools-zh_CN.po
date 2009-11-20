@@ -1,257 +1,251 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: GD Taxonomies 0.6.0\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Team Blogos <wordpress@blogos.dk>\n"
-"Language-Team: Team Blogos <wordpress@blogos.dk>\n"
+"Last-Translator: Awu <awuitcn@gmail.com>\n"
+"Language-Team:  <awuitcn@gmail.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2;plural=n != 1;\n"
-"X-Poedit-Language: Danish\n"
-"X-Poedit-Country: DENMARK\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_c;_e;__ngettext:1,2;__ngettext_noop:1,2;_n:1,2;_nc:1,2;_n_noop:1,2\n"
-"X-Poedit-Basepath: d:\\wordpress\\plugins\\gd-taxonomies-tools\n"
-"X-Poedit-SearchPath-0: d:\\wordpress\\plugins\\gd-taxonomies-tools\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
 
 #: code/js.php:2
 msgid "Are you sure? Operation is not reversible."
-msgstr "Er du sikker? Handlingen kan ikke gøres om."
+msgstr "确定吗?操作是不可逆的!"
 
 #: code/js.php:11
 #: forms/admin/taxonomy.form.php:3
 #: forms/render/tax.header.php:5
 msgid "Name"
-msgstr "Navn"
+msgstr "名称"
 
 #: code/js.php:12
 #: forms/admin/taxonomy.form.php:14
 #: forms/render/tax.header.php:4
 msgid "Label"
-msgstr "Etiket"
+msgstr "标签"
 
 #: code/js.php:14
 msgid "Some fields must be filled. Check this: "
-msgstr "Nogle felter <i>skal</i> udfyldes. Tjek: "
+msgstr "某些字段必须填写.请检查:"
 
 #: forms/admin/settings.php:3
 msgid "General"
-msgstr "Generelt"
+msgstr "通常"
 
 #: forms/admin/settings.php:4
 msgid "Sitemap"
-msgstr "sitemap"
+msgstr "网站地图"
 
 #: forms/admin/settings.php:15
 msgid "Save Settings"
-msgstr "Gem indstillinger"
+msgstr "保存设置"
 
 #: forms/admin/taxonomies.php:46
 msgid "Add New"
-msgstr "Tilføj ny"
+msgstr "添加新的"
 
 #: forms/admin/taxonomies.php:8
 msgid "Default Taxonomies:"
-msgstr "Standardtaksonomier:"
+msgstr "默认分类:"
 
 #: forms/admin/taxonomies.php:17
 msgid "Custom Taxonomies:"
-msgstr "Brugerdefinerede taksonomier:"
+msgstr "自定义分类:"
 
 #: forms/admin/taxonomies.php:27
 msgid "Inactive Custom Taxonomies:"
-msgstr "Inaktive brugerdefinerede taksonomier:"
+msgstr "无效的自定义分类:"
 
 #: forms/admin/taxonomies.php:38
 msgid "Deleting the taxonomy will also delete the relationship entries in the database. Backup your database before proceeding with any deletion operation."
-msgstr "Sletning af taksonomien vil også slette posterne med relationer i databasen. Tag en sikkerhedskopi, inden du fortsætter med at slette noget. "
+msgstr "删除分类也将删除数据库中的相关项目.在进行操作前请先备份您的数据."
 
 #: forms/admin/taxonomies.php:39
 msgid "After deleting taxonomy, terms relationships in the database will remain."
-msgstr "Efter sletning af en taksonomi forbliver relationerne mellem termer i databasen."
+msgstr "删除分类后,数据之间的关系将保持."
 
 #: forms/admin/taxonomies.php:40
 msgid "You can change that on the settings panel."
-msgstr "Du kan ændre dette i Opsætning."
+msgstr "您可以更改在设置面板."
 
 #: forms/admin/taxonomy.add.php:24
 #: forms/admin/taxonomy.edit.php:12
 msgid "Go Back"
-msgstr "Tilbage"
+msgstr "返回"
 
 #: forms/admin/taxonomy.add.php:16
 #: forms/admin/taxonomy.edit.php:4
 msgid "Name for the taxonomy is invalid. Fix before proceeding."
-msgstr "Taksonominavnet er ugyldigt. Ret det, inden du fortsætter."
+msgstr "分类名称是无效的.进行前修复."
 
 #: forms/admin/taxonomy.add.php:22
 msgid "New taxonomy added."
-msgstr "Ny taksonomi tilføjet."
+msgstr "新的分类已添加."
 
 #: forms/admin/taxonomy.edit.php:10
 msgid "Taxonomy updated."
-msgstr "Taksonomi opdateret."
+msgstr "分类已更新."
 
 #: forms/admin/taxonomy.form.php:7
 msgid "Allow renaming of the taxonomy name. This will cause renaming all database entries for this taxonomy."
-msgstr "Tillad omdøbning af taksonominavnet. Det vil medføre, at alle databaseposter for denne taksonomi bliver omdøbt."
+msgstr "允许重命名分类名称.这将会使此分类数据库中的项目重写."
 
 #: forms/admin/taxonomy.form.php:10
 msgid "This must be unique name, not used by any other taxonomy."
-msgstr "Dette skal være et unikt navn, som ikke bruger af nogen anden taksonomi."
+msgstr "这必须是唯一的名称,没有任何其他分类使用."
 
 #: forms/admin/taxonomy.form.php:11
 msgid "Also, use only lower case letters and no special characters except for the underscore."
-msgstr "Brug endvidere kun små bogstaver og ingen specielle tegn udover understregningstegnet."
+msgstr "并且,使用小写字母,也没有特殊字符."
 
 #: forms/admin/taxonomy.form.php:18
 msgid "This is the display name for the taxonomy."
-msgstr "Dette er visningsnavnet for taksonomien."
+msgstr "这是分类显示的名称."
 
 #: forms/admin/taxonomy.form.php:21
 #: gd-taxonomies-tools.php:159
 #: gd-taxonomies-tools.php:360
 #: gd-taxonomies-tools.php:399
 msgid "Settings"
-msgstr "Opsætning"
+msgstr "设置"
 
 #: forms/admin/taxonomy.form.php:26
 #: forms/render/tax.header.php:3
 msgid "Domain"
-msgstr "Domænenavn"
+msgstr "区域"
 
 #: forms/admin/taxonomy.form.php:30
 msgid "Posts"
-msgstr "Indlæg"
+msgstr "文章"
 
 #: forms/admin/taxonomy.form.php:31
 #: forms/modules/info.php:18
 msgid "Links"
-msgstr "Links"
+msgstr "链接"
 
 #: forms/admin/taxonomy.form.php:37
 #: forms/render/tax.header.php:8
 msgid "Hierarchical"
-msgstr "Hierarkisk"
+msgstr "分层"
 
 #: forms/admin/taxonomy.form.php:41
 #: forms/admin/taxonomy.form.php:54
 #: forms/admin/taxonomy.form.php:72
 msgid "No"
-msgstr "Nej"
+msgstr "No"
 
 #: forms/admin/taxonomy.form.php:42
 msgid "Yes"
-msgstr "Ja"
+msgstr "Yes"
 
 #: forms/admin/taxonomy.form.php:48
 #: forms/render/tax.header.php:6
 msgid "Rewrite"
-msgstr "Omskrivning"
+msgstr "重命名"
 
 #: forms/admin/taxonomy.form.php:52
 #: forms/admin/taxonomy.form.php:70
 msgid "Yes, using name"
-msgstr "Ja, brug navn"
+msgstr "是的,正在使用的名称"
 
 #: forms/admin/taxonomy.form.php:53
 #: forms/admin/taxonomy.form.php:71
 msgid "Yes, custom value"
-msgstr "Ja, brug brugerdefineret værdi"
+msgstr "是的,自定义值"
 
 #: forms/admin/taxonomy.form.php:58
 #: forms/admin/taxonomy.form.php:76
 msgid "Custom"
-msgstr "Brugerdefineret"
+msgstr "自定义"
 
 #: forms/admin/taxonomy.form.php:66
 msgid "Query Variable"
-msgstr "Forespørgselsvariabel"
+msgstr "查询变量"
 
 #: forms/admin/taxonomy.form.php:84
 msgid "For rewrite and query custom variables use only lower case letters and no special characters except for the underscore."
-msgstr "Til egne variabler for omskrivning (rewrites) og forespørgsler (queries) må du kun bruge små bogstaver og understregningstegnet. Ingen andre tegn."
+msgstr "对于重写和查询自定义变量使用只有小写字母,并没有特殊字符。"
 
 #: forms/admin/taxonomy.form.php:85
 msgid "With WP 2.8.x not all options work, and they are disabled."
-msgstr "Ikke alle indstillinger fungerer med WP 2.8.x og er derfor deaktiveret."
+msgstr "如果WP 2.8.x不是所有的设置可以工作,他们将会被禁用."
 
 #: forms/admin/taxonomy.form.php:88
 msgid "Status"
-msgstr "Status"
+msgstr "状态"
 
 #: forms/admin/taxonomy.form.php:90
 msgid "Taxonomy is set to active."
-msgstr "Taksonomi er sat til aktiv."
+msgstr "分类设置为活动状态."
 
 #: forms/admin/taxonomy.form.php:94
 msgid "Save Taxonomy"
-msgstr "Gem taksonomi"
+msgstr "保存分类"
 
 #: forms/modules/general.php:8
 msgid "Basic statistics"
-msgstr "Grundlæggende statistik"
+msgstr "基本统计"
 
 #: forms/modules/general.php:10
 msgid "Default Taxonomies"
-msgstr "Standardtaksonomier"
+msgstr "默认分类"
 
 #: forms/modules/general.php:15
 #: forms/modules/general.php:20
 #: forms/modules/general.php:25
 #: forms/modules/general.php:37
 msgid "for"
-msgstr "for"
+msgstr "关于"
 
 #: forms/modules/general.php:15
 #: forms/modules/general.php:20
 #: widgets/gdtt-terms-list.php:52
 msgid "posts"
-msgstr "indlæg"
+msgstr "文章"
 
 #: forms/modules/general.php:15
 #: forms/modules/general.php:37
 msgid "hierarchical"
-msgstr "hierarkisk"
+msgstr "各层"
 
 #: forms/modules/general.php:25
 msgid "links"
-msgstr "links"
+msgstr "链接"
 
 #: forms/modules/general.php:31
 msgid "Custom Taxonomies"
-msgstr "Brugerdefinerede taksonomier"
+msgstr "自定义分类"
 
 #: forms/modules/info.php:3
 msgid "Info"
-msgstr "Info"
+msgstr "信息"
 
 #: forms/modules/info.php:7
 msgid "Version"
-msgstr "Version"
+msgstr "版本"
 
 #: forms/modules/info.php:8
 msgid "release date"
-msgstr "udgivelsesdato"
+msgstr "发布日期"
 
 #: forms/modules/info.php:12
 msgid "Change Log"
-msgstr "Log over ændringer"
+msgstr "更新日志"
 
 #: forms/modules/info.php:13
 msgid "detailed list of changes"
-msgstr "detaljeret liste over ændringer"
+msgstr "详细的更新列表"
 
 #: forms/modules/info.php:14
 msgid "show"
-msgstr "vis"
+msgstr "查看"
 
 #: forms/modules/info.php:23
 msgid "official plugin page"
-msgstr "officiel pluginside"
+msgstr "官方插件页面"
 
 #: forms/modules/info.php:24
 #: forms/modules/info.php:29
@@ -263,219 +257,219 @@ msgstr "officiel pluginside"
 #: forms/modules/info.php:80
 #: forms/modules/info.php:85
 msgid "visit"
-msgstr "besøg"
+msgstr "访问"
 
 #: forms/modules/info.php:28
 msgid "discussions group"
-msgstr "diskussionsgruppe"
+msgstr "讨论小组"
 
 #: forms/modules/info.php:33
 msgid "wordpress plugin page"
-msgstr "WordPress-pluginside"
+msgstr "wordpress插件页面"
 
 #: forms/modules/info.php:38
 #: gd-taxonomies-tools.php:160
 msgid "Donate"
-msgstr "Donér"
+msgstr "Donate"
 
 #: forms/modules/info.php:39
 msgid "help further development"
-msgstr "støt videreudvikling"
+msgstr "帮助更好的开发"
 
 #: forms/modules/info.php:45
 msgid "Pro Edition"
-msgstr "Pro-udgave"
+msgstr "增强版本"
 
 #: forms/modules/info.php:49
 #: forms/modules/info.php:63
 msgid "Official Website"
-msgstr "Officiel website"
+msgstr "Official Website"
 
 #: forms/modules/info.php:50
 msgid "extended premium version"
-msgstr "udvidet betalingsudgave"
+msgstr "扩展的高级版本"
 
 #: forms/modules/info.php:64
 msgid "golden dragon official web portal"
-msgstr "golden dragons officielle webportal"
+msgstr "golden dragon official web portal"
 
 #: forms/modules/info.php:69
 msgid "tv shows reviews and news"
-msgstr "tv viser anmeldelser og nyheder"
+msgstr "tv shows reviews and news"
 
 #: forms/modules/info.php:74
 msgid "a wordpress rating system"
-msgstr "Et bedømmelsessystem til WordPress"
+msgstr "a wordpress rating system"
 
 #: forms/modules/info.php:79
 msgid "wordpress development"
-msgstr "WordPress-udvikling"
+msgstr "wordpress development"
 
 #: forms/modules/info.php:83
 msgid "Support Forum"
-msgstr "Supportforum"
+msgstr "Support Forum"
 
 #: forms/modules/info.php:84
 msgid "development discussion forum"
-msgstr "Supportforum for udviklere"
+msgstr "development discussion forum"
 
 #: forms/render/tax.header.php:7
 msgid "Query"
-msgstr "Forespørgsel"
+msgstr "查询"
 
 #: forms/render/tax.header.php:9
 msgid "Terms"
-msgstr "Termer"
+msgstr "条目"
 
 #: forms/render/tax.header.php:10
 msgid "Options"
-msgstr "Indstillinger"
+msgstr "设置"
 
 #: forms/render/tax.item.php:28
 msgid "delete"
-msgstr "slet"
+msgstr "删除"
 
 #: forms/render/tax.item.php:29
 msgid "edit"
-msgstr "redigér"
+msgstr "编辑"
 
 #: forms/render/tax.item.php:31
 msgid "terms"
-msgstr "termer"
+msgstr "条目"
 
 #: forms/render/tax.item.php:24
 msgid "yes"
-msgstr "ja"
+msgstr "是"
 
 #: forms/render/tax.item.php:24
 msgid "no"
-msgstr "nej"
+msgstr "否"
 
 #: forms/settings/general.php:1
 msgid "Delete"
-msgstr "Slet"
+msgstr "删除"
 
 #: forms/settings/general.php:3
 msgid "Delete terms from database once the taxonomy is deleted."
-msgstr "Slet termer fra databaser, når en taksonomi er slettet."
+msgstr "一旦分类被删除,将会删除数据库相关条目."
 
 #: forms/settings/general.php:5
 msgid "If this options is not checked, after deleting taxonomy all it's terms will remain in the database."
-msgstr "Hvis denne indstilling ikke er afkrydset, bliver alle en taksonomis termer i databasen, når den er slettet."
+msgstr "如果此选项未选中,分类删除后所有信息将继续留在数据库中."
 
 #: forms/settings/sitemap.php:1
 msgid "Rebuild"
-msgstr "Genetableret"
+msgstr "重建"
 
 #: forms/settings/sitemap.php:3
 msgid "Add custom taxonomies terms URL's to sitemap file."
-msgstr "Tilføj URL&#39;er for egne taksonomitermer til sitemap-filen."
+msgstr "添加自定义分类的URL到网站地图."
 
 #: forms/settings/sitemap.php:5
 msgid "This option requires XML Sitemap Generator plugin. Once the sitemap is generated, new terms URL's will be added to it."
-msgstr "Denne indstilling kræver XML Sitemap Generator-pluginnet. Når sitemappen genereres, vil URL&#39;er til nye termer blive tilføjet."
+msgstr "这个选项要求XML的Sitemaps生成器插件.一旦生成网站地图,新项目的URL将被添加进去。"
 
 #: forms/shared/front.header.php:8
 msgid "plugin for custom taxonomies managment"
-msgstr "plugin til håndtering af egne taksonomier"
+msgstr "自定义分类管理的插件"
 
 #: widgets/gdtt-terms-cloud/basic.php:2
 #: widgets/gdtt-terms-list/basic.php:2
 msgid "Title"
-msgstr "Titel"
+msgstr "标题"
 
 #: widgets/gdtt-terms-cloud/basic.php:8
 #: widgets/gdtt-terms-list/basic.php:8
 msgid "Maximum terms to show"
-msgstr "Max termer, der skal vises"
+msgstr "要显示的最大条目"
 
 #: widgets/gdtt-terms-cloud/display.php:2
 #: widgets/gdtt-terms-list/display.php:8
 msgid "Additional CSS class"
-msgstr "Ekstra CSS-klasse"
+msgstr "额外的CSS类"
 
 #: widgets/gdtt-terms-cloud/display.php:8
 msgid "Font size unit"
-msgstr "Enhed for skriftstørrelse"
+msgstr "字体大小单位"
 
 #: widgets/gdtt-terms-cloud/display.php:12
 msgid "Smallest term size"
-msgstr "Mindste termstørrelse"
+msgstr "最小的:"
 
 #: widgets/gdtt-terms-cloud/display.php:16
 msgid "Largest term size"
-msgstr "Største termstørrelse"
+msgstr "最大的;"
 
 #: widgets/gdtt-terms-cloud/filter.php:2
 #: widgets/gdtt-terms-list/filter.php:2
 msgid "Taxonomy"
-msgstr "Taxonomy"
+msgstr "分类"
 
 #: widgets/gdtt-terms-cloud/filter.php:10
 #: widgets/gdtt-terms-list/filter.php:10
 msgid "Sort by"
-msgstr "Sortér efter"
+msgstr "排序按照"
 
 #: widgets/gdtt-terms-cloud/filter.php:13
 #: widgets/gdtt-terms-list/filter.php:13
 msgid "Term name"
-msgstr "Navn på term"
+msgstr "名称"
 
 #: widgets/gdtt-terms-cloud/filter.php:14
 #: widgets/gdtt-terms-list/filter.php:14
 msgid "Posts count"
-msgstr "Indlægstæller"
+msgstr "文章数"
 
 #: widgets/gdtt-terms-cloud/filter.php:19
 #: widgets/gdtt-terms-list/filter.php:19
 msgid "Order"
-msgstr "Rækkefølge"
+msgstr "顺序"
 
 #: widgets/gdtt-terms-cloud/filter.php:22
 #: widgets/gdtt-terms-list/filter.php:22
 msgid "Ascending"
-msgstr "Stigende"
+msgstr "升序"
 
 #: widgets/gdtt-terms-cloud/filter.php:23
 #: widgets/gdtt-terms-list/filter.php:23
 msgid "Descending"
-msgstr "Faldende"
+msgstr "降序"
 
 #: widgets/gdtt-terms-list/display.php:2
 msgid "Show number of posts"
-msgstr "Vis antal indlæg"
+msgstr "显示文章数"
 
 #: widgets/gdtt-terms-cloud.php:18
 msgid "Display cloud with taxonomy terms."
-msgstr "Vis sky med taksonomitermer."
+msgstr "显示分类云."
 
 #: widgets/gdtt-terms-list.php:16
 msgid "Display list with taxonomy terms."
-msgstr "Vis liste med taksonomitermer."
+msgstr "显示分类列表."
 
 #: widgets/gdtt-terms-list.php:52
 msgid "post"
-msgstr "indlæg"
+msgstr "文章"
 
 #: gd-taxonomies-tools.php:170
 #: gd-taxonomies-tools.php:359
 #: gd-taxonomies-tools.php:425
 msgid "Taxonomies"
-msgstr "Taksonomier"
+msgstr "分类"
 
 #: gd-taxonomies-tools.php:358
 msgid "Front Page"
-msgstr "Forside"
+msgstr "首选项"
 
 #: gd-taxonomies-tools.php:410
 msgid "Tools"
-msgstr "Værktøj"
+msgstr "工具"
 
 #: gd-taxonomies-tools.php:429
 msgid "Add new Taxonomy"
-msgstr "Tilføj ny taksonomi"
+msgstr "添加新的分类"
 
 #: gd-taxonomies-tools.php:433
 msgid "Edit Taxonomy"
-msgstr "Redigér taksonomi"
+msgstr "编辑分类"
 

@@ -4,22 +4,24 @@
 Plugin Name: GD Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Taxonomies Tools is plugin for management and tools collection for working with custom taxonomies.
-Version: 0.5.0
+Version: 0.6.0
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 */
 
-require_once(dirname(__FILE__)."/config.php");
-require_once(dirname(__FILE__)."/code/defaults.php");
-require_once(dirname(__FILE__)."/code/functions.php");
-require_once(dirname(__FILE__)."/code/database.php");
-require_once(dirname(__FILE__)."/code/classes.php");
-require_once(dirname(__FILE__)."/code/widget.php");
-require_once(dirname(__FILE__)."/gdragon/gd_debug.php");
-require_once(dirname(__FILE__)."/gdragon/gd_functions.php");
-require_once(dirname(__FILE__)."/gdragon/gd_wordpress.php");
-require_once(dirname(__FILE__)."/widgets/gdtt-terms-cloud.php");
-require_once(dirname(__FILE__)."/widgets/gdtt-terms-list.php");
+$gdsr_dirname_basic = dirname(__FILE__);
+
+require_once($gdsr_dirname_basic."/config.php");
+require_once($gdsr_dirname_basic."/code/defaults.php");
+require_once($gdsr_dirname_basic."/code/functions.php");
+require_once($gdsr_dirname_basic."/code/database.php");
+require_once($gdsr_dirname_basic."/code/classes.php");
+require_once($gdsr_dirname_basic."/code/widget.php");
+require_once($gdsr_dirname_basic."/gdragon/gd_debug.php");
+require_once($gdsr_dirname_basic."/gdragon/gd_functions.php");
+require_once($gdsr_dirname_basic."/gdragon/gd_wordpress.php");
+require_once($gdsr_dirname_basic."/widgets/gdtt-terms-cloud.php");
+require_once($gdsr_dirname_basic."/widgets/gdtt-terms-list.php");
 
 if (!class_exists('GDTaxonomiesTools')) {
     class GDTaxonomiesTools {

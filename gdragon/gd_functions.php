@@ -1,15 +1,15 @@
 <?php
 
 /*
-Name:    gdFunctionsGDTT
-Version: 1.3.0
+Name:    gdFunctions
+Version: 1.6.0
 Author:  Milan Petrovic
 Email:   milan@gdragon.info
 Website: http://www.gdragon.info/
 
 == Copyright ==
 
-Copyright 2008 Milan Petrovic (email : milan@gdragon.info)
+Copyright 2008-2009 Milan Petrovic (email: milan@gdragon.info)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -28,13 +28,52 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 if (!class_exists('gdFunctionsGDTT')) {
     class gdFunctionsGDTT {
-        function get_update_url($options, $url) {
+        /**
+         * Gets the url to dev4press update check.
+         *
+         * @global string $wp_version wordpress version
+         * @param array $options plugin settings
+         * @param string $url website url
+         * @return string url to update check
+         */
+        function get_update_url($options, $url = "") {
             global $wp_version;
-            $url = sprintf("http://info.dev4press.com/update/index.php?ver=%s&pdt=%s&blg=%s&wpv=%s",
-                $options["version"], urlencode($options["product_id"]), urlencode($url), urlencode($wp_version));
+            $url = sprintf("http://info.dev4press.com/update/index.php?ver=%s&pdt=%s", 
+                $options["version"], urlencode($options["product_id"]));
+            if ($options["update_report_usage"] == 1) {
+                $url.= "&blg=".urlencode($url)."&&wpv=".urlencode($wp_version);
+            }
             return $url;
         }
 
+        /**
+         * Get the function call backtrace.
+         *
+         * @return array all functions calls leading to the place of call to this one
+         */
+        function get_caller_backtrace() {
+            if (!is_callable('debug_backtrace')) return array();
+            $bt = debug_backtrace();
+            $caller = array();
+
+            $bt = array_reverse($bt);
+            foreach ((array)$bt as $call) {
+                $function = $call['function'];
+                if (isset($call['class'])) $function = $call['class']."->$function";
+                $caller[] = $function;
+            }
+
+            unset($caller[count($caller) - 1]);
+            return $caller;
+        }
+
+        /**
+         * Trims the text to given number of words.
+         *
+         * @param string $text text to trim
+         * @param int $words_count words to trim to
+         * @return string trimmed text
+         */
         function trim_to_words($text, $words_count = 10) {
             if ($words_count > 0) {
                 $words = explode(' ', $text, $words_count + 1);
@@ -46,6 +85,13 @@ if (!class_exists('gdFunctionsGDTT')) {
             return $text;
         }
 
+        /**
+         * Adds zeroes to set length.
+         *
+         * @param string $text original number
+         * @param int $len max number of zeroes
+         * @return string prefilled text
+         */
         function prefill_zeros($text, $len) {
             $count = strlen($text);
             $zeros = "";
@@ -53,18 +99,31 @@ if (!class_exists('gdFunctionsGDTT')) {
             return $zeros.$text;
         }
 
-        function split_by_length($string, $chunkLength = 1) {
+        /**
+         * Splits string into array on size.
+         *
+         * @param string $string string to split
+         * @param int $chunk lenght of each element
+         * @return array split string
+         */
+        function split_by_length($string, $chunk = 1) {
             $result = array();
-            $strLength = strlen($string);
+            $strlnght = strlen($string);
             $x = 0;
 
-            while($x < ($strLength / $chunkLength)){
-                $result[] = substr($string, ($x * $chunkLength), $chunkLength);
+            while($x < ($strlnght / $chunk)){
+                $result[] = substr($string, ($x * $chunk), $chunk);
                 $x++;
             }
             return $result;
         }
 
+        /**
+         * Finds image url from text.
+         *
+         * @param string $text text to search
+         * @return string image url
+         */
         function get_image_from_text($text) {
             $imageurl = "";
             preg_match('/<\s*img [^\>]*src\s*=\s*[\""\']?([^\""\'>]*)/i', $text, $matches);
@@ -72,6 +131,12 @@ if (!class_exists('gdFunctionsGDTT')) {
             return $imageurl;
         }
 
+        /**
+         * Counts files in a folder.
+         *
+         * @param string $path folder path
+         * @return int number of files in the folder
+         */
         function get_folder_files_count($path) {
             if (!file_exists($path))
                 return 0;
@@ -84,6 +149,12 @@ if (!class_exists('gdFunctionsGDTT')) {
             return $ret;
         }
 
+        /**
+         * Gets folder size.
+         *
+         * @param string $path folder path
+         * @return int folder size
+         */
         function get_folder_size($path) {
             if (!file_exists($path))
                 return 0;
@@ -114,6 +185,16 @@ if (!class_exists('gdFunctionsGDTT')) {
                 closedir($dh);
                 return $files;
             }
+        }
+
+        /**
+         * Gets the folder permissions as a string.
+         *
+         * @param string $path path to file or folder
+         * @return string file permissions
+         */
+        function file_permission($path) {
+            return substr(sprintf('%o', fileperms($path)), -4);
         }
 
         /**
@@ -158,6 +239,13 @@ if (!class_exists('gdFunctionsGDTT')) {
             return $old;
         }
 
+        /**
+         * Adds missing default parameters into parameters array.
+         *
+         * @param array $defaults default parameters
+         * @param array $attributes input parameters
+         * @return array result
+         */
         function prefill_attributes($defaults, $attributes) {
             $attributes = (array)$attributes;
             $result = array();
@@ -168,6 +256,12 @@ if (!class_exists('gdFunctionsGDTT')) {
             return $result;
         }
 
+        /**
+         * Formats byte based size into readable string
+         *
+         * @param int $size size in bytes
+         * @return string formated string
+         */
         function size_format($size) {
             if (strlen($size) <= 9 && strlen($size) >= 7) {
                 $size = number_format($size / 1048576,1);
@@ -181,6 +275,12 @@ if (!class_exists('gdFunctionsGDTT')) {
             } else return "$size B";
         }
 
+        /**
+         * Recalcuates size from weight based string.
+         *
+         * @param string $size input string with k/m/g/t ending
+         * @return int resulting size
+         */
         function recalculate_size($size) {
             switch (strtolower(substr($size, -1))) {
                 case "k":
@@ -199,7 +299,39 @@ if (!class_exists('gdFunctionsGDTT')) {
             return $size;
         }
 
-        function draw_pager($total_pages, $current_page, $url, $query = "page") {
+        /**
+         * Draw a pager for wordpress query loop.
+         *
+         * @global object $wp_query wordpress query object
+         * @param string $query page element for url query
+         * @param string $sign what sign to add before page part
+         * @param bool $div draw div around the pager
+         */
+        function loop_pager($query = "pg", $sign = "?", $div = true) {
+            global $wp_query;
+            $numposts = $wp_query->found_posts;
+            $max_page = $wp_query->max_num_pages;
+            if ($max_page > 1) {
+                $page = intval(get_query_var('paged'));
+                if ($page == 0) $page++;
+                $url = remove_query_arg($query);
+                if ($div) echo '<div class="gdpager">';
+                echo gdFunctionsGDPC::draw_pager($max_page, $page, $url, $query, $sign);
+                if ($div) echo '</div>';
+            }
+        }
+
+        /**
+         * Creates a html with pager based on number of pages and position
+         *
+         * @param int $total_pages total pages
+         * @param int $current_page current page in pager
+         * @param string $url base url
+         * @param string $query page element for url query
+         * @param string $sign what sign to add before page part
+         * @return string html for pager
+         */
+        function draw_pager($total_pages, $current_page, $url, $query = "page", $sign = "&") {
             $pages = array();
             $break_first = -1;
             $break_last = -1;
@@ -215,14 +347,16 @@ if (!class_exists('gdFunctionsGDTT')) {
                 if ($island_start > 4) {
                     for ($i = 0; $i < 3; $i++) $pages[] = $i + 1;
                     $break_first = 3;
-                } else {
+                }
+                else {
                     for ($i = 0; $i < $island_end; $i++) $pages[] = $i + 1;
                 }
 
                 if ($island_end < $total_pages - 4) {
                     for ($i = 0; $i < 3; $i++) $pages[] = $i + $total_pages - 2;
                     $break_last = $total_pages - 2;
-                } else {
+                }
+                else {
                     for ($i = 0; $i < $total_pages - $island_start + 1; $i++) $pages[] = $island_start + $i;
                 }
 
@@ -233,23 +367,30 @@ if (!class_exists('gdFunctionsGDTT')) {
             sort($pages, SORT_NUMERIC);
             $render = '';
             foreach ($pages as $page) {
-                if ($page == $break_last) $render.= "... ";
-
-                if ($page == $current_page) {
+                if ($page == $break_last)
+                    $render.= "... ";
+                if ($page == $current_page)
                     $render.= sprintf('<span class="page-numbers current">%s</span>', $page);
-                } else {
-                    $render.= sprintf('<a class="page-numbers" href="%s&amp;%s=%s">%s</a>', $url, $query, $page, $page);
-                }
-
-                if ($page == $break_first) $render.= "... ";
+                else
+                    $render.= sprintf('<a class="page-numbers" href="%s%s%s=%s">%s</a>', $url, $sign, $query, $page, $page);
+                if ($page == $break_first)
+                    $render.= "... ";
             }
 
-            if ($current_page > 1) $render.= sprintf('<a class="next page-numbers" href="%s&amp;%s=%s">Previous</a>', $url, $query, $current_page - 1);
-            if ($current_page < $total_pages) $render.= sprintf('<a class="next page-numbers" href="%s&amp;%s=%s">Next</a>', $url, $query, $current_page + 1);
+            if ($current_page > 1) $render.= sprintf('<a class="next page-numbers" href="%s&%s=%s">Previous</a>', $url, $query, $current_page - 1);
+            if ($current_page < $total_pages) $render.= sprintf('<a class="next page-numbers" href="%s&%s=%s">Next</a>', $url, $query, $current_page + 1);
 
             return $render;
         }
 
+        /**
+         * Internal function used for adding sorting element to a-href.
+         *
+         * @param string $column column name
+         * @param string $sort_order sort order asc/desc
+         * @param string $sort_column column for sorting
+         * @return array array with sort elements to add to a-href tag
+         */
         function column_sort_vars($column, $sort_order, $sort_column) {
             $col["url"] = '&amp;sc='.$column;
             $col["cls"] = '';
@@ -324,18 +465,24 @@ if (!class_exists('gdFunctionsGDTT')) {
     }
 
     if (!function_exists("is_odd")) {
+        /**
+         * Check if the number is odd or even.
+         *
+         * @param int $number number to check
+         * @return bool true for odd, false for even number
+         */
         function is_odd($number) {
             return $number&1;
         }
     }
 }
 
-if (!class_exists("gdSortObjectsArray")) {
-    class gdSortObjectsArray {
+if (!class_exists("gdSortObjectsArrayGDTT")) {
+    class gdSortObjectsArrayGDTT {
         var $properties;
         var $sorted;
 
-        function gdSortObjectsArray($objects_array, $properties = array()) {
+        function gdSortObjectsArrayGDTT($objects_array, $properties = array()) {
             if (count($properties) > 0) {
                 $this->properties = $properties;
                 usort($objects_array, array(&$this, 'array_compare'));
@@ -354,7 +501,7 @@ if (!class_exists("gdSortObjectsArray")) {
                 } else return 0;
             }
 
-            if (strtolower($this->order) == "asc")
+            if (strtolower($order) == "asc")
                 return ($one->$column < $two->$column) ? -1 : 1;
             else
                 return ($one->$column < $two->$column) ? 1 : -1;

@@ -1,8 +1,8 @@
 <?php
 
 /*
-Name:    gdDebugGDTT
-Version: 1.3.0
+Name:    gdDebug
+Version: 1.6.0
 Author:  Milan Petrovic
 Email:   milan@gdragon.info
 Website: http://www.gdragon.info/

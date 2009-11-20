@@ -105,9 +105,9 @@ msgid "This is the display name for the taxonomy."
 msgstr ""
 
 #: forms/admin/taxonomy.form.php:21
-#: gd-taxonomies-tools.php:157
-#: gd-taxonomies-tools.php:358
-#: gd-taxonomies-tools.php:397
+#: gd-taxonomies-tools.php:159
+#: gd-taxonomies-tools.php:360
+#: gd-taxonomies-tools.php:399
 msgid "Settings"
 msgstr ""
 
@@ -267,7 +267,7 @@ msgid "wordpress plugin page"
 msgstr ""
 
 #: forms/modules/info.php:38
-#: gd-taxonomies-tools.php:158
+#: gd-taxonomies-tools.php:160
 msgid "Donate"
 msgstr ""
 
@@ -450,25 +450,25 @@ msgstr ""
 msgid "post"
 msgstr ""
 
-#: gd-taxonomies-tools.php:168
-#: gd-taxonomies-tools.php:357
-#: gd-taxonomies-tools.php:423
+#: gd-taxonomies-tools.php:170
+#: gd-taxonomies-tools.php:359
+#: gd-taxonomies-tools.php:425
 msgid "Taxonomies"
 msgstr ""
 
-#: gd-taxonomies-tools.php:356
+#: gd-taxonomies-tools.php:358
 msgid "Front Page"
 msgstr ""
 
-#: gd-taxonomies-tools.php:408
+#: gd-taxonomies-tools.php:410
 msgid "Tools"
 msgstr ""
 
-#: gd-taxonomies-tools.php:427
+#: gd-taxonomies-tools.php:429
 msgid "Add new Taxonomy"
 msgstr ""
 
-#: gd-taxonomies-tools.php:431
+#: gd-taxonomies-tools.php:433
 msgid "Edit Taxonomy"
 msgstr ""
 
