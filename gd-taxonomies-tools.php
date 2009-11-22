@@ -4,7 +4,7 @@
 Plugin Name: GD Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Taxonomies Tools is plugin for management and tools collection for working with custom taxonomies.
-Version: 0.6.0
+Version: 0.7.0
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 */
@@ -262,13 +262,12 @@ if (!class_exists('GDTaxonomiesTools')) {
                 }
             }
 
-            wp_enqueue_script('jquery');
-            wp_enqueue_script('thickbox');
-            wp_enqueue_style('thickbox');
-            wp_enqueue_script('jquery-ui-core');
-            wp_enqueue_script('jquery-ui-tabs');
-            wp_enqueue_script('jquery-ui-datepicker', $this->plugin_url.'js/jquery-ui-datepicker-17.js');
-            wp_enqueue_style('jquery-ui-datepicker', $this->plugin_url.'css/jquery_ui17.css');
+            if ($this->admin_plugin) {
+                wp_enqueue_script('jquery');
+                wp_enqueue_script('jquery-ui-core');
+                wp_enqueue_script('jquery-ui-tabs');
+                wp_enqueue_style('gdtt-jquery-ui', $this->plugin_url.'css/jquery_ui17.css');
+            }
 
             $this->init_operations();
             $this->settings_operations();
@@ -365,11 +364,6 @@ if (!class_exists('GDTaxonomiesTools')) {
             if ($this->admin_plugin) {
                 wp_admin_css('css/dashboard');
                 echo('<link rel="stylesheet" href="'.$this->plugin_url.'css/admin_main.css" type="text/css" media="screen" />');
-                if(!empty($this->l)) {
-                    $jsFile = $this->plugin_path.'js/i18n/jquery-ui-datepicker-'.$this->l.'.js';
-                    if (@file_exists($jsFile) && is_readable($jsFile)) echo '<script type="text/javascript" src="'.$this->plugin_url.'js/i18n/jquery-ui-datepicker-'.$this->l.'.js"></script>';
-                }
-                echo('<script type="text/javascript" src="'.$this->plugin_url.'js/taxonomy-tools.js"></script>');
                 include($this->plugin_path."/code/js.php");
             }
 
