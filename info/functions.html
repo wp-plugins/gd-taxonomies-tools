@@ -38,8 +38,294 @@
     <h1>GD Taxonomies Tools</h1>
     <h2>custom functions</h2>
 </div>
-
 <div class="contents">
+      <div class="memitem">
+        <div class="memproto">
+          <table class="memname">
+            <tr>
+              <td class="memname">
+                gdtt_get_taxonomy
+              </td>
+              <td>
+                (
+              </td>
+              <td class="paramname"></td>
+              <td>
+                 ) 
+              </td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div class="memdoc">
+          <p>
+            Get the taxonomy on the taxonomy term page.
+          </p>
+          <dl class="return" compact>
+            <dt>
+              <b>Returns:</b>
+            </dt>
+            <dd>
+              object Taxonomy or null if not on taxonomy term page
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="memitem">
+        <div class="memproto">
+          <table class="memname">
+            <tr>
+              <td class="memname">
+                gdtt_get_term
+              </td>
+              <td>
+                (
+              </td>
+              <td class="paramname"></td>
+              <td>
+                 ) 
+              </td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div class="memdoc">
+          <p>
+            Get the term on the taxonomy term page.
+          </p>
+          <dl class="return" compact>
+            <dt>
+              <b>Returns:</b>
+            </dt>
+            <dd>
+              object Term or null if not on taxonomy term page
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="memitem">
+        <div class="memproto">
+          <table class="memname">
+            <tr>
+              <td class="memname">
+                gdtt_get_term_description
+              </td>
+              <td>
+                (
+              </td>
+              <td class="paramname"></td>
+              <td>
+                 ) 
+              </td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div class="memdoc">
+          <p>
+            Get description for the term.
+          </p>
+          <dl class="return" compact>
+            <dt>
+              <b>Returns:</b>
+            </dt>
+            <dd>
+              string Term description
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="memitem">
+        <div class="memproto">
+          <table class="memname">
+            <tr>
+              <td class="memname">
+                gdtt_term_title
+              </td>
+              <td>
+                (
+              </td>
+              <td class="paramname"></td>
+              <td>
+                 ) 
+              </td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div class="memdoc">
+          <p>
+            Display term title.
+          </p>
+        </div>
+      </div>
+
+      <div class="memitem">
+        <div class="memproto">
+          <table class="memname">
+            <tr>
+              <td class="memname">
+                gdtt_term_description
+              </td>
+              <td>
+                (
+              </td>
+              <td class="paramname"></td>
+              <td>
+                 ) 
+              </td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div class="memdoc">
+          <p>
+            Display term description.
+          </p>
+        </div>
+      </div>
+
+      <div class="memitem">
+        <div class="memproto">
+          <table class="memname">
+            <tr>
+              <td class="memname">
+                gdtt_get_term_title
+              </td>
+              <td>
+                (
+              </td>
+              <td class="paramtype">
+                $ 
+              </td>
+              <td class="paramname">
+                <em>with_tax</em> = <code>false</code>
+              </td>
+              <td>
+                 ) 
+              </td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div class="memdoc">
+          <p>
+            Get title for the term.
+          </p>
+          <dl compact>
+            <dt>
+              <b>Parameters:</b>
+            </dt>
+            <dd>
+              <table border="0" cellspacing="2" cellpadding="0">
+                <tr>
+                  <td valign="top"></td>
+                  <td valign="top">
+                    <em>bool</em> 
+                  </td>
+                  <td>
+                    $with_tax Inlcude taxonomy label as prefix
+                  </td>
+                </tr>
+              </table>
+            </dd>
+          </dl>
+          <dl class="return" compact>
+            <dt>
+              <b>Returns:</b>
+            </dt>
+            <dd>
+              string Term title
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="memitem">
+        <div class="memproto">
+          <table class="memname">
+            <tr>
+              <td class="memname">
+                gdtt_posts_term_filter
+              </td>
+              <td>
+                (
+              </td>
+              <td class="paramtype">
+                $ 
+              </td>
+              <td class="paramname">
+                <em>terms</em> = <code>array()</code>,
+              </td>
+            </tr>
+            <tr>
+              <td class="paramkey"></td>
+              <td></td>
+              <td class="paramtype">
+                $ 
+              </td>
+              <td class="paramname">
+                <em>result</em> = <code>"count"</code>
+              </td>
+              <td>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                )
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div class="memdoc">
+          <p>
+            Filter posts using taxonomy terms.
+          </p>
+          <dl compact>
+            <dt>
+              <b>Parameters:</b>
+            </dt>
+            <dd>
+              <table border="0" cellspacing="2" cellpadding="0">
+                <tr>
+                  <td valign="top"></td>
+                  <td valign="top">
+                    <em>array</em> 
+                  </td>
+                  <td>
+                    $terms terms to search for in different taxonomies
+                  </td>
+                </tr>
+                <tr>
+                  <td valign="top"></td>
+                  <td valign="top">
+                    <em>string</em> 
+                  </td>
+                  <td>
+                    what type of result to generate: count, id, post
+                  </td>
+                </tr>
+              </table>
+            </dd>
+          </dl>
+          <dl class="return" compact>
+            <dt>
+              <b>Returns:</b>
+            </dt>
+            <dd>
+              array results mixed
+            </dd>
+          </dl>
+        </div>
+      </div>
 
 </div>
 </div>

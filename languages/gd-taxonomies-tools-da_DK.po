@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: GD Taxonomies 0.6.0\n"
+"Project-Id-Version: GD Taxonomies 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
@@ -114,7 +114,7 @@ msgstr "Dette er visningsnavnet for taksonomien."
 #: forms/admin/taxonomy.form.php:21
 #: gd-taxonomies-tools.php:159
 #: gd-taxonomies-tools.php:360
-#: gd-taxonomies-tools.php:399
+#: gd-taxonomies-tools.php:394
 msgid "Settings"
 msgstr "Opsætning"
 
@@ -176,8 +176,8 @@ msgid "For rewrite and query custom variables use only lower case letters and no
 msgstr "Til egne variabler for omskrivning (rewrites) og forespørgsler (queries) må du kun bruge små bogstaver og understregningstegnet. Ingen andre tegn."
 
 #: forms/admin/taxonomy.form.php:85
-msgid "With WP 2.8.x not all options work, and they are disabled."
-msgstr "Ikke alle indstillinger fungerer med WP 2.8.x og er derfor deaktiveret."
+msgid "With WP 2.8.x and WP 2.9.x not all options work, and they are disabled. Once the WordPress starts supporting this option, they will be enabled."
+msgstr "Ikke alle indstillinger fungerer med WP 2.8.x og WP 2.9.x. Derfor er de deaktiveret. Når WordPress begynder at understøtte denne indstilling, vil de blive aktiveret."
 
 #: forms/admin/taxonomy.form.php:88
 msgid "Status"
@@ -256,12 +256,12 @@ msgstr "officiel pluginside"
 #: forms/modules/info.php:24
 #: forms/modules/info.php:29
 #: forms/modules/info.php:34
-#: forms/modules/info.php:40
-#: forms/modules/info.php:65
-#: forms/modules/info.php:70
-#: forms/modules/info.php:75
-#: forms/modules/info.php:80
-#: forms/modules/info.php:85
+#: forms/modules/info.php:44
+#: forms/modules/info.php:58
+#: forms/modules/info.php:63
+#: forms/modules/info.php:68
+#: forms/modules/info.php:73
+#: forms/modules/info.php:78
 msgid "visit"
 msgstr "besøg"
 
@@ -274,48 +274,42 @@ msgid "wordpress plugin page"
 msgstr "WordPress-pluginside"
 
 #: forms/modules/info.php:38
-#: gd-taxonomies-tools.php:160
-msgid "Donate"
-msgstr "Donér"
+msgid "Editions"
+msgstr "Udgaver"
 
-#: forms/modules/info.php:39
-msgid "help further development"
-msgstr "støt videreudvikling"
+#: forms/modules/info.php:42
+msgid "Lite / Pro"
+msgstr "Lite / Pro"
 
-#: forms/modules/info.php:45
-msgid "Pro Edition"
-msgstr "Pro-udgave"
+#: forms/modules/info.php:43
+msgid "both editions of the plugin"
+msgstr "begge udgaver af dette plugin"
 
-#: forms/modules/info.php:49
-#: forms/modules/info.php:63
+#: forms/modules/info.php:56
 msgid "Official Website"
 msgstr "Officiel website"
 
-#: forms/modules/info.php:50
-msgid "extended premium version"
-msgstr "udvidet betalingsudgave"
-
-#: forms/modules/info.php:64
+#: forms/modules/info.php:57
 msgid "golden dragon official web portal"
 msgstr "golden dragons officielle webportal"
 
-#: forms/modules/info.php:69
+#: forms/modules/info.php:62
 msgid "tv shows reviews and news"
 msgstr "tv viser anmeldelser og nyheder"
 
-#: forms/modules/info.php:74
+#: forms/modules/info.php:67
 msgid "a wordpress rating system"
 msgstr "Et bedømmelsessystem til WordPress"
 
-#: forms/modules/info.php:79
+#: forms/modules/info.php:72
 msgid "wordpress development"
 msgstr "WordPress-udvikling"
 
-#: forms/modules/info.php:83
+#: forms/modules/info.php:76
 msgid "Support Forum"
 msgstr "Supportforum"
 
-#: forms/modules/info.php:84
+#: forms/modules/info.php:77
 msgid "development discussion forum"
 msgstr "Supportforum for udviklere"
 
@@ -457,9 +451,13 @@ msgstr "Vis liste med taksonomitermer."
 msgid "post"
 msgstr "indlæg"
 
+#: gd-taxonomies-tools.php:160
+msgid "Donate"
+msgstr "Donér"
+
 #: gd-taxonomies-tools.php:170
 #: gd-taxonomies-tools.php:359
-#: gd-taxonomies-tools.php:425
+#: gd-taxonomies-tools.php:420
 msgid "Taxonomies"
 msgstr "Taksonomier"
 
@@ -467,15 +465,23 @@ msgstr "Taksonomier"
 msgid "Front Page"
 msgstr "Forside"
 
-#: gd-taxonomies-tools.php:410
+#: gd-taxonomies-tools.php:405
 msgid "Tools"
 msgstr "Værktøj"
 
-#: gd-taxonomies-tools.php:429
+#: gd-taxonomies-tools.php:424
 msgid "Add new Taxonomy"
 msgstr "Tilføj ny taksonomi"
 
-#: gd-taxonomies-tools.php:433
+#: gd-taxonomies-tools.php:428
 msgid "Edit Taxonomy"
 msgstr "Redigér taksonomi"
+
+#~ msgid "With WP 2.8.x not all options work, and they are disabled."
+#~ msgstr ""
+#~ "Ikke alle indstillinger fungerer med WP 2.8.x og er derfor deaktiveret."
+#~ msgid "help further development"
+#~ msgstr "støt videreudvikling"
+#~ msgid "extended premium version"
+#~ msgstr "udvidet betalingsudgave"
 

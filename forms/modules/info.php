@@ -34,22 +34,15 @@
                     <td class="t"><?php _e("wordpress plugin page", "gd-taxonomies-tools"); ?></td>
                     <td class="t options"><a href="http://wordpress.org/extend/plugins/gd-taxonomies-tools" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
-                <?php if ($options["edition"] == "lite") { ?>
-                <tr>
-                    <td class="first b"><span style="color: red"><?php _e("Donate", "gd-taxonomies-tools"); ?></span></td>
-                    <td class="t"><?php _e("help further development", "gd-taxonomies-tools"); ?></td>
-                    <td class="t options"><a href="http://www.dev4press.com/donate/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
-                </tr>
-                <?php } ?>
             </tbody></table>
         </div>
-        <p class="sub"><?php _e("Pro Edition", "gd-taxonomies-tools"); ?></p>
+        <p class="sub"><?php _e("Editions", "gd-taxonomies-tools"); ?></p>
         <div class="table">
             <table><tbody>
                 <tr class="first">
-                    <td class="first b"><?php _e("Official Website", "gd-taxonomies-tools"); ?></td>
-                    <td class="t"><?php _e("extended premium version", "gd-taxonomies-tools"); ?></td>
-                    <td class="b options" style="color: red; font-weight: bold;">soon</td>
+                    <td class="first b"><?php _e("Lite / Pro", "gd-taxonomies-tools"); ?></td>
+                    <td class="t"><?php _e("both editions of the plugin", "gd-taxonomies-tools"); ?></td>
+                    <td class="t options"><a href="http://www.dev4press.com/plugins/gd-taxonomies-tools/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
             </tbody></table>
         </div>

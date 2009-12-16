@@ -4,7 +4,7 @@
 Plugin Name: GD Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Taxonomies Tools is plugin for management and tools collection for working with custom taxonomies.
-Version: 0.7.0
+Version: 1.0.0
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 */
@@ -267,6 +267,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                 wp_enqueue_script('jquery-ui-core');
                 wp_enqueue_script('jquery-ui-tabs');
                 wp_enqueue_style('gdtt-jquery-ui', $this->plugin_url.'css/jquery_ui17.css');
+                if ($this->admin_plugin_page != "settings") $this->load_corrections();
             }
 
             $this->init_operations();
@@ -358,6 +359,10 @@ if (!class_exists('GDTaxonomiesTools')) {
             add_submenu_page(__FILE__, 'GD TAX Tools: '.__("Front Page", "gd-taxonomies-tools"), __("Front Page", "gd-taxonomies-tools"), 10, __FILE__, array(&$this,"admin_front"));
             add_submenu_page(__FILE__, 'GD TAX Tools: '.__("Taxonomies", "gd-taxonomies-tools"), __("Taxonomies", "gd-taxonomies-tools"), 10, "gdtaxtools_taxs", array(&$this, "admin_taxs"));
             add_submenu_page(__FILE__, 'GD TAX Tools: '.__("Settings", "gd-taxonomies-tools"), __("Settings", "gd-taxonomies-tools"), 10, "gdtaxtools_settings", array(&$this, "admin_settings"));
+        }
+
+        function load_corrections() {
+            wp_enqueue_script('gdtt-js-corrections', GDTAXTOOLS_PATH."js/corrections.js", array(), $this->o["version"], true);
         }
 
         function admin_head() {

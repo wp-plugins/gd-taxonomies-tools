@@ -42,18 +42,6 @@ class gdtt_Widget extends WP_Widget {
     function results($instance) { }
 
     function render($results, $instance) { }
-
-    function get_excerpt($instance, $r) {
-        $text = trim($r->post_excerpt);
-
-        if ($text == "") {
-            $text = str_replace(']]>', ']]&gt;', $r->post_content);
-            $text = strip_tags($text);
-        }
-
-        $text = gdFunctionsGDTT::trim_to_words($text, $instance["display_excerpt_length"]);
-        return $text;
-    }
 }
 
 ?>
