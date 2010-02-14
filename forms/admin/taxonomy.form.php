@@ -27,7 +27,7 @@
                     <?php _e("Domain", "gd-taxonomies-tools"); ?>:
                 </td>
                 <td width="230" valign="top" colspan="3">
-                    <select<?php echo $wpv < 30 ? " disabled" : ""; ?> name="tax[domain]" class="input-text-middle">
+                    <select<?php echo $wpv < 40 ? " disabled" : ""; ?> name="tax[domain]" class="input-text-middle">
                         <option value="post"<?php echo $tax["domain"] == "post" ? ' selected="selected"' : ''; ?>><?php _e("Posts", "gd-taxonomies-tools"); ?></option>
                         <option value="link"<?php echo $tax["domain"] == "link" ? ' selected="selected"' : ''; ?>><?php _e("Links", "gd-taxonomies-tools"); ?></option>
                     </select>

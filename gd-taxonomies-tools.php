@@ -4,7 +4,7 @@
 Plugin Name: GD Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Taxonomies Tools is plugin for management and tools collection for working with custom taxonomies.
-Version: 1.0.0
+Version: 1.0.1
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 */
@@ -168,7 +168,7 @@ if (!class_exists('GDTaxonomiesTools')) {
             if (!$this_plugin) $this_plugin = plugin_basename(__FILE__);
 
             if ($file == $this_plugin){
-                $settings_link = '<a href="admin.php?page=gdtaxtools-taxs">'.__("Taxonomies", "gd-taxonomies-tools").'</a>';
+                $settings_link = '<a href="admin.php?page=gdtaxtools_taxs">'.__("Taxonomies", "gd-taxonomies-tools").'</a>';
                 array_unshift($links, $settings_link);
             }
             return $links;
@@ -203,7 +203,7 @@ if (!class_exists('GDTaxonomiesTools')) {
         function register_taxonomies() {
             foreach ($this->t as $tax) {
                 if (isset($tax["active"])) {
-                    $options = array("hierarchical" => $tax["hierarchy"] == 1, "label" => $tax["label"]);
+                    $options = array("hierarchical" => $tax["hierarchy"] == "yes", "label" => $tax["label"]);
                     if ($tax["rewrite"] == "yes_custom") $options["rewrite"] = $tax["rewrite_custom"];
                     else $options["rewrite"] = $tax["rewrite"] == "yes_name";
                     if ($tax["query"] == "yes_custom") $options["query_var"] = $tax["query_custom"];
