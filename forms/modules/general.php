@@ -1,7 +1,11 @@
 <?php
 
-global $wp_taxonomies;
+global $gdtt, $wp_taxonomies;
 $defaults = array("category", "post_tag", "link_category");
+
+$tax_default = array_slice($wp_taxonomies, 0, $gdtt->get_defaults_count());
+$tax_custom = array_slice($wp_taxonomies, $gdtt->get_defaults_count());
+
 
 ?>
 
@@ -11,36 +15,26 @@ $defaults = array("category", "post_tag", "link_category");
         <p class="sub"><?php _e("Default Taxonomies", "gd-taxonomies-tools"); ?></p>
         <div class="table">
             <table><tbody>
-                <tr class="first">
-                    <td class="first b">Categories</td>
-                    <td class="t"><?php _e("for", "gd-taxonomies-tools"); ?> <strong><?php _e("posts", "gd-taxonomies-tools"); ?></strong>, <?php _e("hierarchical", "gd-taxonomies-tools"); ?></td>
-                    <td class="b options" style="font-weight: bold;"><?php echo count(get_terms("category")); ?></td>
-                </tr>
-                <tr>
-                    <td class="first b">Post Tags</td>
-                    <td class="t"><?php _e("for", "gd-taxonomies-tools"); ?> <strong><?php _e("posts", "gd-taxonomies-tools"); ?></strong></td>
-                    <td class="b options" style="font-weight: bold;"><?php echo count(get_terms("post_tag")); ?></td>
-                </tr>
-                <tr>
-                    <td class="first b">Categories</td>
-                    <td class="t"><?php _e("for", "gd-taxonomies-tools"); ?> <strong><?php _e("links", "gd-taxonomies-tools"); ?></strong></td>
-                    <td class="b options" style="font-weight: bold;"><?php echo count(get_terms("link_category")); ?></td>
-                </tr>
+                <?php $first = true;
+                    foreach ($tax_default as $short => $tax) {
+                        include(GDTAXTOOLS_PATH."forms/render/tax.front.php");
+                        $first = false;
+                    }
+                ?>
             </tbody></table>
         </div>
-        <?php if (count($wp_taxonomies) > 3) { $first = true; ?>
         <p class="sub"><?php _e("Custom Taxonomies", "gd-taxonomies-tools"); ?></p>
+        <?php if (count($wp_taxonomies) > $gdtt->get_defaults_count()) { ?>
         <div class="table">
             <table><tbody>
-            <?php foreach ($wp_taxonomies as $short => $tax) { if (!in_array($tax->name, $defaults)) { ?>
-                <tr<?php echo $first ? ' class="first"' : ''; $first = false; ?>>
-                    <td class="first b"><?php echo $tax->label; ?></td>
-                    <td class="t"><?php _e("for", "gd-taxonomies-tools"); ?> <strong><?php echo $tax->object_type; ?>s</strong><?php if ($tax->hierarchical == 1) echo ", ".__("hierarchical", "gd-taxonomies-tools"); ?></td>
-                    <td class="b options" style="font-weight: bold;"><?php echo count(get_terms($tax->name)); ?></td>
-                </tr>
-             <?php } } ?>
+            <?php $first = true;
+                foreach ($tax_custom as $short => $tax) {
+                    include(GDTAXTOOLS_PATH."forms/render/tax.front.php");
+                    $first = false;
+                }
+            ?>
             </tbody></table>
         </div>
-        <?php } ?>
+        <?php } else _e("No custom taxonomies found.", "gd-taxonomies-tools"); ?>
     </div>
 </div>

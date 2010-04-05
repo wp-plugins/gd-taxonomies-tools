@@ -28,8 +28,11 @@ foreach ($gdtxall as $tax) {
         <?php if (!$default && $istaxtool) { ?>
         <a onclick="return areYouSure()" class="ttoption-del" href="<?php echo $tt_url; ?>&action=deltax"><?php _e("delete", "gd-taxonomies-tools"); ?></a> |
         <a class="ttoption" href="<?php echo $tt_url; ?>&action=edit"><?php _e("edit", "gd-taxonomies-tools"); ?></a> |
-        <?php } ?>
+        <?php } if ($tax_data->name == "nav_menu") { ?>
+        <a class="ttoption" href="nav-menus.php"><?php _e("menus", "gd-taxonomies-tools"); ?></a>
+        <?php } else { ?>
         <a class="ttoption" href="<?php echo $edit_term_url; ?>"><?php _e("terms", "gd-taxonomies-tools"); ?></a>
+        <?php } ?>
     </td>
 </tr>
 <?php $tr_class = $tr_class == "" ? "alternate " : ""; ?>

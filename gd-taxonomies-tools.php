@@ -4,7 +4,7 @@
 Plugin Name: GD Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Taxonomies Tools is plugin for management and tools collection for working with custom taxonomies.
-Version: 1.0.1
+Version: 1.0.2
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 */
@@ -385,6 +385,7 @@ if (!class_exists('GDTaxonomiesTools')) {
             $options = $this->o;
             $gdtttax = $this->taxes;
             $errors = $this->errors;
+            $wpv = $this->wp_version;
 
             include($this->plugin_path.'forms/shared/front.header.php');
             include($this->plugin_path.'forms/admin/front.php');
