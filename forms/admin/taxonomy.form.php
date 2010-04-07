@@ -19,20 +19,30 @@
         <?php _e("This is the display name for the taxonomy.", "gd-taxonomies-tools"); ?>
     </td>
 </tr>
-<tr><th scope="row"><?php _e("Settings", "gd-taxonomies-tools"); ?></th>
+<tr><th scope="row"><?php _e("Post Types", "gd-taxonomies-tools"); ?></th>
     <td>
         <table cellpadding="0" cellspacing="0" class="previewtable">
             <tr>
-                <td width="150" valign="top">
-                    <?php _e("Domain", "gd-taxonomies-tools"); ?>:
+                <td width="150" style="vertical-align: top;">
+                    <?php _e("Select", "gd-taxonomies-tools"); ?>:
                 </td>
-                <td width="230" valign="top" colspan="3">
-                    <select<?php echo $wpv < 40 ? " disabled" : ""; ?> name="tax[domain]" class="input-text-middle">
-                        <option value="post"<?php echo $tax["domain"] == "post" ? ' selected="selected"' : ''; ?>><?php _e("Posts", "gd-taxonomies-tools"); ?></option>
-                        <option value="link"<?php echo $tax["domain"] == "link" ? ' selected="selected"' : ''; ?>><?php _e("Links", "gd-taxonomies-tools"); ?></option>
-                    </select>
+                <td valign="top" colspan="3">
+                    <?php
+                        foreach ($post_types as $pt) {
+                            echo sprintf('<input type="checkbox" name="tax[post_type][]"%s value="%s" /><label style="margin-left: 5px;">%s [%s]</label><br/>',
+                                    in_array($pt->name, $tax["domain"]) ? " checked" : "", $pt->name, $pt->label, $pt->name);
+                        }
+                    ?>
                 </td>
             </tr>
+        </table>
+        <div class="gdsr-table-split"></div>
+        <?php _e("At least one type must be selected. If not, Posts type will be added by default.", "gd-taxonomies-tools"); ?>
+    </td>
+</tr>
+<tr><th scope="row"><?php _e("Settings", "gd-taxonomies-tools"); ?></th>
+    <td>
+        <table cellpadding="0" cellspacing="0" class="previewtable">
             <tr>
                 <td width="150" valign="top">
                     <?php _e("Hierarchical", "gd-taxonomies-tools"); ?>:

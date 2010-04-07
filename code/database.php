@@ -17,6 +17,18 @@ class gdttDB {
         return $posts;
     }
 
+    function get_post_types_counts() {
+        global $wpdb;
+
+        $sql = sprintf("select post_type, count(*) as items from %sposts group by post_type", $wpdb->prefix);
+        $raw = $wpdb->get_results($sql);
+        $res = array();
+        foreach ($raw as $r) {
+            $res[$r->post_type] = $r->items;
+        }
+        return $res;
+    }
+
     function delete_taxonomy_terms($tax) {
         global $wpdb;
 

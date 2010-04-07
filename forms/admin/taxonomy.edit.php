@@ -2,7 +2,9 @@
 
 $editor = true;
 
-if ($errors == "name") gdtt_render_alert("Error", __("Name for the taxonomy is invalid. Fix before proceeding.", "gd-taxonomies-tools"));
+if ($errors == "name") {
+    gdtt_render_alert("Error", __("Name for the taxonomy is invalid. Fix before proceeding.", "gd-taxonomies-tools"));
+}
 
 if (isset($_POST["gdtt_savetax"])) {
     $tax = $this->edit_tax;

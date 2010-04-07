@@ -12,7 +12,17 @@ function validate_tax_form() {
     if (jQuery("#taxname").val() == "") errors[errors.length] = "<?php _e("Name", "gd-taxonomies-tools"); ?>";
     if (jQuery("#taxlabel").val() == "") errors[errors.length] = "<?php _e("Label", "gd-taxonomies-tools"); ?>";
     if (errors.length > 0) {
-        alert("<?php _e("Some fields must be filled. Check this: ", "gd-taxonomies-tools"); ?>" + errors.join(", "));
+        alert("<?php _e("Some fields are required must be filled. Check this: ", "gd-taxonomies-tools"); ?>" + errors.join(", "));
+        return false;
+    } else return true;
+}
+
+function validate_post_form() {
+    var errors = new Array();
+    if (jQuery("#cptname").val() == "") errors[errors.length] = "<?php _e("Name", "gd-taxonomies-tools"); ?>";
+    if (jQuery("#cptlabel").val() == "") errors[errors.length] = "<?php _e("Label", "gd-taxonomies-tools"); ?>";
+    if (errors.length > 0) {
+        alert("<?php _e("Some fields are required must be filled. Check this: ", "gd-taxonomies-tools"); ?>" + errors.join(", "));
         return false;
     } else return true;
 }

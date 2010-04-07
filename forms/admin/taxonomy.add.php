@@ -5,7 +5,7 @@ $tax = array(
         "id" => 0,
         "name" => "",
         "label" => "",
-        "domain" => "post",
+        "domain" => array("post"),
         "hierarchy" => "no",
         "rewrite" => "yes_name",
         "rewrite_custom" => "",
@@ -14,7 +14,9 @@ $tax = array(
         "active" => 1
     );
 
-if ($errors == "name") gdtt_render_alert("Error", __("Name for the taxonomy is invalid. Fix before proceeding.", "gd-taxonomies-tools"));
+if ($errors == "name") {
+    gdtt_render_alert("Error", __("Name for the taxonomy is invalid. Fix before proceeding.", "gd-taxonomies-tools"));
+}
 
 if (isset($_POST["gdtt_savetax"])) {
     $tax = $this->edit_tax;

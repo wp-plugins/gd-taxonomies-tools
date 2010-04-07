@@ -1,17 +1,17 @@
-=== GD Taxonomies Tools ===
+=== GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
-Version: 1.0.2
-Tags: gdragon, tools, taxonomy, custom taxonomies, management, widget, cloud
+Version: 1.1.0
+Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 3.0
 Stable tag: trunk
 
-GD Taxonomies Tools is plugin for management and tools collection for working with custom taxonomies.
+GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
 
 == Description ==
-GD Taxonomies Tools is a plugin that can be used to expand custom taxonomies support. Plugin adds many tools including custom taxonomies management and widget for taxonomies terms cloud.
+GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand custom taxonomies and custom post types support. Plugin adds many tools including custom taxonomies management and widget for taxonomies terms cloud. To work with custom post types you need WordPress 3.
 
-[Upgrade to GD Taxonomies Tools PRO](http://www.dev4press.com/plugins/gd-taxonomies-tools/)
+[Upgrade to GD Custom Posts And Taxonomies Tools PRO](http://www.dev4press.com/plugins/gd-taxonomies-tools/editions/)
 
 [List Of Features](http://info.dev4press.com/gd-taxonomies-tools/features.html) |
 [Change Log](http://info.dev4press.com/gd-taxonomies-tools/changelog.html) |
@@ -29,6 +29,9 @@ GD Taxonomies Tools is a plugin that can be used to expand custom taxonomies sup
 * mySQL: 4.0, 4.1 or 5.x
 * WordPress: 2.8 or newer
 
+= Special Requirement =
+* WordPress 3.0 for custom post types
+
 = Basic Installation =
 * Plugin folder in the WordPress plugins folder must be `gd-taxonomies-tools`.
 * Upload folder `gd-taxonomies-tools` to the `/wp-content/plugins/` directory
@@ -36,9 +39,15 @@ GD Taxonomies Tools is a plugin that can be used to expand custom taxonomies sup
 
 == Screenshots ==
 1. Taxonomies Management
-2. Taxonomy Terms Cloud Widget
+2. Adding Custom Post Type
+3. Taxonomy Terms Cloud Widget
 
 == Changelog ==
+= 1.1.0 =
+* Support for custom post types
+* Assign multiple post types to taxonomies
+* Some cleanup and fixes.
+
 = 1.0.2 =
 * Improved support for wordpress 3.0
 
