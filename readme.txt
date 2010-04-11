@@ -1,6 +1,6 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
-Version: 1.1.0
+Version: 1.1.1
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 3.0
@@ -9,7 +9,9 @@ Stable tag: trunk
 GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
 
 == Description ==
-GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand custom taxonomies and custom post types support. Plugin adds many tools including custom taxonomies management and widget for taxonomies terms cloud. To work with custom post types you need WordPress 3.
+GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand custom taxonomies and custom post types support. Plugin adds many tools including custom taxonomies management and widget for taxonomies terms cloud.
+
+To work with custom post types you need WordPress 3.0.
 
 [Upgrade to GD Custom Posts And Taxonomies Tools PRO](http://www.dev4press.com/plugins/gd-taxonomies-tools/editions/)
 
@@ -43,6 +45,10 @@ GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand cust
 3. Taxonomy Terms Cloud Widget
 
 == Changelog ==
+= 1.1.1 =
+* More custom post types features
+* Fixed thumbnail and excerpt features for post types
+
 = 1.1.0 =
 * Support for custom post types
 * Assign multiple post types to taxonomies
