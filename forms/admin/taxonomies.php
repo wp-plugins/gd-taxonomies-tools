@@ -29,6 +29,7 @@ if (count($tax_inactive) > 0) {
     include(GDTAXTOOLS_PATH."forms/render/tax.header.php");
     foreach ($tax_inactive as $tax_name => $tax_data) {
         $default = false;
+        $tax_data->object_type = array();
         include(GDTAXTOOLS_PATH."forms/render/tax.item.php");
     }
     include(GDTAXTOOLS_PATH."forms/render/tax.footer.php");

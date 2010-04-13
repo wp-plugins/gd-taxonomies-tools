@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.1.1
+Version: 1.1.2
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -74,8 +74,6 @@ if (!class_exists('GDTaxonomiesTools')) {
             $this->install_plugin();
             $this->features_testing();
             $this->actions_filters();
-
-            define('GDTAXTOOLS_DEBUG_ACTIVE', true);
         }
 
         function features_testing() {
@@ -90,9 +88,9 @@ if (!class_exists('GDTaxonomiesTools')) {
             if ($this->o["upgrade_to_pro"] == 1) {
                 $no_thanks = add_query_arg("proupgrade", "hide");
                 echo '<div class="updated">';
-                _e("Thank you for using this plugin. Please, take a few minutes and check out the Pro version of this plugin and new and improved features, including premium support.");
-                echo ' <a href="http://www.dev4press.com/plugins/gd-taxonomies-tools/editions/" target="_blank">'.__("GD Custom Posts And Taxonomies Tools Pro plugin Editions")."</a>";
-                echo '. <a href="'.$no_thanks.'">'.__("Don't display this message anymore")."</a>.";
+                _e("Thank you for using this plugin. Please, take a few minutes and check out the Pro version of this plugin and new and improved features, including premium support.", "gd-taxonomies-tools");
+                echo ' <a href="http://www.dev4press.com/plugins/gd-taxonomies-tools/editions/" target="_blank">'.__("GD Custom Posts And Taxonomies Tools Pro plugin Editions", "gd-taxonomies-tools")."</a>";
+                echo '. <a href="'.$no_thanks.'">'.__("Don't display this message anymore", "gd-taxonomies-tools")."</a>.";
                 echo '</div>';
             }
         }
@@ -160,9 +158,10 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function actions_filters() {
             add_action('init', array(&$this, 'init'));
-            add_action('init', array(&$this, 'register_taxonomies'), 1000);
-            if ($this->wp_version >= 30)
-                add_action('init', array(&$this, 'register_custom_posts'), 1000);
+            add_action('init', array(&$this, 'register_taxonomies'), 2);
+            if ($this->wp_version >= 30) {
+                add_action('init', array(&$this, 'register_custom_posts'), 1);
+            }
 
             add_action('admin_init', array(&$this, 'admin_init'));
             add_action('admin_menu', array(&$this, 'admin_menu'));
@@ -254,13 +253,13 @@ if (!class_exists('GDTaxonomiesTools')) {
                     "label" => $cpt["label"],
                     "supports" => $cpt["supports"],
                     "taxonomies" => $cpt["taxonomies"],
-                    "hierarchical" => $cpt["hierarchy"] == "yes", 
+                    "hierarchical" => $cpt["hierarchy"] == "yes",
                     "public" => $cpt["public"] == "yes",
                     "show_ui" => $cpt["ui"] == "yes",
                     "rewrite" => $cpt["rewrite"] == "yes",
-                    "query" => $cpt["query_var"] == "yes",
-                    "capability_type" => $cpt["capability_type"] == "yes",
-                    "edit_link" => $cpt["hierarchy"] == "yes"
+                    "query_var" => $cpt["query"] == "yes",
+                    "capability_type" => $cpt["capability_type"],
+                    "_edit_link" => $cpt["edit_link"]
                     );
                 register_post_type($cpt["name"], $options);
             }
@@ -269,17 +268,33 @@ if (!class_exists('GDTaxonomiesTools')) {
         function register_taxonomies() {
             foreach ($this->t as $tax) {
                 if (isset($tax["active"])) {
-                    $options = array("hierarchical" => $tax["hierarchy"] == "yes", "label" => $tax["label"]);
-                    if ($tax["rewrite"] == "yes_custom") $options["rewrite"] = $tax["rewrite_custom"];
-                    else $options["rewrite"] = $tax["rewrite"] == "yes_name";
-                    if ($tax["query"] == "yes_custom") $options["query_var"] = $tax["query_custom"];
-                    else $options["query_var"] = $tax["query"] == "yes_name";
-
                     if ($this->wp_version < 30) {
+                        $options = array("hierarchical" => $tax["hierarchy"] == "yes", "label" => $tax["label"]);
+                        if ($tax["rewrite"] == "yes_custom") $options["rewrite"] = $tax["rewrite_custom"];
+                        else $options["rewrite"] = $tax["rewrite"] == "yes_name";
+                        if ($tax["query"] == "yes_custom") $options["query_var"] = $tax["query_custom"];
+                        else $options["query_var"] = $tax["query"] == "yes_name";
+
                         register_taxonomy($tax["name"], "post", $options);
                     } else {
-                        $tax["domain"] = explode(",", $tax["domain"]);
-                        register_taxonomy($tax["name"], $tax["domain"], $options);
+                        $rewrite = $query_var = true;
+                        if ($tax["rewrite"] == "no") $rewrite = false;
+                        if ($tax["rewrite"] == "yes_custom") $rewrite = array('slug' => $tax["rewrite_custom"]);
+                        if ($tax["query"] == "no") $query_var = false;
+                        if ($tax["query"] == "yes_custom") $query_var = $tax["query_custom"];
+                        $options = array(
+                            'label' => $tax["label"],
+                            'singular_label' => $tax["label_singular"] != "" ? $tax["label_singular"] : $tax["label"],
+                            'rewrite' => $rewrite,
+                            'query_var' => $query_var,
+                            'public' => $tax["public"] != "" ? $tax["public"] : true,
+                            'show_ui' => $tax["ui"] != "" ? $tax["ui"] : true,
+                            'show_tagcloud' => $tax["cloud"] != "" ? $tax["cloud"] : true,
+                            'hierarchical' => $tax["hierarchy"] == "yes",
+                        );
+
+                        $domains = explode(",", $tax["domain"]);
+                        register_taxonomy($tax["name"], $domains, $options);
                     }
                 }
             }
@@ -322,7 +337,7 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function prepare_inactive() {
             $found = array();
-            foreach ($this->t as $tax) if (!isset($tax["active"])) $found[] = new gdtt_Taxonomy($tax);
+            foreach ($this->t as $tax) if (!isset($tax["active"])) $found[$tax["name"]] = new gdtt_Taxonomy($tax);
             return $found;
         }
 
@@ -451,9 +466,11 @@ if (!class_exists('GDTaxonomiesTools')) {
                 if (!is_array($post_types) || empty($post_types)) $post_types = array("post");
                 $tax["domain"] = join(",", $post_types);
                 if (!isset($tax["rewrite_custom"])) $tax["rewrite_custom"] = "";
+                if (!isset($tax["query_custom"])) $tax["query_custom"] = "";
                 if (!isset($tax["hierarchy"])) $tax["hierarchy"] = "no";
 
                 $tax["label"] = strip_tags($tax["label"]);
+                $tax["label_singular"] = strip_tags($tax["label_singular"]);
                 $tax["rewrite_custom"] = sanitize_title_with_dashes($tax["rewrite_custom"]);
                 $tax["query_custom"] = sanitize_title_with_dashes($tax["query_custom"]);
                 if (!$this->is_term_valid($tax["name"])) $this->errors = "name";
@@ -572,8 +589,8 @@ if (!class_exists('GDTaxonomiesTools')) {
                 "comments" => __("Comments", "gd-taxonomies-tools"),
                 "revisions" => __("Revisions", "gd-taxonomies-tools"),
                 "thumbnail" => __("Post Thumbnails", "gd-taxonomies-tools"),
-                "author" => __("Author"),
-                "page-attributes" => __("Page Attributes")
+                "author" => __("Author", "gd-taxonomies-tools"),
+                "page-attributes" => __("Page Attributes", "gd-taxonomies-tools")
             );
 
             $options = $this->o;
@@ -639,6 +656,11 @@ if (!class_exists('GDTaxonomiesTools')) {
     }
 
     $gdtt_debug = new gdDebugGDTT(GDTAXTOOLS_LOG_PATH);
+    function wp_gdtt_dump($msg, $obj, $block = "none", $mode = "a+") {
+        global $gdtt_debug;
+        $gdtt_debug->dump($msg, $obj, $block, $mode);
+    }
+
     $gdtt = new GDTaxonomiesTools();
 
     function gdtt_upgrade_notice() {
@@ -646,15 +668,8 @@ if (!class_exists('GDTaxonomiesTools')) {
         $gdtt->upgrade_notice();
     }
 
-    function wp_gdtt_dump($msg, $obj, $block = "none", $mode = "a+") {
-        if (GDTAXTOOLS_DEBUG_ACTIVE) {
-            global $gdtt_debug;
-            $gdtt_debug->dump($msg, $obj, $block, $mode);
-        }
-    }
-
     include(GDTAXTOOLS_PATH."code/fnc/general.php");
-
+    include(GDTAXTOOLS_PATH."code/fnc/filters.php");
 }
 
 ?>
