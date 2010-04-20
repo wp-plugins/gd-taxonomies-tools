@@ -11,7 +11,26 @@
 </tr>
 <tr><th scope="row"><?php _e("Label", "gd-taxonomies-tools"); ?></th>
     <td>
-        <input type="text" id="cptlabel" value="<?php echo $cpt["label"]; ?>" name="cpt[label]" class="input-text-middle" />
+        <table cellpadding="0" cellspacing="0" class="previewtable">
+            <tr>
+                <td width="150" style="vertical-align: top;">
+                    <?php _e("Standard", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top" colspan="3">
+                    <input type="text" id="cptlabel" value="<?php echo $cpt["label"]; ?>" name="cpt[label]" class="input-text-middle" />
+                </td>
+            </tr>
+            <?php if ($wpv > 29) { ?>
+            <tr>
+                <td width="150" style="vertical-align: top;">
+                    <?php _e("Singular", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top" colspan="3">
+                    <input type="text" id="cptlabelsingular" value="<?php echo $cpt["label_singular"]; ?>" name="cpt[label_singular]" class="input-text-middle" />
+                </td>
+            </tr>
+            <?php } ?>
+        </table>
         <div class="gdsr-table-split"></div>
         <?php _e("This is the display name for the custom post type.", "gd-taxonomies-tools"); ?>
     </td>

@@ -5,6 +5,7 @@ $cpt = array(
         "id" => 0,
         "name" => "",
         "label" => "",
+        "label_singular" => "",
         "public" => "yes",
         "ui" => "yes",
         "hierarchy" => "no",

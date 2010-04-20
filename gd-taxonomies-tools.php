@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.1.2
+Version: 1.1.3
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -249,10 +249,12 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function register_custom_posts() {
             foreach ($this->p as $cpt) {
+                $cpt["label_singular"] = !isset($cpt["label_singular"]) ? $cpt["label"] : $cpt["label_singular"];
                 $options = array(
                     "label" => $cpt["label"],
-                    "supports" => $cpt["supports"],
-                    "taxonomies" => $cpt["taxonomies"],
+                    "singular_label" => $cpt["label_singular"],
+                    "supports" => (array)$cpt["supports"],
+                    "taxonomies" => (array)$cpt["taxonomies"],
                     "hierarchical" => $cpt["hierarchy"] == "yes",
                     "public" => $cpt["public"] == "yes",
                     "show_ui" => $cpt["ui"] == "yes",
@@ -282,14 +284,18 @@ if (!class_exists('GDTaxonomiesTools')) {
                         if ($tax["rewrite"] == "yes_custom") $rewrite = array('slug' => $tax["rewrite_custom"]);
                         if ($tax["query"] == "no") $query_var = false;
                         if ($tax["query"] == "yes_custom") $query_var = $tax["query_custom"];
+                        $tax["label_singular"] = !isset($tax["label_singular"]) ? $tax["label"] : $tax["label_singular"];
+                        $tax["public"] = !isset($tax["public"]) ? true : $tax["public"];
+                        $tax["ui"] = !isset($tax["ui"]) ? true : $tax["ui"];
+                        $tax["cloud"] = !isset($tax["cloud"]) ? true : $tax["cloud"];
                         $options = array(
                             'label' => $tax["label"],
-                            'singular_label' => $tax["label_singular"] != "" ? $tax["label_singular"] : $tax["label"],
+                            'singular_label' => $tax["label_singular"],
                             'rewrite' => $rewrite,
                             'query_var' => $query_var,
-                            'public' => $tax["public"] != "" ? $tax["public"] : true,
-                            'show_ui' => $tax["ui"] != "" ? $tax["ui"] : true,
-                            'show_tagcloud' => $tax["cloud"] != "" ? $tax["cloud"] : true,
+                            'public' => $tax["public"],
+                            'show_ui' => $tax["ui"],
+                            'show_tagcloud' => $tax["cloud"],
                             'hierarchical' => $tax["hierarchy"] == "yes",
                         );
 
@@ -431,7 +437,10 @@ if (!class_exists('GDTaxonomiesTools')) {
                 $cpt = $_POST["cpt"];
                 $this->errors = "";
 
+                $cpt["supports"] = (array)$cpt["supports"];
+                $cpt["taxonomies"] = (array)$cpt["taxonomies"];
                 $cpt["label"] = strip_tags($cpt["label"]);
+                $cpt["label_singular"] = strip_tags($cpt["label_singular"]);
                 if (!$this->is_term_valid($cpt["name"])) $this->errors = "name";
                 else {
                     if (trim($cpt["label"]) == "") $cpt["label"] = $cpt["name"];
@@ -611,6 +620,8 @@ if (!class_exists('GDTaxonomiesTools')) {
             } else if ($action == "edit") {
                 $page_title = __("Edit Custom Posts", "gd-taxonomies-tools");
                 $cpt = $this->find_postype($_GET["pid"]);
+                if (!is_array($cpt["supports"])) $cpt["supports"] = array();
+                if (!is_array($cpt["taxonomies"])) $cpt["taxonomies"] = array();
                 include($this->plugin_path.'forms/shared/all.header.php');
                 include($this->plugin_path.'forms/admin/custompost.edit.php');
             }

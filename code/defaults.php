@@ -2,10 +2,10 @@
 
 class GDTTDefaults {
     var $default_options = array(
-        "version" => "1.1.2",
-        "date" => "2010.04.14.",
+        "version" => "1.1.3",
+        "date" => "2010.04.20.",
         "status" => "Stable",
-        "build" => 1120,
+        "build" => 1130,
         "product_id" => "gd-taxonomies-tools",
         "edition" => "lite",
         "upgrade_to_pro" => 1,

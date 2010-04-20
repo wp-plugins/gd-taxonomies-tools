@@ -1,6 +1,40 @@
 <?php
 
 /**
+ * Update taxonomies cache for the custom post types for the current query.
+ */
+function gdtt_custom_post_types_cache() {
+    global $wp_query;
+
+    $post_ids = array();
+    for ($i = 0; $i < count($wp_query->posts); $i++) {
+        $post_ids[] = $wp_query->posts[$i]->ID;
+    }
+
+    if (!empty($post_ids)) {
+        update_object_term_cache($post_ids, get_query_var("post_type"));
+    }
+}
+
+/**
+ * Get list of taxonomies for any post type.
+ *
+ * @param string|array $post_types one or more post types to match
+ * @return array list of taxonomies
+ */
+function gdtt_get_taxonomies_for_post_types($post_types = array()) {
+    global $wp_taxonomies;
+    $taxonomies = array();
+    if (is_string($post_types)) $post_types = (array)$post_types;
+    foreach ((array)$wp_taxonomies as $taxonomy) {
+        if (array_intersect($post_types, (array)$taxonomy->object_type)) {
+            $taxonomies[] = $taxonomy->name;
+        }
+    }
+    return $taxonomies;
+}
+
+/**
  * Get the taxonomy on the taxonomy term page.
  *
  * @return object Taxonomy or null if not on taxonomy term page
