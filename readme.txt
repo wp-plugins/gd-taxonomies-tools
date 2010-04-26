@@ -1,6 +1,6 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
-Version: 1.1.3
+Version: 1.1.4
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 3.0
@@ -13,15 +13,13 @@ GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand cust
 
 To work with custom post types you need WordPress 3.0.
 
-[Upgrade to GD Custom Posts And Taxonomies Tools PRO](http://www.dev4press.com/plugins/gd-taxonomies-tools/editions/)
+[Upgrade to GD Custom Posts And Taxonomies Tools PRO](http://dv4p.com/g4) |
+[Compare Lite VS PRO](http://dv4p.com/vh)
 
-[List Of Features](http://info.dev4press.com/gd-taxonomies-tools/features.html) |
-[Change Log](http://info.dev4press.com/gd-taxonomies-tools/changelog.html) |
-[Translations](http://info.dev4press.com/gd-taxonomies-tools/languages.html)
-
-= Other Important URL's =
-[Forum](http://forum.gdragon.info/viewforum.php?f=30) |
+= Important URL's =
 [Plugin Home](http://www.dev4press.com/plugins/gd-taxonomies-tools/) |
+[Translations](http://info.dev4press.com/gd-taxonomies-tools/languages.html) |
+[Forum](http://forum.gdragon.info/viewforum.php?f=30) |
 [Feedburner](http://feeds2.feedburner.com/dev4press) |
 [Twitter](http://twitter.com/milangd)
 
@@ -45,6 +43,10 @@ To work with custom post types you need WordPress 3.0.
 3. Taxonomy Terms Cloud Widget
 
 == Changelog ==
+= 1.1.4 =
+* Some cosmetic changes
+* Few minor bugs fixed
+
 = 1.1.3 =
 * Singular label for custom post types
 * Few more functions for custom post types

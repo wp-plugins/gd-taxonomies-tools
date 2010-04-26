@@ -30,19 +30,19 @@ $custom_pt = 0;
                 </tbody></table>
             </div>
             <p class="sub"><?php _e("Custom Posts Types", "gd-taxonomies-tools"); ?></p>
-            <div class="table">
-                <?php if ($custom_pt > 0) { ?>
-                <table><tbody>
-                <?php $first = true;
-                    foreach ($post_types as $cpt_data) {
-                        if (!$cpt_data->_builtin) {
-                            include(GDTAXTOOLS_PATH."forms/render/cpt.front.php");
-                            $first = false;
-                        }
-                    } ?>
-                </tbody></table>
-                <?php } else _e("No custom post types found.", "gd-taxonomies-tools"); ?>
-            </div>
+            <?php if ($custom_pt > 0) { ?>
+                <div class="table">
+                    <table><tbody>
+                    <?php $first = true;
+                        foreach ($post_types as $cpt_data) {
+                            if (!$cpt_data->_builtin) {
+                                include(GDTAXTOOLS_PATH."forms/render/cpt.front.php");
+                                $first = false;
+                            }
+                        } ?>
+                    </tbody></table>
+                </div>
+            <?php } else _e("No custom post types found.", "gd-taxonomies-tools"); ?>
         </div>
     </div>
 
