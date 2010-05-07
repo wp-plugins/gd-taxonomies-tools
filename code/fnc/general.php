@@ -1,6 +1,18 @@
 <?php
 
 /**
+ * Return only public custom post types, with or without defaults.
+ *
+ * @param bool $with_defaults true to include default types, false to exnclude them
+ * @return array list of custom post types
+ */
+function gdtt_get_public_post_types($with_defaults = false) {
+    $options = array("public" => true);
+    if (!$with_defaults) $options["_builtin"] = false;
+    return get_post_types($options, "objects");
+}
+
+/**
  * Update taxonomies cache for the custom post types for the current query.
  */
 function gdtt_custom_post_types_cache() {

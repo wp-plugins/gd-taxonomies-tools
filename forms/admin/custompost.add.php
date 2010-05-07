@@ -6,11 +6,14 @@ $cpt = array(
         "name" => "",
         "label" => "",
         "label_singular" => "",
+        "description" => "",
         "public" => "yes",
         "ui" => "yes",
         "hierarchy" => "no",
         "rewrite" => "yes",
-        "query" => "yes_name",
+        "rewrite_slug" => "",
+        "rewrite_front" => "no",
+        "query" => "yes",
         "capability_type" => "post",
         "edit_link" => "post.php?post=%d",
         "supports" => array("title", "editor", "excerpts", "trackbacks", "custom-fields", "comments", "revisions", "post-thumbnails"),
@@ -22,6 +25,9 @@ if ($errors == "name") {
 }
 
 if (isset($_POST["gdtt_savecpt"])) {
+    global $wp_rewrite;
+    $wp_rewrite->flush_rules();
+
     $cpt = $this->edit_cpt;
     if ($errors == "") {
         $editor = false;

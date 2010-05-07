@@ -7,6 +7,9 @@ if ($errors == "name") {
 }
 
 if (isset($_POST["gdtt_savecpt"])) {
+    global $wp_rewrite;
+    $wp_rewrite->flush_rules();
+
     $cpt = $this->edit_cpt;
     if ($errors == "") {
         $editor = false;

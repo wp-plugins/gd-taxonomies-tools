@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.1.4
+Version: 1.1.5
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -250,15 +250,26 @@ if (!class_exists('GDTaxonomiesTools')) {
         function register_custom_posts() {
             foreach ($this->p as $cpt) {
                 $cpt["label_singular"] = !isset($cpt["label_singular"]) ? $cpt["label"] : $cpt["label_singular"];
+                $cpt["description"] = !isset($cpt["description"]) ? "" : $cpt["description"];
+                $cpt["rewrite_slug"] = !isset($cpt["rewrite_slug"]) ? "" : $cpt["rewrite_slug"];
+
+                $rewrite = $cpt["rewrite"] == "yes";
+                if ($cpt["rewrite_slug"] != "") {
+                    $rewrite = array(
+                        "slug" => $cpt["rewrite_slug"],
+                        "with_front" => $cpt["rewrite_front"] == "yes");
+                }
+
                 $options = array(
                     "label" => $cpt["label"],
                     "singular_label" => $cpt["label_singular"],
+                    "description" => $cpt["description"],
                     "supports" => (array)$cpt["supports"],
                     "taxonomies" => (array)$cpt["taxonomies"],
                     "hierarchical" => $cpt["hierarchy"] == "yes",
                     "public" => $cpt["public"] == "yes",
                     "show_ui" => $cpt["ui"] == "yes",
-                    "rewrite" => $cpt["rewrite"] == "yes",
+                    "rewrite" => $rewrite,
                     "query_var" => $cpt["query"] == "yes",
                     "capability_type" => $cpt["capability_type"],
                     "_edit_link" => $cpt["edit_link"]
@@ -439,8 +450,11 @@ if (!class_exists('GDTaxonomiesTools')) {
 
                 $cpt["supports"] = (array)$cpt["supports"];
                 $cpt["taxonomies"] = (array)$cpt["taxonomies"];
-                $cpt["label"] = strip_tags($cpt["label"]);
-                $cpt["label_singular"] = strip_tags($cpt["label_singular"]);
+                $cpt["label"] = trim(strip_tags($cpt["label"]));
+                $cpt["rewrite_slug"] = trim(strip_tags($cpt["rewrite_slug"]));
+                $cpt["description"] = trim(strip_tags($cpt["description"]));
+                $cpt["label_singular"] = trim(strip_tags($cpt["label_singular"]));
+
                 if (!$this->is_term_valid($cpt["name"])) $this->errors = "name";
                 else {
                     if (trim($cpt["label"]) == "") $cpt["label"] = $cpt["name"];
@@ -622,6 +636,9 @@ if (!class_exists('GDTaxonomiesTools')) {
                 $cpt = $this->find_postype($_GET["pid"]);
                 if (!is_array($cpt["supports"])) $cpt["supports"] = array();
                 if (!is_array($cpt["taxonomies"])) $cpt["taxonomies"] = array();
+                if (!isset($cpt["description"])) $cpt["description"] = "";
+                if (!isset($cpt["rewrite_slug"])) $cpt["rewrite_slug"] = "";
+                if (!isset($cpt["rewrite_front"])) $cpt["rewrite_front"] = "no";
                 include($this->plugin_path.'forms/shared/all.header.php');
                 include($this->plugin_path.'forms/admin/custompost.edit.php');
             }

@@ -7,10 +7,9 @@ $tax_default = array_slice($wp_taxonomies, 0, $gdtt->get_defaults_count());
 $tax_custom = array_slice($wp_taxonomies, $gdtt->get_defaults_count());
 
 if ($wpv >= 30) {
-
-$post_types = get_post_types(array(), "objects");
-$post_count = gdttDB::get_post_types_counts();
-$custom_pt = 0;
+    $post_types = get_post_types(array(), "objects");
+    $post_count = gdttDB::get_post_types_counts();
+    $custom_pt = 0;
 
 ?>
 
@@ -63,15 +62,15 @@ $custom_pt = 0;
         </div>
         <p class="sub"><?php _e("Custom Taxonomies", "gd-taxonomies-tools"); ?></p>
         <?php if (count($wp_taxonomies) > $gdtt->get_defaults_count()) { ?>
-        <div class="table">
-            <table><tbody>
-            <?php $first = true;
-                foreach ($tax_custom as $short => $tax) {
-                    include(GDTAXTOOLS_PATH."forms/render/tax.front.php");
-                    $first = false;
-                } ?>
-            </tbody></table>
-        </div>
+	        <div class="table">
+	            <table><tbody>
+	            <?php $first = true;
+	                foreach ($tax_custom as $short => $tax) {
+	                    include(GDTAXTOOLS_PATH."forms/render/tax.front.php");
+	                    $first = false;
+	                } ?>
+	            </tbody></table>
+	        </div>
         <?php } else _e("No custom taxonomies found.", "gd-taxonomies-tools"); ?>
     </div>
 </div>

@@ -209,6 +209,8 @@ textarea, input, select { border-color: #696969; }
 
 .input-text-long { width: 300px; }
 
+.input-text-extralong { width: 500px; }
+
 .form-table td, .form-table th { border-bottom: 6px solid #F9F9F9; }
 
 .gdsr .previewtable .aright { text-align: right; }

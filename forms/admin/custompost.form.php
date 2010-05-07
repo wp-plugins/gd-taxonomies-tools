@@ -20,7 +20,6 @@
                     <input type="text" id="cptlabel" value="<?php echo $cpt["label"]; ?>" name="cpt[label]" class="input-text-middle" />
                 </td>
             </tr>
-            <?php if ($wpv > 29) { ?>
             <tr>
                 <td width="150" style="vertical-align: top;">
                     <?php _e("Singular", "gd-taxonomies-tools"); ?>:
@@ -29,10 +28,16 @@
                     <input type="text" id="cptlabelsingular" value="<?php echo $cpt["label_singular"]; ?>" name="cpt[label_singular]" class="input-text-middle" />
                 </td>
             </tr>
-            <?php } ?>
         </table>
         <div class="gdsr-table-split"></div>
         <?php _e("This is the display name for the custom post type.", "gd-taxonomies-tools"); ?>
+    </td>
+</tr>
+<tr><th scope="row"><?php _e("Description", "gd-taxonomies-tools"); ?></th>
+    <td>
+        <input type="text" id="cptdescription" value="<?php echo $cpt["description"]; ?>" name="cpt[description]" class="input-text-extralong" />
+        <div class="gdsr-table-split"></div>
+        <?php _e("No HTML is allowed.", "gd-taxonomies-tools"); ?>
     </td>
 </tr>
 <tr><th scope="row"><?php _e("Features", "gd-taxonomies-tools"); ?></th>
@@ -153,7 +158,7 @@
                 <td width="150" style="vertical-align: top;">
                     <?php _e("Capabilities", "gd-taxonomies-tools"); ?>:
                 </td>
-                <td valign="top" colspan="3">
+                <td valign="top">
                     <input type="text" value="<?php echo $cpt["capability_type"]; ?>" name="cpt[capability_type]" class="input-text-middle" />
                 </td>
             </tr>
@@ -161,13 +166,32 @@
                 <td width="150" style="vertical-align: top;">
                     <?php _e("Edit Link", "gd-taxonomies-tools"); ?>:
                 </td>
-                <td valign="top" colspan="3">
+                <td valign="top">
                     <input type="text" value="<?php echo $cpt["edit_link"]; ?>" name="cpt[edit_link]" class="input-text-middle" />
+                </td>
+            </tr>
+            <tr>
+                <td width="150" style="vertical-align: top;">
+                    <?php _e("Rewrite Slug", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top">
+                    <input type="text" value="<?php echo $cpt["rewrite_slug"]; ?>" name="cpt[rewrite_slug]" class="input-text-middle" />
+                </td>
+            </tr>
+            <tr>
+                <td width="150" valign="top">
+                    <?php _e("Rewrite With Front", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td width="230" valign="top">
+                    <select name="cpt[rewrite_front]" class="input-text-middle">
+                        <option value="yes"<?php echo $cpt["rewrite_front"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $cpt["rewrite_front"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
                 </td>
             </tr>
         </table>
         <div class="gdsr-table-split"></div>
-        <?php _e("Do not change this if you are not sure about this. Consult WordPress documentation for more details.", "gd-taxonomies-tools"); ?>
+        <?php _e("Changing some of these settings can have undesired effects and can break your website."); ?> <?php _e("Do not change this if you are not sure about this. Consult WordPress documentation for more details.", "gd-taxonomies-tools"); ?>
     </td>
 </tr>
 </tbody></table>

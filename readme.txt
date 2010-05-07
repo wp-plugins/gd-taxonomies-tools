@@ -1,6 +1,6 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
-Version: 1.1.4
+Version: 1.1.5
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 3.0
@@ -9,9 +9,9 @@ Stable tag: trunk
 GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
 
 == Description ==
-GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand custom taxonomies and custom post types support. Plugin adds many tools including custom taxonomies management and widget for taxonomies terms cloud.
+GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand custom taxonomies and custom post types support. Plugin adds many tools including custom post types and taxonomies management and widget for taxonomies terms cloud.
 
-To work with custom post types you need WordPress 3.0.
+To work with custom post types you need WordPress 3.0. Plugin supports all latest features added to custom post types and supported by WordPress.
 
 [Upgrade to GD Custom Posts And Taxonomies Tools PRO](http://dv4p.com/g4) |
 [Compare Lite VS PRO](http://dv4p.com/vh)
@@ -37,12 +37,30 @@ To work with custom post types you need WordPress 3.0.
 * Upload folder `gd-taxonomies-tools` to the `/wp-content/plugins/` directory
 * Activate the plugin through the 'Plugins' menu in WordPress
 
+== Frequently Asked Questions ==
+
+= Does plugin works with WPMU and WordPress MultiSite installations? =
+Yes.
+
+= I need support for using this plugin and some of it's features? =
+Lite version is regularly maintained, but it doesn't include any kind of support beyond bug fixing. If you need support, upgrade plugin to PRO edition and get much more additional features.
+
+= I want to translate the plugin to my language, or to improve existing translations? =
+You only need POEdit program that works on Windows, Linux and MacOS. Instructions on how to make or update translations are here: http://dv4p.com/wa.
+
 == Screenshots ==
 1. Taxonomies Management
 2. Adding Custom Post Type
 3. Taxonomy Terms Cloud Widget
 
 == Changelog ==
+= 1.1.5 =
+* Automatic rewrite rules flush on custom post types changes
+* Description field for custom post types
+* Custom rewrite settings for custom post types
+* Added some functions
+* Compatibility with wp 3.0 beta 2
+
 = 1.1.4 =
 * Some cosmetic changes
 * Few minor bugs fixed
