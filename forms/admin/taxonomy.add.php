@@ -4,18 +4,28 @@ $editor = true;
 $tax = array(
         "id" => 0,
         "name" => "",
-        "label" => "",
         "public" => "yes",
         "ui" => "yes",
         "cloud" => "yes",
-        "label_singular" => "",
-        "domain" => array("post"),
         "hierarchy" => "no",
         "rewrite" => "yes_name",
         "rewrite_custom" => "",
         "query" => "yes_name",
         "query_custom" => "",
-        "active" => 1
+        "active" => 1,
+        "domain" => array(
+            "post"),
+        "labels" => array(
+            "name" => "", "singular_name" => "",
+            "search_items" => "", "popular_items" => "",
+            "all_items" => "", "parent_item" => "",
+            "edit_item" => "", "update_item" => "",
+            "add_new_item" => "", "new_item_name" => ""),
+        "caps" => array(
+            "manage_terms" => "manage_categories",
+            "edit_terms" => "manage_categories",
+            "delete_terms" => "manage_categories",
+            "assign_terms" => "edit_posts")
     );
 
 if ($errors == "name") {

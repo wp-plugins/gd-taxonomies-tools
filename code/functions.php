@@ -3,10 +3,8 @@
 function gdtt_render_taxonomies($tax = "") {
     global $wp_taxonomies;
     foreach ($wp_taxonomies as $taxonomy => $cnt) {
-        if ($cnt->object_type == "post") {
-            $current = $tax == $taxonomy ? ' selected="selected"' : $current = '';
-            echo "\t<option value='".$taxonomy."'".$current.">".$cnt->label."</option>\r\n";
-        }
+        $current = $tax == $taxonomy ? ' selected="selected"' : $current = '';
+        echo "\t<option value='".$taxonomy."'".$current.">".$cnt->label."</option>\r\n";
     }
 }
 

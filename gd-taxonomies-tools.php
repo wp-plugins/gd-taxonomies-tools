@@ -4,13 +4,13 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.1.5
+Version: 1.1.6
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
 == Copyright ==
 
-Copyright 2008-2010 Milan Petrovic (email : milan@gdragon.info)
+Copyright 2008-2010 Milan Petrovic (email: milan@gdragon.info)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -249,7 +249,6 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function register_custom_posts() {
             foreach ($this->p as $cpt) {
-                $cpt["label_singular"] = !isset($cpt["label_singular"]) ? $cpt["label"] : $cpt["label_singular"];
                 $cpt["description"] = !isset($cpt["description"]) ? "" : $cpt["description"];
                 $cpt["rewrite_slug"] = !isset($cpt["rewrite_slug"]) ? "" : $cpt["rewrite_slug"];
 
@@ -260,9 +259,21 @@ if (!class_exists('GDTaxonomiesTools')) {
                         "with_front" => $cpt["rewrite_front"] == "yes");
                 }
 
+                if (!isset($cpt["labels"])) {
+                    $labels = array("name" => $cpt["label"],
+                        "singular_name" => $cpt["label_singular"]);
+                } else {
+                    $labels = $cpt["labels"];
+                }
+                if (!isset($cpt["caps"])) {
+                    $caps = array();
+                } else {
+                    $caps = $cpt["caps"];
+                }
+
                 $options = array(
-                    "label" => $cpt["label"],
-                    "singular_label" => $cpt["label_singular"],
+                    "labels" => $labels,
+                    "capabilities" => $caps,
                     "description" => $cpt["description"],
                     "supports" => (array)$cpt["supports"],
                     "taxonomies" => (array)$cpt["taxonomies"],
@@ -271,7 +282,6 @@ if (!class_exists('GDTaxonomiesTools')) {
                     "show_ui" => $cpt["ui"] == "yes",
                     "rewrite" => $rewrite,
                     "query_var" => $cpt["query"] == "yes",
-                    "capability_type" => $cpt["capability_type"],
                     "_edit_link" => $cpt["edit_link"]
                     );
                 register_post_type($cpt["name"], $options);
@@ -282,7 +292,10 @@ if (!class_exists('GDTaxonomiesTools')) {
             foreach ($this->t as $tax) {
                 if (isset($tax["active"])) {
                     if ($this->wp_version < 30) {
-                        $options = array("hierarchical" => $tax["hierarchy"] == "yes", "label" => $tax["label"]);
+                        $options = array(
+                            "hierarchical" => $tax["hierarchy"] == "yes",
+                            "label" => $tax["label"]
+                        );
                         if ($tax["rewrite"] == "yes_custom") $options["rewrite"] = $tax["rewrite_custom"];
                         else $options["rewrite"] = $tax["rewrite"] == "yes_name";
                         if ($tax["query"] == "yes_custom") $options["query_var"] = $tax["query_custom"];
@@ -295,19 +308,31 @@ if (!class_exists('GDTaxonomiesTools')) {
                         if ($tax["rewrite"] == "yes_custom") $rewrite = array('slug' => $tax["rewrite_custom"]);
                         if ($tax["query"] == "no") $query_var = false;
                         if ($tax["query"] == "yes_custom") $query_var = $tax["query_custom"];
-                        $tax["label_singular"] = !isset($tax["label_singular"]) ? $tax["label"] : $tax["label_singular"];
                         $tax["public"] = !isset($tax["public"]) ? true : $tax["public"];
                         $tax["ui"] = !isset($tax["ui"]) ? true : $tax["ui"];
                         $tax["cloud"] = !isset($tax["cloud"]) ? true : $tax["cloud"];
+                        if (!isset($tax["labels"])) {
+                            $labels = array("name" => $tax["label"],
+                                "singular_name" => $tax["label_singular"]);
+                        } else {
+                            $labels = $tax["labels"];
+                            $labels["parent_item_colon"] = $labels["parent_item"].":";
+                        }
+                        if (!isset($tax["caps"])) {
+                            $caps = array();
+                        } else {
+                            $caps = $tax["caps"];
+                        }
+
                         $options = array(
-                            'label' => $tax["label"],
-                            'singular_label' => $tax["label_singular"],
-                            'rewrite' => $rewrite,
-                            'query_var' => $query_var,
-                            'public' => $tax["public"],
-                            'show_ui' => $tax["ui"],
-                            'show_tagcloud' => $tax["cloud"],
-                            'hierarchical' => $tax["hierarchy"] == "yes",
+                            "labels" => $labels,
+                            "capabilities" => $caps,
+                            "rewrite" => $rewrite,
+                            "query_var" => $query_var,
+                            "public" => $tax["public"],
+                            "show_ui" => $tax["ui"],
+                            "show_tagcloud" => $tax["cloud"],
+                            "hierarchical" => $tax["hierarchy"] == "yes",
                         );
 
                         $domains = explode(",", $tax["domain"]);
@@ -450,14 +475,12 @@ if (!class_exists('GDTaxonomiesTools')) {
 
                 $cpt["supports"] = (array)$cpt["supports"];
                 $cpt["taxonomies"] = (array)$cpt["taxonomies"];
-                $cpt["label"] = trim(strip_tags($cpt["label"]));
                 $cpt["rewrite_slug"] = trim(strip_tags($cpt["rewrite_slug"]));
                 $cpt["description"] = trim(strip_tags($cpt["description"]));
-                $cpt["label_singular"] = trim(strip_tags($cpt["label_singular"]));
 
                 if (!$this->is_term_valid($cpt["name"])) $this->errors = "name";
                 else {
-                    if (trim($cpt["label"]) == "") $cpt["label"] = $cpt["name"];
+                    if (trim($cpt["labels"]["name"]) == "") $cpt["labels"]["name"] = $cpt["name"];
                 }
 
                 if ($cpt["id"] == 0) {
@@ -492,13 +515,16 @@ if (!class_exists('GDTaxonomiesTools')) {
                 if (!isset($tax["query_custom"])) $tax["query_custom"] = "";
                 if (!isset($tax["hierarchy"])) $tax["hierarchy"] = "no";
 
-                $tax["label"] = strip_tags($tax["label"]);
-                $tax["label_singular"] = isset($tax["label_singular"]) ? strip_tags($tax["label_singular"]) : '';
+                if ($this->wp_version < 30) {
+                    $tax["label"] = strip_tags($tax["label"]);
+                    if (trim($tax["label"]) == "") $tax["label"] = $tax["name"];
+                } else {
+                    if (trim($tax["labels"]["name"]) == "") $tax["labels"]["name"] = $tax["name"];
+                }
                 $tax["rewrite_custom"] = sanitize_title_with_dashes($tax["rewrite_custom"]);
                 $tax["query_custom"] = sanitize_title_with_dashes($tax["query_custom"]);
                 if (!$this->is_term_valid($tax["name"])) $this->errors = "name";
                 else {
-                    if (trim($tax["label"]) == "") $tax["label"] = $tax["name"];
                     if (trim($tax["rewrite_custom"]) == "") $tax["rewrite_custom"] = $tax["name"];
                     if (trim($tax["query_custom"]) == "") $tax["query_custom"] = $tax["name"];
                 }
@@ -639,6 +665,26 @@ if (!class_exists('GDTaxonomiesTools')) {
                 if (!isset($cpt["description"])) $cpt["description"] = "";
                 if (!isset($cpt["rewrite_slug"])) $cpt["rewrite_slug"] = "";
                 if (!isset($cpt["rewrite_front"])) $cpt["rewrite_front"] = "no";
+                if (!isset($cpt["labels"])) {
+                    $cpt["labels"] = array("name" => $cpt["label"],
+                        "singular_name" => $cpt["label_singular"],
+                        "add_new" => "", "add_new_item" => "",
+                        "edit_item" => "", "edit" => "",
+                        "new_item" => "", "view_item" => "",
+                        "search_items" => "", "not_found" => "",
+                        "not_found_in_trash" => "", "view" => "",
+                        "parent_item_colon" => "");
+                }
+                if (!isset($cpt["caps"])) {
+                    $cpt["caps"] = array(
+                        "edit_post" => "edit_post",
+                        "edit_posts" => "edit_posts",
+                        "edit_others_posts" => "edit_others_posts",
+                        "publish_posts" => "publish_posts",
+                        "read_post" => "read_post",
+                        "read_private_posts" => "read_private_posts",
+                        "delete_post" => "delete_post");
+                }
                 include($this->plugin_path.'forms/shared/all.header.php');
                 include($this->plugin_path.'forms/admin/custompost.edit.php');
             }
@@ -675,6 +721,21 @@ if (!class_exists('GDTaxonomiesTools')) {
                 $page_title = __("Edit Taxonomy", "gd-taxonomies-tools");
                 $tax = $this->find_taxonomy($_GET["tid"]);
                 $tax["domain"] = explode(",", $tax["domain"]);
+                if (!isset($tax["labels"])) {
+                    $tax["labels"] = array("name" => $tax["label"],
+                        "singular_name" => $tax["label_singular"],
+                        "search_items" => "", "popular_items" => "",
+                        "all_items" => "", "parent_item" => "",
+                        "edit_item" => "", "update_item" => "",
+                        "add_new_item" => "", "new_item_name" => "");
+                }
+                if (!isset($tax["caps"])) {
+                    $tax["caps"] = array(
+                        "manage_terms" => "manage_categories",
+                        "edit_terms" => "manage_categories",
+                        "delete_terms" => "manage_categories",
+                        "assign_terms" => "edit_posts");
+                }
                 include($this->plugin_path.'forms/shared/all.header.php');
                 include($this->plugin_path.'forms/admin/taxonomy.edit.php');
             }
