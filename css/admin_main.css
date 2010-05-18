@@ -176,6 +176,10 @@ a.ttoption-del:hover {
 	background: #333333 url(../gfx/jquery-ui-1.7/ui-bg_diagonals-thick_8_333333_40x40.png) repeat scroll 50% 50%;
 }
 
+.gdsr .widefat thead .alt, .gdsr .previewtable thead .alt {
+	background:inherit !important;
+}
+
 .gdsr .widefat thead tr th {
 	background: none;
 	color: white;
@@ -209,7 +213,7 @@ textarea, input, select { border-color: #696969; }
 
 .input-text-long { width: 300px; }
 
-.input-text-extralong { width: 500px; }
+.input-text-extralong { width: 720px; }
 
 .form-table td, .form-table th { border-bottom: 6px solid #F9F9F9; }
 
@@ -226,4 +230,36 @@ textarea, input, select { border-color: #696969; }
 .ui-state-highlight p {
     line-height: 100%;
     margin: 0.8em 0;
+}
+
+
+.ui-dropdownchecklist {
+	height: 16px;
+	-moz-border-radius: 4px;
+	border: 1px solid #696969;
+	color: #000;
+	margin: 1px;
+	padding: 2px 0 2px 4px;
+	background: #fff url(../gfx/dropdown.png) no-repeat center right;
+}
+.ui-dropdownchecklist-hover, .ui-dropdownchecklist-active {
+	background: #fff url(../gfx/dropdown_hover.png) no-repeat center right !important;
+}
+
+.ui-dropdownchecklist-text {
+	font-size: 11px;
+	height: 15px;
+	line-height: 15px;
+	margin-right: 17px; /* background dropdown.png image */
+}
+.ui-dropdownchecklist-dropcontainer { background-color: #fff; border: 1px solid #999; }
+.ui-dropdownchecklist-item { padding: 2px; }
+.ui-dropdownchecklist-item-hover { background-color: #39f; }
+.ui-dropdownchecklist-item-disabled label { color: #ccc; }
+.ui-dropdownchecklist-item-hover .ui-dropdownchecklist-text { color: #fff; }
+.ui-dropdownchecklist-group { font-weight: bold; font-style: italic; }
+.ui-dropdownchecklist-indent { padding-left: 20px; }
+
+input {
+	border-color: #696969 !important;
 }

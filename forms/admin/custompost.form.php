@@ -9,11 +9,18 @@
         <?php _e("Also, use only lower case letters and no special characters except for the underscore.", "gd-taxonomies-tools"); ?>
     </td>
 </tr>
+<tr><th scope="row"><?php _e("Description", "gd-taxonomies-tools"); ?></th>
+    <td>
+        <input type="text" id="cptdescription" value="<?php echo $cpt["description"]; ?>" name="cpt[description]" class="input-text-extralong" />
+        <div class="gdsr-table-split"></div>
+        <?php _e("No HTML is allowed.", "gd-taxonomies-tools"); ?>
+    </td>
+</tr>
 <tr><th scope="row"><?php _e("Labels", "gd-taxonomies-tools"); ?></th>
     <td>
         <table cellpadding="0" cellspacing="0" class="previewtable">
             <tr>
-                <td width="150" style="vertical-align: top;"><?php _e("Name", "gd-taxonomies-tools"); ?>:</td>
+                <td width="150" style="vertical-align: top;"><?php _e("Plural Name", "gd-taxonomies-tools"); ?>:</td>
                 <td valign="top">
                     <input type="text" id="cptlabelsname" value="<?php echo $cpt["labels"]["name"]; ?>" name="cpt[labels][name]" class="input-text-middle" />
                 </td>
@@ -92,83 +99,44 @@
         </table>
     </td>
 </tr>
-<tr><th scope="row"><?php _e("Description", "gd-taxonomies-tools"); ?></th>
-    <td>
-        <input type="text" id="cptdescription" value="<?php echo $cpt["description"]; ?>" name="cpt[description]" class="input-text-extralong" />
-        <div class="gdsr-table-split"></div>
-        <?php _e("No HTML is allowed.", "gd-taxonomies-tools"); ?>
-    </td>
-</tr>
-<tr><th scope="row"><?php _e("Features", "gd-taxonomies-tools"); ?></th>
-    <td>
-        <table cellpadding="0" cellspacing="0" class="previewtable">
-            <tr>
-                <td width="150" style="vertical-align: top;">
-                    <?php _e("Select", "gd-taxonomies-tools"); ?>:
-                </td>
-                <td valign="top" colspan="3">
-                    <?php
-                        foreach ($post_features as $code => $name) {
-                            echo sprintf('<input type="checkbox" name="cpt[supports][]"%s value="%s" /><label style="margin-left: 5px;">%s</label><br/>',
-                                    in_array($code, $cpt["supports"]) ? " checked" : "", $code, $name);
-                        }
-                    ?>
-                </td>
-            </tr>
-        </table>
-    </td>
-</tr>
-<tr><th scope="row"><?php _e("Taxonomies", "gd-taxonomies-tools"); ?></th>
-    <td>
-        <table cellpadding="0" cellspacing="0" class="previewtable">
-            <tr>
-                <td width="150" style="vertical-align: top;">
-                    <?php _e("Select", "gd-taxonomies-tools"); ?>:
-                </td>
-                <td valign="top" colspan="3">
-                    <?php
-                        foreach ($wp_taxonomies as $code => $tax) {
-                            echo sprintf('<input type="checkbox" name="cpt[taxonomies][]"%s value="%s" /><label style="margin-left: 5px;">%s [%s]</label><br/>',
-                                    in_array($code, $cpt["taxonomies"]) ? " checked" : "", $code, $tax->label, $code);
-                        }
-                    ?>
-                </td>
-            </tr>
-        </table>
-    </td>
-</tr>
-<tr><th scope="row"><?php _e("Visibility", "gd-taxonomies-tools"); ?></th>
-    <td>
-        <table cellpadding="0" cellspacing="0" class="previewtable">
-            <tr>
-                <td width="150" valign="top">
-                    <?php _e("Public", "gd-taxonomies-tools"); ?>:
-                </td>
-                <td width="230" valign="top">
-                    <select name="cpt[public]" class="input-text-middle">
-                        <option value="yes"<?php echo $cpt["public"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
-                        <option value="no"<?php echo $cpt["public"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td width="150" valign="top">
-                    <?php _e("Show UI", "gd-taxonomies-tools"); ?>:
-                </td>
-                <td width="230" valign="top">
-                    <select name="cpt[ui]" class="input-text-middle">
-                        <option value="yes"<?php echo $cpt["ui"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
-                        <option value="no"<?php echo $cpt["ui"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
-                    </select>
-                </td>
-            </tr>
-        </table>
-        <div class="gdsr-table-split"></div>
-        <?php _e("Public setting set to NO will hide posts from the admin UI. Show UI will generate standard UI for post type management. Either of these set to NO will hide the edit panel.", "gd-taxonomies-tools"); ?>
-    </td>
-</tr>
 <tr><th scope="row"><?php _e("Settings", "gd-taxonomies-tools"); ?></th>
     <td>
+        <table cellpadding="0" cellspacing="0" class="previewtable">
+            <tr>
+                <td width="150" style="vertical-align: top;">
+                    <?php _e("Features", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top" colspan="3">
+                    <select name="cpt[supports][]" class="drop-sel-checks" multiple>
+                    <?php
+                        echo sprintf('<option value="(all)">%s</option>', __("(all)"));
+                        foreach ($post_features as $code => $name) {
+                            echo sprintf('<option%s value="%s">%s</option>',
+                                    in_array($code, $cpt["supports"]) ? ' selected="selected"' : "",
+                                    $code, $name);
+                        }
+                    ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="150" style="vertical-align: top;">
+                    <?php _e("Taxonomies", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top" colspan="3">
+                    <select name="cpt[taxonomies][]" class="drop-sel-checks" multiple>
+                    <?php
+                        echo sprintf('<option value="(all)">%s</option>', __("(all)"));
+                        foreach ($wp_taxonomies as $code => $tax) {
+                            echo sprintf('<option%s value="%s">%s [%s]</option>',
+                                    in_array($code, $cpt["taxonomies"]) ? ' selected="selected"' : "",
+                                    $code, $tax->label, $code);
+                        }
+                    ?>
+                    </select>
+                </td>
+            </tr>
+        </table>
         <table cellpadding="0" cellspacing="0" class="previewtable">
             <tr>
                 <td width="150" valign="top">
@@ -206,20 +174,48 @@
                 </td>
             </tr>
         </table>
+    </td>
+</tr>
+<tr><th scope="row"><?php _e("Visibility", "gd-taxonomies-tools"); ?></th>
+    <td>
+        <table cellpadding="0" cellspacing="0" class="previewtable">
+            <tr>
+                <td width="150" valign="top">
+                    <?php _e("Public", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td width="230" valign="top">
+                    <select name="cpt[public]" class="input-text-middle">
+                        <option value="yes"<?php echo $cpt["public"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $cpt["public"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="150" valign="top">
+                    <?php _e("Show UI", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td width="230" valign="top">
+                    <select name="cpt[ui]" class="input-text-middle">
+                        <option value="yes"<?php echo $cpt["ui"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $cpt["ui"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
         <div class="gdsr-table-split"></div>
-        <?php _e("Allow post hierarchy similar to default Pages type.", "gd-taxonomies-tools"); ?>
+        <?php _e("Public setting set to NO will hide posts from the admin UI. Show UI will generate standard UI for post type management. Either of these set to NO will hide the edit panel.", "gd-taxonomies-tools"); ?>
     </td>
 </tr>
 <tr><th scope="row"><?php _e("Capabilities", "gd-taxonomies-tools"); ?></th>
     <td>
         <table cellpadding="0" cellspacing="0" class="previewtable">
             <tr>
-                <td width="150" style="vertical-align: top;"><?php _e("Edit post", "gd-taxonomies-tools"); ?>:</td>
+                <td width="150" style="vertical-align: top;"><?php _e("Edit Post", "gd-taxonomies-tools"); ?>:</td>
                 <td valign="top">
                     <input type="text" id="cptcapsedit_post" value="<?php echo $cpt["caps"]["edit_post"]; ?>" name="cpt[caps][edit_post]" class="input-text-middle" />
                 </td>
                 <td style="width: 20px;"></td>
-                <td width="150" style="vertical-align: top;"><?php _e("Edit posts", "gd-taxonomies-tools"); ?>:</td>
+                <td width="150" style="vertical-align: top;"><?php _e("Edit Posts", "gd-taxonomies-tools"); ?>:</td>
                 <td valign="top">
                     <input type="text" id="cptcapsedit_posts" value="<?php echo $cpt["caps"]["edit_posts"]; ?>" name="cpt[caps][edit_posts]" class="input-text-middle" />
                 </td>

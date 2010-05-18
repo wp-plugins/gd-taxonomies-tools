@@ -105,12 +105,16 @@
                     <?php _e("Select", "gd-taxonomies-tools"); ?>:
                 </td>
                 <td valign="top" colspan="3">
+                    <select name="tax[post_type][]" class="drop-sel-checks" multiple>
                     <?php
+                        echo sprintf('<option value="(all)">%s</option>', __("(all)"));
                         foreach ($post_types as $pt) {
-                            echo sprintf('<input type="checkbox" name="tax[post_type][]"%s value="%s" /><label style="margin-left: 5px;">%s [%s]</label><br/>',
-                                    in_array($pt->name, $tax["domain"]) ? " checked" : "", $pt->name, $pt->label, $pt->name);
+                            echo sprintf('<option%s value="%s">%s [%s]</option>',
+                                    in_array($pt->name, $tax["domain"]) ? ' selected="selected"' : "",
+                                    $pt->name, $pt->label, $pt->name);
                         }
                     ?>
+                    </select>
                 </td>
             </tr>
         </table>

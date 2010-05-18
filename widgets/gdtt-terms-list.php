@@ -45,8 +45,8 @@ class gdttTermsList extends gdtt_Widget {
     }
 
     function render($results, $instance) {
+        if (is_wp_error($results)) return "";
         $render = '<div class="gdtt-widget gdtt-terms-list '.$instance["display_css"].'"><ul>';
-        //print_r($results);
         foreach ($results as $r) {
             $render.= '<li>';
             $render.= sprintf('<a href="%s" class="gdtt-url">%s</a>', get_term_link($r, $instance["taxonomy"]), $r->name);
