@@ -11,6 +11,8 @@ class gdttTermsCloud extends gdtt_Widget {
         "largest" => 22,
         "orderby" => "name",
         "order" => "asc",
+        "hide_empty" => 1,
+        "exclude" => "",
         "display_css" => ""
     );
 
@@ -31,6 +33,8 @@ class gdttTermsCloud extends gdtt_Widget {
         $instance['largest'] = intval(strip_tags(stripslashes($new_instance['largest'])));
         $instance['orderby'] = strip_tags(stripslashes($new_instance['orderby']));
         $instance['order'] = strip_tags(stripslashes($new_instance['order']));
+        $instance['exclude'] = strip_tags(stripslashes($new_instance['exclude']));
+        $instance['hide_empty'] = isset($new_instance['hide_empty']) ? 1 : 0;
         $instance['display_css'] = strip_tags(stripslashes($new_instance['display_css']));
 
         return $instance;
@@ -40,7 +44,9 @@ class gdttTermsCloud extends gdtt_Widget {
         $instance["echo"] = false;
         $args = array();
         foreach ($instance as $name => $value) {
-            if ($name != "title") $args[] = $name."=".$value;
+            if ($name != "title" && 
+                $name != "taxonomy" &&
+                $name != "display_css") $args[] = $name."=".$value;
         }
         return wp_tag_cloud(join("&", $args));
     }

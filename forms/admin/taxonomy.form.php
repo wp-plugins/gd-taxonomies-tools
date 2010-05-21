@@ -107,7 +107,7 @@
                 <td valign="top" colspan="3">
                     <select name="tax[post_type][]" class="drop-sel-checks" multiple>
                     <?php
-                        echo sprintf('<option value="(all)">%s</option>', __("(all)"));
+                        echo sprintf('<option value="(all)">%s</option>', __("(all)", "gd-taxonomies-tools"));
                         foreach ($post_types as $pt) {
                             echo sprintf('<option%s value="%s">%s [%s]</option>',
                                     in_array($pt->name, $tax["domain"]) ? ' selected="selected"' : "",

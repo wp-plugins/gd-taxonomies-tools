@@ -109,7 +109,7 @@
                 <td valign="top" colspan="3">
                     <select name="cpt[supports][]" class="drop-sel-checks" multiple>
                     <?php
-                        echo sprintf('<option value="(all)">%s</option>', __("(all)"));
+                        echo sprintf('<option value="(all)">%s</option>', __("(all)", "gd-taxonomies-tools"));
                         foreach ($post_features as $code => $name) {
                             echo sprintf('<option%s value="%s">%s</option>',
                                     in_array($code, $cpt["supports"]) ? ' selected="selected"' : "",
@@ -126,7 +126,7 @@
                 <td valign="top" colspan="3">
                     <select name="cpt[taxonomies][]" class="drop-sel-checks" multiple>
                     <?php
-                        echo sprintf('<option value="(all)">%s</option>', __("(all)"));
+                        echo sprintf('<option value="(all)">%s</option>', __("(all)", "gd-taxonomies-tools"));
                         foreach ($wp_taxonomies as $code => $tax) {
                             echo sprintf('<option%s value="%s">%s [%s]</option>',
                                     in_array($code, $cpt["taxonomies"]) ? ' selected="selected"' : "",

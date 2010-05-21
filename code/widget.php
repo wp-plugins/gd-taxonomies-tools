@@ -3,12 +3,15 @@
 class gdtt_Widget extends WP_Widget {
     var $folder_name = "";
     var $defaults = array();
+    var $widget_id;
 
     function gdtt_Widget() { }
 
     function widget($args, $instance) {
         global $gdsr, $userdata;
         extract($args, EXTR_SKIP);
+        $this->widget_id = str_replace("-", "", $args["widget_id"]);
+        $this->widget_id = str_replace("_", "", $this->widget_id);
 
         $results = $this->results($instance);
         if (count($results) == 0 && $instance["hide_empty"] == 1) return;

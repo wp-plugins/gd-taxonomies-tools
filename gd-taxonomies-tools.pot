@@ -2,46 +2,126 @@
 msgid "Are you sure? Operation is not reversible."
 msgstr ""
 
-#: code/js.php:11
+#: code/js.php:13
+#: code/js.php:33
+msgid "Both name and singular name must be filled first."
+msgstr ""
+
+#: code/js.php:15
+#: code/js.php:17
+#: code/js.php:41
+#: forms/admin/custompost.form.php:38
+#: forms/admin/customposts.php:28
+#: forms/admin/taxonomies.php:47
+msgid "Add New"
+msgstr ""
+
+#: code/js.php:16
+#: code/js.php:18
+#: code/js.php:39
+#: forms/admin/custompost.form.php:54
+msgid "Edit"
+msgstr ""
+
+#: code/js.php:19
+#: code/js.php:42
+msgid "New"
+msgstr ""
+
+#: code/js.php:20
+#: code/js.php:24
+#: forms/admin/custompost.form.php:87
+msgid "View"
+msgstr ""
+
 #: code/js.php:21
+#: code/js.php:36
+msgid "Search"
+msgstr ""
+
+#: code/js.php:22
+#: code/js.php:23
+#: forms/admin/custompost.form.php:147
+#: forms/admin/custompost.form.php:160
+#: forms/admin/custompost.form.php:171
+#: forms/admin/custompost.form.php:188
+#: forms/admin/custompost.form.php:199
+#: forms/admin/custompost.form.php:281
+#: forms/admin/taxonomy.form.php:135
+#: forms/admin/taxonomy.form.php:146
+#: forms/admin/taxonomy.form.php:157
+#: forms/admin/taxonomy.form.php:177
+#: forms/admin/taxonomy.form.php:190
+#: forms/admin/taxonomy.form.php:209
+msgid "No"
+msgstr ""
+
+#: code/js.php:22
+msgid "Found"
+msgstr ""
+
+#: code/js.php:23
+msgid "Found In Trash"
+msgstr ""
+
+#: code/js.php:25
+#: code/js.php:35
+msgid "Parent"
+msgstr ""
+
+#: code/js.php:37
+msgid "Popular"
+msgstr ""
+
+#: code/js.php:38
+msgid "All"
+msgstr ""
+
+#: code/js.php:40
+msgid "Update"
+msgstr ""
+
+#: code/js.php:42
+#: code/js.php:48
+#: code/js.php:58
 #: forms/admin/custompost.form.php:3
 #: forms/admin/taxonomy.form.php:3
+#: forms/admin/taxonomy.form.php:36
 #: forms/render/cpt.header.php:4
 #: forms/render/tax.header.php:5
 msgid "Name"
 msgstr ""
 
-#: code/js.php:12
-#: code/js.php:22
-#: forms/admin/custompost.form.php:11
-#: forms/admin/taxonomy.form.php:14
+#: code/js.php:49
+#: code/js.php:59
+#: forms/admin/taxonomy.form.php:15
 #: forms/render/cpt.header.php:3
 #: forms/render/tax.header.php:4
 msgid "Label"
 msgstr ""
 
-#: code/js.php:14
-#: code/js.php:24
+#: code/js.php:51
+#: code/js.php:61
 msgid "Some fields are required must be filled. Check this: "
 msgstr ""
 
-#: forms/admin/custompost.add.php:28
-#: forms/admin/custompost.edit.php:14
-#: forms/admin/taxonomy.add.php:30
+#: forms/admin/custompost.add.php:53
+#: forms/admin/custompost.edit.php:17
+#: forms/admin/taxonomy.add.php:40
 #: forms/admin/taxonomy.edit.php:14
 msgid "Go Back"
 msgstr ""
 
-#: forms/admin/custompost.add.php:19
+#: forms/admin/custompost.add.php:41
 #: forms/admin/custompost.edit.php:5
 msgid "Name for the custom post type is invalid. Fix before proceeding."
 msgstr ""
 
-#: forms/admin/custompost.add.php:26
+#: forms/admin/custompost.add.php:51
 msgid "New custom post type added."
 msgstr ""
 
-#: forms/admin/custompost.edit.php:12
+#: forms/admin/custompost.edit.php:15
 msgid "New custom post type updated."
 msgstr ""
 
@@ -54,128 +134,210 @@ msgstr ""
 msgid "Also, use only lower case letters and no special characters except for the underscore."
 msgstr ""
 
+#: forms/admin/custompost.form.php:11
+msgid "Description"
+msgstr ""
+
 #: forms/admin/custompost.form.php:15
-msgid "This is the display name for the custom post type."
+msgid "No HTML is allowed."
 msgstr ""
 
 #: forms/admin/custompost.form.php:18
-msgid "Features"
+#: forms/admin/taxonomy.form.php:32
+msgid "Labels"
 msgstr ""
 
-#: forms/admin/custompost.form.php:23
-#: forms/admin/custompost.form.php:42
-#: forms/admin/taxonomy.form.php:45
-msgid "Select"
+#: forms/admin/custompost.form.php:22
+msgid "Plural Name"
 msgstr ""
 
-#: forms/admin/custompost.form.php:37
-#: gd-taxonomies-tools.php:526
-#: gd-taxonomies-tools.php:526
-#: gd-taxonomies-tools.php:638
-msgid "Taxonomies"
+#: forms/admin/custompost.form.php:27
+#: forms/admin/taxonomy.form.php:41
+msgid "Singular Name"
 msgstr ""
 
-#: forms/admin/custompost.form.php:56
-#: forms/admin/taxonomy.form.php:61
-msgid "Visibility"
+#: forms/admin/custompost.form.php:34
+#: forms/admin/taxonomy.form.php:48
+msgid "Auto fill rest"
 msgstr ""
 
-#: forms/admin/custompost.form.php:61
-#: forms/admin/taxonomy.form.php:66
-msgid "Public"
+#: forms/admin/custompost.form.php:43
+#: forms/admin/taxonomy.form.php:90
+msgid "Add New Item"
+msgstr ""
+
+#: forms/admin/custompost.form.php:49
+#: forms/admin/taxonomy.form.php:79
+msgid "Edit Item"
+msgstr ""
+
+#: forms/admin/custompost.form.php:60
+msgid "New Item"
 msgstr ""
 
 #: forms/admin/custompost.form.php:65
+msgid "View Item"
+msgstr ""
+
+#: forms/admin/custompost.form.php:71
+#: forms/admin/taxonomy.form.php:57
+msgid "Search Items"
+msgstr ""
+
 #: forms/admin/custompost.form.php:76
-#: forms/admin/custompost.form.php:95
-#: forms/admin/custompost.form.php:108
-#: forms/admin/custompost.form.php:119
-#: forms/admin/taxonomy.form.php:70
-#: forms/admin/taxonomy.form.php:81
-#: forms/admin/taxonomy.form.php:92
-#: forms/admin/taxonomy.form.php:113
-msgid "Yes"
+msgid "Not Found"
 msgstr ""
 
-#: forms/admin/custompost.form.php:66
-#: forms/admin/custompost.form.php:77
-#: forms/admin/custompost.form.php:96
-#: forms/admin/custompost.form.php:109
-#: forms/admin/custompost.form.php:120
-#: forms/admin/taxonomy.form.php:71
-#: forms/admin/taxonomy.form.php:82
-#: forms/admin/taxonomy.form.php:93
-#: forms/admin/taxonomy.form.php:112
-#: forms/admin/taxonomy.form.php:125
-#: forms/admin/taxonomy.form.php:143
-msgid "No"
+#: forms/admin/custompost.form.php:82
+msgid "Not Found In Trash"
 msgstr ""
 
-#: forms/admin/custompost.form.php:72
-#: forms/admin/taxonomy.form.php:77
-msgid "Show UI"
+#: forms/admin/custompost.form.php:93
+msgid "Parent Item Colon"
 msgstr ""
 
-#: forms/admin/custompost.form.php:83
-msgid "Public setting set to NO will hide posts from the admin UI. Show UI will generate standard UI for post type management. Either of these set to NO will hide the edit panel."
-msgstr ""
-
-#: forms/admin/custompost.form.php:86
-#: forms/admin/taxonomy.form.php:103
+#: forms/admin/custompost.form.php:101
+#: forms/admin/taxonomy.form.php:168
 #: gd-taxonomies-tools.php:217
-#: gd-taxonomies-tools.php:527
-#: gd-taxonomies-tools.php:527
-#: gd-taxonomies-tools.php:562
+#: gd-taxonomies-tools.php:577
+#: gd-taxonomies-tools.php:577
+#: gd-taxonomies-tools.php:612
 msgid "Settings"
 msgstr ""
 
-#: forms/admin/custompost.form.php:91
-#: forms/admin/taxonomy.form.php:108
+#: forms/admin/custompost.form.php:106
+msgid "Features"
+msgstr ""
+
+#: forms/admin/custompost.form.php:123
+#: gd-taxonomies-tools.php:576
+#: gd-taxonomies-tools.php:576
+#: gd-taxonomies-tools.php:713
+msgid "Taxonomies"
+msgstr ""
+
+#: forms/admin/custompost.form.php:142
+#: forms/admin/taxonomy.form.php:173
 #: forms/render/cpt.header.php:7
 #: forms/render/tax.header.php:8
 msgid "Hierarchical"
 msgstr ""
 
-#: forms/admin/custompost.form.php:104
-#: forms/admin/taxonomy.form.php:119
+#: forms/admin/custompost.form.php:146
+#: forms/admin/custompost.form.php:159
+#: forms/admin/custompost.form.php:170
+#: forms/admin/custompost.form.php:187
+#: forms/admin/custompost.form.php:198
+#: forms/admin/custompost.form.php:280
+#: forms/admin/taxonomy.form.php:134
+#: forms/admin/taxonomy.form.php:145
+#: forms/admin/taxonomy.form.php:156
+#: forms/admin/taxonomy.form.php:178
+msgid "Yes"
+msgstr ""
+
+#: forms/admin/custompost.form.php:155
+#: forms/admin/taxonomy.form.php:184
 #: forms/render/cpt.header.php:6
 #: forms/render/tax.header.php:6
 msgid "Rewrite"
 msgstr ""
 
-#: forms/admin/custompost.form.php:115
-#: forms/admin/taxonomy.form.php:137
+#: forms/admin/custompost.form.php:166
+#: forms/admin/taxonomy.form.php:203
 msgid "Query Variable"
 msgstr ""
 
-#: forms/admin/custompost.form.php:126
-msgid "Allow post hierarchy similar to default Pages type."
+#: forms/admin/custompost.form.php:178
+#: forms/admin/taxonomy.form.php:125
+msgid "Visibility"
 msgstr ""
 
-#: forms/admin/custompost.form.php:129
-msgid "Advanced"
+#: forms/admin/custompost.form.php:183
+#: forms/admin/taxonomy.form.php:130
+msgid "Public"
 msgstr ""
 
-#: forms/admin/custompost.form.php:134
+#: forms/admin/custompost.form.php:194
+#: forms/admin/taxonomy.form.php:141
+msgid "Show UI"
+msgstr ""
+
+#: forms/admin/custompost.form.php:205
+msgid "Public setting set to NO will hide posts from the admin UI. Show UI will generate standard UI for post type management. Either of these set to NO will hide the edit panel."
+msgstr ""
+
+#: forms/admin/custompost.form.php:208
+#: forms/admin/taxonomy.form.php:227
 #: forms/render/cpt.header.php:8
 msgid "Capabilities"
 msgstr ""
 
-#: forms/admin/custompost.form.php:142
+#: forms/admin/custompost.form.php:212
+msgid "Edit Post"
+msgstr ""
+
+#: forms/admin/custompost.form.php:217
+msgid "Edit Posts"
+msgstr ""
+
+#: forms/admin/custompost.form.php:223
+msgid "Edit Others Posts"
+msgstr ""
+
+#: forms/admin/custompost.form.php:228
+msgid "Publish Posts"
+msgstr ""
+
+#: forms/admin/custompost.form.php:234
+msgid "Read Post"
+msgstr ""
+
+#: forms/admin/custompost.form.php:239
+msgid "Read Private Posts"
+msgstr ""
+
+#: forms/admin/custompost.form.php:245
+msgid "Delete Post"
+msgstr ""
+
+#: forms/admin/custompost.form.php:252
+#: forms/admin/taxonomy.form.php:254
+msgid "Do not change any of these if you are not sure what they are."
+msgstr ""
+
+#: forms/admin/custompost.form.php:255
+msgid "Advanced"
+msgstr ""
+
+#: forms/admin/custompost.form.php:260
 msgid "Edit Link"
 msgstr ""
 
-#: forms/admin/custompost.form.php:150
+#: forms/admin/custompost.form.php:268
+msgid "Rewrite Slug"
+msgstr ""
+
+#: forms/admin/custompost.form.php:276
+msgid "Rewrite With Front"
+msgstr ""
+
+#: forms/admin/custompost.form.php:287
+msgid "Changing some of these settings can have undesired effects and can break your website."
+msgstr ""
+
+#: forms/admin/custompost.form.php:287
 msgid "Do not change this if you are not sure about this. Consult WordPress documentation for more details."
 msgstr ""
 
-#: forms/admin/custompost.form.php:154
+#: forms/admin/custompost.form.php:291
 msgid "Save Custom Post"
 msgstr ""
 
-#: forms/admin/customposts.php:28
-#: forms/admin/taxonomies.php:47
-msgid "Add New"
+#: forms/admin/custompost.form.php:111
+#: forms/admin/custompost.form.php:128
+#: forms/admin/taxonomy.form.php:109
+msgid "(all)"
 msgstr ""
 
 #: forms/admin/customposts.php:5
@@ -222,12 +384,12 @@ msgstr ""
 msgid "You can change that on the settings panel."
 msgstr ""
 
-#: forms/admin/taxonomy.add.php:21
+#: forms/admin/taxonomy.add.php:31
 #: forms/admin/taxonomy.edit.php:5
 msgid "Name for the taxonomy is invalid. Fix before proceeding."
 msgstr ""
 
-#: forms/admin/taxonomy.add.php:28
+#: forms/admin/taxonomy.add.php:38
 msgid "New taxonomy added."
 msgstr ""
 
@@ -243,84 +405,120 @@ msgstr ""
 msgid "This must be unique name, not used by any other taxonomy."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:19
+#: forms/admin/taxonomy.form.php:20
 msgid "Standard"
 msgstr ""
 
 #: forms/admin/taxonomy.form.php:28
-msgid "Singular"
+msgid "This is the display name for the taxonomy. WordPress 3.0 uses different model for labels."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:37
-msgid "This is the display name for the taxonomy. Standard value is usually plural. Singular is added in WordPress 3."
+#: forms/admin/taxonomy.form.php:52
+msgid "Parent Item"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:40
-#: gd-taxonomies-tools.php:524
-#: gd-taxonomies-tools.php:524
-msgid "Post Types"
+#: forms/admin/taxonomy.form.php:63
+msgid "Popular Items"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:58
-msgid "At least one type must be selected. If not, Posts type will be added by default."
+#: forms/admin/taxonomy.form.php:68
+msgid "All Items"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:88
-msgid "Tag Cloud Widget"
+#: forms/admin/taxonomy.form.php:74
+msgid "New Item Name"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:85
+msgid "Update Item"
 msgstr ""
 
 #: forms/admin/taxonomy.form.php:99
+#: gd-taxonomies-tools.php:574
+#: gd-taxonomies-tools.php:574
+msgid "Post Types"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:104
+msgid "Select"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:121
+msgid "At least one type must be selected. If not, Posts type will be added by default."
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:152
+msgid "Tag Cloud Widget"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:163
 msgid "Public setting set to NO will hide taxonomies from the admin UI."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:100
+#: forms/admin/taxonomy.form.php:164
 msgid "Tag cloud option set to NO will exclude this taxonomy from default Tag Cloud widget."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:123
-#: forms/admin/taxonomy.form.php:141
+#: forms/admin/taxonomy.form.php:188
+#: forms/admin/taxonomy.form.php:207
 msgid "Yes, using name"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:124
-#: forms/admin/taxonomy.form.php:142
+#: forms/admin/taxonomy.form.php:189
+#: forms/admin/taxonomy.form.php:208
 msgid "Yes, custom value"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:129
-#: forms/admin/taxonomy.form.php:147
+#: forms/admin/taxonomy.form.php:195
+#: forms/admin/taxonomy.form.php:214
 msgid "Custom"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:155
+#: forms/admin/taxonomy.form.php:222
 msgid "For rewrite and query custom variables use only lower case letters and no special characters except for the underscore."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:156
+#: forms/admin/taxonomy.form.php:223
 msgid "With WP 2.8.x and WP 2.9.x not all options work, and they are disabled. Once the WordPress starts supporting this option, they will be enabled."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:159
+#: forms/admin/taxonomy.form.php:231
+msgid "Manage terms"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:236
+msgid "Edit terms"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:242
+msgid "Delete terms"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:247
+msgid "Assign terms"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:258
 msgid "Status"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:161
+#: forms/admin/taxonomy.form.php:260
 msgid "Taxonomy is set to active."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:165
+#: forms/admin/taxonomy.form.php:264
 msgid "Save Taxonomy"
 msgstr ""
 
-#: forms/modules/general.php:17
+#: forms/modules/general.php:16
 msgid "Basic Custom Posts Statistics"
 msgstr ""
 
-#: forms/modules/general.php:19
+#: forms/modules/general.php:18
 msgid "Default Posts Types"
 msgstr ""
 
-#: forms/modules/general.php:31
+#: forms/modules/general.php:30
 msgid "Custom Posts Types"
 msgstr ""
 
@@ -328,20 +526,20 @@ msgstr ""
 msgid "No custom post types found."
 msgstr ""
 
-#: forms/modules/general.php:51
+#: forms/modules/general.php:50
 msgid "Basic statistics"
 msgstr ""
 
-#: forms/modules/general.php:53
+#: forms/modules/general.php:52
 msgid "Default Taxonomies"
 msgstr ""
 
-#: forms/modules/general.php:63
+#: forms/modules/general.php:62
 #: gd-taxonomies-tools.php:203
 msgid "Custom Taxonomies"
 msgstr ""
 
-#: forms/modules/general.php:74
+#: forms/modules/general.php:73
 msgid "No custom taxonomies found."
 msgstr ""
 
@@ -559,17 +757,17 @@ msgstr ""
 
 #: widgets/gdtt-terms-cloud/basic.php:2
 #: widgets/gdtt-terms-list/basic.php:2
-#: gd-taxonomies-tools.php:583
+#: gd-taxonomies-tools.php:633
 msgid "Title"
 msgstr ""
 
-#: widgets/gdtt-terms-cloud/basic.php:8
-#: widgets/gdtt-terms-list/basic.php:8
+#: widgets/gdtt-terms-cloud/basic.php:6
+#: widgets/gdtt-terms-list/basic.php:6
 msgid "Maximum terms to show"
 msgstr ""
 
 #: widgets/gdtt-terms-cloud/display.php:2
-#: widgets/gdtt-terms-list/display.php:8
+#: widgets/gdtt-terms-list/display.php:11
 msgid "Additional CSS class"
 msgstr ""
 
@@ -620,23 +818,50 @@ msgstr ""
 msgid "Descending"
 msgstr ""
 
+#: widgets/gdtt-terms-cloud/filter.php:28
+#: widgets/gdtt-terms-list/filter.php:28
+msgid "Exclude"
+msgstr ""
+
+#: widgets/gdtt-terms-cloud/filter.php:31
+#: widgets/gdtt-terms-list/filter.php:31
+msgid "Comma or space separated list of term ID's."
+msgstr ""
+
+#: widgets/gdtt-terms-cloud/filter.php:35
+#: widgets/gdtt-terms-list/filter.php:35
+msgid "Hide empty"
+msgstr ""
+
 #: widgets/gdtt-terms-list/display.php:2
+msgid "Display as"
+msgstr ""
+
+#: widgets/gdtt-terms-list/display.php:5
+msgid "List"
+msgstr ""
+
+#: widgets/gdtt-terms-list/display.php:6
+msgid "Drop down"
+msgstr ""
+
+#: widgets/gdtt-terms-list/display.php:15
 msgid "Show number of posts"
 msgstr ""
 
-#: widgets/gdtt-terms-cloud.php:18
+#: widgets/gdtt-terms-cloud.php:20
 msgid "Display cloud with taxonomy terms."
 msgstr ""
 
-#: widgets/gdtt-terms-list.php:16
+#: widgets/gdtt-terms-list.php:19
 msgid "Display list with taxonomy terms."
 msgstr ""
 
-#: widgets/gdtt-terms-list.php:52
+#: widgets/gdtt-terms-list.php:91
 msgid "post"
 msgstr ""
 
-#: widgets/gdtt-terms-list.php:52
+#: widgets/gdtt-terms-list.php:91
 msgid "posts"
 msgstr ""
 
@@ -660,68 +885,68 @@ msgstr ""
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: gd-taxonomies-tools.php:522
-#: gd-taxonomies-tools.php:522
+#: gd-taxonomies-tools.php:572
+#: gd-taxonomies-tools.php:572
 msgid "Front Page"
 msgstr ""
 
-#: gd-taxonomies-tools.php:573
+#: gd-taxonomies-tools.php:623
 msgid "Tools"
 msgstr ""
 
-#: gd-taxonomies-tools.php:584
+#: gd-taxonomies-tools.php:634
 msgid "Editor"
 msgstr ""
 
-#: gd-taxonomies-tools.php:585
+#: gd-taxonomies-tools.php:635
 msgid "Excerpts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:586
+#: gd-taxonomies-tools.php:636
 msgid "Trackbacks"
 msgstr ""
 
-#: gd-taxonomies-tools.php:587
+#: gd-taxonomies-tools.php:637
 msgid "Custom Fields"
 msgstr ""
 
-#: gd-taxonomies-tools.php:588
+#: gd-taxonomies-tools.php:638
 msgid "Comments"
 msgstr ""
 
-#: gd-taxonomies-tools.php:589
+#: gd-taxonomies-tools.php:639
 msgid "Revisions"
 msgstr ""
 
-#: gd-taxonomies-tools.php:590
+#: gd-taxonomies-tools.php:640
 msgid "Post Thumbnails"
 msgstr ""
 
-#: gd-taxonomies-tools.php:591
+#: gd-taxonomies-tools.php:641
 msgid "Author"
 msgstr ""
 
-#: gd-taxonomies-tools.php:592
+#: gd-taxonomies-tools.php:642
 msgid "Page Attributes"
 msgstr ""
 
-#: gd-taxonomies-tools.php:603
+#: gd-taxonomies-tools.php:653
 msgid "Custom Posts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:607
+#: gd-taxonomies-tools.php:657
 msgid "Add new Custom Posts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:611
+#: gd-taxonomies-tools.php:661
 msgid "Edit Custom Posts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:642
+#: gd-taxonomies-tools.php:717
 msgid "Add new Taxonomy"
 msgstr ""
 
-#: gd-taxonomies-tools.php:646
+#: gd-taxonomies-tools.php:721
 msgid "Edit Taxonomy"
 msgstr ""
 

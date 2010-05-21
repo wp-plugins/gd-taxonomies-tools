@@ -11,6 +11,11 @@ if (file_exists($gdtt_config_extra)) require_once($gdtt_config_extra);
 if (!defined('GDTAXTOOLS_WPLOAD')) define('GDTAXTOOLS_WPLOAD', '');
 
 /**
+ * Line ending used for generating the backup file.
+ */
+if (!defined('GDTAXTOOLS_EOL')) define('GDTAXTOOLS_EOL', "\r\n");
+
+/**
  * Full path to a text file used to save debug info. File must be writeable.
  */
 define('GDTAXTOOLS_LOG_PATH', dirname(__FILE__).'/debug.txt');
