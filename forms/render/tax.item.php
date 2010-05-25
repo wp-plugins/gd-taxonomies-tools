@@ -1,8 +1,11 @@
 <?php
 
-if ($tax_data->name == "category") $edit_term_url = "categories.php";
-else if ($tax_data->name == "link_category") $edit_term_url = "edit-link-categories.php";
-else $edit_term_url = "edit-tags.php?taxonomy=".$tax_data->name;
+if ($tax_data->name == "link_category") {
+    $edit_term_url = "edit-link-categories.php";
+} else {
+    $edit_term_url = "edit-tags.php?taxonomy=".$tax_data->name;
+    if ($tax_data->name == "category" && $wpv < 30) $edit_term_url = "categories.php";
+}
 
 $istaxtool = in_array($tax_data->name, $gdtttax);
 $tt_url = "admin.php?page=gdtaxtools_taxs&tid=";

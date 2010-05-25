@@ -7,6 +7,9 @@ if ($errors == "name") {
 }
 
 if (isset($_POST["gdtt_savetax"])) {
+    global $wp_rewrite;
+    $wp_rewrite->flush_rules();
+
     $tax = $this->edit_tax;
     if ($errors == "") {
         $editor = false;

@@ -1,6 +1,6 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
-Version: 1.1.8
+Version: 1.1.9
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 3.0
@@ -56,6 +56,12 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 5. Taxonomy Terms List Widget
 
 == Changelog ==
+= 1.1.9 =
+* flushing rewrite rules on taxonomies modification
+* Rewriten list widget listed display
+* Fixed widget use of home_url function
+* Fixed term links on the taxonomies page
+
 = 1.1.8 =
 * Some improvements to base widget class
 * Cloud widget options to hide empty and exclude terms

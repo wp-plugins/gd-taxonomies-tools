@@ -43,23 +43,23 @@ class gdttTermsList extends gdtt_Widget {
 
     function results($instance) {
         $instance["echo"] = 0;
-        $args = $drop = array();
+        $args = array();
         foreach ($instance as $name => $value) {
             if ($name != "title" && 
-                $name != "taxonomy" &&
                 $name != "display_count" &&
                 $name != "display_render" &&
                 $name != "display_css") {
-                    $drop[$name] = $value;
-                    $args[] = $name."=".$value;
+                    $args[$name] = $value;
             }
         }
+
+        $args["show_count"] = $instance["display_count"];
         if ($instance['display_render'] == "drop") {
-            $drop["taxonomy"] = $instance["taxonomy"];
-            $drop["name"] = "gdtt-drop-".$this->widget_id;
-            return gdtt_dropdown_taxonomy_terms($drop);
+            $args["name"] = "gdtt-drop-".$this->widget_id;
+            return gdtt_dropdown_taxonomy_terms($args);
         } else {
-            return get_terms($instance["taxonomy"], join("&", $args));
+            $args["link_class"] = "gdtt-url";
+            return gdtt_list_taxonomy_terms($args);
         }
     }
 
@@ -69,7 +69,7 @@ class gdttTermsList extends gdtt_Widget {
         $x.= 'var '.$js_var.' = document.getElementById("'.$id.'");'.GDTAXTOOLS_EOL;
         $x.= 'function onChange_'.$js_var.'() {'.GDTAXTOOLS_EOL;
         $x.= 'if ( '.$js_var.'.options['.$js_var.'.selectedIndex].value != "" ) {'.GDTAXTOOLS_EOL;
-        $x.= 'location.href = "'.home_url().'/" + '.$js_var.'.options['.$js_var.'.selectedIndex].value;'.GDTAXTOOLS_EOL;
+        $x.= 'location.href = '.$js_var.'.options['.$js_var.'.selectedIndex].value;'.GDTAXTOOLS_EOL;
         $x.= '}'.GDTAXTOOLS_EOL;
         $x.= '}'.GDTAXTOOLS_EOL;
         $x.= $js_var.'.onchange = onChange_'.$js_var.';'.GDTAXTOOLS_EOL;
@@ -88,12 +88,7 @@ class gdttTermsList extends gdtt_Widget {
             $render.= $this->add_js_code("gdtt-drop-".$this->widget_id, "gdtt_drop_".$this->widget_id);
         } else {
             $render.= '<div class="gdtt-widget gdtt-terms-list '.$instance["display_css"].'"><ul>';
-            foreach ($results as $r) {
-                $render.= '<li>';
-                $render.= sprintf('<a href="%s" class="gdtt-url">%s</a>', get_term_link($r, $instance["taxonomy"]), $r->name);
-                if ($instance["display_count"] == 1) $render.= sprintf(" (%s %s)", $r->count, $r->count == 1 ? __("post", "gd-taxonomies-tools") : __("posts", "gd-taxonomies-tools"));
-                $render.= '</li>';
-            }
+            $render.= $results;
             $render.= '</ul></div>';
         }
         return $render;
