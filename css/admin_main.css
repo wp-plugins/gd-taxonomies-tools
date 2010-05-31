@@ -26,8 +26,8 @@ p.sub {
 
 .gdpttitle div.edition {
 	float: left;
-	width: 40px;
-	height: 20px;
+	width: 48px;
+	height: 16px;
 	margin-left: 3px;
 	margin-top: 18px;
 }
@@ -39,11 +39,11 @@ p.sub {
 .gdpttitle div.gdtitle { float: left; margin-top: 7px; }
 
 .gdpttitle span {
-	font-size: 12px;
+	font-size: 14px;
 	vertical-align: 14px;
 	color: red;
 	font-weight: bold;
-	margin-left: -40px;
+	margin-left: -44px;
 }
 
 .gdrgrid .table {
@@ -117,7 +117,7 @@ p.sub {
 	font-size: 30px;
 	font-style: normal;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
-	padding: 0 0 0px;
+	padding: 0 0 3px 0;
 	border-bottom: 1px solid #DADADA;
 	color: #696969;
 }

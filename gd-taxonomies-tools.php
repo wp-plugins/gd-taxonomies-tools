@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.1.9
+Version: 1.2.0
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -27,19 +27,19 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-$gdsr_dirname_basic = dirname(__FILE__);
+$gdtt_dirname_basic = dirname(__FILE__);
 
-require_once($gdsr_dirname_basic."/config.php");
-require_once($gdsr_dirname_basic."/code/defaults.php");
-require_once($gdsr_dirname_basic."/code/functions.php");
-require_once($gdsr_dirname_basic."/code/database.php");
-require_once($gdsr_dirname_basic."/code/classes.php");
-require_once($gdsr_dirname_basic."/code/widget.php");
-require_once($gdsr_dirname_basic."/gdragon/gd_debug.php");
-require_once($gdsr_dirname_basic."/gdragon/gd_functions.php");
-require_once($gdsr_dirname_basic."/gdragon/gd_wordpress.php");
-require_once($gdsr_dirname_basic."/widgets/gdtt-terms-cloud.php");
-require_once($gdsr_dirname_basic."/widgets/gdtt-terms-list.php");
+require_once($gdtt_dirname_basic."/config.php");
+require_once($gdtt_dirname_basic."/code/defaults.php");
+require_once($gdtt_dirname_basic."/code/functions.php");
+require_once($gdtt_dirname_basic."/code/database.php");
+require_once($gdtt_dirname_basic."/code/classes.php");
+require_once($gdtt_dirname_basic."/code/widget.php");
+require_once($gdtt_dirname_basic."/gdragon/gd_debug.php");
+require_once($gdtt_dirname_basic."/gdragon/gd_functions.php");
+require_once($gdtt_dirname_basic."/gdragon/gd_wordpress.php");
+require_once($gdtt_dirname_basic."/widgets/gdtt-terms-cloud.php");
+require_once($gdtt_dirname_basic."/widgets/gdtt-terms-list.php");
 
 if (!class_exists('GDTaxonomiesTools')) {
     class GDTaxonomiesTools {
@@ -145,7 +145,7 @@ if (!class_exists('GDTaxonomiesTools')) {
         }
 
         function plugin_path_url() {
-            $this->plugin_url = WP_PLUGIN_URL.'/gd-taxonomies-tools/';
+            $this->plugin_url = plugins_url('/gd-taxonomies-tools/');
             $this->plugin_path = dirname(__FILE__)."/";
 
             define('GDTAXTOOLS_URL', $this->plugin_url);
@@ -271,6 +271,13 @@ if (!class_exists('GDTaxonomiesTools')) {
                     $caps = $cpt["caps"];
                 }
 
+                $cpt["public"] = $cpt["public"] == "yes";
+                $cpt["ui"] = !isset($cpt["ui"]) ? $cpt["public"] : $cpt["ui"] == "yes";
+                $cpt["nav_menus"] = !isset($cpt["nav_menus"]) ? $cpt["public"] : $cpt["nav_menus"] == "yes";
+                $cpt["can_export"] = !isset($cpt["can_export"]) ? $cpt["public"] : $cpt["can_export"] == "yes";
+                $cpt["publicly_queryable"] = !isset($cpt["publicly_queryable"]) ? $cpt["public"] : $cpt["publicly_queryable"] == "yes";
+                $cpt["exclude_from_search"] = !isset($cpt["exclude_from_search"]) ? !$cpt["public"] : $cpt["exclude_from_search"] == "yes";
+
                 $options = array(
                     "labels" => $labels,
                     "capabilities" => $caps,
@@ -278,8 +285,12 @@ if (!class_exists('GDTaxonomiesTools')) {
                     "supports" => (array)$cpt["supports"],
                     "taxonomies" => (array)$cpt["taxonomies"],
                     "hierarchical" => $cpt["hierarchy"] == "yes",
-                    "public" => $cpt["public"] == "yes",
-                    "show_ui" => $cpt["ui"] == "yes",
+                    "public" => $cpt["public"],
+                    "show_ui" => $cpt["ui"],
+                    "can_export" => $cpt["can_export"],
+                    "publicly_queryable" => $cpt["publicly_queryable"],
+                    "exclude_from_search" => $cpt["exclude_from_search"],
+                    "show_in_nav_menus" => $cpt["nav_menus"],
                     "rewrite" => $rewrite,
                     "query_var" => $cpt["query"] == "yes",
                     "_edit_link" => $cpt["edit_link"]
@@ -309,8 +320,9 @@ if (!class_exists('GDTaxonomiesTools')) {
                         if ($tax["query"] == "no") $query_var = false;
                         if ($tax["query"] == "yes_custom") $query_var = $tax["query_custom"];
                         $tax["public"] = !isset($tax["public"]) ? true : $tax["public"];
-                        $tax["ui"] = !isset($tax["ui"]) ? true : $tax["ui"];
-                        $tax["cloud"] = !isset($tax["cloud"]) ? true : $tax["cloud"];
+                        $tax["ui"] = !isset($tax["ui"]) ? $tax["public"] : $tax["ui"] == "yes";
+                        $tax["nav_menus"] = !isset($tax["nav_menus"]) ? $tax["public"] : $tax["nav_menus"] == "yes";
+                        $tax["cloud"] = !isset($tax["cloud"]) ? $tax["public"] : $tax["cloud"] == "yes";
                         if (!isset($tax["labels"])) {
                             $labels = array("name" => $tax["label"],
                                 "singular_name" => $tax["label_singular"]);
@@ -332,6 +344,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                             "public" => $tax["public"],
                             "show_ui" => $tax["ui"],
                             "show_tagcloud" => $tax["cloud"],
+                            "show_in_nav_menus" => $tax["nav_menus"],
                             "hierarchical" => $tax["hierarchy"] == "yes",
                         );
 
@@ -666,6 +679,10 @@ if (!class_exists('GDTaxonomiesTools')) {
                 if (!isset($cpt["description"])) $cpt["description"] = "";
                 if (!isset($cpt["rewrite_slug"])) $cpt["rewrite_slug"] = "";
                 if (!isset($cpt["rewrite_front"])) $cpt["rewrite_front"] = "no";
+                if (!isset($cpt["nav_menus"])) $cpt["nav_menus"] = "yes";
+                if (!isset($cpt["exclude_from_search"])) $cpt["exclude_from_search"] = "no";
+                if (!isset($cpt["publicly_queryable"])) $cpt["publicly_queryable"] = "yes";
+                if (!isset($cpt["can_export"])) $cpt["can_export"] = "yes";
                 if (!isset($cpt["labels"])) {
                     $cpt["labels"] = array("name" => $cpt["label"],
                         "singular_name" => $cpt["label_singular"],
@@ -722,6 +739,9 @@ if (!class_exists('GDTaxonomiesTools')) {
                 $page_title = __("Edit Taxonomy", "gd-taxonomies-tools");
                 $tax = $this->find_taxonomy($_GET["tid"]);
                 $tax["domain"] = explode(",", $tax["domain"]);
+                if (!isset($tax["nav_menus"])) {
+                    $tax["nav_menus"] = "yes";
+                }
                 if (!isset($tax["labels"])) {
                     $tax["labels"] = array("name" => $tax["label"],
                         "singular_name" => $tax["label_singular"],

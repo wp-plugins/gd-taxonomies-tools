@@ -6,6 +6,7 @@ $tax = array(
         "name" => "",
         "public" => "yes",
         "ui" => "yes",
+        "nav_menus" => "yes",
         "cloud" => "yes",
         "hierarchy" => "no",
         "rewrite" => "yes_name",

@@ -1,6 +1,6 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
-Version: 1.1.9
+Version: 1.2.0
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 3.0
@@ -13,7 +13,7 @@ GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand cust
 
 To work with custom post types you need WordPress 3.0. Plugin supports all latest features added to custom post types and supported by WordPress.
 
-[Upgrade to GD Custom Posts And Taxonomies Tools PRO](http://dv4p.com/g4) |
+[Upgrade to GD Custom Posts And Taxonomies Tools PRO](http://dv4p.com/gdtt) |
 [Compare Lite VS PRO](http://dv4p.com/vh)
 
 = Important URL's =
@@ -39,11 +39,11 @@ To work with custom post types you need WordPress 3.0. Plugin supports all lates
 
 == Frequently Asked Questions ==
 
-= Does plugin works with WPMU and WordPress MultiSite installations? =
+= Does plugin works with WordPressMU and WordPress MultiSite installations? =
 Yes.
 
 = I need support for using this plugin and some of it's features? =
-Lite version is regularly maintained, but it doesn't include any kind of support beyond bug fixing. If you need support, upgrade plugin to PRO edition and get much more additional features.
+Lite version is regularly maintained, but it doesn't include any kind of support beyond bug fixing. If you need support, upgrade plugin to PRO edition and get much more additional features: http://dv4p.com/gdtt.
 
 = I want to translate the plugin to my language, or to improve existing translations? =
 You only need POEdit program that works on Windows, Linux and MacOS. Instructions on how to make or update translations are here: http://dv4p.com/wa. POT file to start translation is included with the plugin.
@@ -56,6 +56,12 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 5. Taxonomy Terms List Widget
 
 == Changelog ==
+= 1.2.0 =
+* Additional custom post types options
+* Custom taxonomy visibility options
+* Getting plugin url uses wp specific function
+* Several small interface problems
+
 = 1.1.9 =
 * flushing rewrite rules on taxonomies modification
 * Rewriten list widget listed display

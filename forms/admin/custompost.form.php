@@ -183,27 +183,38 @@
                 <td width="150" valign="top">
                     <?php _e("Public", "gd-taxonomies-tools"); ?>:
                 </td>
-                <td width="230" valign="top">
+                <td valign="top">
                     <select name="cpt[public]" class="input-text-middle">
                         <option value="yes"<?php echo $cpt["public"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
                         <option value="no"<?php echo $cpt["public"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
                     </select>
                 </td>
-            </tr>
-            <tr>
+                <td style="width: 20px;"></td>
                 <td width="150" valign="top">
                     <?php _e("Show UI", "gd-taxonomies-tools"); ?>:
                 </td>
-                <td width="230" valign="top">
+                <td valign="top">
                     <select name="cpt[ui]" class="input-text-middle">
                         <option value="yes"<?php echo $cpt["ui"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
                         <option value="no"<?php echo $cpt["ui"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
                     </select>
                 </td>
             </tr>
+            <tr>
+                <td width="150" valign="top">
+                    <?php _e("Navigation Menus", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top" colspan="4">
+                    <select name="cpt[nav_menus]" class="input-text-middle">
+                        <option value="yes"<?php echo $cpt["nav_menus"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $cpt["nav_menus"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+            </tr>
         </table>
         <div class="gdsr-table-split"></div>
         <?php _e("Public setting set to NO will hide posts from the admin UI. Show UI will generate standard UI for post type management. Either of these set to NO will hide the edit panel.", "gd-taxonomies-tools"); ?>
+        <?php _e("Navigational menu option will make custom post type available for building menus."); ?>
     </td>
 </tr>
 <tr><th scope="row"><?php _e("Capabilities", "gd-taxonomies-tools"); ?></th>
@@ -263,8 +274,7 @@
                 <td valign="top">
                     <input type="text" value="<?php echo $cpt["edit_link"]; ?>" name="cpt[edit_link]" class="input-text-middle" />
                 </td>
-            </tr>
-            <tr>
+                <td style="width: 20px;"></td>
                 <td width="150" style="vertical-align: top;">
                     <?php _e("Rewrite Slug", "gd-taxonomies-tools"); ?>:
                 </td>
@@ -276,10 +286,41 @@
                 <td width="150" valign="top">
                     <?php _e("Rewrite With Front", "gd-taxonomies-tools"); ?>:
                 </td>
-                <td width="230" valign="top">
+                <td valign="top">
                     <select name="cpt[rewrite_front]" class="input-text-middle">
                         <option value="yes"<?php echo $cpt["rewrite_front"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
                         <option value="no"<?php echo $cpt["rewrite_front"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+                <td style="width: 20px;"></td>
+                <td width="150" valign="top">
+                    <?php _e("Publicly Queryable", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top">
+                    <select name="cpt[publicly_queryable]" class="input-text-middle">
+                        <option value="yes"<?php echo $cpt["publicly_queryable"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $cpt["publicly_queryable"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="150" valign="top">
+                    <?php _e("Exclude From Search", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top">
+                    <select name="cpt[exclude_from_search]" class="input-text-middle">
+                        <option value="yes"<?php echo $cpt["exclude_from_search"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $cpt["exclude_from_search"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+                <td style="width: 20px;"></td>
+                <td width="150" valign="top">
+                    <?php _e("Can be Exported", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top">
+                    <select name="cpt[can_export]" class="input-text-middle">
+                        <option value="yes"<?php echo $cpt["can_export"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $cpt["can_export"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
                     </select>
                 </td>
             </tr>
