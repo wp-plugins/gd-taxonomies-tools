@@ -2,9 +2,9 @@
 
 /*
 Plugin Name: GD Custom Posts And Taxonomies Tools
-Plugin URI: http://www.dev4press.com/plugins/gd-taxonomies-tools/
+Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.2.0
+Version: 1.2.1
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -205,7 +205,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                 if ($this->wp_version >= 30) {
                     $links[] = '<a href="admin.php?page=admin_postypes">'.__("Custom Post Types", "gd-taxonomies-tools").'</a>';
                 }
-                $links[] = '<a target="_blank" style="color: #cc0000; font-weight: bold;" href="http://www.dev4press.com/plugins/gd-taxonomies-tools/editions/">' . __("Upgrade to PRO", "gd-taxonomies-tools") . '</a>';
+                $links[] = '<a target="_blank" style="color: #cc0000; font-weight: bold;" href="http://www.dev4press.com/gd-taxonomies-tools/">' . __("Upgrade to PRO", "gd-taxonomies-tools") . '</a>';
             }
             return $links;
 	}

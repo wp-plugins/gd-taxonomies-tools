@@ -1,6 +1,7 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
-Version: 1.2.0
+Donate link: http://dv4p.com/gdtt
+Version: 1.2.1
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 3.0
@@ -38,7 +39,6 @@ To work with custom post types you need WordPress 3.0. Plugin supports all lates
 * Activate the plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
-
 = Does plugin works with WordPressMU and WordPress MultiSite installations? =
 Yes.
 
@@ -55,7 +55,15 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 4. Taxonomy Terms Cloud Widget
 5. Taxonomy Terms List Widget
 
+== Upgrade Notice ==
+= 1.2.0 =
+Completed implementation of all custom post types and taxonomies settings added in WordPress 3.0.
+
 == Changelog ==
+= 1.2.1 =
+* Updated readme file to include upgrade notice
+* Updates to some of plugin URL's
+
 = 1.2.0 =
 * Additional custom post types options
 * Custom taxonomy visibility options
@@ -126,20 +134,3 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 = 1.0.0 =
 * Code cleanup and completed info files
 * Fixed few minor issues
-
-= 0.7.0 =
-* Removed unneeded code
-* Fixed loading of jquery styles
-
-= 0.6.0 =
-* Added support for WordPress 2.9
-* Chinese and Spanish translations
-* More integration functions
-* Code reorganization and optimization
-* Updated GDragoN shared libraries
-
-= 0.5.0 =
-* Functions for theme integration
-* Terms list widget
-* Danish translation
-* Small fixes
