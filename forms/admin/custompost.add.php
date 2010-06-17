@@ -47,8 +47,8 @@ if ($errors == "name") {
 }
 
 if (isset($_POST["gdtt_savecpt"])) {
-    global $wp_rewrite;
-    $wp_rewrite->flush_rules();
+    $this->o["force_rules_flush"] = 1;
+    update_option('gd-taxonomy-tools', $this->o);
 
     $cpt = $this->edit_cpt;
     if ($errors == "") {

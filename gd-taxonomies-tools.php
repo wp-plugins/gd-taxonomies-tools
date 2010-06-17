@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.2.1
+Version: 1.2.2
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -203,7 +203,7 @@ if (!class_exists('GDTaxonomiesTools')) {
             if ($file == $this_plugin){
                 $links[] = '<a href="admin.php?page=gdtaxtools_taxs">'.__("Custom Taxonomies", "gd-taxonomies-tools").'</a>';
                 if ($this->wp_version >= 30) {
-                    $links[] = '<a href="admin.php?page=admin_postypes">'.__("Custom Post Types", "gd-taxonomies-tools").'</a>';
+                    $links[] = '<a href="admin.php?page=agdtaxtools_postypes">'.__("Custom Post Types", "gd-taxonomies-tools").'</a>';
                 }
                 $links[] = '<a target="_blank" style="color: #cc0000; font-weight: bold;" href="http://www.dev4press.com/gd-taxonomies-tools/">' . __("Upgrade to PRO", "gd-taxonomies-tools") . '</a>';
             }
@@ -215,7 +215,7 @@ if (!class_exists('GDTaxonomiesTools')) {
             if (!$this_plugin) $this_plugin = plugin_basename(__FILE__);
 
             if ($file == $this_plugin){
-                $settings_link = '<a href="admin.php?page=gdtaxtools-settings">' . __("Settings", "gd-taxonomies-tools") . '</a>';
+                $settings_link = '<a href="admin.php?page=gdtaxtools_settings">' . __("Settings", "gd-taxonomies-tools") . '</a>';
                 array_unshift($links, $settings_link);
             }
             return $links;
@@ -244,6 +244,14 @@ if (!class_exists('GDTaxonomiesTools')) {
             if(!empty($this->l)) {
                 $moFile = dirname(__FILE__)."/languages/gd-taxonomies-tools-".$this->l.".mo";
                 if (@file_exists($moFile) && is_readable($moFile)) load_textdomain('gd-taxonomies-tools', $moFile);
+            }
+
+            if ($this->o["force_rules_flush"] == 1) {
+                global $wp_rewrite;
+                $wp_rewrite->flush_rules();
+
+                $this->o["force_rules_flush"] = 0;
+                update_option('gd-taxonomy-tools', $this->o);
             }
         }
 
