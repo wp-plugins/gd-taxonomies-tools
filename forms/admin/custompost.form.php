@@ -214,7 +214,7 @@
         </table>
         <div class="gdsr-table-split"></div>
         <?php _e("Public setting set to NO will hide posts from the admin UI. Show UI will generate standard UI for post type management. Either of these set to NO will hide the edit panel.", "gd-taxonomies-tools"); ?>
-        <?php _e("Navigational menu option will make custom post type available for building menus."); ?>
+        <?php _e("Navigational menu option will make custom post type available for building menus.", "gd-taxonomies-tools"); ?>
     </td>
 </tr>
 <tr><th scope="row"><?php _e("Capabilities", "gd-taxonomies-tools"); ?></th>

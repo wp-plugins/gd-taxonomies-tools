@@ -1,7 +1,7 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://dv4p.com/gdtt
-Version: 1.2.2
+Version: 1.2.3
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 3.0
@@ -12,7 +12,7 @@ GD Custom Posts And Taxonomies Tools is plugin for management and tools collecti
 == Description ==
 GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand custom taxonomies and custom post types support. Plugin adds many tools including custom post types and taxonomies management and widget for taxonomies terms cloud.
 
-Supported languages: english, spanish, danish, chinese
+Supported languages: english, chinese, spanish, danish
 
 To work with custom post types you need WordPress 3.0. Plugin supports all latest features added to custom post types and supported by WordPress.
 
@@ -43,11 +43,11 @@ To work with custom post types you need WordPress 3.0. Plugin supports all lates
 = Does plugin works with WordPressMU and WordPress MultiSite installations? =
 Yes.
 
-= I need support for using this plugin and some of it's features? =
-Lite version is regularly maintained, but it doesn't include any kind of support beyond bug fixing. If you need support, upgrade plugin to PRO edition and get much more additional features: http://dv4p.com/gdtt.
-
 = I want to translate the plugin to my language, or to improve existing translations? =
 You only need POEdit program that works on Windows, Linux and MacOS. Instructions on how to make or update translations are here: http://dv4p.com/wa. POT file to start translation is included with the plugin.
+
+= I need support for using this plugin and some of it's features? =
+Lite version is regularly maintained, but it doesn't include any kind of support beyond bug fixing. If you need support, upgrade plugin to PRO edition and get much more additional features: http://dv4p.com/gdtt.
 
 == Screenshots ==
 1. Taxonomies Management
@@ -61,6 +61,9 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 Improved flushing of rewrite rules after adding post type or taxonomy and few fixes.
 
 == Changelog ==
+= 1.2.3 =
+* Updated translation strings
+
 = 1.2.2 =
 * Improved flushing of rewrite rules after adding post type or taxonomy
 * Fixed internal links from plugins panel
@@ -77,7 +80,7 @@ Improved flushing of rewrite rules after adding post type or taxonomy and few fi
 
 = 1.1.9 =
 * flushing rewrite rules on taxonomies modification
-* Rewriten list widget listed display
+* Rewritten list widget listed display
 * Fixed widget use of home_url function
 * Fixed term links on the taxonomies page
 
@@ -130,10 +133,10 @@ Improved flushing of rewrite rules after adding post type or taxonomy and few fi
 * Some cleanup and fixes.
 
 = 1.0.2 =
-* Improved support for wordpress 3.0
+* Improved support for WordPress 3.0
 
 = 1.0.1 =
-* Initial support for wordpress 3.0
+* Initial support for WordPress 3.0
 * Some minor bugs fixed
 
 = 1.0.0 =

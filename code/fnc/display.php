@@ -158,7 +158,7 @@ function gdtt_dropdown_taxonomy_terms( $args = array() ) {
 */
 function gdtt_list_taxonomy_terms( $args = array() ) {
     $defaults = array(
-        'show_option_all' => '', 'show_option_none' => __('No categories'),
+        'show_option_all' => '', 'show_option_none' => __("No categories", "gd-taxonomies-tools"),
         'orderby' => 'name', 'order' => 'ASC',
         'show_last_update' => 0, 'style' => 'list',
         'show_count' => 0, 'hide_empty' => 1,
