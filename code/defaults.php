@@ -2,10 +2,10 @@
 
 class GDTTDefaults {
     var $default_options = array(
-        "version" => "1.2.3",
-        "date" => "2010.07.02.",
+        "version" => "1.2.4",
+        "date" => "2010.07.04.",
         "status" => "Stable",
-        "build" => 1230,
+        "build" => 1240,
         "product_id" => "gd-taxonomies-tools",
         "edition" => "lite",
         "upgrade_to_pro" => 1,
@@ -13,7 +13,6 @@ class GDTTDefaults {
         "tax_internal" => 0,
         "cpt_internal" => 0,
         "delete_taxonomy_db" => 0,
-        "sitemap_expand" => 0,
         "tinymce_auto_create" => 1,
         "tinymce_search_limit" => 5
     );

@@ -44,9 +44,7 @@ class gdttTermsCloud extends gdtt_Widget {
         $instance["echo"] = false;
         $args = array();
         foreach ($instance as $name => $value) {
-            if ($name != "title" && 
-                $name != "taxonomy" &&
-                $name != "display_css") $args[] = $name."=".$value;
+            if ($name != "title" && $name != "display_css") $args[] = $name."=".$value;
         }
         return wp_tag_cloud(join("&", $args));
     }

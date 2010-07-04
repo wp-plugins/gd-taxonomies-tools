@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.2.3
+Version: 1.2.4
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -171,30 +171,11 @@ if (!class_exists('GDTaxonomiesTools')) {
             add_filter('plugin_row_meta', array(&$this, 'plugin_links'),10, 2);
             add_filter('plugin_action_links', array(&$this, 'plugin_actions'), 10, 2);
             add_action('after_plugin_row', array(&$this,'plugin_check_version'), 10, 2);
-
-            if ($this->o["sitemap_expand"] == 1)
-                add_action("sm_buildmap", array(&$this, 'expand_sitemap'));
         }
 
         function widgets_init() {
             register_widget("gdttTermsCloud");
             register_widget("gdttTermsList");
-        }
-
-        function expand_sitemap() {
-            global $sxml, $wp_taxonomies;
-            if (class_exists("GoogleSitemapGenerator")) {
-                $sxml = &GoogleSitemapGenerator::GetInstance();
-                if ($sxml != null)  {
-                    $taxs = array_slice($wp_taxonomies, $this->get_defaults_count());
-                    foreach ($taxs as $tax => $info) {
-                        $terms = get_terms($tax, array());
-                        foreach ($terms as $term) {
-                            $sxml->AddUrl(get_term_link($term, $tax), time(), "daily", 0.6);
-                        }
-                    }
-                }
-            }
         }
 
 	function plugin_links($links, $file) {
@@ -205,7 +186,8 @@ if (!class_exists('GDTaxonomiesTools')) {
                 if ($this->wp_version >= 30) {
                     $links[] = '<a href="admin.php?page=agdtaxtools_postypes">'.__("Custom Post Types", "gd-taxonomies-tools").'</a>';
                 }
-                $links[] = '<a target="_blank" style="color: #cc0000; font-weight: bold;" href="http://www.dev4press.com/gd-taxonomies-tools/">' . __("Upgrade to PRO", "gd-taxonomies-tools") . '</a>';
+                $links[] = '<a href="http://www.dev4press.com/plugins/gd-taxonomies-tools/faq/">'.__("FAQ", "gd-taxonomies-tools").'</a>';
+                $links[] = '<a target="_blank" style="color: #cc0000; font-weight: bold;" href="http://dv4p.com/gdtt">'.__("Upgrade to PRO", "gd-taxonomies-tools").'</a>';
             }
             return $links;
 	}
@@ -581,7 +563,6 @@ if (!class_exists('GDTaxonomiesTools')) {
         function settings_operations() {
             if (isset($_POST['gdtt_saving'])) {
                 $this->o["delete_taxonomy_db"] = isset($_POST['delete_taxonomy_db']) ? 1 : 0;
-                $this->o["sitemap_expand"] = isset($_POST['sitemap_expand']) ? 1 : 0;
 
                 update_option("gd-taxonomy-tools", $this->o);
                 wp_redirect(add_query_arg("settings", "saved"));
