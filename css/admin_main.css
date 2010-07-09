@@ -232,7 +232,6 @@ textarea, input, select { border-color: #696969; }
     margin: 0.8em 0;
 }
 
-
 .ui-dropdownchecklist {
 	height: 16px;
 	-moz-border-radius: 4px;
@@ -262,4 +261,13 @@ textarea, input, select { border-color: #696969; }
 
 input {
 	border-color: #696969 !important;
+}
+
+.gdsr-major-info {
+        background-color:#F7F7F7;
+        color:#D00;
+        font-weight:bold;
+        padding:1px 6px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
 }

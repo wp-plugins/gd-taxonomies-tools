@@ -8,8 +8,10 @@
         <br /><input type="checkbox" name="tax[rename]" /><label style="margin-left: 5px;"><?php _e("Allow renaming of the taxonomy name. This will cause renaming all database entries for this taxonomy.", "gd-taxonomies-tools"); ?></label>
         <?php } ?>
         <div class="gdsr-table-split"></div>
-        <?php _e("This must be unique name, not used by any other taxonomy.", "gd-taxonomies-tools"); ?><br />
-        <?php _e("Also, use only lower case letters and no special characters except for the underscore.", "gd-taxonomies-tools"); ?>
+        <div class="gdsr-major-info">
+            <?php _e("This must be unique name, not used by any other taxonomy.", "gd-taxonomies-tools"); ?><br />
+            <?php _e("Also, use only lower case letters and no special characters except for the underscore.", "gd-taxonomies-tools"); ?>
+        </div>
     </td>
 </tr>
 <?php if ($wpv < 30) { ?>

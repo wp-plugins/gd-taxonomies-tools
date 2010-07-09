@@ -3,7 +3,7 @@
 $tt_url = "admin.php?page=gdtaxtools_postypes&pid=";
 
 foreach ($gdcpall as $cpt) {
-    if ($cpt["name"] == $cpt_name) {
+    if (strtolower(sanitize_user($cpt["name"], true)) == $cpt_name) {
         $tt_url.= $cpt["id"];
         break;
     }

@@ -15,6 +15,10 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: \n"
 
+#: code/fnc/display.php:160
+msgid "No categories"
+msgstr "无分类"
+
 #: code/js.php:2
 msgid "Are you sure? Operation is not reversible."
 msgstr "您确定吗？操作是不可逆的。"
@@ -62,14 +66,19 @@ msgstr "搜索"
 #: forms/admin/custompost.form.php:160
 #: forms/admin/custompost.form.php:171
 #: forms/admin/custompost.form.php:188
-#: forms/admin/custompost.form.php:199
-#: forms/admin/custompost.form.php:281
+#: forms/admin/custompost.form.php:198
+#: forms/admin/custompost.form.php:209
+#: forms/admin/custompost.form.php:291
+#: forms/admin/custompost.form.php:301
+#: forms/admin/custompost.form.php:312
+#: forms/admin/custompost.form.php:322
 #: forms/admin/taxonomy.form.php:135
-#: forms/admin/taxonomy.form.php:146
-#: forms/admin/taxonomy.form.php:157
-#: forms/admin/taxonomy.form.php:177
-#: forms/admin/taxonomy.form.php:190
-#: forms/admin/taxonomy.form.php:209
+#: forms/admin/taxonomy.form.php:145
+#: forms/admin/taxonomy.form.php:156
+#: forms/admin/taxonomy.form.php:166
+#: forms/admin/taxonomy.form.php:186
+#: forms/admin/taxonomy.form.php:199
+#: forms/admin/taxonomy.form.php:218
 msgid "No"
 msgstr "否"
 
@@ -122,19 +131,19 @@ msgstr "标签"
 msgid "Some fields are required must be filled. Check this: "
 msgstr "某些区域是必须填写的。检查这里："
 
-#: forms/admin/custompost.add.php:53
+#: forms/admin/custompost.add.php:57
 #: forms/admin/custompost.edit.php:17
-#: forms/admin/taxonomy.add.php:40
-#: forms/admin/taxonomy.edit.php:14
+#: forms/admin/taxonomy.add.php:44
+#: forms/admin/taxonomy.edit.php:17
 msgid "Go Back"
 msgstr "返回"
 
-#: forms/admin/custompost.add.php:41
+#: forms/admin/custompost.add.php:45
 #: forms/admin/custompost.edit.php:5
 msgid "Name for the custom post type is invalid. Fix before proceeding."
 msgstr "自定义文章类型的名称无效。执行之前需先修正。"
 
-#: forms/admin/custompost.add.php:51
+#: forms/admin/custompost.add.php:55
 msgid "New custom post type added."
 msgstr "新自定义文章类型已被添加。"
 
@@ -214,10 +223,10 @@ msgid "Parent Item Colon"
 msgstr "上级条目："
 
 #: forms/admin/custompost.form.php:101
-#: forms/admin/taxonomy.form.php:168
+#: forms/admin/taxonomy.form.php:177
 #: gd-taxonomies-tools.php:217
-#: gd-taxonomies-tools.php:577
-#: gd-taxonomies-tools.php:612
+#: gd-taxonomies-tools.php:598
+#: gd-taxonomies-tools.php:633
 msgid "Settings"
 msgstr "设置"
 
@@ -226,13 +235,13 @@ msgid "Features"
 msgstr "特色"
 
 #: forms/admin/custompost.form.php:123
-#: gd-taxonomies-tools.php:576
-#: gd-taxonomies-tools.php:713
+#: gd-taxonomies-tools.php:597
+#: gd-taxonomies-tools.php:738
 msgid "Taxonomies"
 msgstr "类别"
 
 #: forms/admin/custompost.form.php:142
-#: forms/admin/taxonomy.form.php:173
+#: forms/admin/taxonomy.form.php:182
 #: forms/render/cpt.header.php:7
 #: forms/render/tax.header.php:8
 msgid "Hierarchical"
@@ -242,24 +251,29 @@ msgstr "层级"
 #: forms/admin/custompost.form.php:159
 #: forms/admin/custompost.form.php:170
 #: forms/admin/custompost.form.php:187
-#: forms/admin/custompost.form.php:198
-#: forms/admin/custompost.form.php:280
+#: forms/admin/custompost.form.php:197
+#: forms/admin/custompost.form.php:208
+#: forms/admin/custompost.form.php:290
+#: forms/admin/custompost.form.php:300
+#: forms/admin/custompost.form.php:311
+#: forms/admin/custompost.form.php:321
 #: forms/admin/taxonomy.form.php:134
-#: forms/admin/taxonomy.form.php:145
-#: forms/admin/taxonomy.form.php:156
-#: forms/admin/taxonomy.form.php:178
+#: forms/admin/taxonomy.form.php:144
+#: forms/admin/taxonomy.form.php:155
+#: forms/admin/taxonomy.form.php:165
+#: forms/admin/taxonomy.form.php:187
 msgid "Yes"
 msgstr "是"
 
 #: forms/admin/custompost.form.php:155
-#: forms/admin/taxonomy.form.php:184
+#: forms/admin/taxonomy.form.php:193
 #: forms/render/cpt.header.php:6
 #: forms/render/tax.header.php:6
 msgid "Rewrite"
 msgstr "重写"
 
 #: forms/admin/custompost.form.php:166
-#: forms/admin/taxonomy.form.php:203
+#: forms/admin/taxonomy.form.php:212
 msgid "Query Variable"
 msgstr "查询变量"
 
@@ -273,79 +287,100 @@ msgstr "可见性"
 msgid "Public"
 msgstr "公开"
 
-#: forms/admin/custompost.form.php:194
-#: forms/admin/taxonomy.form.php:141
+#: forms/admin/custompost.form.php:193
+#: forms/admin/taxonomy.form.php:140
 msgid "Show UI"
 msgstr "显示用户界面"
 
-#: forms/admin/custompost.form.php:205
+#: forms/admin/custompost.form.php:204
+#: forms/admin/taxonomy.form.php:161
+msgid "Navigation Menus"
+msgstr "导航菜单"
+
+#: forms/admin/custompost.form.php:215
 msgid "Public setting set to NO will hide posts from the admin UI. Show UI will generate standard UI for post type management. Either of these set to NO will hide the edit panel."
 msgstr "公开设置如果设置为“否”将从管理界面中隐藏文章。显示界面将创建一个标准的文章类型管理界面。两个全部设置为“否”将隐藏编辑面板。"
 
-#: forms/admin/custompost.form.php:208
-#: forms/admin/taxonomy.form.php:227
+#: forms/admin/custompost.form.php:216
+msgid "Navigational menu option will make custom post type available for building menus."
+msgstr "导航菜单选项将允许在菜单中使用自定义文章类型。"
+
+#: forms/admin/custompost.form.php:219
+#: forms/admin/taxonomy.form.php:236
 #: forms/render/cpt.header.php:8
 msgid "Capabilities"
 msgstr "性能"
 
-#: forms/admin/custompost.form.php:212
+#: forms/admin/custompost.form.php:223
 msgid "Edit Post"
 msgstr "编辑文章"
 
-#: forms/admin/custompost.form.php:217
+#: forms/admin/custompost.form.php:228
 msgid "Edit Posts"
 msgstr "编辑文章"
 
-#: forms/admin/custompost.form.php:223
+#: forms/admin/custompost.form.php:234
 msgid "Edit Others Posts"
 msgstr "编辑其它文章"
 
-#: forms/admin/custompost.form.php:228
+#: forms/admin/custompost.form.php:239
 msgid "Publish Posts"
 msgstr "发表文章"
 
-#: forms/admin/custompost.form.php:234
+#: forms/admin/custompost.form.php:245
 msgid "Read Post"
 msgstr "阅读文章"
 
-#: forms/admin/custompost.form.php:239
+#: forms/admin/custompost.form.php:250
 msgid "Read Private Posts"
 msgstr "阅读私有文章"
 
-#: forms/admin/custompost.form.php:245
+#: forms/admin/custompost.form.php:256
 msgid "Delete Post"
 msgstr "删除文章"
 
-#: forms/admin/custompost.form.php:252
-#: forms/admin/taxonomy.form.php:254
+#: forms/admin/custompost.form.php:263
+#: forms/admin/taxonomy.form.php:263
 msgid "Do not change any of these if you are not sure what they are."
 msgstr "如果您不确定，请不要更改这里任何内容。"
 
-#: forms/admin/custompost.form.php:255
+#: forms/admin/custompost.form.php:266
 msgid "Advanced"
 msgstr "高级"
 
-#: forms/admin/custompost.form.php:260
+#: forms/admin/custompost.form.php:271
 msgid "Edit Link"
 msgstr "编辑链接"
 
-#: forms/admin/custompost.form.php:268
+#: forms/admin/custompost.form.php:278
 msgid "Rewrite Slug"
 msgstr "重写缩略名"
 
-#: forms/admin/custompost.form.php:276
+#: forms/admin/custompost.form.php:286
 msgid "Rewrite With Front"
 msgstr "前段重写"
 
-#: forms/admin/custompost.form.php:287
+#: forms/admin/custompost.form.php:296
+msgid "Publicly Queryable"
+msgstr "可公开查询"
+
+#: forms/admin/custompost.form.php:307
+msgid "Exclude From Search"
+msgstr "在搜索结果中排除"
+
+#: forms/admin/custompost.form.php:317
+msgid "Can be Exported"
+msgstr "可以导出"
+
+#: forms/admin/custompost.form.php:328
 msgid "Changing some of these settings can have undesired effects and can break your website."
 msgstr "更改这些配置可能会出现某些意想不到的效果，并且可能会导致站点瘫痪。"
 
-#: forms/admin/custompost.form.php:287
+#: forms/admin/custompost.form.php:328
 msgid "Do not change this if you are not sure about this. Consult WordPress documentation for more details."
 msgstr "如果您不确定，请不要更改这里。参考 WordPress 文档获得更多细节。"
 
-#: forms/admin/custompost.form.php:291
+#: forms/admin/custompost.form.php:332
 msgid "Save Custom Post"
 msgstr "保存自定义文章"
 
@@ -399,16 +434,16 @@ msgstr "删除类别后，相关条目将继续保留在数据库中。"
 msgid "You can change that on the settings panel."
 msgstr "您可以在设置面板中对其进行更改。"
 
-#: forms/admin/taxonomy.add.php:31
+#: forms/admin/taxonomy.add.php:32
 #: forms/admin/taxonomy.edit.php:5
 msgid "Name for the taxonomy is invalid. Fix before proceeding."
 msgstr "类别的名称无效。执行之前需先修正。"
 
-#: forms/admin/taxonomy.add.php:38
+#: forms/admin/taxonomy.add.php:42
 msgid "New taxonomy added."
 msgstr "新类别已被添加。"
 
-#: forms/admin/taxonomy.edit.php:12
+#: forms/admin/taxonomy.edit.php:15
 msgid "Taxonomy updated."
 msgstr "类别已被更新。"
 
@@ -449,7 +484,7 @@ msgid "Update Item"
 msgstr "更新条目"
 
 #: forms/admin/taxonomy.form.php:99
-#: gd-taxonomies-tools.php:574
+#: gd-taxonomies-tools.php:595
 msgid "Post Types"
 msgstr "文章类型"
 
@@ -461,66 +496,66 @@ msgstr "选择"
 msgid "At least one type must be selected. If not, Posts type will be added by default."
 msgstr "最少选择一个类型。如果不选择，文章类型将默认被添加。"
 
-#: forms/admin/taxonomy.form.php:152
+#: forms/admin/taxonomy.form.php:151
 msgid "Tag Cloud Widget"
 msgstr "标签云微件"
 
-#: forms/admin/taxonomy.form.php:163
+#: forms/admin/taxonomy.form.php:172
 msgid "Public setting set to NO will hide taxonomies from the admin UI."
 msgstr "公开设置为“否”将会把类别从管理界面中隐藏。"
 
-#: forms/admin/taxonomy.form.php:164
-msgid "Tag cloud option set to NO will exclude this taxonomy from default Tag Cloud widget."
-msgstr "标签云选项如果设置为“否”将从默认标签云微件中排除该类别。"
+#: forms/admin/taxonomy.form.php:173
+msgid "Tag cloud option set to NO will exclude this taxonomy from default Tag Cloud widget. Same goes for Navigation Menus."
+msgstr "标签云选项如果设置为“否”将从默认标签云微件中排除该类别。与导航菜单的设置同理。"
 
-#: forms/admin/taxonomy.form.php:188
-#: forms/admin/taxonomy.form.php:207
+#: forms/admin/taxonomy.form.php:197
+#: forms/admin/taxonomy.form.php:216
 msgid "Yes, using name"
 msgstr "是，使用名称"
 
-#: forms/admin/taxonomy.form.php:189
-#: forms/admin/taxonomy.form.php:208
+#: forms/admin/taxonomy.form.php:198
+#: forms/admin/taxonomy.form.php:217
 msgid "Yes, custom value"
 msgstr "是，自定义键值"
 
-#: forms/admin/taxonomy.form.php:195
-#: forms/admin/taxonomy.form.php:214
+#: forms/admin/taxonomy.form.php:204
+#: forms/admin/taxonomy.form.php:223
 msgid "Custom"
 msgstr "自定义"
 
-#: forms/admin/taxonomy.form.php:222
+#: forms/admin/taxonomy.form.php:231
 msgid "For rewrite and query custom variables use only lower case letters and no special characters except for the underscore."
 msgstr "重写和查询自定义变量，只能使用小写字母和下划线。"
 
-#: forms/admin/taxonomy.form.php:223
+#: forms/admin/taxonomy.form.php:232
 msgid "With WP 2.8.x and WP 2.9.x not all options work, and they are disabled. Once the WordPress starts supporting this option, they will be enabled."
 msgstr "使用 WP 2.8.x 和 2.9.x 版本，部分选项无法工作，并且这些功能是被禁用的。一旦使用的 WordPress 版本支持这些选项，它们将被启用。"
 
-#: forms/admin/taxonomy.form.php:231
+#: forms/admin/taxonomy.form.php:240
 msgid "Manage terms"
 msgstr "管理条目"
 
-#: forms/admin/taxonomy.form.php:236
+#: forms/admin/taxonomy.form.php:245
 msgid "Edit terms"
 msgstr "编辑条目"
 
-#: forms/admin/taxonomy.form.php:242
+#: forms/admin/taxonomy.form.php:251
 msgid "Delete terms"
 msgstr "删除条目"
 
-#: forms/admin/taxonomy.form.php:247
+#: forms/admin/taxonomy.form.php:256
 msgid "Assign terms"
 msgstr "指定条目"
 
-#: forms/admin/taxonomy.form.php:258
+#: forms/admin/taxonomy.form.php:267
 msgid "Status"
 msgstr "状态"
 
-#: forms/admin/taxonomy.form.php:260
+#: forms/admin/taxonomy.form.php:269
 msgid "Taxonomy is set to active."
 msgstr "类别设置为启用"
 
-#: forms/admin/taxonomy.form.php:264
+#: forms/admin/taxonomy.form.php:273
 msgid "Save Taxonomy"
 msgstr "保存类别"
 
@@ -682,16 +717,16 @@ msgid "Options"
 msgstr "选项"
 
 #: forms/render/cpt.item.php:26
-#: forms/render/tax.item.php:28
+#: forms/render/tax.item.php:31
 msgid "delete"
 msgstr "删除"
 
 #: forms/render/cpt.item.php:27
-#: forms/render/tax.item.php:29
+#: forms/render/tax.item.php:32
 msgid "edit"
 msgstr "编辑"
 
-#: forms/render/cpt.item.php:29
+#: forms/render/cpt.item.php:30
 msgid "open"
 msgstr "打开"
 
@@ -699,8 +734,8 @@ msgstr "打开"
 #: forms/render/cpt.item.php:18
 #: forms/render/cpt.item.php:20
 #: forms/render/cpt.item.php:21
-#: forms/render/tax.item.php:22
-#: forms/render/tax.item.php:24
+#: forms/render/tax.item.php:25
+#: forms/render/tax.item.php:27
 msgid "yes"
 msgstr "是"
 
@@ -708,8 +743,8 @@ msgstr "是"
 #: forms/render/cpt.item.php:18
 #: forms/render/cpt.item.php:20
 #: forms/render/cpt.item.php:21
-#: forms/render/tax.item.php:22
-#: forms/render/tax.item.php:24
+#: forms/render/tax.item.php:25
+#: forms/render/tax.item.php:27
 msgid "no"
 msgstr "否"
 
@@ -733,11 +768,11 @@ msgstr "查询"
 msgid "Terms"
 msgstr "条目"
 
-#: forms/render/tax.item.php:31
+#: forms/render/tax.item.php:34
 msgid "menus"
 msgstr "菜单"
 
-#: forms/render/tax.item.php:33
+#: forms/render/tax.item.php:36
 msgid "terms"
 msgstr "条目"
 
@@ -771,7 +806,7 @@ msgstr "自定义类别管理插件"
 
 #: widgets/gdtt-terms-cloud/basic.php:2
 #: widgets/gdtt-terms-list/basic.php:2
-#: gd-taxonomies-tools.php:633
+#: gd-taxonomies-tools.php:654
 msgid "Title"
 msgstr "标题"
 
@@ -781,7 +816,7 @@ msgid "Maximum terms to show"
 msgstr "显示条目最多数量"
 
 #: widgets/gdtt-terms-cloud/display.php:2
-#: widgets/gdtt-terms-list/display.php:11
+#: widgets/gdtt-terms-list/display.php:18
 msgid "Additional CSS class"
 msgstr "附加 CSS 类"
 
@@ -859,7 +894,15 @@ msgstr "列表"
 msgid "Drop down"
 msgstr "下拉"
 
-#: widgets/gdtt-terms-list/display.php:15
+#: widgets/gdtt-terms-list/display.php:11
+msgid "First Option"
+msgstr "第一选项"
+
+#: widgets/gdtt-terms-list/display.php:14
+msgid "Used only for drop down display."
+msgstr "仅用于显示在下拉列表。"
+
+#: widgets/gdtt-terms-list/display.php:22
 msgid "Show number of posts"
 msgstr "显示文章数量"
 
@@ -867,17 +910,9 @@ msgstr "显示文章数量"
 msgid "Display cloud with taxonomy terms."
 msgstr "以云方式显示类别条目。"
 
-#: widgets/gdtt-terms-list.php:19
+#: widgets/gdtt-terms-list.php:20
 msgid "Display list with taxonomy terms."
 msgstr "以列表方式显示类别条目。"
-
-#: widgets/gdtt-terms-list.php:91
-msgid "post"
-msgstr "篇文章"
-
-#: widgets/gdtt-terms-list.php:91
-msgid "posts"
-msgstr "篇文章"
 
 #: gd-taxonomies-tools.php:90
 msgid "Thank you for using this plugin. Please, take a few minutes and check out the Pro version of this plugin and new and improved features, including premium support."
@@ -899,69 +934,75 @@ msgstr "自定义文章类型"
 msgid "Upgrade to PRO"
 msgstr "升级到增强版"
 
-#: gd-taxonomies-tools.php:572
+#: gd-taxonomies-tools.php:593
 msgid "Front Page"
 msgstr "首页"
 
-#: gd-taxonomies-tools.php:623
+#: gd-taxonomies-tools.php:644
 msgid "Tools"
 msgstr "工具"
 
-#: gd-taxonomies-tools.php:634
+#: gd-taxonomies-tools.php:655
 msgid "Editor"
 msgstr "编辑"
 
-#: gd-taxonomies-tools.php:635
+#: gd-taxonomies-tools.php:656
 msgid "Excerpts"
 msgstr "摘要"
 
-#: gd-taxonomies-tools.php:636
+#: gd-taxonomies-tools.php:657
 msgid "Trackbacks"
 msgstr "引用"
 
-#: gd-taxonomies-tools.php:637
+#: gd-taxonomies-tools.php:658
 msgid "Custom Fields"
 msgstr "自定义字段"
 
-#: gd-taxonomies-tools.php:638
+#: gd-taxonomies-tools.php:659
 msgid "Comments"
 msgstr "评论"
 
-#: gd-taxonomies-tools.php:639
+#: gd-taxonomies-tools.php:660
 msgid "Revisions"
 msgstr "修订版本"
 
-#: gd-taxonomies-tools.php:640
+#: gd-taxonomies-tools.php:661
 msgid "Post Thumbnails"
 msgstr "文章缩略图"
 
-#: gd-taxonomies-tools.php:641
+#: gd-taxonomies-tools.php:662
 msgid "Author"
 msgstr "作者"
 
-#: gd-taxonomies-tools.php:642
+#: gd-taxonomies-tools.php:663
 msgid "Page Attributes"
 msgstr "页面属性"
 
-#: gd-taxonomies-tools.php:653
+#: gd-taxonomies-tools.php:674
 msgid "Custom Posts"
 msgstr "自定义文章"
 
-#: gd-taxonomies-tools.php:657
+#: gd-taxonomies-tools.php:678
 msgid "Add new Custom Posts"
 msgstr "添加新自定义文章"
 
-#: gd-taxonomies-tools.php:661
+#: gd-taxonomies-tools.php:682
 msgid "Edit Custom Posts"
 msgstr "编辑自定义文章"
 
-#: gd-taxonomies-tools.php:717
+#: gd-taxonomies-tools.php:742
 msgid "Add new Taxonomy"
 msgstr "添加新类别"
 
-#: gd-taxonomies-tools.php:721
+#: gd-taxonomies-tools.php:746
 msgid "Edit Taxonomy"
 msgstr "编辑类别"
+
+#~ msgid "post"
+#~ msgstr "篇文章"
+
+#~ msgid "posts"
+#~ msgstr "篇文章"
 
 #~ msgid "This is the display name for the custom post type."
 #~ msgstr "这是自定义文章类型的显示名称。"

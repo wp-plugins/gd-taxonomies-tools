@@ -11,7 +11,7 @@ $istaxtool = in_array($tax_data->name, $gdtttax);
 $tt_url = "admin.php?page=gdtaxtools_taxs&tid=";
 
 foreach ($gdtxall as $tax) {
-    if ($tax["name"] == $tax_name) {
+    if (strtolower(sanitize_user($tax["name"], true)) == $tax_name) {
         $tt_url.= $tax["id"];
         break;
     }

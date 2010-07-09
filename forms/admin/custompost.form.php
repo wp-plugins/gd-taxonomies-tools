@@ -5,8 +5,10 @@
     <td>
         <input<?php echo $cpt["id"] > 0 ? " readonly" : ""; ?> type="text" value="<?php echo $cpt["name"]; ?>" id="cptname" name="cpt[name]" class="input-text-middle<?php echo $cpt["id"] > 0 ? " disabled" : ""; ?>" />
         <div class="gdsr-table-split"></div>
-        <?php _e("This must be unique name, not used by any other default or custom post type.", "gd-taxonomies-tools"); ?><br />
-        <?php _e("Also, use only lower case letters and no special characters except for the underscore.", "gd-taxonomies-tools"); ?>
+        <div class="gdsr-major-info">
+            <?php _e("This must be unique name, not used by any other default or custom post type.", "gd-taxonomies-tools"); ?><br />
+            <?php _e("Also, use only lower case letters and no special characters except for the underscore.", "gd-taxonomies-tools"); ?>
+        </div>
     </td>
 </tr>
 <tr><th scope="row"><?php _e("Description", "gd-taxonomies-tools"); ?></th>

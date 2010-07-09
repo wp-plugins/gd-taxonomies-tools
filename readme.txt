@@ -1,7 +1,7 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://dv4p.com/gdtt
-Version: 1.2.4
+Version: 1.2.5
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 3.0
@@ -57,10 +57,13 @@ Lite version is regularly maintained, but it doesn't include any kind of support
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.2.4 =
-Improved flushing of rewrite rules after adding post type or taxonomy and few fixes. Updated translations. Fixes in widgets.
+= 1.2.5 =
+Mandatory checking for lowercase names for taxonomy and post type.
 
 == Changelog ==
+= 1.2.5 =
+* Mandatory checking for lowercase names for taxonomy and post type
+
 = 1.2.4 =
 * Removed sitemap expand options as obsolete
 * Fixed cloud widget and missing taxonomy parameter
