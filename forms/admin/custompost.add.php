@@ -4,6 +4,7 @@ $editor = true;
 $cpt = array(
         "id" => 0,
         "name" => "",
+        "active" => 1,
         "description" => "",
         "public" => "yes",
         "ui" => "yes",

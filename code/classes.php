@@ -1,5 +1,21 @@
 <?php
 
+class gdtt_CustomPost {
+    var $name;
+    var $label;
+    var $public;
+    var $show_ui;
+    var $hierarchical;
+
+    function gdtt_CustomPost($saved_cpt) {
+        $this->name = $saved_cpt["name"];
+        $this->label = $saved_cpt["labels"]["name"];
+        $this->public = $saved_cpt["public"] == "yes";
+        $this->show_ui = !isset($saved_cpt["ui"]) ? $saved_cpt["public"] : $saved_cpt["ui"] == "yes";
+        $this->hierarchical = $saved_cpt["hierarchy"] == "yes";
+    }
+}
+
 class gdtt_Taxonomy {
     var $name;
     var $label;

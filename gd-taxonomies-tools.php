@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.2.5
+Version: 1.2.6
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -239,53 +239,55 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function register_custom_posts() {
             foreach ($this->p as $cpt) {
-                $cpt["description"] = !isset($cpt["description"]) ? "" : $cpt["description"];
-                $cpt["rewrite_slug"] = !isset($cpt["rewrite_slug"]) ? "" : $cpt["rewrite_slug"];
+                if (!isset($cpt["active"]) || (isset($cpt["active"]) && $cpt["active"] == 1)) {
+                    $cpt["description"] = !isset($cpt["description"]) ? "" : $cpt["description"];
+                    $cpt["rewrite_slug"] = !isset($cpt["rewrite_slug"]) ? "" : $cpt["rewrite_slug"];
 
-                $rewrite = $cpt["rewrite"] == "yes";
-                if ($cpt["rewrite_slug"] != "") {
-                    $rewrite = array(
-                        "slug" => $cpt["rewrite_slug"],
-                        "with_front" => $cpt["rewrite_front"] == "yes");
+                    $rewrite = $cpt["rewrite"] == "yes";
+                    if ($cpt["rewrite_slug"] != "") {
+                        $rewrite = array(
+                            "slug" => $cpt["rewrite_slug"],
+                            "with_front" => $cpt["rewrite_front"] == "yes");
+                    }
+
+                    if (!isset($cpt["labels"])) {
+                        $labels = array("name" => $cpt["label"],
+                            "singular_name" => $cpt["label_singular"]);
+                    } else {
+                        $labels = $cpt["labels"];
+                    }
+                    if (!isset($cpt["caps"])) {
+                        $caps = array();
+                    } else {
+                        $caps = $cpt["caps"];
+                    }
+
+                    $cpt["public"] = $cpt["public"] == "yes";
+                    $cpt["ui"] = !isset($cpt["ui"]) ? $cpt["public"] : $cpt["ui"] == "yes";
+                    $cpt["nav_menus"] = !isset($cpt["nav_menus"]) ? $cpt["public"] : $cpt["nav_menus"] == "yes";
+                    $cpt["can_export"] = !isset($cpt["can_export"]) ? $cpt["public"] : $cpt["can_export"] == "yes";
+                    $cpt["publicly_queryable"] = !isset($cpt["publicly_queryable"]) ? $cpt["public"] : $cpt["publicly_queryable"] == "yes";
+                    $cpt["exclude_from_search"] = !isset($cpt["exclude_from_search"]) ? !$cpt["public"] : $cpt["exclude_from_search"] == "yes";
+
+                    $options = array(
+                        "labels" => $labels,
+                        "capabilities" => $caps,
+                        "description" => $cpt["description"],
+                        "supports" => (array)$cpt["supports"],
+                        "taxonomies" => (array)$cpt["taxonomies"],
+                        "hierarchical" => $cpt["hierarchy"] == "yes",
+                        "public" => $cpt["public"],
+                        "show_ui" => $cpt["ui"],
+                        "can_export" => $cpt["can_export"],
+                        "publicly_queryable" => $cpt["publicly_queryable"],
+                        "exclude_from_search" => $cpt["exclude_from_search"],
+                        "show_in_nav_menus" => $cpt["nav_menus"],
+                        "rewrite" => $rewrite,
+                        "query_var" => $cpt["query"] == "yes",
+                        "_edit_link" => $cpt["edit_link"]
+                        );
+                    register_post_type($cpt["name"], $options);
                 }
-
-                if (!isset($cpt["labels"])) {
-                    $labels = array("name" => $cpt["label"],
-                        "singular_name" => $cpt["label_singular"]);
-                } else {
-                    $labels = $cpt["labels"];
-                }
-                if (!isset($cpt["caps"])) {
-                    $caps = array();
-                } else {
-                    $caps = $cpt["caps"];
-                }
-
-                $cpt["public"] = $cpt["public"] == "yes";
-                $cpt["ui"] = !isset($cpt["ui"]) ? $cpt["public"] : $cpt["ui"] == "yes";
-                $cpt["nav_menus"] = !isset($cpt["nav_menus"]) ? $cpt["public"] : $cpt["nav_menus"] == "yes";
-                $cpt["can_export"] = !isset($cpt["can_export"]) ? $cpt["public"] : $cpt["can_export"] == "yes";
-                $cpt["publicly_queryable"] = !isset($cpt["publicly_queryable"]) ? $cpt["public"] : $cpt["publicly_queryable"] == "yes";
-                $cpt["exclude_from_search"] = !isset($cpt["exclude_from_search"]) ? !$cpt["public"] : $cpt["exclude_from_search"] == "yes";
-
-                $options = array(
-                    "labels" => $labels,
-                    "capabilities" => $caps,
-                    "description" => $cpt["description"],
-                    "supports" => (array)$cpt["supports"],
-                    "taxonomies" => (array)$cpt["taxonomies"],
-                    "hierarchical" => $cpt["hierarchy"] == "yes",
-                    "public" => $cpt["public"],
-                    "show_ui" => $cpt["ui"],
-                    "can_export" => $cpt["can_export"],
-                    "publicly_queryable" => $cpt["publicly_queryable"],
-                    "exclude_from_search" => $cpt["exclude_from_search"],
-                    "show_in_nav_menus" => $cpt["nav_menus"],
-                    "rewrite" => $rewrite,
-                    "query_var" => $cpt["query"] == "yes",
-                    "_edit_link" => $cpt["edit_link"]
-                    );
-                register_post_type($cpt["name"], $options);
             }
         }
 
@@ -382,7 +384,21 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function prepare_inactive() {
             $found = array();
-            foreach ($this->t as $tax) if (!isset($tax["active"])) $found[$tax["name"]] = new gdtt_Taxonomy($tax);
+            foreach ($this->t as $tax) {
+                if (!isset($tax["active"])) {
+                    $found[$tax["name"]] = new gdtt_Taxonomy($tax);
+                }
+            }
+            return $found;
+        }
+
+        function prepare_inactive_cpt() {
+            $found = array();
+            foreach ($this->p as $cpt) {
+                if (isset($cpt["active"]) && $cpt["active"] == 0) {
+                    $found[$cpt["name"]] = new gdtt_CustomPost($cpt);
+                }
+            }
             return $found;
         }
 
@@ -482,9 +498,11 @@ if (!class_exists('GDTaxonomiesTools')) {
                 $cpt["taxonomies"] = (array)$cpt["taxonomies"];
                 $cpt["rewrite_slug"] = trim(strip_tags($cpt["rewrite_slug"]));
                 $cpt["description"] = trim(strip_tags($cpt["description"]));
+                $cpt["active"] = isset($cpt["active"]) ? 1 : 0;
 
-                if (!$this->is_term_valid($cpt["name"])) $this->errors = "name";
-                else {
+                if (!$this->is_term_valid($cpt["name"])) {
+                    $this->errors = "name";
+                } else {
                     if (trim($cpt["labels"]["name"]) == "") $cpt["labels"]["name"] = $cpt["name"];
                 }
 
@@ -675,6 +693,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                 if (!isset($cpt["exclude_from_search"])) $cpt["exclude_from_search"] = "no";
                 if (!isset($cpt["publicly_queryable"])) $cpt["publicly_queryable"] = "yes";
                 if (!isset($cpt["can_export"])) $cpt["can_export"] = "yes";
+                if (!isset($cpt["active"])) $cpt["active"] = 1;
                 if (!isset($cpt["labels"])) {
                     $cpt["labels"] = array("name" => $cpt["label"],
                         "singular_name" => $cpt["label_singular"],

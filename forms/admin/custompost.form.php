@@ -11,6 +11,13 @@
         </div>
     </td>
 </tr>
+<tr><th scope="row"><?php _e("Status", "gd-taxonomies-tools"); ?></th>
+    <td>
+        <input<?php if ($cpt["active"] == 1) echo " checked"; ?> type="checkbox" name="cpt[active]" /><label style="margin-left: 5px;"><?php _e("This custom post type is set to active and will be registered for use.", "gd-taxonomies-tools"); ?></label>
+        <div class="gdsr-table-split"></div>
+        <?php _e("If you deactivate this custom post type, all the posts associated with it will remain intact.", "gd-taxonomies-tools"); ?>
+    </td>
+</tr>
 <tr><th scope="row"><?php _e("Description", "gd-taxonomies-tools"); ?></th>
     <td>
         <input type="text" id="cptdescription" value="<?php echo $cpt["description"]; ?>" name="cpt[description]" class="input-text-extralong" />

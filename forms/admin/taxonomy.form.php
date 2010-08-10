@@ -14,6 +14,13 @@
         </div>
     </td>
 </tr>
+<tr><th scope="row"><?php _e("Status", "gd-taxonomies-tools"); ?></th>
+    <td>
+        <input<?php if (isset($tax["active"])) echo " checked"; ?> type="checkbox" name="tax[active]" /><label style="margin-left: 5px;"><?php _e("This taxonomy is set to active and will be registered for use.", "gd-taxonomies-tools"); ?></label>
+        <div class="gdsr-table-split"></div>
+        <?php _e("If you deactivate this taxonomy, all the data associated with it will remain intact.", "gd-taxonomies-tools"); ?>
+    </td>
+</tr>
 <?php if ($wpv < 30) { ?>
 <tr><th scope="row"><?php _e("Label", "gd-taxonomies-tools"); ?></th>
     <td>
@@ -99,12 +106,12 @@
     </td>
 </tr>
 <?php } ?>
-<tr><th scope="row"><?php _e("Post Types", "gd-taxonomies-tools"); ?></th>
+<tr><th scope="row"><?php _e("Settings", "gd-taxonomies-tools"); ?></th>
     <td>
         <table cellpadding="0" cellspacing="0" class="previewtable">
             <tr>
                 <td width="150" style="vertical-align: top;">
-                    <?php _e("Select", "gd-taxonomies-tools"); ?>:
+                    <?php _e("Post Types", "gd-taxonomies-tools"); ?>:
                 </td>
                 <td valign="top" colspan="3">
                     <select name="tax[post_type][]" class="drop-sel-checks" multiple>
@@ -120,65 +127,6 @@
                 </td>
             </tr>
         </table>
-        <div class="gdsr-table-split"></div>
-        <?php _e("At least one type must be selected. If not, Posts type will be added by default.", "gd-taxonomies-tools"); ?>
-    </td>
-</tr>
-<?php if ($wpv > 29) { ?>
-<tr><th scope="row"><?php _e("Visibility", "gd-taxonomies-tools"); ?></th>
-    <td>
-        <table cellpadding="0" cellspacing="0" class="previewtable">
-            <tr>
-                <td width="150" valign="top">
-                    <?php _e("Public", "gd-taxonomies-tools"); ?>:
-                </td>
-                <td valign="top">
-                    <select name="tax[public]" class="input-text-middle">
-                        <option value="yes"<?php echo $tax["public"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
-                        <option value="no"<?php echo $tax["public"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
-                    </select>
-                </td>
-                <td style="width: 20px;"></td>
-                <td width="150" valign="top">
-                    <?php _e("Show UI", "gd-taxonomies-tools"); ?>:
-                </td>
-                <td valign="top">
-                    <select name="tax[ui]" class="input-text-middle">
-                        <option value="yes"<?php echo $tax["ui"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
-                        <option value="no"<?php echo $tax["ui"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td width="150" valign="top">
-                    <?php _e("Tag Cloud Widget", "gd-taxonomies-tools"); ?>:
-                </td>
-                <td valign="top">
-                    <select name="tax[cloud]" class="input-text-middle">
-                        <option value="yes"<?php echo $tax["cloud"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
-                        <option value="no"<?php echo $tax["cloud"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
-                    </select>
-                </td>
-                <td style="width: 20px;"></td>
-                <td width="150" valign="top">
-                    <?php _e("Navigation Menus", "gd-taxonomies-tools"); ?>:
-                </td>
-                <td valign="top">
-                    <select name="tax[nav_menus]" class="input-text-middle">
-                        <option value="yes"<?php echo $tax["nav_menus"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
-                        <option value="no"<?php echo $tax["nav_menus"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
-                    </select>
-                </td>
-            </tr>
-        </table>
-        <div class="gdsr-table-split"></div>
-        <?php _e("Public setting set to NO will hide taxonomies from the admin UI.", "gd-taxonomies-tools"); ?><br/>
-        <?php _e("Tag cloud option set to NO will exclude this taxonomy from default Tag Cloud widget. Same goes for Navigation Menus.", "gd-taxonomies-tools"); ?>
-    </td>
-</tr>
-<?php } ?>
-<tr><th scope="row"><?php _e("Settings", "gd-taxonomies-tools"); ?></th>
-    <td>
         <table cellpadding="0" cellspacing="0" class="previewtable">
             <tr>
                 <td width="150" valign="top">
@@ -236,6 +184,57 @@
     </td>
 </tr>
 <?php if ($wpv > 29) { ?>
+<tr><th scope="row"><?php _e("Visibility", "gd-taxonomies-tools"); ?></th>
+    <td>
+        <table cellpadding="0" cellspacing="0" class="previewtable">
+            <tr>
+                <td width="150" valign="top">
+                    <?php _e("Public", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top">
+                    <select name="tax[public]" class="input-text-middle">
+                        <option value="yes"<?php echo $tax["public"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $tax["public"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+                <td style="width: 20px;"></td>
+                <td width="150" valign="top">
+                    <?php _e("Show UI", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top">
+                    <select name="tax[ui]" class="input-text-middle">
+                        <option value="yes"<?php echo $tax["ui"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $tax["ui"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="150" valign="top">
+                    <?php _e("Tag Cloud Widget", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top">
+                    <select name="tax[cloud]" class="input-text-middle">
+                        <option value="yes"<?php echo $tax["cloud"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $tax["cloud"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+                <td style="width: 20px;"></td>
+                <td width="150" valign="top">
+                    <?php _e("Navigation Menus", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td valign="top">
+                    <select name="tax[nav_menus]" class="input-text-middle">
+                        <option value="yes"<?php echo $tax["nav_menus"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $tax["nav_menus"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div class="gdsr-table-split"></div>
+        <?php _e("Public setting set to NO will hide taxonomies from the admin UI.", "gd-taxonomies-tools"); ?><br/>
+        <?php _e("Tag cloud option set to NO will exclude this taxonomy from default Tag Cloud widget. Same goes for Navigation Menus.", "gd-taxonomies-tools"); ?>
+    </td>
+</tr>
 <tr><th scope="row"><?php _e("Capabilities", "gd-taxonomies-tools"); ?></th>
     <td>
         <table cellpadding="0" cellspacing="0" class="previewtable">
@@ -267,11 +266,6 @@
     </td>
 </tr>
 <?php } ?>
-<tr><th scope="row"><?php _e("Status", "gd-taxonomies-tools"); ?></th>
-    <td>
-        <input<?php if (isset($tax["active"])) echo " checked"; ?> type="checkbox" name="tax[active]" /><label style="margin-left: 5px;"><?php _e("Taxonomy is set to active.", "gd-taxonomies-tools"); ?></label>
-    </td>
-</tr>
 </tbody></table>
 <input type="submit" class="inputbutton" value="<?php _e("Save Taxonomy", "gd-taxonomies-tools"); ?>" name="gdtt_savetax" style="margin-top: 10px;" />
 </form>
