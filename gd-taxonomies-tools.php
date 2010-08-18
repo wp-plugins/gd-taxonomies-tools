@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.2.6
+Version: 1.2.7
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -158,7 +158,7 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function actions_filters() {
             add_action('init', array(&$this, 'init'));
-            add_action('init', array(&$this, 'register_taxonomies'), 2);
+            add_action('init', array(&$this, 'register_taxonomies'), 1);
             if ($this->wp_version >= 30) {
                 add_action('init', array(&$this, 'register_custom_posts'), 1);
             }
@@ -256,6 +256,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                     } else {
                         $labels = $cpt["labels"];
                     }
+
                     if (!isset($cpt["caps"])) {
                         $caps = array();
                     } else {
@@ -271,21 +272,21 @@ if (!class_exists('GDTaxonomiesTools')) {
 
                     $options = array(
                         "labels" => $labels,
-                        "capabilities" => $caps,
                         "description" => $cpt["description"],
-                        "supports" => (array)$cpt["supports"],
-                        "taxonomies" => (array)$cpt["taxonomies"],
-                        "hierarchical" => $cpt["hierarchy"] == "yes",
-                        "public" => $cpt["public"],
-                        "show_ui" => $cpt["ui"],
-                        "can_export" => $cpt["can_export"],
                         "publicly_queryable" => $cpt["publicly_queryable"],
                         "exclude_from_search" => $cpt["exclude_from_search"],
-                        "show_in_nav_menus" => $cpt["nav_menus"],
+                        "_edit_link" => $cpt["edit_link"],
+                        "capabilities" => $caps,
+                        "hierarchical" => $cpt["hierarchy"] == "yes",
+                        "public" => $cpt["public"],
                         "rewrite" => $rewrite,
                         "query_var" => $cpt["query"] == "yes",
-                        "_edit_link" => $cpt["edit_link"]
-                        );
+                        "supports" => (array)$cpt["supports"],
+                        "taxonomies" => (array)$cpt["taxonomies"],
+                        "show_ui" => $cpt["ui"],
+                        "can_export" => $cpt["can_export"],
+                        "show_in_nav_menus" => $cpt["nav_menus"]
+                    );
                     register_post_type($cpt["name"], $options);
                 }
             }
@@ -311,8 +312,8 @@ if (!class_exists('GDTaxonomiesTools')) {
                         if ($tax["rewrite"] == "yes_custom") $rewrite = array('slug' => $tax["rewrite_custom"]);
                         if ($tax["query"] == "no") $query_var = false;
                         if ($tax["query"] == "yes_custom") $query_var = $tax["query_custom"];
-                        $tax["public"] = !isset($tax["public"]) ? true : $tax["public"];
-                        $tax["ui"] = !isset($tax["ui"]) ? $tax["public"] : $tax["ui"] == "yes";
+                        $tax["public"] = !isset($tax["public"]) ? true : ($tax["public"] == "yes");
+                        $tax["ui"] = !isset($tax["ui"]) ? $tax["public"] : ($tax["ui"] == "yes");
                         $tax["nav_menus"] = !isset($tax["nav_menus"]) ? $tax["public"] : $tax["nav_menus"] == "yes";
                         $tax["cloud"] = !isset($tax["cloud"]) ? $tax["public"] : $tax["cloud"] == "yes";
                         if (!isset($tax["labels"])) {
@@ -329,15 +330,15 @@ if (!class_exists('GDTaxonomiesTools')) {
                         }
 
                         $options = array(
-                            "labels" => $labels,
-                            "capabilities" => $caps,
+                            "hierarchical" => $tax["hierarchy"] == "yes",
                             "rewrite" => $rewrite,
                             "query_var" => $query_var,
                             "public" => $tax["public"],
                             "show_ui" => $tax["ui"],
                             "show_tagcloud" => $tax["cloud"],
-                            "show_in_nav_menus" => $tax["nav_menus"],
-                            "hierarchical" => $tax["hierarchy"] == "yes",
+                            "labels" => $labels,
+                            "capabilities" => $caps,
+                            "show_in_nav_menus" => $tax["nav_menus"]
                         );
 
                         $domains = explode(",", $tax["domain"]);
