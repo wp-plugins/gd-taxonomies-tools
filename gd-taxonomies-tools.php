@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.2.7
+Version: 1.2.8
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -98,6 +98,9 @@ if (!class_exists('GDTaxonomiesTools')) {
         function install_plugin() {
             global $wp_version;
             $this->wp_version = substr(str_replace('.', '', $wp_version), 0, 2);
+
+            $role = get_role("administrator");
+            $role->add_cap("gdcpttools_basic");
 
             $this->o = get_option('gd-taxonomy-tools');
             $this->t = get_option('gd-taxonomy-tools-tax');
@@ -547,7 +550,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                 } else {
                     if (trim($tax["labels"]["name"]) == "") $tax["labels"]["name"] = $tax["name"];
                 }
-                $tax["rewrite_custom"] = sanitize_title_with_dashes($tax["rewrite_custom"]);
+                $tax["rewrite_custom"] = trim(strip_tags($tax["rewrite_custom"]));
                 $tax["query_custom"] = sanitize_title_with_dashes($tax["query_custom"]);
                 if (!$this->is_term_valid($tax["name"])) $this->errors = "name";
                 else {
@@ -593,13 +596,13 @@ if (!class_exists('GDTaxonomiesTools')) {
         }
 
         function admin_menu() {
-            add_menu_page('GD CPT Tools', 'GD CPT Tools', 10, __FILE__, array(&$this,"admin_front"), plugins_url('gd-taxonomies-tools/gfx/menu.png'));
-            add_submenu_page(__FILE__, 'GD CPT Tools: '.__("Front Page", "gd-taxonomies-tools"), __("Front Page", "gd-taxonomies-tools"), 10, __FILE__, array(&$this,"admin_front"));
+            add_menu_page('GD CPT Tools', 'GD CPT Tools', "gdcpttools_basic", __FILE__, array(&$this,"admin_front"), plugins_url('gd-taxonomies-tools/gfx/menu.png'));
+            add_submenu_page(__FILE__, 'GD CPT Tools: '.__("Front Page", "gd-taxonomies-tools"), __("Front Page", "gd-taxonomies-tools"), "gdcpttools_basic", __FILE__, array(&$this,"admin_front"));
             if ($this->wp_version >= 30) {
-                add_submenu_page(__FILE__, 'GD CPT Tools: '.__("Post Types", "gd-taxonomies-tools"), __("Post Types", "gd-taxonomies-tools"), 10, "gdtaxtools_postypes", array(&$this, "admin_postypes"));
+                add_submenu_page(__FILE__, 'GD CPT Tools: '.__("Post Types", "gd-taxonomies-tools"), __("Post Types", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_postypes", array(&$this, "admin_postypes"));
             }
-            add_submenu_page(__FILE__, 'GD CPT Tools: '.__("Taxonomies", "gd-taxonomies-tools"), __("Taxonomies", "gd-taxonomies-tools"), 10, "gdtaxtools_taxs", array(&$this, "admin_taxs"));
-            add_submenu_page(__FILE__, 'GD CPT Tools: '.__("Settings", "gd-taxonomies-tools"), __("Settings", "gd-taxonomies-tools"), 10, "gdtaxtools_settings", array(&$this, "admin_settings"));
+            add_submenu_page(__FILE__, 'GD CPT Tools: '.__("Taxonomies", "gd-taxonomies-tools"), __("Taxonomies", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_taxs", array(&$this, "admin_taxs"));
+            add_submenu_page(__FILE__, 'GD CPT Tools: '.__("Settings", "gd-taxonomies-tools"), __("Settings", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_settings", array(&$this, "admin_settings"));
         }
 
         function load_corrections() {

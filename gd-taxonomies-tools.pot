@@ -221,9 +221,9 @@ msgstr ""
 #: forms/admin/custompost.form.php:110
 #: forms/admin/taxonomy.form.php:108
 #: gd-taxonomies-tools.php:199
-#: gd-taxonomies-tools.php:600
-#: gd-taxonomies-tools.php:600
-#: gd-taxonomies-tools.php:635
+#: gd-taxonomies-tools.php:601
+#: gd-taxonomies-tools.php:601
+#: gd-taxonomies-tools.php:636
 msgid "Settings"
 msgstr ""
 
@@ -232,9 +232,9 @@ msgid "Features"
 msgstr ""
 
 #: forms/admin/custompost.form.php:132
-#: gd-taxonomies-tools.php:599
-#: gd-taxonomies-tools.php:599
-#: gd-taxonomies-tools.php:741
+#: gd-taxonomies-tools.php:600
+#: gd-taxonomies-tools.php:600
+#: gd-taxonomies-tools.php:742
 msgid "Taxonomies"
 msgstr ""
 
@@ -490,8 +490,8 @@ msgid "Update Item"
 msgstr ""
 
 #: forms/admin/taxonomy.form.php:113
-#: gd-taxonomies-tools.php:597
-#: gd-taxonomies-tools.php:597
+#: gd-taxonomies-tools.php:598
+#: gd-taxonomies-tools.php:598
 msgid "Post Types"
 msgstr ""
 
@@ -785,7 +785,7 @@ msgstr ""
 
 #: widgets/gdtt-terms-cloud/basic.php:2
 #: widgets/gdtt-terms-list/basic.php:2
-#: gd-taxonomies-tools.php:656
+#: gd-taxonomies-tools.php:657
 msgid "Title"
 msgstr ""
 
@@ -917,68 +917,68 @@ msgstr ""
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: gd-taxonomies-tools.php:595
-#: gd-taxonomies-tools.php:595
+#: gd-taxonomies-tools.php:596
+#: gd-taxonomies-tools.php:596
 msgid "Front Page"
 msgstr ""
 
-#: gd-taxonomies-tools.php:646
+#: gd-taxonomies-tools.php:647
 msgid "Tools"
 msgstr ""
 
-#: gd-taxonomies-tools.php:657
+#: gd-taxonomies-tools.php:658
 msgid "Editor"
 msgstr ""
 
-#: gd-taxonomies-tools.php:658
+#: gd-taxonomies-tools.php:659
 msgid "Excerpts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:659
+#: gd-taxonomies-tools.php:660
 msgid "Trackbacks"
 msgstr ""
 
-#: gd-taxonomies-tools.php:660
+#: gd-taxonomies-tools.php:661
 msgid "Custom Fields"
 msgstr ""
 
-#: gd-taxonomies-tools.php:661
+#: gd-taxonomies-tools.php:662
 msgid "Comments"
 msgstr ""
 
-#: gd-taxonomies-tools.php:662
+#: gd-taxonomies-tools.php:663
 msgid "Revisions"
 msgstr ""
 
-#: gd-taxonomies-tools.php:663
+#: gd-taxonomies-tools.php:664
 msgid "Post Thumbnails"
 msgstr ""
 
-#: gd-taxonomies-tools.php:664
+#: gd-taxonomies-tools.php:665
 msgid "Author"
 msgstr ""
 
-#: gd-taxonomies-tools.php:665
+#: gd-taxonomies-tools.php:666
 msgid "Page Attributes"
 msgstr ""
 
-#: gd-taxonomies-tools.php:676
+#: gd-taxonomies-tools.php:677
 msgid "Custom Posts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:680
+#: gd-taxonomies-tools.php:681
 msgid "Add new Custom Posts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:684
+#: gd-taxonomies-tools.php:685
 msgid "Edit Custom Posts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:745
+#: gd-taxonomies-tools.php:746
 msgid "Add new Taxonomy"
 msgstr ""
 
-#: gd-taxonomies-tools.php:749
+#: gd-taxonomies-tools.php:750
 msgid "Edit Taxonomy"
 msgstr ""
 
