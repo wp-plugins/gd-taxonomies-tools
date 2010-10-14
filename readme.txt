@@ -1,7 +1,7 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://dv4p.com/gdtt
-Version: 1.2.8
+Version: 1.2.9
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.8
 Tested up to: 3.0
@@ -15,9 +15,6 @@ GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand cust
 Supported languages: english, chinese, spanish, danish, polish, dutch
 
 To work with custom post types you need WordPress 3.0. Plugin supports all latest features added to custom post types and supported by WordPress.
-
-[Upgrade to GD Custom Posts And Taxonomies Tools PRO](http://dv4p.com/gdtt) |
-[Compare Lite VS PRO](http://dv4p.com/vh)
 
 = Important URL's =
 [Plugin Home](http://dv4p.com/gdtt) |
@@ -57,10 +54,13 @@ Lite version is regularly maintained, but it doesn't include any kind of support
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.2.8 =
-Polish and Dutch translation added. Use of capabilities for access panels control. Fixed saving custom rewrite slug for custom taxonomies.
+= 1.2.8 / 1.2.9 =
+Polish and Dutch translation added. Use of capabilities for access panels control. Fixed saving custom rewrite slug for custom taxonomies. Several minor changes and updates.
 
 == Changelog ==
+= 1.2.8 =
+* Several minor changes and updates
+
 = 1.2.8 =
 * Polish and Dutch translation added
 * Use of capabilities for access panels control

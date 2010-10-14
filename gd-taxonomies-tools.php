@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.2.8
+Version: 1.2.9
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -85,11 +85,11 @@ if (!class_exists('GDTaxonomiesTools')) {
         }
 
         function upgrade_notice() {
-            if ($this->o["upgrade_to_pro"] == 1) {
-                $no_thanks = add_query_arg("proupgrade", "hide");
+            if ($this->o["upgrade_to_pro_12"] == 1) {
+                $no_thanks = add_query_arg("proupgradett", "hide");
                 echo '<div class="updated">';
                 _e("Thank you for using this plugin. Please, take a few minutes and check out the Pro version of this plugin and new and improved features, including premium support.", "gd-taxonomies-tools");
-                echo ' <a href="http://www.dev4press.com/plugins/gd-taxonomies-tools/editions/" target="_blank">'.__("GD Custom Posts And Taxonomies Tools Pro plugin Editions", "gd-taxonomies-tools")."</a>";
+                echo '<br/><strong><a href="http://dv4p.com/gdtt" target="_blank">'.__("GD Custom Posts And Taxonomies Tools Pro", "gd-taxonomies-tools")."</a></strong>";
                 echo '. <a href="'.$no_thanks.'">'.__("Don't display this message anymore", "gd-taxonomies-tools")."</a>.";
                 echo '</div>';
             }
@@ -453,10 +453,10 @@ if (!class_exists('GDTaxonomiesTools')) {
         }
 
         function init_operations() {
-            if (isset($_GET["proupgrade"]) && $_GET["proupgrade"] == "hide") {
-                $this->o["upgrade_to_pro"] = 0;
-                update_option("gd-taxonomy-tools", $this->o);
-                wp_redirect(remove_query_arg("proupgrade"));
+            if (isset($_GET["proupgradett"]) && $_GET["proupgradett"] == "hide") {
+                $this->o["upgrade_to_pro_12"] = 0;
+                update_option('gd-taxonomy-tools', $this->o);
+                wp_redirect(remove_query_arg("proupgradett"));
                 exit;
             }
 

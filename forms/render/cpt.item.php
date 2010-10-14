@@ -21,7 +21,7 @@ foreach ($gdcpall as $cpt) {
     <td style="text-align: center;"><?php echo $cpt_data->rewrite ? __("yes", "gd-taxonomies-tools") : __("no", "gd-taxonomies-tools"); ?></td>
     <td style="text-align: center;"><?php echo $cpt_data->hierarchical ? __("yes", "gd-taxonomies-tools") : __("no", "gd-taxonomies-tools"); ?></td>
     <td><?php echo $cpt_data->capability_type; ?></td>
-    <td style="text-align: right;"><?php echo intval($post_count[$cpt_data->name]); ?></td>
+    <td style="text-align: right;"><?php echo isset($post_count[$cpt_data->name]) ? intval($post_count[$cpt_data->name]) : 0; ?></td>
     <td style="text-align: right;">
         <?php if (!$default) { ?>
         <a onclick="return areYouSure()" class="ttoption-del" href="<?php echo $tt_url; ?>&action=delcpt"><?php _e("delete", "gd-taxonomies-tools"); ?></a> |
