@@ -54,6 +54,11 @@
                     <td class="t"><?php _e("advanced theme framework", "gd-taxonomies-tools"); ?></td>
                     <td class="t options"><a href="http://www.dev4press.com/themes/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
+                <tr>
+                    <td class="first b">List of Themes</td>
+                    <td class="t"><?php _e("currently available premium themes", "gd-taxonomies-tools"); ?></td>
+                    <td class="t options"><a href="http://www.dev4press.com/themes/list-themes/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
+                </tr>
             </tbody></table>
         </div>
         <p class="sub"><?php _e("Plugins", "gd-taxonomies-tools"); ?></p>
@@ -70,6 +75,11 @@
                     <td class="t options"><a href="http://www.dev4press.com/plugins/gd-press-tools/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
                 <tr>
+                    <td class="first b">GD aZon FUSION</td>
+                    <td class="t"><?php _e("wordpress amazon products integration", "gd-taxonomies-tools"); ?></td>
+                    <td class="t options"><a href="http://www.dev4press.com/plugins/gd-azon-fusion/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
+                </tr>
+                <tr>
                     <td class="first b">GD Simple Widgets</td>
                     <td class="t"><?php _e("custom taxonomies managment", "gd-taxonomies-tools"); ?></td>
                     <td class="t options"><a href="http://www.dev4press.com/plugins/gd-simple-widgets/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
@@ -78,35 +88,6 @@
                     <td class="first b">GD Affiliate Center</td>
                     <td class="t"><?php _e("ad management control", "gd-taxonomies-tools"); ?></td>
                     <td class="t options"><a href="http://www.gdaffiliatecenter.com/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
-                </tr>
-            </tbody></table>
-        </div>
-    </div>
-</div>
-<div id="gdpt_server" class="postbox gdrgrid frontright">
-    <h3 class="hndle"><span>Golden Dragon</span></h3>
-    <div class="inside">
-        <div class="table">
-            <table><tbody>
-                <tr class="first">
-                    <td class="first b"><?php _e("Official Website", "gd-taxonomies-tools"); ?></td>
-                    <td class="t"><?php _e("golden dragon official web portal", "gd-taxonomies-tools"); ?></td>
-                    <td class="t options"><a href="http://www.gdragon.info/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
-                </tr>
-                <tr>
-                    <td class="first b">Dev4Press</td>
-                    <td class="t"><?php _e("wordpress development", "gd-taxonomies-tools"); ?></td>
-                    <td class="t options"><a href="http://www.dev4press.com/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
-                </tr>
-                <tr>
-                    <td class="first b" style="color: navy;">TVScape</td>
-                    <td class="t"><?php _e("tv shows reviews and news", "gd-taxonomies-tools"); ?></td>
-                    <td class="t options"><a href="http://www.tvscape.net/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
-                </tr>
-                <tr>
-                    <td class="first b"><?php _e("Support Forum", "gd-taxonomies-tools"); ?></td>
-                    <td class="t"><?php _e("development discussion forum", "gd-taxonomies-tools"); ?></td>
-                    <td class="t options"><a href="http://forum.gdragon.info/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
             </tbody></table>
         </div>

@@ -23,6 +23,7 @@ foreach ($gdtxall as $tax) {
     <td><?php echo $wpv < 30 ? $tax_data->object_type : join(", ", array_unique($tax_data->object_type)); ?></td>
     <td><strong style="color: #cc0000;"><?php echo $tax_data->label; ?></strong></td>
     <td><strong><?php echo $tax_data->name; ?></strong></td>
+    <td style="text-align: center;"><?php echo $tax_data->public ? __("yes", "gd-taxonomies-tools") : __("no", "gd-taxonomies-tools"); ?></td>
     <td style="text-align: center;"><?php echo $wpv < 30 ? $tax_data->rewrite["slug"] : ($tax_data->rewrite ? __("yes", "gd-taxonomies-tools") : __("no", "gd-taxonomies-tools")); ?></td>
     <td style="text-align: center;"><?php echo $tax_data->query_var; ?></td>
     <td style="text-align: center;"><?php echo $tax_data->hierarchical ? __("yes", "gd-taxonomies-tools") : __("no", "gd-taxonomies-tools"); ?></td>

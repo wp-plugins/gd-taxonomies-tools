@@ -137,9 +137,11 @@
                     <?php
                         echo sprintf('<option value="(all)">%s</option>', __("(all)", "gd-taxonomies-tools"));
                         foreach ($wp_taxonomies as $code => $tax) {
-                            echo sprintf('<option%s value="%s">%s [%s]</option>',
+                            if ($tax->public && $code != "post_format") {
+                                echo sprintf('<option%s value="%s">%s [%s]</option>',
                                     in_array($code, $cpt["taxonomies"]) ? ' selected="selected"' : "",
                                     $code, $tax->label, $code);
+                            }
                         }
                     ?>
                     </select>

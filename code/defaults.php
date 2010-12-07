@@ -2,13 +2,13 @@
 
 class GDTTDefaults {
     var $default_options = array(
-        "version" => "1.2.9",
-        "date" => "2010.10.14.",
+        "version" => "1.3.0",
+        "date" => "2010.12.08.",
         "status" => "Stable",
-        "build" => 1290,
+        "build" => 1300,
         "product_id" => "gd-taxonomies-tools",
         "edition" => "lite",
-        "upgrade_to_pro_12" => 1,
+        "upgrade_to_pro_13" => 1,
         "force_rules_flush" => 0,
         "tax_internal" => 0,
         "cpt_internal" => 0,
@@ -21,7 +21,7 @@ class GDTTDefaults {
         "wp28" => 3,
         "wp29" => 3,
         "wp30" => 4,
-        "wp31" => 4
+        "wp31" => 5
     );
 
     var $default_posttypes = array(
