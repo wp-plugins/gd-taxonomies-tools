@@ -33,6 +33,8 @@ $cpt = array(
             "search_items" => "", "not_found" => "",
             "not_found_in_trash" => "", "view" => "",
             "parent_item_colon" => ""),
+        "capabilites" => "type",
+        "caps_type" => "post",
         "caps" => array(
             "edit_post" => "edit_post",
             "edit_posts" => "edit_posts",

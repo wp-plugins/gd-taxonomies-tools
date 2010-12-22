@@ -3,7 +3,7 @@
 <table class="form-table"><tbody>
 <tr><th scope="row"><?php _e("Name", "gd-taxonomies-tools"); ?></th>
     <td>
-        <input<?php echo $tax["id"] > 0 ? " readonly" : ""; ?> type="text" value="<?php echo $tax["name"]; ?>" id="taxname" name="tax[name]" class="input-text-middle<?php echo $tax["id"] > 0 ? " disabled" : ""; ?>" />
+        <input maxlength="32"<?php echo $tax["id"] > 0 ? " readonly" : ""; ?> type="text" value="<?php echo $tax["name"]; ?>" id="taxname" name="tax[name]" class="input-text-middle<?php echo $tax["id"] > 0 ? " disabled" : ""; ?>" />
         <?php if ($tax["id"] > 0 && false) { ?>
         <br /><input type="checkbox" name="tax[rename]" /><label style="margin-left: 5px;"><?php _e("Allow renaming of the taxonomy name. This will cause renaming all database entries for this taxonomy.", "gd-taxonomies-tools"); ?></label>
         <?php } ?>

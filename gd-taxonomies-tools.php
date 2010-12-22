@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.3.0
+Version: 1.3.1
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -245,6 +245,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                 if (!isset($cpt["active"]) || (isset($cpt["active"]) && $cpt["active"] == 1)) {
                     $cpt["description"] = !isset($cpt["description"]) ? "" : $cpt["description"];
                     $cpt["rewrite_slug"] = !isset($cpt["rewrite_slug"]) ? "" : $cpt["rewrite_slug"];
+                    $caps = $labels = array();
 
                     $rewrite = $cpt["rewrite"] == "yes";
                     if ($cpt["rewrite_slug"] != "") {
@@ -254,15 +255,12 @@ if (!class_exists('GDTaxonomiesTools')) {
                     }
 
                     if (!isset($cpt["labels"])) {
-                        $labels = array("name" => $cpt["label"],
-                            "singular_name" => $cpt["label_singular"]);
+                        $labels = array("name" => $cpt["label"], "singular_name" => $cpt["label_singular"]);
                     } else {
                         $labels = $cpt["labels"];
                     }
 
-                    if (!isset($cpt["caps"])) {
-                        $caps = array();
-                    } else {
+                    if (isset($cpt["caps"])) {
                         $caps = $cpt["caps"];
                     }
 
@@ -279,7 +277,9 @@ if (!class_exists('GDTaxonomiesTools')) {
                         "publicly_queryable" => $cpt["publicly_queryable"],
                         "exclude_from_search" => $cpt["exclude_from_search"],
                         "_edit_link" => $cpt["edit_link"],
-                        "capabilities" => $caps,
+                        "map_meta_cap" => null,
+                        "capabilities" => array(),
+                        "capability_type" => "",
                         "hierarchical" => $cpt["hierarchy"] == "yes",
                         "public" => $cpt["public"],
                         "rewrite" => $rewrite,
@@ -290,6 +290,13 @@ if (!class_exists('GDTaxonomiesTools')) {
                         "can_export" => $cpt["can_export"],
                         "show_in_nav_menus" => $cpt["nav_menus"]
                     );
+
+                    if (isset($cpt["capabilites"]) && $cpt["capabilites"] == "type") {
+                        $options["capability_type"] = $cpt["caps_type"];
+                    } else {
+                        $options["capabilities"] = $caps;
+                    }
+
                     register_post_type($cpt["name"], $options);
                 }
             }
@@ -508,6 +515,8 @@ if (!class_exists('GDTaxonomiesTools')) {
                 $cpt["rewrite_slug"] = trim(strip_tags($cpt["rewrite_slug"]));
                 $cpt["description"] = trim(strip_tags($cpt["description"]));
                 $cpt["active"] = isset($cpt["active"]) ? 1 : 0;
+                $cpt["caps_type"] = trim(strip_tags($cpt["caps_type"]));
+                $cpt["capabilites"] = trim(strip_tags($cpt["capabilites"]));
 
                 if (!$this->is_term_valid($cpt["name"])) {
                     $this->errors = "name";
@@ -712,6 +721,10 @@ if (!class_exists('GDTaxonomiesTools')) {
                         "search_items" => "", "not_found" => "",
                         "not_found_in_trash" => "", "view" => "",
                         "parent_item_colon" => "");
+                }
+                if (!isset($cpt["capabilites"])) {
+                    $cpt["capabilites"] = "list";
+                    $cpt["caps_type"] = "post";
                 }
                 if (!isset($cpt["caps"])) {
                     $cpt["caps"] = array(

@@ -1,7 +1,7 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://dv4p.com/gdtt
-Version: 1.3.0
+Version: 1.3.1
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.9
 Tested up to: 3.1
@@ -12,7 +12,7 @@ GD Custom Posts And Taxonomies Tools is plugin for management and tools collecti
 == Description ==
 GD Custom Posts And Taxonomies Tools is a plugin that can be used to expand custom taxonomies and custom post types support. Plugin adds many tools including custom post types and taxonomies management and widget for taxonomies terms cloud.
 
-Supported languages: english, chinese, spanish, danish, polish, dutch
+Supported languages: english, chinese, spanish, danish, polish, dutch, french
 
 To work with custom post types you need WordPress 3.0. Plugin supports all latest features added to custom post types and supported by WordPress.
 
@@ -26,7 +26,7 @@ To work with custom post types you need WordPress 3.0. Plugin supports all lates
 = Requirements =
 * PHP: 4.4.x or 5.x.x
 * mySQL: 4.0, 4.1 or 5.x
-* WordPress: 2.8 or newer
+* WordPress: 2.9 or newer
 
 = Special Requirement =
 * WordPress 3.0 for custom post types
@@ -37,7 +37,7 @@ To work with custom post types you need WordPress 3.0. Plugin supports all lates
 * Activate the plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
-= Does plugin works with WordPressMU and WordPress MultiSite installations? =
+= Does plugin works with WordPress MultiSite installations? =
 Yes.
 
 = I want to translate the plugin to my language, or to improve existing translations? =
@@ -54,15 +54,20 @@ Lite version is regularly maintained, but it doesn't include any kind of support
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.3.0 =
-French translation added. Full support for upcoming WordPress 3.1. Post type editor shows only public taxonomies. Updated drop down checkbox jquery library.
+= 1.3.1 =
+Use of capability type for custom post types. More updates for upcoming WordPress 3.1. Limiting names for post types and taxonomies.
 
 == Changelog ==
+= 1.3.1 =
+* Use of capability type for custom post types
+* More updates for upcoming WordPress 3.1
+* Limiting names for post types and taxonomies
+
 = 1.3.0 =
 * French translation added
 * Full support for upcoming WordPress 3.1
 * Post type editor shows only public taxonomies
-* Updated drop down checkbox jquery library
+* Updated drop down checkbox jQuery library
 
 = 1.2.9 =
 * Several minor changes and updates

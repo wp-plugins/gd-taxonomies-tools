@@ -3,7 +3,7 @@
 <table class="form-table"><tbody>
 <tr><th scope="row"><?php _e("Name", "gd-taxonomies-tools"); ?></th>
     <td>
-        <input<?php echo $cpt["id"] > 0 ? " readonly" : ""; ?> type="text" value="<?php echo $cpt["name"]; ?>" id="cptname" name="cpt[name]" class="input-text-middle<?php echo $cpt["id"] > 0 ? " disabled" : ""; ?>" />
+        <input maxlength="20"<?php echo $cpt["id"] > 0 ? " readonly" : ""; ?> type="text" value="<?php echo $cpt["name"]; ?>" id="cptname" name="cpt[name]" class="input-text-middle<?php echo $cpt["id"] > 0 ? " disabled" : ""; ?>" />
         <div class="gdsr-table-split"></div>
         <div class="gdsr-major-info">
             <?php _e("This must be unique name, not used by any other default or custom post type.", "gd-taxonomies-tools"); ?><br />
@@ -148,6 +148,7 @@
                 </td>
             </tr>
         </table>
+        <div class="gdsr-table-split"></div>
         <table cellpadding="0" cellspacing="0" class="previewtable">
             <tr>
                 <td width="150" valign="top">
@@ -181,6 +182,20 @@
                     <select name="cpt[query]" class="input-text-middle">
                         <option value="yes"<?php echo $cpt["query"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
                         <option value="no"<?php echo $cpt["query"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div class="gdsr-table-split"></div>
+        <table cellpadding="0" cellspacing="0" class="previewtable">
+            <tr>
+                <td width="150" valign="top">
+                    <?php _e("Capabilites", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td width="230" valign="top">
+                    <select name="cpt[capabilites]" class="input-text-middle">
+                        <option value="type"<?php echo $cpt["capabilites"] == "type" ? ' selected="selected"' : ''; ?>><?php _e("Use Capability Type", "gd-taxonomies-tools"); ?></option>
+                        <option value="list"<?php echo $cpt["capabilites"] == "list" ? ' selected="selected"' : ''; ?>><?php _e("Use Capabilities List", "gd-taxonomies-tools"); ?></option>
                     </select>
                 </td>
             </tr>
@@ -228,7 +243,21 @@
         <?php _e("Navigational menu option will make custom post type available for building menus.", "gd-taxonomies-tools"); ?>
     </td>
 </tr>
-<tr><th scope="row"><?php _e("Capabilities", "gd-taxonomies-tools"); ?></th>
+<tr><th scope="row"><?php _e("Capability Type", "gd-taxonomies-tools"); ?></th>
+    <td>
+        <table cellpadding="0" cellspacing="0" class="previewtable">
+            <tr>
+                <td width="150" style="vertical-align: top;"><?php _e("Name", "gd-taxonomies-tools"); ?>:</td>
+                <td valign="top">
+                    <input type="text" id="cptcaps_type" value="<?php echo $cpt["caps_type"]; ?>" name="cpt[caps_type]" class="input-text-middle" />
+                </td>
+            </tr>
+        </table>
+        <div class="gdsr-table-split"></div>
+        <?php _e("Base capability type that will be used to generate all capabilites needed for the post type.", "gd-taxonomies-tools"); ?> <?php _e("Do not change if you are not sure what this is.", "gd-taxonomies-tools"); ?>
+    </td>
+</tr>
+<tr><th scope="row"><?php _e("Capabilities List", "gd-taxonomies-tools"); ?></th>
     <td>
         <table cellpadding="0" cellspacing="0" class="previewtable">
             <tr>
