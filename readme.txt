@@ -1,7 +1,7 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://dv4p.com/gdtt
-Version: 1.3.1
+Version: 1.3.2
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.9
 Tested up to: 3.1
@@ -29,7 +29,7 @@ To work with custom post types you need WordPress 3.0. Plugin supports all lates
 * WordPress: 2.9 or newer
 
 = Special Requirement =
-* WordPress 3.0 for custom post types
+* WordPress 3.0 or newer for custom post types
 
 = Basic Installation =
 * Plugin folder in the WordPress plugins folder must be `gd-taxonomies-tools`.
@@ -39,6 +39,9 @@ To work with custom post types you need WordPress 3.0. Plugin supports all lates
 == Frequently Asked Questions ==
 = Does plugin works with WordPress MultiSite installations? =
 Yes.
+
+= Can I edit built in (default) post types and taxonomies (post, page, category, tag)? =
+Not with Lite version. Pro version has full support of editing all public (including default) post types and taxonomies. Pro version includes much more features not available in Lite: http://dv4p.com/gdtt.
 
 = I want to translate the plugin to my language, or to improve existing translations? =
 You only need POEdit program that works on Windows, Linux and MacOS. Instructions on how to make or update translations are here: http://dv4p.com/wa. POT file to start translation is included with the plugin.
@@ -54,10 +57,15 @@ Lite version is regularly maintained, but it doesn't include any kind of support
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.3.1 =
-Use of capability type for custom post types. More updates for upcoming WordPress 3.1. Limiting names for post types and taxonomies.
+= 1.3.2 =
+Updated list of capabilites and labels for custom post types and custom taxonomies. Interface improvements and new editor options.
 
 == Changelog ==
+= 1.3.2 =
+* Updated list of capabilites and labels for custom post types
+* Updated list of capabilites and labels for custom taxonomies
+* Interface improvements and new editor options
+
 = 1.3.1 =
 * Use of capability type for custom post types
 * More updates for upcoming WordPress 3.1

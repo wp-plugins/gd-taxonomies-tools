@@ -2,12 +2,13 @@
 
 class GDTTDefaults {
     var $default_options = array(
-        "version" => "1.3.1",
-        "date" => "2010.12.23.",
+        "version" => "1.3.2",
+        "date" => "2011.01.18.",
         "status" => "Stable",
-        "build" => 1310,
+        "build" => 1320,
         "product_id" => "gd-taxonomies-tools",
         "edition" => "lite",
+        "upgrade_notice_132" => 1,
         "upgrade_to_pro_13" => 1,
         "force_rules_flush" => 0,
         "tax_internal" => 0,
@@ -27,6 +28,30 @@ class GDTTDefaults {
     var $default_posttypes = array(
         "wp30" => 5,
         "wp31" => 5
+    );
+
+    var $post_type_caps = array(
+        "edit_post" => "edit_post",
+        "read_post" => "read_post",
+        "delete_post" => "delete_post",
+        "edit_posts" => "edit_posts",
+        "edit_others_posts" => "edit_others_posts",
+        "publish_posts" => "publish_posts",
+        "read_private_posts" => "read_private_posts",
+        "read" => "read",
+        "delete_posts" => "delete_posts",
+        "delete_private_posts" => "delete_private_posts",
+        "delete_published_posts" => "delete_published_posts",
+        "delete_others_posts" => "delete_others_posts",
+        "edit_private_posts" => "edit_private_posts",
+        "edit_published_posts" => "edit_published_posts"
+    );
+
+    var $taxonomy_caps = array(
+        "manage_terms" => "manage_categories",
+        "edit_terms" => "manage_categories",
+        "delete_terms" => "manage_categories",
+        "assign_terms" => "edit_posts"
     );
 
     function GDTTDefaults() { }

@@ -1,6 +1,8 @@
 <?php
 
+global $gdtt;
 $editor = true;
+
 $tax = array(
         "id" => 0,
         "name" => "",
@@ -20,13 +22,12 @@ $tax = array(
             "name" => "", "singular_name" => "",
             "search_items" => "", "popular_items" => "",
             "all_items" => "", "parent_item" => "",
-            "edit_item" => "", "update_item" => "",
-            "add_new_item" => "", "new_item_name" => ""),
-        "caps" => array(
-            "manage_terms" => "manage_categories",
-            "edit_terms" => "manage_categories",
-            "delete_terms" => "manage_categories",
-            "assign_terms" => "edit_posts")
+            "parent_item_colon" => "", "edit_item" => "",
+            "update_item" => "", "add_new_item" => "",
+            "new_item_name" => "", "separate_items_with_commas" => "",
+            "add_or_remove_items" => "", "choose_from_most_used" => "",
+            "menu_name" => ""),
+        "caps" => $gdtt->taxonomy_caps
     );
 
 if ($errors == "name") {

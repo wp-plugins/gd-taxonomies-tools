@@ -7,6 +7,20 @@ jQuery(document).ready(function() {
     jQuery("#gdtt_tabs").tabs({fx: {height: "toggle"}});
 });
 
+function capabilities_posttype() {
+    var fields = <?php echo $default_caps_cpt; ?>;
+    jQuery.each(fields, function(idx, vle) {
+        jQuery("#cptcaps" + idx).val(vle);
+    });
+}
+
+function capabilities_taxonomy() {
+    var fields = <?php echo $default_caps_tax; ?>;
+    jQuery.each(fields, function(idx, vle) {
+        jQuery("#taxcaps" + idx).val(vle);
+    });
+}
+
 function autofill_posttype() {
     var name = jQuery("#cptlabelsname").val();
     var singular_name = jQuery("#cptlabelssingular_name").val();
@@ -22,8 +36,8 @@ function autofill_posttype() {
         jQuery("#cptlabelssearch_items").val('<?php _e("Search", "gd-taxonomies-tools") ?> ' + name);
         jQuery("#cptlabelsnot_found").val('<?php _e("No", "gd-taxonomies-tools") ?> ' + name + ' <?php _e("Found", "gd-taxonomies-tools") ?>');
         jQuery("#cptlabelsnot_found_in_trash").val('<?php _e("No", "gd-taxonomies-tools") ?> ' + name + ' <?php _e("Found In Trash", "gd-taxonomies-tools") ?>');
-        jQuery("#cptlabelsview").val('<?php _e("View", "gd-taxonomies-tools") ?> ' + singular_name);
         jQuery("#cptlabelsparent_item_colon").val('<?php _e("Parent", "gd-taxonomies-tools") ?> ' + name + ':');
+        jQuery("#cptlabelsmenu_name").val(name);
     }
 }
 
@@ -41,6 +55,11 @@ function autofill_taxonomy() {
         jQuery("#taxlabelsupdate_item").val('<?php _e("Update", "gd-taxonomies-tools") ?> ' + singular_name);
         jQuery("#taxlabelsadd_new_item").val('<?php _e("Add New", "gd-taxonomies-tools") ?> ' + singular_name);
         jQuery("#taxlabelsnew_item_name").val('<?php _e("New", "gd-taxonomies-tools") ?> ' + singular_name + ' <?php _e("Name", "gd-taxonomies-tools") ?>');
+        jQuery("#taxlabelsparent_item_colon").val('<?php _e("Parent", "gd-taxonomies-tools") ?> ' + singular_name + ':');
+        jQuery("#taxlabelsseparate_items_with_commas").val('<?php _e("Separate", "gd-taxonomies-tools") ?> ' + name + ' <?php _e("with commas", "gd-taxonomies-tools") ?>');
+        jQuery("#taxlabelsadd_or_remove_items").val('<?php _e("Add or remove", "gd-taxonomies-tools") ?> ' + name);
+        jQuery("#taxlabelschoose_from_most_used").val('<?php _e("Choose from the most used", "gd-taxonomies-tools") ?> ' + name);
+        jQuery("#taxlabelsmenu_name").val(name);
     }
 }
 

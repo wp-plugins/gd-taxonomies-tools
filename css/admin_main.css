@@ -34,8 +34,6 @@ p.sub {
 
 .gdpttitle div.edition.lite { background: transparent url(../gfx/lite.png) no-repeat; }
 
-.gdpttitle div.edition.pro { background: transparent url(../gfx/pro.png) no-repeat; }
-
 .gdpttitle div.gdtitle { float: left; margin-top: 7px; }
 
 .gdpttitle span {
@@ -43,7 +41,7 @@ p.sub {
 	vertical-align: 14px;
 	color: red;
 	font-weight: bold;
-	margin-left: -44px;
+	margin-left: -42px;
 }
 
 .gdrgrid .table {

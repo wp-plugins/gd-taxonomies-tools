@@ -1,4 +1,4 @@
-<div class="wrap"><div class="gdms">
+<div class="wrap"><div class="gdsr">
     <div id="gdptlogo">
         <div class="gdpttitle">
             <div class="gdtitle">GD Custom Posts And Taxonomies Tools</div>

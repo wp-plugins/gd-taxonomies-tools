@@ -1,6 +1,8 @@
 <?php
 
+global $gdtt;
 $editor = true;
+
 $cpt = array(
         "id" => 0,
         "name" => "",
@@ -28,21 +30,13 @@ $cpt = array(
         "labels" => array(
             "name" => "", "singular_name" => "",
             "add_new" => "", "add_new_item" => "",
-            "edit_item" => "", "edit" => "",
-            "new_item" => "", "view_item" => "",
-            "search_items" => "", "not_found" => "",
-            "not_found_in_trash" => "", "view" => "",
-            "parent_item_colon" => ""),
+            "edit_item" => "", "new_item" => "",
+            "view_item" => "", "search_items" => "",
+            "not_found" => "", "not_found_in_trash" => "",
+            "parent_item_colon" => "", "menu_item" => ""),
         "capabilites" => "type",
         "caps_type" => "post",
-        "caps" => array(
-            "edit_post" => "edit_post",
-            "edit_posts" => "edit_posts",
-            "edit_others_posts" => "edit_others_posts",
-            "publish_posts" => "publish_posts",
-            "read_post" => "read_post",
-            "read_private_posts" => "read_private_posts",
-            "delete_post" => "delete_post")
+        "caps" => $gdtt->post_type_caps
     );
 
 if ($errors == "name") {

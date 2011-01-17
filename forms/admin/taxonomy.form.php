@@ -59,47 +59,75 @@
         <div class="gdsr-table-split"></div>
         <table cellpadding="0" cellspacing="0" class="previewtable">
             <tr>
-                <td width="150" style="vertical-align: top;"><?php _e("Parent Item", "gd-taxonomies-tools"); ?>:</td>
-                <td valign="top">
-                    <input type="text" id="taxlabelsparent_item" value="<?php echo $tax["labels"]["parent_item"]; ?>" name="tax[labels][parent_item]" class="input-text-middle" />
-                </td>
-                <td style="width: 20px;"></td>
                 <td width="150" style="vertical-align: top;"><?php _e("Search Items", "gd-taxonomies-tools"); ?>:</td>
                 <td valign="top">
-                    <input type="text" id="taxlabelssearch_items" value="<?php echo $tax["labels"]["search_items"]; ?>" name="tax[labels][search_items]" class="input-text-middle" />
-                </td>
-            </tr>
-            <tr>
-                <td width="150" style="vertical-align: top;"><?php _e("Popular Items", "gd-taxonomies-tools"); ?>:</td>
-                <td valign="top">
-                    <input type="text" id="taxlabelspopular_items" value="<?php echo $tax["labels"]["popular_items"]; ?>" name="tax[labels][popular_items]" class="input-text-middle" />
+                    <input type="text" id="taxlabelssearch_items" value="<?php echo isset($tax["labels"]["search_items"]) ? $tax["labels"]["search_items"] : ""; ?>" name="tax[labels][search_items]" class="input-text-middle" />
                 </td>
                 <td style="width: 20px;"></td>
-                <td width="150" style="vertical-align: top;"><?php _e("All Items", "gd-taxonomies-tools"); ?>:</td>
+                <td width="150" style="vertical-align: top;"><?php _e("Popular Items", "gd-taxonomies-tools"); ?>:</td>
                 <td valign="top">
-                    <input type="text" id="taxlabelsall_items" value="<?php echo $tax["labels"]["all_items"]; ?>" name="tax[labels][all_items]" class="input-text-middle" />
+                    <input type="text" id="taxlabelspopular_items" value="<?php echo isset($tax["labels"]["popular_items"]) ? $tax["labels"]["popular_items"] : ""; ?>" name="tax[labels][popular_items]" class="input-text-middle" />
                 </td>
             </tr>
             <tr>
-                <td width="150" style="vertical-align: top;"><?php _e("New Item Name", "gd-taxonomies-tools"); ?>:</td>
+                <td width="150" style="vertical-align: top;"><?php _e("All Items", "gd-taxonomies-tools"); ?>:</td>
                 <td valign="top">
-                    <input type="text" id="taxlabelsnew_item_name" value="<?php echo $tax["labels"]["new_item_name"]; ?>" name="tax[labels][new_item_name]" class="input-text-middle" />
+                    <input type="text" id="taxlabelsall_items" value="<?php echo isset($tax["labels"]["all_items"]) ? $tax["labels"]["all_items"] : ""; ?>" name="tax[labels][all_items]" class="input-text-middle" />
+                </td>
+                <td style="width: 20px;"></td>
+                <td width="150" style="vertical-align: top;"><?php _e("Parent Item", "gd-taxonomies-tools"); ?>:</td>
+                <td valign="top">
+                    <input type="text" id="taxlabelsparent_item" value="<?php echo isset($tax["labels"]["parent_item"]) ? $tax["labels"]["parent_item"] : ""; ?>" name="tax[labels][parent_item]" class="input-text-middle" />
+                </td>
+            </tr>
+            <tr>
+                <td width="150" style="vertical-align: top;"><?php _e("Parent Item, Colon", "gd-taxonomies-tools"); ?>:</td>
+                <td valign="top">
+                    <input type="text" id="taxlabelsparent_item_colon" value="<?php echo isset($tax["labels"]["parent_item_colon"]) ? $tax["labels"]["parent_item_colon"] : ""; ?>" name="tax[labels][parent_item_colon]" class="input-text-middle" />
                 </td>
                 <td style="width: 20px;"></td>
                 <td width="150" style="vertical-align: top;"><?php _e("Edit Item", "gd-taxonomies-tools"); ?>:</td>
                 <td valign="top">
-                    <input type="text" id="taxlabelsedit_item" value="<?php echo $tax["labels"]["edit_item"]; ?>" name="tax[labels][edit_item]" class="input-text-middle" />
+                    <input type="text" id="taxlabelsedit_item" value="<?php echo isset($tax["labels"]["edit_item"]) ? $tax["labels"]["edit_item"] : ""; ?>" name="tax[labels][edit_item]" class="input-text-middle" />
                 </td>
             </tr>
             <tr>
                 <td width="150" style="vertical-align: top;"><?php _e("Update Item", "gd-taxonomies-tools"); ?>:</td>
                 <td valign="top">
-                    <input type="text" id="taxlabelsupdate_item" value="<?php echo $tax["labels"]["update_item"]; ?>" name="tax[labels][update_item]" class="input-text-middle" />
+                    <input type="text" id="taxlabelsupdate_item" value="<?php echo isset($tax["labels"]["update_item"]) ? $tax["labels"]["update_item"] : ""; ?>" name="tax[labels][update_item]" class="input-text-middle" />
                 </td>
                 <td style="width: 20px;"></td>
                 <td width="150" style="vertical-align: top;"><?php _e("Add New Item", "gd-taxonomies-tools"); ?>:</td>
                 <td valign="top">
-                    <input type="text" id="taxlabelsadd_new_item" value="<?php echo $tax["labels"]["add_new_item"]; ?>" name="tax[labels][add_new_item]" class="input-text-middle" />
+                    <input type="text" id="taxlabelsadd_new_item" value="<?php echo isset($tax["labels"]["add_new_item"]) ? $tax["labels"]["add_new_item"] : ""; ?>" name="tax[labels][add_new_item]" class="input-text-middle" />
+                </td>
+            </tr>
+            <tr>
+                <td width="150" style="vertical-align: top;"><?php _e("New Item Name", "gd-taxonomies-tools"); ?>:</td>
+                <td valign="top">
+                    <input type="text" id="taxlabelsnew_item_name" value="<?php echo isset($tax["labels"]["new_item_name"]) ? $tax["labels"]["new_item_name"] : ""; ?>" name="tax[labels][new_item_name]" class="input-text-middle" />
+                </td>
+                <td style="width: 20px;"></td>
+                <td width="150" style="vertical-align: top;"><?php _e("Separate with Commas", "gd-taxonomies-tools"); ?>:</td>
+                <td valign="top">
+                    <input type="text" id="taxlabelsseparate_items_with_commas" value="<?php echo isset($tax["labels"]["separate_items_with_commas"]) ? $tax["labels"]["separate_items_with_commas"] : ""; ?>" name="tax[labels][separate_items_with_commas]" class="input-text-middle" />
+                </td>
+            </tr>
+            <tr>
+                <td width="150" style="vertical-align: top;"><?php _e("Add or Remove Items", "gd-taxonomies-tools"); ?>:</td>
+                <td valign="top">
+                    <input type="text" id="taxlabelsadd_or_remove_items" value="<?php echo isset($tax["labels"]["add_or_remove_items"]) ? $tax["labels"]["add_or_remove_items"] : ""; ?>" name="tax[labels][add_or_remove_items]" class="input-text-middle" />
+                </td>
+                <td style="width: 20px;"></td>
+                <td width="150" style="vertical-align: top;"><?php _e("Choose from Most Used", "gd-taxonomies-tools"); ?>:</td>
+                <td valign="top">
+                    <input type="text" id="taxlabelschoose_from_most_used" value="<?php echo isset($tax["labels"]["choose_from_most_used"]) ? $tax["labels"]["choose_from_most_used"] : ""; ?>" name="tax[labels][choose_from_most_used]" class="input-text-middle" />
+                </td>
+            </tr>
+            <tr>
+                <td width="150" style="vertical-align: top;"><?php _e("Menu Name", "gd-taxonomies-tools"); ?>:</td>
+                <td valign="top" colspan="4">
+                    <input type="text" id="taxlabelsmenu_name" value="<?php echo isset($tax["labels"]["menu_name"]) ? $tax["labels"]["menu_name"] : ""; ?>" name="tax[labels][menu_name]" class="input-text-middle" />
                 </td>
             </tr>
         </table>
@@ -262,7 +290,9 @@
             </tr>
         </table>
         <div class="gdsr-table-split"></div>
-        <?php _e("Do not change any of these if you are not sure what they are.", "gd-taxonomies-tools"); ?>
+        <div class="inputbutton"><a href="javascript:capabilities_taxonomy()"><?php _e("Reset capabailities", "gd-taxonomies-tools"); ?></a></div>
+        <div class="gdsr-table-split"></div>
+        <?php _e("Do not change any of these if you are not sure what they are. All values must be filled.", "gd-taxonomies-tools"); ?>
     </td>
 </tr>
 <?php } ?>
