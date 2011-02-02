@@ -37,7 +37,7 @@
                 <tr class="first">
                     <td class="first b">GD CPT Tools</td>
                     <td class="t"><?php _e("official plugin page", "gd-taxonomies-tools"); ?></td>
-                    <td class="b options" style="color: red; font-weight: bold;"><a href="http://www.dev4press.com/plugins/gd-taxonomies-tools/editions/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
+                    <td class="b options" style="color: red; font-weight: bold;"><a href="http://www.dev4press.com/gd-taxonomies-tools/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
             </tbody></table>
         </div>

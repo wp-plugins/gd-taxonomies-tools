@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.3.2
+Version: 1.3.3
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -258,6 +258,13 @@ if (!class_exists('GDTaxonomiesTools')) {
                             "with_front" => $cpt["rewrite_front"] == "yes");
                     }
 
+                    if ($cpt["archive"] != "no") {
+                        $has_archive = true;
+                        if ($cpt["archive"] == "yes_custom" && $cpt["archive_slug"] != "") {
+                            $has_archive = $cpt["archive_slug"];
+                        }
+                    } else $has_archive = false;
+
                     if (!isset($cpt["labels"])) {
                         $labels = array("name" => $cpt["label"], "singular_name" => $cpt["label_singular"]);
                     } else {
@@ -286,6 +293,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                         "capability_type" => "",
                         "hierarchical" => $cpt["hierarchy"] == "yes",
                         "public" => $cpt["public"],
+                        "has_archive" => $has_archive,
                         "rewrite" => $rewrite,
                         "query_var" => $cpt["query"] == "yes",
                         "supports" => (array)$cpt["supports"],

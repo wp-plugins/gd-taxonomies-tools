@@ -1,7 +1,7 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://dv4p.com/gdtt
-Version: 1.3.2
+Version: 1.3.3
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.9
 Tested up to: 3.1
@@ -58,9 +58,13 @@ Lite version is regularly maintained, but it doesn't include any kind of support
 
 == Upgrade Notice ==
 = 1.3.2 =
-Updated list of capabilites and labels for custom post types and custom taxonomies. Interface improvements and new editor options.
+Support for has_archive post type options in WP 3.1. Some minor panels HTML markup cleanup.
 
 == Changelog ==
+= 1.3.3 =
+* Support for has_archive post type options in WP 3.1
+* Some minor panels HTML markup cleanup
+
 = 1.3.2 =
 * Updated list of capabilites and labels for custom post types
 * Updated list of capabilites and labels for custom taxonomies

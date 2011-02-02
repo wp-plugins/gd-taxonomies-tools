@@ -1,1 +1,1 @@
-<?php header("Location: functions.html") ?>
+<?php header("Location: changelog.html") ?>
