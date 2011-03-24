@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.3.3
+Version: 1.3.4
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -105,7 +105,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                 $no_thanks = add_query_arg("proupgradett", "hide");
                 echo '<div class="updated">';
                 echo __("Thank you for using this plugin. Please, take a few minutes and check out the Pro version of this plugin and new and improved features, including premium support.", "gd-taxonomies-tools");
-                echo '<br/><strong><a href="http://dv4p.com/gdtt" target="_blank">'.__("GD Custom Posts And Taxonomies Tools Pro", "gd-taxonomies-tools")."</a></strong>";
+                echo '<br/><strong><a href="http://d4p.me/gdtt" target="_blank">'.__("GD Custom Posts And Taxonomies Tools Pro", "gd-taxonomies-tools")."</a></strong>";
                 echo '. <a href="'.$no_thanks.'">'.__("Don't display this message anymore", "gd-taxonomies-tools")."</a>.";
                 echo '</div>';
             }
@@ -212,7 +212,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                     $links[] = '<a href="admin.php?page=agdtaxtools_postypes">'.__("Custom Post Types", "gd-taxonomies-tools").'</a>';
                 }
                 $links[] = '<a href="http://www.dev4press.com/plugins/gd-taxonomies-tools/faq/">'.__("FAQ", "gd-taxonomies-tools").'</a>';
-                $links[] = '<a target="_blank" style="color: #cc0000; font-weight: bold;" href="http://dv4p.com/gdtt">'.__("Upgrade to PRO", "gd-taxonomies-tools").'</a>';
+                $links[] = '<a target="_blank" style="color: #cc0000; font-weight: bold;" href="http://d4p.me/gdtt">'.__("Upgrade to PRO", "gd-taxonomies-tools").'</a>';
             }
             return $links;
 	}
@@ -263,7 +263,9 @@ if (!class_exists('GDTaxonomiesTools')) {
                         if ($cpt["archive"] == "yes_custom" && $cpt["archive_slug"] != "") {
                             $has_archive = $cpt["archive_slug"];
                         }
-                    } else $has_archive = false;
+                    } else {
+                        $has_archive = false;
+                    }
 
                     if (!isset($cpt["labels"])) {
                         $labels = array("name" => $cpt["label"], "singular_name" => $cpt["label_singular"]);
@@ -288,9 +290,9 @@ if (!class_exists('GDTaxonomiesTools')) {
                         "publicly_queryable" => $cpt["publicly_queryable"],
                         "exclude_from_search" => $cpt["exclude_from_search"],
                         "_edit_link" => $cpt["edit_link"],
-                        "map_meta_cap" => null,
+                        "map_meta_cap" => true,
                         "capabilities" => array(),
-                        "capability_type" => "",
+                        "capability_type" => "post",
                         "hierarchical" => $cpt["hierarchy"] == "yes",
                         "public" => $cpt["public"],
                         "has_archive" => $has_archive,
@@ -303,7 +305,7 @@ if (!class_exists('GDTaxonomiesTools')) {
                         "show_in_nav_menus" => $cpt["nav_menus"]
                     );
 
-                    if (isset($cpt["capabilites"]) && $cpt["capabilites"] == "type") {
+                    if ($cpt["capabilites"] == "type") {
                         $options["capability_type"] = $cpt["caps_type"];
                     } else {
                         $options["capabilities"] = $caps;
