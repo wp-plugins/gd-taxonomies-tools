@@ -169,25 +169,6 @@
             </tr>
             <tr>
                 <td width="150">
-                    <?php _e("Rewrite", "gd-taxonomies-tools"); ?>:
-                </td>
-                <td>
-                    <select name="tax[rewrite]" class="input-text-middle">
-                        <option value="yes_name"<?php echo $tax["rewrite"] == "yes_name" ? ' selected="selected"' : ''; ?>><?php _e("Yes, using name", "gd-taxonomies-tools"); ?></option>
-                        <?php if ($wpv > 29) { ?><option value="yes_custom"<?php echo $tax["rewrite"] == "yes_custom" ? ' selected="selected"' : ''; ?>><?php _e("Yes, custom value", "gd-taxonomies-tools"); ?></option><?php } ?>
-                        <option value="no"<?php echo $tax["rewrite"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
-                    </select>
-                </td>
-                <td style="width: 20px;"></td>
-                <td width="150">
-                    <?php _e("Custom", "gd-taxonomies-tools"); ?>:
-                </td>
-                <td>
-                    <input<?php echo $wpv < 30 ? " disabled" : ""; ?> type="text" value="<?php echo $tax["rewrite_custom"]; ?>" name="tax[rewrite_custom]" class="input-text-middle" />
-                </td>
-            </tr>
-            <tr>
-                <td width="150">
                     <?php _e("Query Variable", "gd-taxonomies-tools"); ?>:
                 </td>
                 <td>
@@ -207,8 +188,56 @@
             </tr>
         </table>
         <div class="gdsr-table-split"></div>
-        <?php _e("For rewrite and query custom variables use only lower case letters and no special characters except for the underscore.", "gd-taxonomies-tools"); ?><br />
+        <?php _e("For query custom variable use only lower case letters and no special characters except for the underscore.", "gd-taxonomies-tools"); ?><br />
         <?php if ($wpv < 30) _e("With WP 2.8.x and WP 2.9.x not all options work, and they are disabled. Once the WordPress starts supporting this option, they will be enabled.", "gd-taxonomies-tools"); ?>
+    </td>
+</tr>
+<tr><th scope="row"><?php _e("Rewrite", "gd-taxonomies-tools"); ?></th>
+    <td>
+        <table cellpadding="0" cellspacing="0" class="previewtable">
+            <tr>
+                <td width="150">
+                    <?php _e("Rewrite", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td>
+                    <select name="tax[rewrite]" class="input-text-middle">
+                        <option value="yes_name"<?php echo $tax["rewrite"] == "yes_name" ? ' selected="selected"' : ''; ?>><?php _e("Yes, using name", "gd-taxonomies-tools"); ?></option>
+                        <option value="yes_custom"<?php echo $tax["rewrite"] == "yes_custom" ? ' selected="selected"' : ''; ?>><?php _e("Yes, custom value", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $tax["rewrite"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+                <td style="width: 20px;"></td>
+                <td width="150">
+                    <?php _e("Custom", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td>
+                    <input type="text" value="<?php echo $tax["rewrite_custom"]; ?>" name="tax[rewrite_custom]" class="input-text-middle" />
+                </td>
+            </tr>
+            <tr>
+                <td width="150">
+                    <?php _e("Hierarchy", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td>
+                    <select name="tax[rewrite_hierarchy]" class="input-text-middle">
+                        <option value="auto"<?php echo $tax["rewrite_hierarchy"] == "auto" ? ' selected="selected"' : ''; ?>><?php _e("Automatic", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $tax["rewrite_hierarchy"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+                <td style="width: 20px;"></td>
+                <td width="150">
+                    <?php _e("With Front", "gd-taxonomies-tools"); ?>:
+                </td>
+                <td>
+                    <select name="tax[rewrite_front]" class="input-text-middle">
+                        <option value="yes"<?php echo $tax["rewrite_front"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        <option value="no"<?php echo $tax["rewrite_front"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div class="gdsr-table-split"></div>
+        <?php _e("For rewrite variable use only lower case letters and no special characters except for the underscore.", "gd-taxonomies-tools"); ?><br />
     </td>
 </tr>
 <?php if ($wpv > 29) { ?>

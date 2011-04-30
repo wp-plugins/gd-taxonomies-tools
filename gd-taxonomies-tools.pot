@@ -55,11 +55,13 @@ msgstr ""
 #: forms/admin/custompost.form.php:415
 #: forms/admin/taxonomy.form.php:164
 #: forms/admin/taxonomy.form.php:177
-#: forms/admin/taxonomy.form.php:196
-#: forms/admin/taxonomy.form.php:224
-#: forms/admin/taxonomy.form.php:234
-#: forms/admin/taxonomy.form.php:245
-#: forms/admin/taxonomy.form.php:255
+#: forms/admin/taxonomy.form.php:205
+#: forms/admin/taxonomy.form.php:223
+#: forms/admin/taxonomy.form.php:233
+#: forms/admin/taxonomy.form.php:253
+#: forms/admin/taxonomy.form.php:263
+#: forms/admin/taxonomy.form.php:274
+#: forms/admin/taxonomy.form.php:284
 msgid "No"
 msgstr ""
 
@@ -132,7 +134,7 @@ msgstr ""
 
 #: forms/admin/custompost.add.php:56
 #: forms/admin/custompost.edit.php:17
-#: forms/admin/taxonomy.add.php:45
+#: forms/admin/taxonomy.add.php:47
 #: forms/admin/taxonomy.edit.php:17
 msgid "Go Back"
 msgstr ""
@@ -242,9 +244,9 @@ msgstr ""
 #: forms/admin/custompost.form.php:104
 #: forms/admin/taxonomy.form.php:136
 #: gd-taxonomies-tools.php:224
-#: gd-taxonomies-tools.php:639
-#: gd-taxonomies-tools.php:639
-#: gd-taxonomies-tools.php:678
+#: gd-taxonomies-tools.php:651
+#: gd-taxonomies-tools.php:651
+#: gd-taxonomies-tools.php:690
 msgid "Settings"
 msgstr ""
 
@@ -253,9 +255,9 @@ msgid "Features"
 msgstr ""
 
 #: forms/admin/custompost.form.php:126
-#: gd-taxonomies-tools.php:638
-#: gd-taxonomies-tools.php:638
-#: gd-taxonomies-tools.php:788
+#: gd-taxonomies-tools.php:650
+#: gd-taxonomies-tools.php:650
+#: gd-taxonomies-tools.php:800
 msgid "Taxonomies"
 msgstr ""
 
@@ -265,19 +267,19 @@ msgstr ""
 
 #: forms/admin/custompost.form.php:152
 #: forms/admin/taxonomy.form.php:175
-#: forms/admin/taxonomy.form.php:194
+#: forms/admin/taxonomy.form.php:203
 msgid "Yes, using name"
 msgstr ""
 
 #: forms/admin/custompost.form.php:153
 #: forms/admin/taxonomy.form.php:176
-#: forms/admin/taxonomy.form.php:195
+#: forms/admin/taxonomy.form.php:204
 msgid "Yes, custom value"
 msgstr ""
 
 #: forms/admin/custompost.form.php:159
 #: forms/admin/taxonomy.form.php:182
-#: forms/admin/taxonomy.form.php:201
+#: forms/admin/taxonomy.form.php:210
 msgid "Custom"
 msgstr ""
 
@@ -299,22 +301,24 @@ msgstr ""
 #: forms/admin/custompost.form.php:404
 #: forms/admin/custompost.form.php:414
 #: forms/admin/taxonomy.form.php:165
-#: forms/admin/taxonomy.form.php:223
-#: forms/admin/taxonomy.form.php:233
-#: forms/admin/taxonomy.form.php:244
-#: forms/admin/taxonomy.form.php:254
+#: forms/admin/taxonomy.form.php:232
+#: forms/admin/taxonomy.form.php:252
+#: forms/admin/taxonomy.form.php:262
+#: forms/admin/taxonomy.form.php:273
+#: forms/admin/taxonomy.form.php:283
 msgid "Yes"
 msgstr ""
 
 #: forms/admin/custompost.form.php:182
-#: forms/admin/taxonomy.form.php:171
+#: forms/admin/taxonomy.form.php:194
+#: forms/admin/taxonomy.form.php:199
 #: forms/render/cpt.header.php:6
 #: forms/render/tax.header.php:7
 msgid "Rewrite"
 msgstr ""
 
 #: forms/admin/custompost.form.php:193
-#: forms/admin/taxonomy.form.php:190
+#: forms/admin/taxonomy.form.php:171
 msgid "Query Variable"
 msgstr ""
 
@@ -331,23 +335,23 @@ msgid "Use Capabilities List"
 msgstr ""
 
 #: forms/admin/custompost.form.php:219
-#: forms/admin/taxonomy.form.php:214
+#: forms/admin/taxonomy.form.php:243
 msgid "Visibility"
 msgstr ""
 
 #: forms/admin/custompost.form.php:224
-#: forms/admin/taxonomy.form.php:219
+#: forms/admin/taxonomy.form.php:248
 #: forms/render/tax.header.php:6
 msgid "Public"
 msgstr ""
 
 #: forms/admin/custompost.form.php:234
-#: forms/admin/taxonomy.form.php:229
+#: forms/admin/taxonomy.form.php:258
 msgid "Show UI"
 msgstr ""
 
 #: forms/admin/custompost.form.php:245
-#: forms/admin/taxonomy.form.php:250
+#: forms/admin/taxonomy.form.php:279
 msgid "Navigation Menus"
 msgstr ""
 
@@ -432,12 +436,12 @@ msgid "Edit Published Posts"
 msgstr ""
 
 #: forms/admin/custompost.form.php:354
-#: forms/admin/taxonomy.form.php:292
+#: forms/admin/taxonomy.form.php:321
 msgid "Reset capabailities"
 msgstr ""
 
 #: forms/admin/custompost.form.php:356
-#: forms/admin/taxonomy.form.php:294
+#: forms/admin/taxonomy.form.php:323
 msgid "Do not change any of these if you are not sure what they are. All values must be filled."
 msgstr ""
 
@@ -531,12 +535,12 @@ msgstr ""
 msgid "You can change that on the settings panel."
 msgstr ""
 
-#: forms/admin/taxonomy.add.php:33
+#: forms/admin/taxonomy.add.php:35
 #: forms/admin/taxonomy.edit.php:5
 msgid "Name for the taxonomy is invalid. Fix before proceeding."
 msgstr ""
 
-#: forms/admin/taxonomy.add.php:43
+#: forms/admin/taxonomy.add.php:45
 msgid "New taxonomy added."
 msgstr ""
 
@@ -605,53 +609,69 @@ msgid "Choose from Most Used"
 msgstr ""
 
 #: forms/admin/taxonomy.form.php:141
-#: gd-taxonomies-tools.php:636
-#: gd-taxonomies-tools.php:636
+#: gd-taxonomies-tools.php:648
+#: gd-taxonomies-tools.php:648
 msgid "Post Types"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:209
-msgid "For rewrite and query custom variables use only lower case letters and no special characters except for the underscore."
+#: forms/admin/taxonomy.form.php:190
+msgid "For query custom variable use only lower case letters and no special characters except for the underscore."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:210
+#: forms/admin/taxonomy.form.php:191
 msgid "With WP 2.8.x and WP 2.9.x not all options work, and they are disabled. Once the WordPress starts supporting this option, they will be enabled."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:240
+#: forms/admin/taxonomy.form.php:218
+msgid "Hierarchy"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:222
+msgid "Automatic"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:228
+msgid "With Front"
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:239
+msgid "For rewrite variable use only lower case letters and no special characters except for the underscore."
+msgstr ""
+
+#: forms/admin/taxonomy.form.php:269
 msgid "Tag Cloud Widget"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:261
+#: forms/admin/taxonomy.form.php:290
 msgid "Public setting set to NO will hide taxonomies from the admin UI."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:262
+#: forms/admin/taxonomy.form.php:291
 msgid "Tag cloud option set to NO will exclude this taxonomy from default Tag Cloud widget. Same goes for Navigation Menus."
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:265
+#: forms/admin/taxonomy.form.php:294
 #: forms/render/cpt.header.php:8
 msgid "Capabilities"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:269
+#: forms/admin/taxonomy.form.php:298
 msgid "Manage terms"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:274
+#: forms/admin/taxonomy.form.php:303
 msgid "Edit terms"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:280
+#: forms/admin/taxonomy.form.php:309
 msgid "Delete terms"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:285
+#: forms/admin/taxonomy.form.php:314
 msgid "Assign terms"
 msgstr ""
 
-#: forms/admin/taxonomy.form.php:299
+#: forms/admin/taxonomy.form.php:328
 msgid "Save Taxonomy"
 msgstr ""
 
@@ -875,7 +895,7 @@ msgstr ""
 
 #: widgets/gdtt-terms-cloud/basic.php:2
 #: widgets/gdtt-terms-list/basic.php:2
-#: gd-taxonomies-tools.php:699
+#: gd-taxonomies-tools.php:711
 msgid "Title"
 msgstr ""
 
@@ -1016,68 +1036,68 @@ msgstr ""
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: gd-taxonomies-tools.php:634
-#: gd-taxonomies-tools.php:634
+#: gd-taxonomies-tools.php:646
+#: gd-taxonomies-tools.php:646
 msgid "Front Page"
 msgstr ""
 
-#: gd-taxonomies-tools.php:689
+#: gd-taxonomies-tools.php:701
 msgid "Tools"
 msgstr ""
 
-#: gd-taxonomies-tools.php:700
+#: gd-taxonomies-tools.php:712
 msgid "Editor"
 msgstr ""
 
-#: gd-taxonomies-tools.php:701
+#: gd-taxonomies-tools.php:713
 msgid "Excerpts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:702
+#: gd-taxonomies-tools.php:714
 msgid "Trackbacks"
 msgstr ""
 
-#: gd-taxonomies-tools.php:703
+#: gd-taxonomies-tools.php:715
 msgid "Custom Fields"
 msgstr ""
 
-#: gd-taxonomies-tools.php:704
+#: gd-taxonomies-tools.php:716
 msgid "Comments"
 msgstr ""
 
-#: gd-taxonomies-tools.php:705
+#: gd-taxonomies-tools.php:717
 msgid "Revisions"
 msgstr ""
 
-#: gd-taxonomies-tools.php:706
+#: gd-taxonomies-tools.php:718
 msgid "Post Thumbnails"
 msgstr ""
 
-#: gd-taxonomies-tools.php:707
+#: gd-taxonomies-tools.php:719
 msgid "Author"
 msgstr ""
 
-#: gd-taxonomies-tools.php:708
+#: gd-taxonomies-tools.php:720
 msgid "Page Attributes"
 msgstr ""
 
-#: gd-taxonomies-tools.php:719
+#: gd-taxonomies-tools.php:731
 msgid "Custom Posts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:723
+#: gd-taxonomies-tools.php:735
 msgid "Add new Custom Posts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:727
+#: gd-taxonomies-tools.php:739
 msgid "Edit Custom Posts"
 msgstr ""
 
-#: gd-taxonomies-tools.php:792
+#: gd-taxonomies-tools.php:804
 msgid "Add new Taxonomy"
 msgstr ""
 
-#: gd-taxonomies-tools.php:796
+#: gd-taxonomies-tools.php:808
 msgid "Edit Taxonomy"
 msgstr ""
 

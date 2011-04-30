@@ -1,7 +1,7 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://d4p.me/gdtt
-Version: 1.3.4
+Version: 1.3.5
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 2.9
 Tested up to: 3.1
@@ -57,10 +57,13 @@ Lite version is regularly maintained, but it doesn't include any kind of support
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.3.4 =
-Making sure that plugin is fully WP 3.1 compatible. Minor changes to the post type registration procedure.
+= 1.3.5 =
+Support for hierarchical taxonomy rewrite slugs.
 
 == Changelog ==
+= 1.3.5 =
+* Support for hierarchical taxonomy rewrite slugs
+
 = 1.3.4 =
 * Making sure that plugin is fully WP 3.1 compatible
 * Minor changes to the post type registration procedure
