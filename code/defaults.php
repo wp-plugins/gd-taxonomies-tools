@@ -2,14 +2,14 @@
 
 class GDTTDefaults {
     var $default_options = array(
-        "version" => "1.3.5",
-        "date" => "2011.04.30.",
+        "version" => "1.4.0",
+        "date" => "2011.07.05.",
         "status" => "Stable",
-        "build" => 1350,
+        "build" => 1400,
         "product_id" => "gd-taxonomies-tools",
         "edition" => "lite",
         "upgrade_notice_132" => 1,
-        "upgrade_to_pro_13" => 1,
+        "upgrade_to_pro_14" => 1,
         "force_rules_flush" => 0,
         "tax_internal" => 0,
         "cpt_internal" => 0,
@@ -19,7 +19,6 @@ class GDTTDefaults {
     );
 
     var $default_taxonomies = array(
-        "wp28" => 3,
         "wp29" => 3,
         "wp30" => 4,
         "wp31" => 5,

@@ -19,8 +19,12 @@ $cpt = array(
         "rewrite_front" => "no",
         "exclude_from_search" => "no",
         "publicly_queryable" => "yes",
+        "show_in_menu" => "yes",
         "can_export" => "yes",
+        "rewrite_feeds" => "yes",
+        "rewrite_pages" => "yes",
         "query" => "yes",
+        "query_slug" => "",
         "edit_link" => "post.php?post=%d",
         "supports" => array(
             "title", "editor", "excerpts",

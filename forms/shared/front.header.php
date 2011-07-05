@@ -6,6 +6,6 @@
             <span><?php echo $options["version"]; ?></span>
             <div class="clear"></div>
         </div>
-        <h3><?php _e("plugin for custom taxonomies management", "gd-taxonomies-tools"); ?></h3>
+        <h3><?php _e("enhancing WordPress content management", "gd-taxonomies-tools"); ?></h3>
     </div>
 <?php gdtt_upgrade_notice(); ?>

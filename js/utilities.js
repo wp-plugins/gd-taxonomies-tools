@@ -2,4 +2,7 @@
 
 jQuery(document).ready(function() {
     jQuery(".drop-sel-checks").dropdownchecklist({ width: 550, firstItemChecksAll: true });
+
+    var button = '<div id="contextual-gopro-link-wrap"><a href="admin.php?page=gdtaxtools_gopro">Go Pro</a></div>';
+    jQuery("#screen-meta-links").append(button);
 });

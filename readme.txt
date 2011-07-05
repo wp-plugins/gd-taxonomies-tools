@@ -1,10 +1,10 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://d4p.me/gdtt
-Version: 1.3.5
+Version: 1.4.0
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
-Requires at least: 2.9
-Tested up to: 3.1
+Requires at least: 3.0
+Tested up to: 3.2
 Stable tag: trunk
 
 GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
@@ -17,19 +17,17 @@ Supported languages: english, chinese, spanish, danish, polish, dutch, french
 To work with custom post types you need WordPress 3.0. Plugin supports all latest features added to custom post types and supported by WordPress.
 
 = Important URL's =
-[Plugin Home](http://d4p.me/gdtt) |
-[Forum](http://forum.gdragon.info/viewforum.php?f=30) |
-[Feedburner](http://feeds2.feedburner.com/dev4press) |
+[About GD Custom Posts And Taxonomies Tools 1.4 Lite](http://www.dev4press.com/2011/blog/plugins/gd-custom-posts-and-taxonomies-tools-1-4-lite/)
+
+[Plugin Home](http://d4p.me/gdtt) | 
+[Forum](http://forum.gdragon.info/viewforum.php?f=30) | 
+[Feedburner](http://feeds2.feedburner.com/dev4press) | 
 [Twitter](http://twitter.com/milangd)
 
 == Installation ==
 = Requirements =
-* PHP: 4.4.x or 5.x.x
-* mySQL: 4.0, 4.1 or 5.x
-* WordPress: 2.9 or newer
-
-= Special Requirement =
-* WordPress 3.0 or newer for custom post types
+* PHP: 5.x.x
+* WordPress: 3.x.x
 
 = Basic Installation =
 * Plugin folder in the WordPress plugins folder must be `gd-taxonomies-tools`.
@@ -50,17 +48,25 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 Lite version is regularly maintained, but it doesn't include any kind of support beyond bug fixing. If you need support, upgrade plugin to PRO edition and get much more additional features: http://dv4p.com/gdtt.
 
 == Screenshots ==
-1. Taxonomies Management
+1. Post Type Management
 2. Adding Custom Post Type
 2. Editing Custom Taxonomy
 4. Taxonomy Terms Cloud Widget
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.3.5 =
-Support for hierarchical taxonomy rewrite slugs.
+= 1.4.0 =
+Additional custom post types options. Improved generating of the post types code. Improved generating of the taxonomies code. Dropped support for WordPress 2.9. Minor changes and code cleanup.
 
 == Changelog ==
+= 1.4.0 =
+* Additional custom post types options
+* Improved generating of the post types code
+* Improved generating of the taxonomies code
+* Updates for the WordPress 3.2
+* Dropped support for WordPress 2.9
+* Minor changes and code cleanup
+
 = 1.3.5 =
 * Support for hierarchical taxonomy rewrite slugs
 

@@ -72,7 +72,7 @@
                 <tr>
                     <td class="first b">GD Press Tools</td>
                     <td class="t"><?php _e("a wordpress administration addon", "gd-taxonomies-tools"); ?></td>
-                    <td class="t options"><a href="http://www.dev4press.com/plugins/gd-press-tools/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
+                    <td class="t options"><a href="http://www.dev4press.com/gd-press-tools/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
                 <tr>
                     <td class="first b">GD aZon FUSION</td>

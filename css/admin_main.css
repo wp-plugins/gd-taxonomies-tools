@@ -169,7 +169,9 @@ a.ttoption-del:hover {
 	color: white;
 	text-shadow: none;
 }
-
+.gdrgrid h3:hover {
+	color: white;
+}
 .gdsr .widefat thead, .gdsr .previewtable thead {
 	background: #333333 url(../gfx/jquery-ui-1.7/ui-bg_diagonals-thick_8_333333_40x40.png) repeat scroll 50% 50%;
 }
@@ -213,7 +215,7 @@ textarea, input, select { border-color: #696969; }
 
 .input-text-extralong { width: 720px; }
 
-.form-table td, .form-table th { border-bottom: 6px solid #F9F9F9; }
+.form-table td, .form-table th { border-bottom: 6px solid #FFF; }
 
 .gdsr .previewtable .aright { text-align: right; }
 
@@ -276,4 +278,48 @@ input {
 
 .ui-dropdownchecklist-dropcontainer.ui-widget-content {
 	border: 1px solid #777777;
+}
+
+.landing-page{text-align:center;margin: 10px auto 20px;width:980px;}
+.landing-page h2{padding:15px 40px;width: 900px;margin:10px auto 20px;font-size:27px;letter-spacing:-1px;border-top:1px solid #23262a;border-bottom:1px solid #23262a;}
+.landing-page h3{padding:15px 40px;width: 900px;margin:10px auto 20px;font-size:16px;line-height:22px;color:#cc0000;border-top:1px solid #23262a;border-bottom:1px solid #23262a;}
+.landing-page h4{padding:5px 0;margin:0;font-size:17px;color:#ea0000;border-bottom:1px solid #595d66;}
+.landing_table{width:100%;margin:10px 0;}
+.landing_table td{text-align:center;}
+.porthumb{padding:10px;background-color:#f4f4f4;}
+.porthumb-shadow{clear:both;height:10px;width:300px;}
+
+.features-list{text-align:center;width:920px;margin:0 auto;}
+.feature{width:300px;float:left;text-align:center;margin-bottom:10px;}
+.feature h3{margin:0 0 5px;}
+.feature p{margin:5px 0 10px;}
+.feature .porthumb{float:left;height:100%;position:relative;}
+.feature .pro-badge{top:-20px;left:-5px;position:absolute;}
+
+#contextual-gopro-link-wrap {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    float: right;
+    font-family: Arial,"Bitstream Vera Sans",Helvetica,Verdana,sans-serif;
+    height: 22px;
+    margin: 0 0 0 6px;
+    padding: 0;
+    background-color: #fffacd;
+    background-image: -moz-linear-gradient(center bottom, #fff48a, #fffacd);
+    border-bottom: 1px solid #990000;
+    border-left: 1px solid #990000;
+    border-right: 1px solid #990000;
+}
+
+#contextual-gopro-link-wrap a {
+    display: block;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    color: #990000;
+    font-weight: bold;
+    padding: 0 12px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    z-index: 1;
 }
