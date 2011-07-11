@@ -1,9 +1,9 @@
 <table class="widefat">
     <thead>
         <tr>
-            <th scope="col"><?php _e("Domain", "gd-taxonomies-tools"); ?></th>
             <th scope="col"><?php _e("Label", "gd-taxonomies-tools"); ?></th>
             <th scope="col" style="width: 10%"><?php _e("Name", "gd-taxonomies-tools"); ?></th>
+            <th scope="col"><?php _e("Post Types", "gd-taxonomies-tools"); ?></th>
             <th scope="col" style="width: 10%;text-align: center;"><?php _e("Public", "gd-taxonomies-tools"); ?></th>
             <th scope="col" style="width: 10%; text-align: center;"><?php _e("Rewrite", "gd-taxonomies-tools"); ?></th>
             <th scope="col" style="width: 10%; text-align: center;"><?php _e("Query", "gd-taxonomies-tools"); ?></th>

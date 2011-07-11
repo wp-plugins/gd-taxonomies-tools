@@ -4,7 +4,7 @@ function areYouSure() {
 }
 
 jQuery(document).ready(function() {
-    jQuery("#gdtt_tabs").tabs({fx: {height: "toggle"}});
+    jQuery("#screen-meta-links").append("<div id=\"contextual-gopro-link-wrap\"><a href=\"admin.php?page=gdtaxtools_gopro\">Go Pro</a></div>");
 });
 
 function capabilities_posttype() {

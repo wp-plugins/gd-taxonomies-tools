@@ -19,9 +19,9 @@ foreach ($gdtxall as $tax) {
 ?>
 
 <tr id="tax-<?php echo $tax_name; ?>" class="<?php echo $tr_class; ?> author-self status-publish" valign="top">
-    <td><?php echo join(", ", array_unique($tax_data->object_type)); ?></td>
     <td><strong style="color: #cc0000;"><?php echo $tax_data->label; ?></strong></td>
     <td><strong><?php echo $tax_data->name; ?></strong></td>
+    <td><?php echo join(", ", array_unique($tax_data->object_type)); ?></td>
     <td style="text-align: center;"><?php echo $tax_data->public ? __("yes", "gd-taxonomies-tools") : __("no", "gd-taxonomies-tools"); ?></td>
     <td style="text-align: center;"><?php echo $tax_data->rewrite ? __("yes", "gd-taxonomies-tools") : __("no", "gd-taxonomies-tools"); ?></td>
     <td style="text-align: center;"><?php echo $tax_data->query_var; ?></td>

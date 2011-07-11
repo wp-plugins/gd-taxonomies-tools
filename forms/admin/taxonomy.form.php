@@ -4,9 +4,6 @@
     <tr><th scope="row"><?php _e("Name", "gd-taxonomies-tools"); ?></th>
         <td>
             <input maxlength="32"<?php echo $tax["id"] > 0 ? " readonly" : ""; ?> type="text" value="<?php echo $tax["name"]; ?>" id="taxname" name="tax[name]" class="input-text-middle<?php echo $tax["id"] > 0 ? " disabled" : ""; ?>" />
-            <?php if ($tax["id"] > 0 && false) { ?>
-            <br /><input type="checkbox" name="tax[rename]" /><label style="margin-left: 5px;"><?php _e("Allow renaming of the taxonomy name. This will cause renaming all database entries for this taxonomy.", "gd-taxonomies-tools"); ?></label>
-            <?php } ?>
             <div class="gdsr-table-split"></div>
             <div class="gdsr-major-info">
                 <?php _e("This must be unique name, not used by any other taxonomy.", "gd-taxonomies-tools"); ?><br />
@@ -119,23 +116,21 @@
         <td>
             <table cellpadding="0" cellspacing="0" class="previewtable">
                 <tr>
-                    <td width="150">
+                    <td style="width: 150px; vertical-align: top;">
                         <?php _e("Post Types", "gd-taxonomies-tools"); ?>:
                     </td>
                     <td colspan="3">
-                        <select name="tax[post_type][]" class="drop-sel-checks" multiple>
                         <?php
-                            echo sprintf('<option value="(all)">%s</option>', __("(all)", "gd-taxonomies-tools"));
                             foreach ($post_types as $pt) {
-                                echo sprintf('<option%s value="%s">%s [%s]</option>',
-                                        in_array($pt->name, $tax["domain"]) ? ' selected="selected"' : "",
+                                echo sprintf('<input%s type="checkbox" value="%s" name="tax[post_type][]" /><label>%s [%s]</label><br/>',
+                                        in_array($pt->name, $tax["domain"]) ? ' checked' : "",
                                         $pt->name, $pt->label, $pt->name);
                             }
                         ?>
-                        </select>
                     </td>
                 </tr>
             </table>
+            <div class="gdsr-table-split"></div>
             <table cellpadding="0" cellspacing="0" class="previewtable">
                 <tr>
                     <td width="150">

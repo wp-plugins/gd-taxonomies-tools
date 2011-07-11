@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.4.0
+Version: 1.4.1
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -350,15 +350,6 @@ if (!class_exists('GDTaxonomiesTools')) {
 
             if ($this->admin_plugin) {
                 wp_enqueue_script('jquery');
-                wp_enqueue_script('jquery-ui-core');
-                wp_enqueue_script('jquery-ui-tabs');
-                if ($this->wp_version > 30) {
-                    wp_enqueue_script('jquery-ui-widget');
-                    wp_enqueue_script('gdtt-utilities', $this->plugin_url.'js/utilities.js', array('jquery', 'jquery-ui-widget'));
-                } else {
-                    wp_enqueue_script('gdtt-utilities', $this->plugin_url.'js/utilities.js', array('jquery', 'jquery-ui-core'));
-                }
-                wp_enqueue_style('gdtt-jquery-ui', $this->plugin_url.'css/jquery_ui17.css');
             }
 
             $this->init_operations();
@@ -419,8 +410,8 @@ if (!class_exists('GDTaxonomiesTools')) {
                 $this->errors = "";
 
                 $cpt["name"] = strtolower(sanitize_user($cpt["name"], true));
-                $cpt["supports"] = (array)$cpt["supports"];
-                $cpt["taxonomies"] = (array)$cpt["taxonomies"];
+                $cpt["supports"] = isset($cpt["supports"]) ? (array)$cpt["supports"] : array();
+                $cpt["taxonomies"] = isset($cpt["taxonomies"]) ? (array)$cpt["taxonomies"] : array();
                 $cpt["rewrite_slug"] = trim(strip_tags($cpt["rewrite_slug"]));
                 $cpt["description"] = trim(strip_tags($cpt["description"]));
                 $cpt["active"] = isset($cpt["active"]) ? 1 : 0;
@@ -442,12 +433,10 @@ if (!class_exists('GDTaxonomiesTools')) {
                         update_option('gd-taxonomy-tools-cpt', $this->p);
                     }
                 } else {
-                    if ($this->errors == "") {
-                        $id = $this->find_custompost_pos($cpt["id"]);
-                        if ($id > -1) {
-                            $this->p[$id] = $cpt;
-                            update_option('gd-taxonomy-tools-cpt', $this->p);
-                        }
+                    $id = $this->find_custompost_pos($cpt["id"]);
+                    if ($id > -1 && $this->errors == "") {
+                        $this->p[$id] = $cpt;
+                        update_option('gd-taxonomy-tools-cpt', $this->p);
                     }
                 }
 
@@ -458,10 +447,8 @@ if (!class_exists('GDTaxonomiesTools')) {
                 $tax = $_POST["tax"];
                 $this->errors = "";
 
-                $post_types = $tax["post_type"];
-                if (!is_array($post_types) || empty($post_types)) $post_types = array("post");
-
                 $tax["name"] = strtolower(sanitize_user($tax["name"], true));
+                $post_types = isset($tax["post_type"]) ? (array)$tax["post_type"] : array();
                 $tax["domain"] = join(",", $post_types);
                 if (!isset($tax["rewrite_custom"])) $tax["rewrite_custom"] = "";
                 if (!isset($tax["query_custom"])) $tax["query_custom"] = "";
@@ -486,16 +473,10 @@ if (!class_exists('GDTaxonomiesTools')) {
                         update_option('gd-taxonomy-tools-tax', $this->t);
                     }
                 } else {
-                    $toedit = $this->t[$tax["id"]];
-                    if (isset($tax["rename"]) && $toedit["name"] != $tax["name"]) {
-                        if (!$this->is_taxonomy_valid($tax["name"])) $this->errors = "name";
-                    }
-                    if ($this->errors == "") {
-                        $id = $this->find_taxonomy_pos($tax["id"]);
-                        if ($id > -1) {
-                            $this->t[$id] = $tax;
-                            update_option('gd-taxonomy-tools-tax', $this->t);
-                        }
+                    $id = $this->find_taxonomy_pos($tax["id"]);
+                    if ($id > -1 && $this->errors == "") {
+                        $this->t[$id] = $tax;
+                        update_option('gd-taxonomy-tools-tax', $this->t);
                     }
                 }
 

@@ -1,7 +1,7 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://d4p.me/gdtt
-Version: 1.4.0
+Version: 1.4.1
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 3.0
 Tested up to: 3.2
@@ -55,10 +55,15 @@ Lite version is regularly maintained, but it doesn't include any kind of support
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.4.0 =
-Additional custom post types options. Improved generating of the post types code. Improved generating of the taxonomies code. Dropped support for WordPress 2.9. Minor changes and code cleanup.
+= 1.4.1 =
+Simpler checkbox selection for plugin editors. Removed all jqueryui specific code, images and styling. Removed dropdown checklist due to browsers problems. No more support for WordPress 2.9. Minor changes and code cleanup.
 
 == Changelog ==
+= 1.4.1 =
+* Simpler checkbox selection for plugin editors
+* Removed all jqueryui specific code, images and styling
+* Removed dropdown checklist due to browsers problems
+
 = 1.4.0 =
 * Additional custom post types options
 * Improved generating of the post types code

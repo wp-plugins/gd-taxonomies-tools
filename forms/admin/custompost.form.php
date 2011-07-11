@@ -106,39 +106,32 @@
         <td>
             <table cellpadding="0" cellspacing="0" class="previewtable">
                 <tr>
-                    <td width="150">
+                    <td style="width: 150px; vertical-align: top;">
                         <?php _e("Features", "gd-taxonomies-tools"); ?>:
                     </td>
-                    <td colspan="3">
-                        <select name="cpt[supports][]" class="drop-sel-checks" multiple>
+                    <td style="width: 202px; vertical-align: top;">
                         <?php
-                            echo sprintf('<option value="(all)">%s</option>', __("(all)", "gd-taxonomies-tools"));
                             foreach ($post_features as $code => $name) {
-                                echo sprintf('<option%s value="%s">%s</option>',
-                                        in_array($code, $cpt["supports"]) ? ' selected="selected"' : "",
+                                echo sprintf('<input%s type="checkbox" value="%s" name="cpt[supports][]" /><label>%s</label><br/>',
+                                        in_array($code, $cpt["supports"]) ? ' checked' : "",
                                         $code, $name);
                             }
                         ?>
-                        </select>
                     </td>
-                </tr>
-                <tr>
-                    <td width="150">
+                    <td style="width: 20px;"></td>
+                    <td style="width: 150px; vertical-align: top;">
                         <?php _e("Taxonomies", "gd-taxonomies-tools"); ?>:
                     </td>
-                    <td colspan="3">
-                        <select name="cpt[taxonomies][]" class="drop-sel-checks" multiple>
-                        <?php
-                            echo sprintf('<option value="(all)">%s</option>', __("(all)", "gd-taxonomies-tools"));
-                            foreach ($wp_taxonomies as $code => $tax) {
-                                if ($tax->public && $code != "post_format") {
-                                    echo sprintf('<option%s value="%s">%s [%s]</option>',
-                                        in_array($code, $cpt["taxonomies"]) ? ' selected="selected"' : "",
-                                        $code, $tax->label, $code);
-                                }
+                    <td style="vertical-align: top;">
+                    <?php
+                        foreach ($wp_taxonomies as $code => $tax) {
+                            if ($tax->public && $code != "post_format") {
+                                echo sprintf('<input%s type="checkbox" value="%s" name="cpt[taxonomies][]" /><label>%s [%s]</label><br/>',
+                                    in_array($code, $cpt["taxonomies"]) ? ' checked' : "",
+                                    $code, $tax->label, $code);
                             }
-                        ?>
-                        </select>
+                        }
+                    ?>
                     </td>
                 </tr>
             </table>
