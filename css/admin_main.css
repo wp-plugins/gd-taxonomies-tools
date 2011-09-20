@@ -212,9 +212,11 @@ textarea, input, select { border-color: #696969; }
 
 .input-text-long { width: 300px; }
 
+.input-text-longest { width: 570px; }
+
 .input-text-extralong { width: 720px; }
 
-.form-table td, .form-table th { border-bottom: 6px solid #FFF; }
+.form-table td, .form-table th { border-bottom: 1px solid #FFF; }
 
 .gdsr .previewtable .aright { text-align: right; }
 
@@ -244,29 +246,13 @@ input {
         -moz-border-radius: 5px;
 }
 
-.landing-page{text-align:center;margin: 10px auto 20px;width:980px;}
-.landing-page h2{padding:15px 40px;width: 900px;margin:10px auto 20px;font-size:27px;letter-spacing:-1px;border-top:1px solid #23262a;border-bottom:1px solid #23262a;}
-.landing-page h3{padding:15px 40px;width: 900px;margin:10px auto 20px;font-size:16px;line-height:22px;color:#cc0000;border-top:1px solid #23262a;border-bottom:1px solid #23262a;}
-.landing-page h4{padding:5px 0;margin:0;font-size:17px;color:#ea0000;border-bottom:1px solid #595d66;}
-.landing_table{width:100%;margin:10px 0;}
-.landing_table td{text-align:center;}
-.porthumb{padding:10px;background-color:#f4f4f4;}
-.porthumb-shadow{clear:both;height:10px;width:300px;}
-
-.features-list{text-align:center;width:920px;margin:0 auto;}
-.feature{width:300px;float:left;text-align:center;margin-bottom:10px;}
-.feature h3{margin:0 0 5px;}
-.feature p{margin:5px 0 10px;}
-.feature .porthumb{float:left;height:100%;position:relative;}
-.feature .pro-badge{top:-20px;left:-5px;position:absolute;}
-
 #contextual-gopro-link-wrap {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     float: right;
     font-family: Arial,"Bitstream Vera Sans",Helvetica,Verdana,sans-serif;
     height: 22px;
-    margin: 0 0 0 6px;
+    margin: 0 6px;
     padding: 0;
     background-color: #fffacd;
     background-image: -moz-linear-gradient(center bottom, #fff48a, #fffacd);
@@ -287,3 +273,19 @@ input {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
     z-index: 1;
 }
+
+.landing-page{text-align:center;margin: 10px auto 20px;width:980px;}
+.landing-page h2{padding:15px 40px;width: 900px;margin:10px auto 20px;font-size:27px;letter-spacing:-1px;border-top:1px solid #23262a;border-bottom:1px solid #23262a;}
+.landing-page h3{padding:15px 40px;width: 900px;margin:10px auto 20px;font-size:16px;line-height:22px;color:#cc0000;border-top:1px solid #23262a;border-bottom:1px solid #23262a;}
+.landing-page h4{padding:5px 0;margin:0 0 10px;font-size:17px;color:#ffffff;background-color:#ea0000;}
+.landing_table{width:100%;margin:10px 0;}
+.landing_table td{text-align:center;}
+.porthumb{padding:10px;background-color:#f4f4f4;}
+.porthumb-shadow{clear:both;height:10px;width:300px;}
+
+.features-list{text-align:center;width:920px;margin:0 auto;}
+.feature{width:300px;float:left;text-align:center;margin-bottom:10px;}
+.feature h5{margin:0 0 5px;font-size:1.1em;}
+.feature p{margin:5px 0 10px;}
+.feature .porthumb{float:left;height:100%;position:relative;}
+.feature .pro-badge{top:-20px;left:-5px;position:absolute;}

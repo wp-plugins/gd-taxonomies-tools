@@ -26,6 +26,8 @@ $cpt = array(
         "query" => "yes",
         "query_slug" => "",
         "edit_link" => "post.php?post=%d",
+        "menu_position" => "__auto__",
+        "menu_icon" => "",
         "supports" => array(
             "title", "editor", "excerpts",
             "trackbacks", "custom-fields",

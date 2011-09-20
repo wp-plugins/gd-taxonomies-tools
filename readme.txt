@@ -1,10 +1,10 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
 Donate link: http://d4p.me/gdtt
-Version: 1.4.1
+Version: 1.4.2
 Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 3.0
-Tested up to: 3.2
+Tested up to: 3.3
 Stable tag: trunk
 
 GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
@@ -38,14 +38,17 @@ To work with custom post types you need WordPress 3.0. Plugin supports all lates
 = Does plugin works with WordPress MultiSite installations? =
 Yes.
 
-= Can I edit built in (default) post types and taxonomies (post, page, category, tag)? =
-Not with Lite version. Pro version has full support of editing all public (including default) post types and taxonomies. Pro version includes much more features not available in Lite: http://dv4p.com/gdtt.
+= Can I set structures for permalinks for custom post types? =
+Not with Lite version. Pro version has support for custom permalinks, and also for archives intersections with taxonomies. More about Pro version: http://d4p.me/gdtt
 
-= I want to translate the plugin to my language, or to improve existing translations? =
-You only need POEdit program that works on Windows, Linux and MacOS. Instructions on how to make or update translations are here: http://dv4p.com/wa. POT file to start translation is included with the plugin.
+= Can I edit built in (default) post types and taxonomies (post, page, category, tag)? =
+Not with Lite version. Pro version has full support of editing all public (including default) post types and taxonomies. Pro version includes much more features not available in Lite: http://d4p.me/gdtt
 
 = I need support for using this plugin and some of it's features? =
-Lite version is regularly maintained, but it doesn't include any kind of support beyond bug fixing. If you need support, upgrade plugin to PRO edition and get much more additional features: http://dv4p.com/gdtt.
+Lite version is regularly maintained, but it doesn't include any kind of support beyond bug fixing. If you need support, upgrade plugin to Pro edition and get much more additional features: http://d4p.me/gdtt
+
+= I want to translate the plugin to my language, or to improve existing translations? =
+You only need POEdit program that works on Windows, Linux and MacOS. Instructions on how to make or update translations are here: http://d4p.me/wa. POT file to start translation is included with the plugin.
 
 == Screenshots ==
 1. Post Type Management
@@ -55,10 +58,15 @@ Lite version is regularly maintained, but it doesn't include any kind of support
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.4.1 =
-Simpler checkbox selection for plugin editors. Removed all jqueryui specific code, images and styling. Removed dropdown checklist due to browsers problems. No more support for WordPress 2.9. Minor changes and code cleanup.
+= 1.4.2 =
+Custom post type admin menu position. Custom post type admin menu icon url. Improved registration process for taxonomies.
 
 == Changelog ==
+= 1.4.2 =
+* Custom post type admin menu position
+* Custom post type admin menu icon url
+* Improved registration process for taxonomies
+
 = 1.4.1 =
 * Simpler checkbox selection for plugin editors
 * Removed all jqueryui specific code, images and styling

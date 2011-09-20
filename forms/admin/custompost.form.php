@@ -1,3 +1,21 @@
+<?php
+
+$menu_positions = array(
+    "__auto__" => __("Default / Auto", "gd-taxonomies-tools"), 
+    "5" => __("Below Posts", "gd-taxonomies-tools"), 
+    "10" => __("Below Media", "gd-taxonomies-tools"), 
+    "15" => __("Below Links", "gd-taxonomies-tools"), 
+    "20" => __("Below Pages", "gd-taxonomies-tools"),
+    "25" => __("Below Comments", "gd-taxonomies-tools"), 
+    "60" => __("Below first separator", "gd-taxonomies-tools"), 
+    "65" => __("Below Plugins", "gd-taxonomies-tools"), 
+    "70" => __("Below Users", "gd-taxonomies-tools"),
+    "75" => __("Below Tools", "gd-taxonomies-tools"), 
+    "80" => __("Below Settings", "gd-taxonomies-tools"), 
+    "100" => __("Below second separator", "gd-taxonomies-tools")
+);
+
+?>
 <form method="post" action="" onsubmit="return validate_post_form()" style="margin-bottom: 20px;">
     <input type="hidden" name="cpt[id]" value="<?php echo $cpt["id"]; ?>" />
     <table class="form-table"><tbody>
@@ -23,6 +41,38 @@
             <input type="text" id="cptdescription" value="<?php echo $cpt["description"]; ?>" name="cpt[description]" class="input-text-extralong" />
             <div class="gdsr-table-split"></div>
             <?php _e("No HTML is allowed.", "gd-taxonomies-tools"); ?>
+        </td>
+    </tr>
+    <tr><th scope="row"><?php _e("Admin Menu", "gd-taxonomies-tools"); ?></th>
+        <td>
+            <table cellpadding="0" cellspacing="0" class="previewtable">
+                <tr>
+                    <td style="width: 150px;">
+                        <?php _e("Menu Position", "gd-taxonomies-tools"); ?>:
+                    </td>
+                    <td style="vertical-align: top;">
+                        <select name="cpt[menu_position]" class="input-text-middle">
+                        <?php
+                            foreach ($menu_positions as $position => $name) {
+                                echo sprintf('<option%s value="%s">%s</option>',
+                                        $cpt["menu_position"] == $position ? ' selected="selected"' : "",
+                                        $position, $name);
+                            }
+                        ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px;">
+                        <?php _e("Menu Icon", "gd-taxonomies-tools"); ?>:
+                    </td>
+                    <td style="vertical-align: top;">
+                        <input type="text" value="<?php echo $cpt["menu_icon"]; ?>" name="cpt[menu_icon]" class="input-text-longest" />
+                    </td>
+                </tr>
+            </table>
+            <div class="gdsr-table-split"></div>
+            <?php _e("Menu icon must be set to full URL to the image you want to use as icon.", "gd-taxonomies-tools"); ?>
         </td>
     </tr>
     <tr><th scope="row"><?php _e("Labels", "gd-taxonomies-tools"); ?></th>

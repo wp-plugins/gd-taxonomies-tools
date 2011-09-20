@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.dev4press.com/gd-taxonomies-tools/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.4.1
+Version: 1.4.2
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -103,7 +103,7 @@ if (!class_exists('GDTaxonomiesTools')) {
         }
 
         function upgrade_notice() {
-            if ($this->o["upgrade_to_pro_14"] == 1) {
+            if ($this->o["upgrade_to_pro_142"] == 1) {
                 $no_thanks = add_query_arg("proupgradett", "hide");
                 echo '<div class="updated">';
                 echo __("Thank you for using this plugin. Please, take a few minutes and check out the Pro version of this plugin and new and improved features, including premium support.", "gd-taxonomies-tools");
@@ -184,18 +184,20 @@ if (!class_exists('GDTaxonomiesTools')) {
         }
 
         function actions_filters() {
-            add_action('init', array(&$this, 'init'));
-            add_action('init', array(&$this, 'register_custom_posts'), 1);
-            add_action('init', array(&$this, 'register_taxonomies'), 2);
+            add_action("init", array(&$this, "init"));
 
-            add_action('admin_init', array(&$this, 'admin_init'));
-            add_action('admin_menu', array(&$this, 'admin_menu'));
-            add_action('admin_head', array(&$this, 'admin_head'));
-            add_action('widgets_init', array(&$this, 'widgets_init'));
-            add_action('admin_notices', array(&$this, 'admin_notice'));
+            add_action("init", array(&$this, "register_custom_posts"), 1);
+            add_action("init", array(&$this, "register_taxonomies"), 2);
+            add_action("init", array(&$this, "register_for_object_types"), 3);
 
-            add_filter('plugin_row_meta', array(&$this, 'plugin_links'),10, 2);
-            add_filter('plugin_action_links', array(&$this, 'plugin_actions'), 10, 2);
+            add_action("admin_init", array(&$this, "admin_init"));
+            add_action("admin_menu", array(&$this, "admin_menu"));
+            add_action("admin_head", array(&$this, "admin_head"));
+            add_action("widgets_init", array(&$this, "widgets_init"));
+            add_action("admin_notices", array(&$this, "admin_notice"));
+
+            add_filter("plugin_row_meta", array(&$this, "plugin_links"),10, 2);
+            add_filter("plugin_action_links", array(&$this, "plugin_actions"), 10, 2);
         }
 
         function widgets_init() {
@@ -239,6 +241,26 @@ if (!class_exists('GDTaxonomiesTools')) {
 
                 $this->o["force_rules_flush"] = 0;
                 update_option('gd-taxonomy-tools', $this->o);
+            }
+        }
+
+        function register_for_object_types() {
+            foreach ($this->t as $tax) {
+                if (isset($tax["active"])) {
+                    $domains = explode(",", $tax["domain"]);
+                    foreach ($domains as $post_type) {
+                        register_taxonomy_for_object_type($tax["name"], $post_type);
+                    }
+                }
+            }
+            foreach ($this->p as $cpt) {
+                if (!isset($cpt["active"]) || (isset($cpt["active"]) && $cpt["active"] == 1)) {
+                    if (is_array($cpt["taxonomies"])) {
+                        foreach ($cpt["taxonomies"] as $tax) {
+                            register_taxonomy_for_object_type($tax, $cpt["name"]);
+                        }
+                    }
+                }
             }
         }
 
@@ -359,7 +381,7 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function init_operations() {
             if (isset($_GET["proupgradett"]) && $_GET["proupgradett"] == "hide") {
-                $this->o["upgrade_to_pro_14"] = 0;
+                $this->o["upgrade_to_pro_142"] = 0;
                 update_option('gd-taxonomy-tools', $this->o);
                 wp_redirect(remove_query_arg("proupgradett"));
                 exit;
@@ -556,7 +578,11 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function admin_gopro() {
             $load = "http://www.dev4press.com/wp-content/plugins/gd-product-central/get_lite.php?name=gdtt";
-            $response = wp_remote_retrieve_body(wp_remote_get($load));
+            $response = get_site_transient("gdcpttools_gopro");
+            if ($response == "") {
+                $response = wp_remote_retrieve_body(wp_remote_get($load));
+                set_site_transient("gdcpttools_gopro", $response, 604800);
+            }
             echo($response);
         }
 
@@ -600,6 +626,8 @@ if (!class_exists('GDTaxonomiesTools')) {
                 if (!isset($cpt["rewrite_slug"])) $cpt["rewrite_slug"] = "";
                 if (!isset($cpt["rewrite_front"])) $cpt["rewrite_front"] = "no";
                 if (!isset($cpt["nav_menus"])) $cpt["nav_menus"] = "yes";
+                if (!isset($cpt["menu_position"])) $cpt["menu_position"] = "__auto__";
+                if (!isset($cpt["menu_icon"])) $cpt["menu_icon"] = "";
                 if (!isset($cpt["exclude_from_search"])) $cpt["exclude_from_search"] = "no";
                 if (!isset($cpt["publicly_queryable"])) $cpt["publicly_queryable"] = "yes";
                 if (!isset($cpt["can_export"])) $cpt["can_export"] = "yes";

@@ -7,6 +7,8 @@ function gdtt_generate_custom_posts_options($cpt) {
     $cpt["rewrite_feeds"] = !isset($cpt["rewrite_feeds"]) ? "yes" : $cpt["rewrite_feeds"];
     $cpt["rewrite_pages"] = !isset($cpt["rewrite_pages"]) ? "yes" : $cpt["rewrite_pages"];
     $cpt["show_in_menu"] = !isset($cpt["show_in_menu"]) ? "yes" : $cpt["show_in_menu"];
+    $cpt["menu_position"] = !isset($cpt["menu_position"]) ? "__auto__" : $cpt["menu_position"];
+    $cpt["menu_icon"] = !isset($cpt["menu_icon"]) ? "" : $cpt["menu_icon"];
 
     $caps = $labels = array();
 
@@ -56,6 +58,7 @@ function gdtt_generate_custom_posts_options($cpt) {
         "description" => $cpt["description"],
         "publicly_queryable" => $cpt["publicly_queryable"],
         "exclude_from_search" => $cpt["exclude_from_search"],
+        "menu_icon" => $cpt["menu_icon"] == "" ? null : $cpt["menu_icon"],
         "capability_type" => $cpt["caps_type"],
         "hierarchical" => $cpt["hierarchy"] == "yes",
         "public" => $cpt["public"],
@@ -70,6 +73,10 @@ function gdtt_generate_custom_posts_options($cpt) {
         "show_in_nav_menus" => $cpt["nav_menus"],
         "_edit_link" => $cpt["edit_link"]
     );
+
+    if (!in_array($cpt["menu_position"], array("__auto__"))) {
+        $options["menu_position"] = intval($cpt["menu_position"]);
+    }
 
     if ($cpt["capabilites"] != "type") {
         $options["map_meta_cap"] = true;
