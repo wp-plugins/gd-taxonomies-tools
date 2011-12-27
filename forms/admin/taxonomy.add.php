@@ -37,8 +37,8 @@ if ($errors == "name") {
 }
 
 if (isset($_POST["gdtt_savetax"])) {
-    $this->o["force_rules_flush"] = 1;
-    update_option('gd-taxonomy-tools', $this->o);
+    $gdtt->o["force_rules_flush"] = 1;
+    update_option('gd-taxonomy-tools', $gdtt->o);
 
     $tax = $this->edit_tax;
     if ($errors == "") {

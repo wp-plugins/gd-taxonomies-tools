@@ -23,6 +23,7 @@ function gdtt_generate_custom_posts_options($cpt) {
     $query_var = false;
     if ($cpt["query"] != "no") {
         $query_var = true;
+
         if ($cpt["query"] == "yes_custom" && $cpt["query_slug"] != "") {
             $query_var = $cpt["query_slug"];
         }
@@ -31,6 +32,7 @@ function gdtt_generate_custom_posts_options($cpt) {
     $has_archive = false;
     if ($cpt["archive"] != "no") {
         $has_archive = true;
+
         if ($cpt["archive"] == "yes_custom" && $cpt["archive_slug"] != "") {
             $has_archive = $cpt["archive_slug"];
         }
@@ -88,10 +90,12 @@ function gdtt_generate_custom_posts_options($cpt) {
 
 function gdtt_generate_custom_taxonomies_options($tax) {
     $rewrite = $query_var = true;
-    if ($tax["rewrite"] == "no") $rewrite = false;
-    else {
+    if ($tax["rewrite"] == "no") {
+        $rewrite = false;
+    } else {
         $tax["rewrite_hierarchy"] = !isset($tax["rewrite_hierarchy"]) ? "auto" : $tax["rewrite_hierarchy"];
         $tax["with_front"] = !isset($tax["with_front"]) ? "yes" : $tax["with_front"];
+
         $rewrite = array("hierarchical" => $tax["rewrite_hierarchy"] == "no" ? false : true,
                          "with_front" => $tax["with_front"] == "yes");
         if ($tax["rewrite"] == "yes_name") {
@@ -101,8 +105,13 @@ function gdtt_generate_custom_taxonomies_options($tax) {
         }
     }
 
-    if ($tax["query"] == "no") $query_var = false;
-    if ($tax["query"] == "yes_custom") $query_var = $tax["query_custom"];
+    if ($tax["query"] == "no") {
+        $query_var = false;
+    }
+
+    if ($tax["query"] == "yes_custom") {
+        $query_var = $tax["query_custom"];
+    }
 
     $tax["public"] = !isset($tax["public"]) ? true : ($tax["public"] == "yes");
     $tax["ui"] = !isset($tax["ui"]) ? $tax["public"] : ($tax["ui"] == "yes");

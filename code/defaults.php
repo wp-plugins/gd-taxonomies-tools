@@ -2,14 +2,14 @@
 
 class GDTTDefaults {
     var $default_options = array(
-        "version" => "1.4.2",
-        "date" => "2011.09.21.",
+        "version" => "1.5.0",
+        "date" => "2011.12.28.",
         "status" => "Stable",
-        "build" => 1420,
+        "build" => 1500,
         "product_id" => "gd-taxonomies-tools",
         "edition" => "lite",
         "upgrade_notice_132" => 1,
-        "upgrade_to_pro_142" => 1,
+        "upgrade_to_pro_15" => 1,
         "force_rules_flush" => 0,
         "tax_internal" => 0,
         "cpt_internal" => 0,
@@ -23,14 +23,16 @@ class GDTTDefaults {
         "wp30" => 4,
         "wp31" => 5,
         "wp32" => 5,
-        "wp33" => 5
+        "wp33" => 5,
+        "wp34" => 5
     );
 
     var $default_posttypes = array(
         "wp30" => 5,
         "wp31" => 5,
         "wp32" => 5,
-        "wp33" => 5
+        "wp33" => 5,
+        "wp34" => 5
     );
 
     var $post_type_caps = array(

@@ -14,16 +14,6 @@
                     <td class="t"><?php _e("detailed list of changes", "gd-taxonomies-tools"); ?></td>
                     <td class="t options"><a href="<?php echo GDTAXTOOLS_URL; ?>info/changelog.html" target="_blank"><?php _e("show", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
-            </tbody></table>
-        </div>
-        <p class="sub"><?php _e("Links", "gd-taxonomies-tools"); ?></p>
-        <div class="table">
-            <table><tbody>
-                <tr class="first">
-                    <td class="first b">Google Groups</td>
-                    <td class="t"><?php _e("discussions group", "gd-taxonomies-tools"); ?></td>
-                    <td class="t options"><a href="http://groups.google.com/group/dev4press" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
-                </tr>
                 <tr>
                     <td class="first b">WordPress Extend</td>
                     <td class="t"><?php _e("wordpress plugin page", "gd-taxonomies-tools"); ?></td>
@@ -37,7 +27,7 @@
                 <tr class="first">
                     <td class="first b">GD CPT Tools</td>
                     <td class="t"><?php _e("official plugin page", "gd-taxonomies-tools"); ?></td>
-                    <td class="b options" style="color: red; font-weight: bold;"><a href="http://www.dev4press.com/gd-taxonomies-tools/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
+                    <td class="b options" style="color: red; font-weight: bold;"><a href="http://www.dev4press.com/plugins/gd-taxonomies-tools/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
             </tbody></table>
         </div>
@@ -72,7 +62,12 @@
                 <tr>
                     <td class="first b">GD Press Tools</td>
                     <td class="t"><?php _e("a wordpress administration addon", "gd-taxonomies-tools"); ?></td>
-                    <td class="t options"><a href="http://www.dev4press.com/gd-press-tools/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
+                    <td class="t options"><a href="http://www.dev4press.com/plugins/gd-press-tools/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
+                </tr>
+                <tr>
+                    <td class="first b">GD Products Center</td>
+                    <td class="t"><?php _e("product management and comparison", "gd-taxonomies-tools"); ?></td>
+                    <td class="t options"><a href="http://www.dev4press.com/plugins/gd-products-center/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
                 <tr>
                     <td class="first b">GD aZon FUSION</td>
@@ -87,7 +82,7 @@
                 <tr>
                     <td class="first b">GD Affiliate Center</td>
                     <td class="t"><?php _e("ad management control", "gd-taxonomies-tools"); ?></td>
-                    <td class="t options"><a href="http://www.gdaffiliatecenter.com/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
+                    <td class="t options"><a href=""http://www.dev4press.com/plugins/gd-affiliate-center/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
             </tbody></table>
         </div>

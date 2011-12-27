@@ -1,8 +1,8 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: gdragon
-Donate link: http://d4p.me/gdtt
-Version: 1.4.2
-Tags: gdragon, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
+Donate link: http://www.dev4press.com/
+Version: 1.5.0
+Tags: gdragon, dev4press, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 3.0
 Tested up to: 3.3
 Stable tag: trunk
@@ -17,10 +17,10 @@ Supported languages: english, chinese, spanish, danish, polish, dutch, french
 To work with custom post types you need WordPress 3.0. Plugin supports all latest features added to custom post types and supported by WordPress.
 
 = Important URL's =
-[About GD Custom Posts And Taxonomies Tools 1.4 Lite](http://www.dev4press.com/2011/blog/plugins/gd-custom-posts-and-taxonomies-tools-1-4-lite/)
+[About GD Custom Posts And Taxonomies Tools 1.5 Lite](http://www.dev4press.com/2011/blog/plugins/gd-custom-posts-and-taxonomies-tools-1-5-lite/)
 
-[Plugin Home](http://d4p.me/gdtt) | 
-[Forum](http://forum.gdragon.info/viewforum.php?f=30) | 
+[Plugin Home](http://www.dev4press.com/plugins/gd-taxonomies-tools/) | 
+[Forum](http://www.dev4press.com/forums/forum/free-plugins/gd-taxonomies-tools-lite/) | 
 [Feedburner](http://feeds2.feedburner.com/dev4press) | 
 [Twitter](http://twitter.com/milangd)
 
@@ -58,10 +58,16 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.4.2 =
-Custom post type admin menu position. Custom post type admin menu icon url. Improved registration process for taxonomies.
+= 1.5 =
+Admin side loading optimization. Using new context help for WordPress 3.3. Interface changes for WordPress 3.3. Fixed minor issues with the registration code.
 
 == Changelog ==
+= 1.5 =
+* Admin side loading optimization
+* Using new context help for WordPress 3.3
+* Interface changes for WordPress 3.3
+* Fixed minor issues with the registration code
+
 = 1.4.2 =
 * Custom post type admin menu position
 * Custom post type admin menu icon url

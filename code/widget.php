@@ -30,9 +30,9 @@ class gdtt_Widget extends WP_Widget {
     function form($instance) {
         $instance = wp_parse_args((array)$instance, $this->defaults);
 
-        include(GDTAXTOOLS_PATH.'widgets/'.$this->folder_name.'/basic.php');
-        include(GDTAXTOOLS_PATH.'widgets/'.$this->folder_name.'/filter.php');
-        include(GDTAXTOOLS_PATH.'widgets/'.$this->folder_name.'/display.php');
+        include(GDTAXTOOLS_PATH."widgets/".$this->folder_name."/basic.php");
+        include(GDTAXTOOLS_PATH."widgets/".$this->folder_name."/filter.php");
+        include(GDTAXTOOLS_PATH."widgets/".$this->folder_name."/display.php");
     }
 
     function prepare($instance, $results) {
