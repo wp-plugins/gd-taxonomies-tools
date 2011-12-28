@@ -1,5 +1,5 @@
 === GD Custom Posts And Taxonomies Tools ===
-Contributors: gdragon
+Contributors: GDragoN
 Donate link: http://www.dev4press.com/
 Version: 1.5.0
 Tags: gdragon, dev4press, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
