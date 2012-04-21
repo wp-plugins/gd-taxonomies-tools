@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 class gdttDB {
     function get_posts_for_term_by($element, $taxonomy, $term, $result = "post") {
         global $wpdb;

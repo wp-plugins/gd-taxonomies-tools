@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 /**
  * Return only public custom post types, with or without defaults.
  *

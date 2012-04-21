@@ -310,6 +310,10 @@ input {
     background: linear-gradient(top, #ce0404 0%,#aa1d1d 100%);
 }
 
+a.button-red:hover {
+    color: #fefeee;
+}
+
 .button-gray {
     color: white;
     border: 1px solid #28343b;
@@ -322,6 +326,10 @@ input {
     background: -ms-linear-gradient(top, #5c6168 0%,#28343b 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5c6168', endColorstr='#28343b',GradientType=0 );
     background: linear-gradient(top, #5c6168 0%,#28343b 100%);
+}
+
+a.button-gray:hover {
+    color: #eeeeee;
 }
 
 .button-big {

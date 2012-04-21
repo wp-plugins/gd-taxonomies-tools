@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 class gdCPTAdmin {
     var $admin_plugin;
     var $admin_plugin_page;
@@ -11,7 +13,7 @@ class gdCPTAdmin {
     var $edit_tax;
 
     function __construct() {
-        add_filter("plugin_row_meta", array(&$this, "plugin_links"),10, 2);
+        add_filter("plugin_row_meta", array(&$this, "plugin_links"), 10, 2);
         add_filter("plugin_action_links", array(&$this, "plugin_actions"), 10, 2);
 
         add_action("admin_notices", array(&$this, "admin_notice"));
@@ -32,8 +34,8 @@ class gdCPTAdmin {
         if ($file == $this_plugin){
             $links[] = '<a href="admin.php?page=gdtaxtools_taxs">'.__("Custom Taxonomies", "gd-taxonomies-tools").'</a>';
             $links[] = '<a href="admin.php?page=agdtaxtools_postypes">'.__("Custom Post Types", "gd-taxonomies-tools").'</a>';
-            $links[] = '<a href="http://www.dev4press.com/plugins/gd-taxonomies-tools/faq/">'.__("FAQ", "gd-taxonomies-tools").'</a>';
-            $links[] = '<a target="_blank" style="color: #cc0000; font-weight: bold;" href="http://d4p.me/gdtt">'.__("Upgrade to PRO", "gd-taxonomies-tools").'</a>';
+            $links[] = '<a href="http://www.gdcpttools.com/faq/">'.__("FAQ", "gd-taxonomies-tools").'</a>';
+            $links[] = '<a target="_blank" style="color: #cc0000; font-weight: bold;" href="http://www.gdcpttools.com/">'.__("Upgrade to PRO", "gd-taxonomies-tools").'</a>';
         }
         return $links;
     }
@@ -131,15 +133,15 @@ class gdCPTAdmin {
             "id" => "gdpt-screenhelp-help",
             "title" => __("Get Help", "gd-taxonomies-tools"),
             "content" => '<h5>'.__("General plugin information", "gd-taxonomies-tools").'</h5>
-                <p><a href="http://www.dev4press.com/plugins/gd-press-tools/" target="_blank">'.__("Plugin Home Page", "gd-taxonomies-tools").'</a> | 
-                <a href="http://www.dev4press.com/plugins/gd-press-tools/faq/" target="_blank">'.__("Frequently asked questions", "gd-taxonomies-tools").'</a> | 
-                <a href="http://www.dev4press.com/plugins/gd-press-tools/roadmap/" target="_blank">'.__("Development roadmap", "gd-taxonomies-tools").'</a></p>
-                <h5>'.__("Support for the plugin", "gd-taxonomies-tools").'</h5>
+                <p><a href="http://www.gdcpttools.com/" target="_blank">'.__("Plugin Website", "gd-taxonomies-tools").'</a> | 
+                <a href="http://www.gdcpttools.com/faq/" target="_blank">'.__("Frequently asked questions", "gd-taxonomies-tools").'</a> | 
+                <a href="http://www.gdcpttools.com/development-roadmap/" target="_blank">'.__("Development roadmap", "gd-taxonomies-tools").'</a></p>
+                <h5>'.__("Support for the plugin on Dev4Press", "gd-taxonomies-tools").'</h5>
                 <p>'.__("Support is available only for Pro version of this plugin.", "gd-taxonomies-tools").'</p>
-                <p><a href="http://www.dev4press.com/plugins/gd-press-tools/support/" target="_blank">'.__("Support Overview", "gd-taxonomies-tools").'</a> | 
-                <a href="http://www.dev4press.com/forums/forum/plugins/gd-press-tools/" target="_blank">'.__("Support Forum", "gd-taxonomies-tools").'</a> | 
-                <a href="http://www.dev4press.com/documentation/product/plg-gd-press-tools/" target="_blank">'.__("Documentation", "gd-taxonomies-tools").'</a> | 
-                <a href="http://www.dev4press.com/category/tutorials/plugins/gd-press-tools/" target="_blank">'.__("Tutorials", "gd-taxonomies-tools").'</a></p>'));
+                <p><a href="http://www.dev4press.com/plugins/gd-taxonomies-tools/support/" target="_blank">'.__("Support Overview", "gd-taxonomies-tools").'</a> | 
+                <a href="http://www.dev4press.com/forums/forum/plugins/gd-taxonomies-tools/" target="_blank">'.__("Support Forum", "gd-taxonomies-tools").'</a> | 
+                <a href="http://www.dev4press.com/documentation/product/plg-gd-taxonomies-tools/" target="_blank">'.__("Documentation", "gd-taxonomies-tools").'</a> | 
+                <a href="http://www.dev4press.com/category/tutorials/plugins/gd-taxonomies-tools/" target="_blank">'.__("Tutorials", "gd-taxonomies-tools").'</a></p>'));
 
         $screen->add_help_tab(array(
             "id" => "gdpt-screenhelp-website",

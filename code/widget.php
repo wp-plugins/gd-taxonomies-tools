@@ -1,7 +1,9 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 class gdtt_Widget extends WP_Widget {
-    var $folder_name = "";
+    var $folder_name = '';
     var $defaults = array();
     var $widget_id;
 
@@ -10,13 +12,13 @@ class gdtt_Widget extends WP_Widget {
     function widget($args, $instance) {
         global $gdsr, $userdata;
         extract($args, EXTR_SKIP);
-        $this->widget_id = str_replace("-", "", $args["widget_id"]);
-        $this->widget_id = str_replace("_", "", $this->widget_id);
+        $this->widget_id = str_replace('-', '', $args['widget_id']);
+        $this->widget_id = str_replace('_', '', $this->widget_id);
 
         $results = $this->results($instance);
-        if (count($results) == 0 && $instance["hide_empty"] == 1) return;
+        if (count($results) == 0 && $instance['hide_empty'] == 1) return;
 
-        echo $before_widget.$before_title.$instance["title"].$after_title;
+        echo $before_widget.$before_title.$instance['title'].$after_title;
         echo $this->render($results, $instance);
         echo $after_widget;
     }
@@ -30,9 +32,9 @@ class gdtt_Widget extends WP_Widget {
     function form($instance) {
         $instance = wp_parse_args((array)$instance, $this->defaults);
 
-        include(GDTAXTOOLS_PATH."widgets/".$this->folder_name."/basic.php");
-        include(GDTAXTOOLS_PATH."widgets/".$this->folder_name."/filter.php");
-        include(GDTAXTOOLS_PATH."widgets/".$this->folder_name."/display.php");
+        include(GDTAXTOOLS_PATH.'widgets/'.$this->folder_name.'/basic.php');
+        include(GDTAXTOOLS_PATH.'widgets/'.$this->folder_name.'/filter.php');
+        include(GDTAXTOOLS_PATH.'widgets/'.$this->folder_name.'/display.php');
     }
 
     function prepare($instance, $results) {

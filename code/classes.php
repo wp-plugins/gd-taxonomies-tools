@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 class gdtt_CustomPost {
     var $name;
     var $label;

@@ -1,11 +1,13 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 class GDTTDefaults {
     var $default_options = array(
-        "version" => "1.5.0",
-        "date" => "2011.12.28.",
+        "version" => "1.5.1",
+        "date" => "2012.04.21.",
         "status" => "Stable",
-        "build" => 1500,
+        "build" => 1510,
         "product_id" => "gd-taxonomies-tools",
         "edition" => "lite",
         "upgrade_notice_132" => 1,

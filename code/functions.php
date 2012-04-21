@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 function gdtt_generate_custom_posts_options($cpt) {
     $cpt["description"] = !isset($cpt["description"]) ? "" : $cpt["description"];
     $cpt["rewrite_slug"] = !isset($cpt["rewrite_slug"]) ? "" : $cpt["rewrite_slug"];

@@ -1,10 +1,10 @@
 === GD Custom Posts And Taxonomies Tools ===
-Contributors: GDragoN
-Donate link: http://www.dev4press.com/
-Version: 1.5.0
+Contributors: gdragon
+Donate link: http://www.dev4press.com/gd-taxonomies-tools/
+Version: 1.5.1
 Tags: gdragon, dev4press, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 3.0
-Tested up to: 3.3
+Tested up to: 3.4
 Stable tag: trunk
 
 GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
@@ -17,12 +17,12 @@ Supported languages: english, chinese, spanish, danish, polish, dutch, french
 To work with custom post types you need WordPress 3.0. Plugin supports all latest features added to custom post types and supported by WordPress.
 
 = Important URL's =
-[About GD Custom Posts And Taxonomies Tools 1.5 Lite](http://www.dev4press.com/2011/blog/plugins/gd-custom-posts-and-taxonomies-tools-1-5-lite/)
+[GD Custom Posts And Taxonomies Tools Home](http://www.gdcpttools.com/)
 
-[Plugin Home](http://www.dev4press.com/plugins/gd-taxonomies-tools/) | 
-[Forum](http://www.dev4press.com/forums/forum/free-plugins/gd-taxonomies-tools-lite/) | 
+[Plugin on Dev4Press](http://www.dev4press.com/plugins/gd-taxonomies-tools/) | 
+[Support Forum](http://www.dev4press.com/forums/forum/free-plugins/gd-taxonomies-tools-lite/) | 
 [Feedburner](http://feeds2.feedburner.com/dev4press) | 
-[Twitter](http://twitter.com/milangd)
+[Follow on Twitter](http://twitter.com/milangd)
 
 == Installation ==
 = Requirements =
@@ -58,10 +58,15 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.5 =
-Admin side loading optimization. Using new context help for WordPress 3.3. Interface changes for WordPress 3.3. Fixed minor issues with the registration code.
+= 1.5.1 =
+Replaced load_textdomain with load_plugin_textdomain. Minor changes from testing with WordPress 3.4. Many small changes, improvements updated URL's.
 
 == Changelog ==
+= 1.5.1 =
+* Replaced load_textdomain with load_plugin_textdomain
+* Minor changes from testing with WordPress 3.4
+* Many small changes, improvements updated URL's
+
 = 1.5 =
 * Admin side loading optimization
 * Using new context help for WordPress 3.3

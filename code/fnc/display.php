@@ -1,5 +1,7 @@
 <?php
 
+if (!defined('ABSPATH')) exit;
+
 class gdttWalker_Terms extends Walker_Category {
     function start_el(&$output, $term, $depth, $args) {
         extract($args);
