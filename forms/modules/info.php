@@ -1,3 +1,19 @@
+<?php if ($gdtt->o['upgrade_to_pro_152'] != 1) { ?><div id="gdpt_server" class="postbox gdrgrid frontright">
+    <h3 class="hndle"><span>Upgrade to GD Custom Posts And Taxonomies Tools Pro</span></h3>
+    <div class="inside to-upgrade">
+        <p class="sub"><?php _e("Upgrade Info", "gd-taxonomies-tools"); ?></p>
+        <div class="table">
+            <?php _e("Thank you for using this plugin. Please, take a few minutes and check out the Pro version of this plugin with many new and improved features.", "gd-taxonomies-tools"); ?><br/>
+            <?php echo '<strong><a href="http://www.gdcpttools.com/" target="_blank">'.__("Official Website", "gd-taxonomies-tools")."</a></strong> | ";
+                echo '<strong><a href="http://d4p.me/gdtt" target="_blank">'.__("Overview on Dev4Press", "gd-taxonomies-tools")."</a></strong> | ";
+                echo '<strong><a href="http://d4p.me/247" target="_blank">'.__("Dev4Press Plugins Pack", "gd-taxonomies-tools")."</a></strong>"; ?>
+        </div>
+        <p class="sub"><?php _e("Discount Coupon", "gd-taxonomies-tools"); ?></p>
+        <div class="table">
+            <strong style="color: #c00;">GDCPTLITETOPRO</strong>
+        </div>
+    </div>
+</div><?php } ?>
 <div id="gdpt_server" class="postbox gdrgrid frontright">
     <h3 class="hndle"><span>GD Custom Posts And Taxonomies Tools</span></h3>
     <div class="inside">

@@ -13,14 +13,14 @@ class gdCPTAdmin {
     var $edit_tax;
 
     function __construct() {
-        add_filter("plugin_row_meta", array(&$this, "plugin_links"), 10, 2);
-        add_filter("plugin_action_links", array(&$this, "plugin_actions"), 10, 2);
+        add_filter('plugin_row_meta', array(&$this, 'plugin_links'), 10, 2);
+        add_filter('plugin_action_links', array(&$this, 'plugin_actions'), 10, 2);
 
-        add_action("admin_notices", array(&$this, "admin_notice"));
+        add_action('admin_notices', array(&$this, 'admin_notice'));
 
-        add_action("admin_init", array(&$this, "admin_init"));
-        add_action("admin_menu", array(&$this, "admin_menu"));
-        add_action("admin_head", array(&$this, "admin_head"));
+        add_action('admin_init', array(&$this, 'admin_init'));
+        add_action('admin_menu', array(&$this, 'admin_menu'));
+        add_action('admin_head', array(&$this, 'admin_head'));
     }
 
     function plugin_links($links, $file) {
@@ -58,14 +58,15 @@ class gdCPTAdmin {
     function admin_notice() {
         global $gdtt;
 
-        if ($gdtt->o["upgrade_notice_132"] == 1) {
-            $no_thanks = add_query_arg("notice132gdtt", "hide");
-            echo '<div class="updated" style="padding: 10px;">';
-            echo '<strong><u>GD Custom Posts And Taxonomies Tools:</u></strong><br/>';
-            _e("Due to the changes to labels and capabilities, you must check custom post types and custom taxonomies you created and save them again. All capabilities must be filled, you can use a Reset Capabailities button to fill them with default values.", "gd-taxonomies-tools");
-            echo '<br/><a href="admin.php?page=gdtaxtools_postypes">'.__("Custom Post Types", "gd-taxonomies-tools")."</a>";
-            echo ' | <a href="admin.php?page=gdtaxtools_taxs">'.__("Custom Taxonomies", "gd-taxonomies-tools")."</a>";
-            echo ' | <a href="'.$no_thanks.'">'.__("Dismiss this message", "gd-taxonomies-tools")."</a>";
+        if ($gdtt->o['upgrade_notice_132'] == 1) {
+            $no_thanks = add_query_arg('notice132gdtt', "hide");
+
+            echo '<div class="updated">';
+                echo '<strong><u>GD Custom Posts And Taxonomies Tools:</u></strong><br/>';
+                _e("Due to the changes to labels and capabilities, you must check custom post types and custom taxonomies you created and save them again. All capabilities must be filled, you can use a Reset Capabailities button to fill them with default values.", "gd-taxonomies-tools");
+                echo '<br/><a href="admin.php?page=gdtaxtools_postypes">'.__("Custom Post Types", "gd-taxonomies-tools")."</a>";
+                echo ' | <a href="admin.php?page=gdtaxtools_taxs">'.__("Custom Taxonomies", "gd-taxonomies-tools")."</a>";
+                echo ' | <a href="'.$no_thanks.'">'.__("Dismiss this message", "gd-taxonomies-tools")."</a>";
             echo '</div>';
         }
     }
@@ -73,26 +74,31 @@ class gdCPTAdmin {
     function upgrade_notice() {
         global $gdtt;
 
-        if ($gdtt->o["upgrade_to_pro_15"] == 1) {
-            $no_thanks = add_query_arg("proupgradett", "hide");
+        if ($gdtt->o['upgrade_to_pro_152'] == 1) {
+            $no_thanks = add_query_arg('proupgradett', 'hide');
+
             echo '<div class="updated">';
-            echo __("Thank you for using this plugin. Please, take a few minutes and check out the Pro version of this plugin and new and improved features, including premium support.", "gd-taxonomies-tools");
-            echo '<br/><strong><a href="http://d4p.me/gdtt" target="_blank">'.__("GD Custom Posts And Taxonomies Tools Pro", "gd-taxonomies-tools")."</a></strong>";
-            echo '. <a href="'.$no_thanks.'">'.__("Don't display this message anymore", "gd-taxonomies-tools")."</a>.";
+                echo __("Thank you for using this plugin. Please, take a few minutes and check out the Pro version of this plugin with many new and improved features.", "gd-taxonomies-tools");
+                echo '<br/>'.__("Buy plugin Pro version or Dev4Press Plugins Pack and get 15% discount using this coupon:", "gd-taxonomies-tools");
+                echo ' <strong style="color: #c00;">GDCPTLITETOPRO</strong><br/>';
+                echo '<strong><a href="http://www.gdcpttools.com/" target="_blank">'.__("Official Website", "gd-taxonomies-tools")."</a></strong> | ";
+                echo '<strong><a href="http://d4p.me/gdtt" target="_blank">'.__("Overview on Dev4Press", "gd-taxonomies-tools")."</a></strong> | ";
+                echo '<strong><a href="http://d4p.me/247" target="_blank">'.__("Dev4Press Plugins Pack", "gd-taxonomies-tools")."</a></strong> | ";
+                echo '<a href="'.$no_thanks.'">'.__("Don't display this message anymore", "gd-taxonomies-tools")."</a>.";
             echo '</div>';
         }
     }
 
     function admin_init() {
-        if (isset($_GET["page"])) {
-            if (substr($_GET["page"], 0, 10) == "gdtaxtools") {
+        if (isset($_GET['page'])) {
+            if (substr($_GET['page'], 0, 10) == 'gdtaxtools') {
                 $this->admin_plugin = true;
-                $this->admin_plugin_page = substr($_GET["page"], 11);
+                $this->admin_plugin_page = substr($_GET['page'], 11);
             }
         }
 
         if ($this->admin_plugin) {
-            wp_enqueue_script("jquery");
+            wp_enqueue_script('jquery');
         }
 
         $this->settings_operations();
@@ -101,12 +107,12 @@ class gdCPTAdmin {
     }
 
     function admin_menu() {
-        $this->page_ids[] = add_menu_page("GD CPT Tools", "GD CPT Tools", "gdcpttools_basic", "gdtaxtools_front", array(&$this,"admin_front"), plugins_url('gd-taxonomies-tools/gfx/menu.png'));
-        $this->page_ids[] = add_submenu_page("gdtaxtools_front", 'GD CPT Tools: '.__("Front Page", "gd-taxonomies-tools"), __("Front Page", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_front", array(&$this,"admin_front"));
-        $this->page_ids[] = add_submenu_page("gdtaxtools_front", 'GD CPT Tools: '.__("Post Types", "gd-taxonomies-tools"), __("Post Types", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_postypes", array(&$this, "admin_postypes"));
-        $this->page_ids[] = add_submenu_page("gdtaxtools_front", 'GD CPT Tools: '.__("Taxonomies", "gd-taxonomies-tools"), __("Taxonomies", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_taxs", array(&$this, "admin_taxs"));
-        $this->page_ids[] = add_submenu_page("gdtaxtools_front", 'GD CPT Tools: '.__("Settings", "gd-taxonomies-tools"), __("Settings", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_settings", array(&$this, "admin_settings"));
-        $this->page_ids[] = add_submenu_page("gdtaxtools_front", 'GD CPT Tools: '.__("Upgrade to Pro", "gd-taxonomies-tools"), __("Upgrade to Pro", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_gopro", array(&$this,"admin_gopro"));
+        $this->page_ids[] = add_menu_page('GD CPT Tools', 'GD CPT Tools', "gdcpttools_basic", "gdtaxtools_front", array(&$this,"admin_front"), plugins_url('gd-taxonomies-tools/gfx/menu.png'));
+        $this->page_ids[] = add_submenu_page('gdtaxtools_front', 'GD CPT Tools: '.__("Front Page", "gd-taxonomies-tools"), __("Front Page", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_front", array(&$this,"admin_front"));
+        $this->page_ids[] = add_submenu_page('gdtaxtools_front', 'GD CPT Tools: '.__("Post Types", "gd-taxonomies-tools"), __("Post Types", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_postypes", array(&$this, "admin_postypes"));
+        $this->page_ids[] = add_submenu_page('gdtaxtools_front', 'GD CPT Tools: '.__("Taxonomies", "gd-taxonomies-tools"), __("Taxonomies", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_taxs", array(&$this, "admin_taxs"));
+        $this->page_ids[] = add_submenu_page('gdtaxtools_front', 'GD CPT Tools: '.__("Settings", "gd-taxonomies-tools"), __("Settings", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_settings", array(&$this, "admin_settings"));
+        $this->page_ids[] = add_submenu_page('gdtaxtools_front', 'GD CPT Tools: '.__("Upgrade to Pro", "gd-taxonomies-tools"), __("Upgrade to Pro", "gd-taxonomies-tools"), "gdcpttools_basic", "gdtaxtools_gopro", array(&$this,"admin_gopro"));
 
         $this->admin_load_hooks();
     }
@@ -115,13 +121,13 @@ class gdCPTAdmin {
         if (GDTAXTOOLS_WPV < 33) return;
 
         foreach ($this->page_ids as $id) {
-            add_action("load-".$id, array(&$this, "load_admin_page"));
+            add_action('load-'.$id, array(&$this, 'load_admin_page'));
         }
     }
 
     function load_admin_page() {
         $screen = get_current_screen();
-        $page_id = $screen->id == "toplevel_page_gdtaxtools_front" ? "front" : substr($screen->id, 29);
+        $page_id = $screen->id == 'toplevel_page_gdtaxtools_front' ? 'front' : substr($screen->id, 29);
 
         $screen->set_help_sidebar('
             <p><strong>Dev4Press:</strong></p>
@@ -162,67 +168,69 @@ class gdCPTAdmin {
             $default_caps_cpt = json_encode($gdtt->post_type_caps);
             $default_caps_tax = json_encode($gdtt->taxonomy_caps);
 
-            include(GDTAXTOOLS_PATH."/code/js.php");
+            include(GDTAXTOOLS_PATH.'/code/js.php');
         }
 
-        if ($gdtt->script == "widgets.php" || $gdtt->script == "themes.php" || $gdtt->script == "plugins.php") {
+        if ($gdtt->script == 'widgets.php' || $gdtt->script == 'themes.php' || $gdtt->script == 'plugins.php') {
             echo('<link rel="stylesheet" href="'.GDTAXTOOLS_URL.'css/admin_widgets.css" type="text/css" media="screen" />');
         }
 
-        include(GDTAXTOOLS_PATH."code/go_pro.php");
+        include(GDTAXTOOLS_PATH.'code/go_pro.php');
     }
 
     function init_operations() {
         global $gdtt;
 
-        if (isset($_GET["proupgradett"]) && $_GET["proupgradett"] == "hide") {
-            $gdtt->o["upgrade_to_pro_15"] = 0;
+        if (isset($_GET['proupgradett']) && $_GET['proupgradett'] == 'hide') {
+            $gdtt->o['upgrade_to_pro_152'] = 0;
 
-            update_option("gd-taxonomy-tools", $gdtt->o);
+            update_option('gd-taxonomy-tools', $gdtt->o);
 
-            wp_redirect(remove_query_arg("proupgradett"));
+            wp_redirect(remove_query_arg('proupgradett'));
             exit;
         }
 
-        if (isset($_GET["notice132gdtt"]) && $_GET["notice132gdtt"] == "hide") {
-            $gdtt->o["upgrade_notice_132"] = 0;
+        if (isset($_GET['notice132gdtt']) && $_GET['notice132gdtt'] == 'hide') {
+            $gdtt->o['upgrade_notice_132'] = 0;
 
-            update_option("gd-taxonomy-tools", $gdtt->o);
+            update_option('gd-taxonomy-tools', $gdtt->o);
 
-            wp_redirect(remove_query_arg("notice132gdtt"));
+            wp_redirect(remove_query_arg('notice132gdtt'));
             exit;
         }
 
-        if (isset($_GET["action"])) {
-            $action = $_GET["action"];
-            $url = remove_query_arg("action");
+        if (isset($_GET['action'])) {
+            $action = $_GET['action'];
+            $url = remove_query_arg('action');
+
             switch ($action) {
-                case "delcpt":
-                    $id = $gdtt->find_custompost_pos($_GET["pid"]);
+                case 'delcpt':
+                    $id = $gdtt->find_custompost_pos($_GET['pid']);
 
                     if ($id > -1) {
                         unset($gdtt->p[$id]);
                         $gdtt->p = array_values($gdtt->p);
 
-                        update_option("gd-taxonomy-tools-cpt", $gdtt->p);
+                        update_option('gd-taxonomy-tools-cpt', $gdtt->p);
                     }
 
-                    $url = remove_query_arg("pid", $url);
+                    $url = remove_query_arg('pid', $url);
                     wp_redirect($url);
                     exit;
                     break;
-                case "deltax":
-                    $id = $gdtt->find_taxonomy_pos($_GET["tid"]);
+                case 'deltax':
+                    $id = $gdtt->find_taxonomy_pos($_GET['tid']);
+
                     if ($id > -1) {
-                        $tax_name = $gdtt->t[$id]["name"];
+                        $tax_name = $gdtt->t[$id]['name'];
                         unset($gdtt->t[$id]);
                         $gdtt->t = array_values($gdtt->t);
 
-                        update_option("gd-taxonomy-tools-tax", $gdtt->t);
+                        update_option('gd-taxonomy-tools-tax', $gdtt->t);
                         gdttDB::delete_taxonomy_terms($tax_name);
                     }
 
-                    $url = remove_query_arg("tid", $url);
+                    $url = remove_query_arg('tid', $url);
                     wp_redirect($url);
                     exit;
                     break;
@@ -231,87 +239,101 @@ class gdCPTAdmin {
     }
 
     function init_savetax() {
-        if (isset($_POST["gdtt_savecpt"])) {
+        if (isset($_POST['gdtt_savecpt'])) {
             global $gdtt;
 
-            $cpt = $_POST["cpt"];
+            $cpt = $_POST['cpt'];
             $this->errors = "";
 
-            $cpt["name"] = strtolower(sanitize_user($cpt["name"], true));
-            $cpt["supports"] = isset($cpt["supports"]) ? (array)$cpt["supports"] : array();
-            $cpt["taxonomies"] = isset($cpt["taxonomies"]) ? (array)$cpt["taxonomies"] : array();
-            $cpt["rewrite_slug"] = trim(strip_tags($cpt["rewrite_slug"]));
-            $cpt["description"] = trim(strip_tags($cpt["description"]));
-            $cpt["active"] = isset($cpt["active"]) ? 1 : 0;
-            $cpt["caps_type"] = trim(strip_tags($cpt["caps_type"]));
-            $cpt["capabilites"] = trim(strip_tags($cpt["capabilites"]));
+            $cpt['name'] = strtolower(sanitize_user($cpt['name'], true));
+            $cpt['supports'] = isset($cpt['supports']) ? (array)$cpt['supports'] : array();
+            $cpt['taxonomies'] = isset($cpt['taxonomies']) ? (array)$cpt['taxonomies'] : array();
+            $cpt['description'] = trim(strip_tags($cpt['description']));
+            $cpt['active'] = isset($cpt['active']) ? 1 : 0;
+            $cpt['caps_type'] = trim(strip_tags($cpt['caps_type']));
+            $cpt['capabilites'] = trim(strip_tags($cpt['capabilites']));
 
-            if (!$gdtt->is_term_valid($cpt["name"])) {
-                $this->errors = "name";
+            $cpt['archive_slug'] = trim(strtolower(gdtt_sanitize_value($cpt['archive_slug'], array('replacement' => '-'))));
+            $cpt['rewrite_slug'] = trim(strtolower(gdtt_sanitize_value($cpt['rewrite_slug'], array('replacement' => '-'))));
+            $cpt['query_slug'] = trim(strtolower(gdtt_sanitize_value($cpt['query_slug'], array('replacement' => '_'))));
+
+            if (!$gdtt->is_term_valid($cpt['name'])) {
+                $this->errors = 'name';
             } else {
-                if (trim($cpt["labels"]["name"]) == "") {
-                    $cpt["labels"]["name"] = $cpt["name"];
+                if (trim($cpt['labels']['name']) == '') {
+                    $cpt['labels']['name'] = $cpt['name'];
                 }
             }
 
-            if ($cpt["id"] == 0) {
-                if ($this->errors == "") {
-                    $gdtt->o["cpt_internal"]++;
-                    $cpt["id"] = $gdtt->o["cpt_internal"];
+            if ($cpt['id'] == 0) {
+                if ($this->errors == '') {
+                    $gdtt->o['cpt_internal']++;
+                    $cpt['id'] = $gdtt->o['cpt_internal'];
                     $gdtt->p[] = $cpt;
-                    update_option("gd-taxonomy-tools", $gdtt->o);
-                    update_option("gd-taxonomy-tools-cpt", $gdtt->p);
+
+                    update_option('gd-taxonomy-tools', $gdtt->o);
+                    update_option('gd-taxonomy-tools-cpt', $gdtt->p);
                 }
             } else {
-                $id = $gdtt->find_custompost_pos($cpt["id"]);
-                if ($id > -1 && $this->errors == "") {
+                $id = $gdtt->find_custompost_pos($cpt['id']);
+
+                if ($id > -1 && $this->errors == '') {
                     $gdtt->p[$id] = $cpt;
-                    update_option("gd-taxonomy-tools-cpt", $gdtt->p);
+
+                    update_option('gd-taxonomy-tools-cpt', $gdtt->p);
                 }
             }
 
             $this->edit_cpt = $cpt;
         }
 
-        if (isset($_POST["gdtt_savetax"])) {
+        if (isset($_POST['gdtt_savetax'])) {
             global $gdtt;
 
-            $tax = $_POST["tax"];
-            $this->errors = "";
+            $tax = $_POST['tax'];
+            $this->errors = '';
 
-            $tax["name"] = strtolower(sanitize_user($tax["name"], true));
-            $post_types = isset($tax["post_type"]) ? (array)$tax["post_type"] : array();
-            $tax["domain"] = join(",", $post_types);
-            if (!isset($tax["rewrite_custom"])) $tax["rewrite_custom"] = "";
-            if (!isset($tax["query_custom"])) $tax["query_custom"] = "";
-            if (!isset($tax["hierarchy"])) $tax["hierarchy"] = "no";
+            $post_types = isset($tax['post_type']) ? (array)$tax['post_type'] : array();
+            $tax['name'] = strtolower(sanitize_user($tax['name'], true));
+            $tax['domain'] = join(',', $post_types);
 
-            if (trim($tax["labels"]["name"]) == "") $tax["labels"]["name"] = $tax["name"];
-            $tax["rewrite_custom"] = trim(strip_tags($tax["rewrite_custom"]));
-            $tax["query_custom"] = sanitize_title_with_dashes($tax["query_custom"]);
-            if (!$gdtt->is_term_valid($tax["name"])) {
-                $this->errors = "name";
-            } else {
-                if (trim($tax["rewrite_custom"]) == "") $tax["rewrite_custom"] = $tax["name"];
-                if (trim($tax["query_custom"]) == "") $tax["query_custom"] = $tax["name"];
+            if (!isset($tax['rewrite_custom'])) $tax['rewrite_custom'] = '';
+            if (!isset($tax['query_custom'])) $tax['query_custom'] = '';
+            if (!isset($tax['hierarchy'])) $tax['hierarchy'] = 'no';
+
+            $tax['rewrite_custom'] = trim(strtolower(gdtt_sanitize_value($tax['rewrite_custom'], array('replacement' => '-'))));
+            $tax['query_custom'] = trim(strtolower(gdtt_sanitize_value($tax['query_custom'], array('replacement' => '_'))));
+
+            if (trim($tax['labels']['name']) == '') {
+                $tax['labels']['name'] = $tax['name'];
             }
 
-            if ($tax["id"] == 0) {
-                if (!$gdtt->is_taxonomy_valid($tax["name"])) {
-                    $this->errors = "name";
+            if (!$gdtt->is_term_valid($tax['name'])) {
+                $this->errors = 'name';
+            } else {
+                if (trim($tax['rewrite_custom']) == '') $tax['rewrite_custom'] = $tax['name'];
+                if (trim($tax['query_custom']) == '') $tax['query_custom'] = $tax['name'];
+            }
+
+            if ($tax['id'] == 0) {
+                if (!$gdtt->is_taxonomy_valid($tax['name'])) {
+                    $this->errors = 'name';
                 }
-                if ($this->errors == "") {
-                    $gdtt->o["tax_internal"]++;
-                    $tax["id"] = $gdtt->o["tax_internal"];
+                if ($this->errors == '') {
+                    $gdtt->o['tax_internal']++;
+                    $tax['id'] = $gdtt->o['tax_internal'];
                     $gdtt->t[] = $tax;
-                    update_option("gd-taxonomy-tools", $gdtt->o);
-                    update_option("gd-taxonomy-tools-tax", $gdtt->t);
+
+                    update_option('gd-taxonomy-tools', $gdtt->o);
+                    update_option('gd-taxonomy-tools-tax', $gdtt->t);
                 }
             } else {
-                $id = $gdtt->find_taxonomy_pos($tax["id"]);
-                if ($id > -1 && $this->errors == "") {
+                $id = $gdtt->find_taxonomy_pos($tax['id']);
+
+                if ($id > -1 && $this->errors == '') {
                     $gdtt->t[$id] = $tax;
-                    update_option("gd-taxonomy-tools-tax", $gdtt->t);
+
+                    update_option('gd-taxonomy-tools-tax', $gdtt->t);
                 }
             }
 
@@ -323,11 +345,11 @@ class gdCPTAdmin {
         if (isset($_POST["gdtt_saving"])) {
             global $gdtt;
 
-            $gdtt->o["delete_taxonomy_db"] = isset($_POST["delete_taxonomy_db"]) ? 1 : 0;
+            $gdtt->o['delete_taxonomy_db'] = isset($_POST['delete_taxonomy_db']) ? 1 : 0;
 
-            update_option("gd-taxonomy-tools", $gdtt->o);
+            update_option('gd-taxonomy-tools', $gdtt->o);
 
-            wp_redirect(add_query_arg("settings", "saved"));
+            wp_redirect(add_query_arg('settings', 'saved'));
             exit();
         }
     }
@@ -339,9 +361,9 @@ class gdCPTAdmin {
         $errors = $this->errors;
         $wpv = $gdtt->wp_version;
 
-        include(GDTAXTOOLS_PATH."forms/shared/front.header.php");
-        include(GDTAXTOOLS_PATH."forms/admin/front.php");
-        include(GDTAXTOOLS_PATH."forms/shared/all.footer.php");
+        include(GDTAXTOOLS_PATH.'forms/shared/front.header.php');
+        include(GDTAXTOOLS_PATH.'forms/admin/front.php');
+        include(GDTAXTOOLS_PATH.'forms/shared/all.footer.php');
     }
 
     function admin_settings() {
@@ -351,25 +373,25 @@ class gdCPTAdmin {
         $errors = $this->errors;
 
         $page_title = __("Settings", "gd-taxonomies-tools");
-        include(GDTAXTOOLS_PATH."forms/shared/all.header.php");
-        include(GDTAXTOOLS_PATH."forms/admin/settings.php");
-        include(GDTAXTOOLS_PATH."forms/shared/all.footer.php");
+        include(GDTAXTOOLS_PATH.'forms/shared/all.header.php');
+        include(GDTAXTOOLS_PATH.'forms/admin/settings.php');
+        include(GDTAXTOOLS_PATH.'forms/shared/all.footer.php');
     }
 
     function admin_postypes() {
         global $gdtt, $wp_taxonomies;
 
         $post_features = array(
-            "title" => __("Title", "gd-taxonomies-tools"),
-            "editor" => __("Editor", "gd-taxonomies-tools"),
-            "excerpt" => __("Excerpts", "gd-taxonomies-tools"),
-            "trackbacks" => __("Trackbacks", "gd-taxonomies-tools"),
-            "custom-fields" => __("Custom Fields", "gd-taxonomies-tools"),
-            "comments" => __("Comments", "gd-taxonomies-tools"),
-            "revisions" => __("Revisions", "gd-taxonomies-tools"),
-            "thumbnail" => __("Post Thumbnails", "gd-taxonomies-tools"),
-            "author" => __("Author", "gd-taxonomies-tools"),
-            "page-attributes" => __("Page Attributes", "gd-taxonomies-tools")
+            'title' => __("Title", "gd-taxonomies-tools"),
+            'editor' => __("Editor", "gd-taxonomies-tools"),
+            'excerpt' => __("Excerpts", "gd-taxonomies-tools"),
+            'trackbacks' => __("Trackbacks", "gd-taxonomies-tools"),
+            'custom-fields' => __("Custom Fields", "gd-taxonomies-tools"),
+            'comments' => __("Comments", "gd-taxonomies-tools"),
+            'revisions' => __("Revisions", "gd-taxonomies-tools"),
+            'thumbnail' => __("Post Thumbnails", "gd-taxonomies-tools"),
+            'author' => __("Author", "gd-taxonomies-tools"),
+            'page-attributes' => __("Page Attributes", "gd-taxonomies-tools")
         );
 
         $options = $gdtt->o;
@@ -377,9 +399,9 @@ class gdCPTAdmin {
         $gdcpost = $gdtt->posts;
         $gdcpall = $gdtt->p;
         $errors = $this->errors;
-        $action = isset($_GET["action"]) ? $_GET["action"] : "list";
+        $action = isset($_GET['action']) ? $_GET['action'] : 'list';
 
-        if ($action == "list") {
+        if ($action == 'list') {
             $page_title = __("Custom Posts", "gd-taxonomies-tools");
 
             include(GDTAXTOOLS_PATH.'forms/shared/all.header.php');
@@ -391,7 +413,7 @@ class gdCPTAdmin {
             include(GDTAXTOOLS_PATH.'forms/admin/custompost.add.php');
         } else if ($action == "edit") {
             $page_title = __("Edit Custom Posts", "gd-taxonomies-tools");
-            $cpt = $gdtt->find_postype($_GET["pid"]);
+            $cpt = $gdtt->find_postype($_GET['pid']);
 
             if (!is_array($cpt["supports"])) $cpt["supports"] = array();
             if (!is_array($cpt["taxonomies"])) $cpt["taxonomies"] = array();
@@ -496,11 +518,12 @@ class gdCPTAdmin {
     }
 
     function admin_gopro() {
-        $response = get_site_transient("gdcpttools_gopro_15");
+        $response = get_site_transient('gdcpttools_gopro_15');
+
         if ($response == "") {
             $load = "http://www.dev4press.com/wp-content/plugins/gd-product-central/get_lite.php?name=gdtt";
             $response = wp_remote_retrieve_body(wp_remote_get($load));
-            set_site_transient("gdcpttools_gopro_15", $response, 604800);
+            set_site_transient('gdcpttools_gopro_15', $response, 604800);
         }
         echo($response);
     }

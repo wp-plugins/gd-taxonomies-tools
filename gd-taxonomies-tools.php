@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.gdcpttools.com/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.5.1
+Version: 1.5.2
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
@@ -131,6 +131,8 @@ if (!class_exists('GDTaxonomiesTools')) {
                 $this->o['edition'] = $this->default_options['edition'];
 
                 update_option('gd-taxonomy-tools', $this->o);
+
+                $this->reindex_and_save();
             }
 
             if ($this->o['upgrade_notice_132'] == 1 && $new_install) {
@@ -150,6 +152,27 @@ if (!class_exists('GDTaxonomiesTools')) {
 
             $this->script = $_SERVER['PHP_SELF'];
             $this->script = end(explode('/', $this->script));
+        }
+
+        function reindex_and_save() {
+            $count_cpt = 0; $count_tax = 0;
+
+            foreach ($this->p as $p) {
+                if ((int)$p['id'] > $count_cpt) {
+                    $count_cpt = (int)$p['id'];
+                }
+            }
+
+            foreach ($this->t as $p) {
+                if ((int)$p['id'] > $count_tax) {
+                    $count_tax = (int)$p['id'];
+                }
+            }
+
+            $this->o['cpt_internal'] = $count_cpt;
+            $this->o['tax_internal'] = $count_tax;
+
+            update_option('gd-taxonomy-tools', $this->o);
         }
 
         function features_testing() {
@@ -236,8 +259,11 @@ if (!class_exists('GDTaxonomiesTools')) {
         }
 
         function is_term_valid($term, $check_empty = false) {
-            if (trim($term) == '' && $check_empty) return false;
-            return strtolower($term) == sanitize_title_with_dashes($term);
+            if (trim($term) == '' && $check_empty) {
+                return false;
+            } else {
+                return strtolower($term) == sanitize_title_with_dashes($term);
+            }
         }
 
         function is_taxonomy_valid($tax_name) {
@@ -248,6 +274,7 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function find_taxonomy($id) {
             $found = array();
+
             for ($i = 0; $i < count($this->t); $i++) {
                 if ($this->t[$i]['id'] == $id) {
                     $found = $this->t[$i];
@@ -260,6 +287,7 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function find_postype($id) {
             $found = array();
+
             for ($i = 0; $i < count($this->p); $i++) {
                 if ($this->p[$i]['id'] == $id) {
                     $found = $this->p[$i];
@@ -272,26 +300,31 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function prepare_inactive() {
             $found = array();
+
             foreach ($this->t as $tax) {
                 if (!isset($tax['active'])) {
                     $found[$tax['name']] = new gdtt_Taxonomy($tax);
                 }
             }
+
             return $found;
         }
 
         function prepare_inactive_cpt() {
             $found = array();
+
             foreach ($this->p as $cpt) {
                 if (isset($cpt['active']) && $cpt['active'] == 0) {
                     $found[$cpt['name']] = new gdtt_CustomPost($cpt);
                 }
             }
+
             return $found;
         }
 
         function find_custompost_pos($id) {
             $found = -1;
+
             for ($i = 0; $i < count($this->p); $i++) {
                 if ($this->p[$i]['id'] == $id) {
                     $found = $i;
@@ -304,6 +337,7 @@ if (!class_exists('GDTaxonomiesTools')) {
 
         function find_taxonomy_pos($id) {
             $found = -1;
+
             for ($i = 0; $i < count($this->t); $i++) {
                 if ($this->t[$i]['id'] == $id) {
                     $found = $i;

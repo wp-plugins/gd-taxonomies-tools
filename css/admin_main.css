@@ -294,7 +294,7 @@ input {
 .feature .porthumb{float:left;height:100%;position:relative;}
 .feature .pro-badge{top:-20px;left:-5px;position:absolute;}
 
-.gdsr div.updated { padding: 10px; }
+.gdsr div.updated { padding: 10px; font-size: 13px; line-height: 20px; margin: 10px 0 15px; }
 
 .button-red {
     color: white;
@@ -352,4 +352,12 @@ a.button-gray:hover {
     line-height: 18px;
     margin: 0;
     padding: 5px 0;
+}
+
+.gdtt-state-error {border: 1px solid #7a0003; background: #b80006; color: #ffffff; padding: 0pt 0.7em; margin: 10px 0; border-radius: 3px; }
+.gdtt-state-error a { color: #ffffff; }
+
+.inside.to-upgrade {
+    font-size: 13px;
+    line-height: 20px;
 }

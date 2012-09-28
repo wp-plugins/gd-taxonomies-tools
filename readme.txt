@@ -1,10 +1,10 @@
 === GD Custom Posts And Taxonomies Tools ===
-Contributors: gdragon
-Donate link: http://www.dev4press.com/gd-taxonomies-tools/
-Version: 1.5.1
+Contributors: GDragoN
+Donate link: http://www.gdcpttools.com/
+Version: 1.5.2
 Tags: gdragon, dev4press, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 3.0
-Tested up to: 3.4
+Tested up to: 3.5
 Stable tag: trunk
 
 GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
@@ -58,10 +58,17 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.5.1 =
-Replaced load_textdomain with load_plugin_textdomain. Minor changes from testing with WordPress 3.4. Many small changes, improvements updated URL's.
+= 1.5.2 =
+Improved validation of data when saving. Few changes from testing with WordPress 3.5. Reindexing data on every update for consistency. Missing styling for the errors display. Fixed issue with registering custom query variable.
 
 == Changelog ==
+= 1.5.2 =
+* Improved validation of data when saving
+* Few changes from testing with WordPress 3.5
+* Reindexing data on every update for consistency
+* Fixed missing styling for the errors display
+* Fixed issue with registering custom query variable
+
 = 1.5.1 =
 * Replaced load_textdomain with load_plugin_textdomain
 * Minor changes from testing with WordPress 3.4
@@ -158,68 +165,3 @@ Replaced load_textdomain with load_plugin_textdomain. Minor changes from testing
 * Custom taxonomy visibility options
 * Getting plugin url uses wp specific function
 * Several small interface problems
-
-= 1.1.9 =
-* flushing rewrite rules on taxonomies modification
-* Rewritten list widget listed display
-* Fixed widget use of home_url function
-* Fixed term links on the taxonomies page
-
-= 1.1.8 =
-* Some improvements to base widget class
-* Cloud widget options to hide empty and exclude terms
-* List widget options to hide empty and exclude terms
-* List widget displays terms as drop down select
-
-= 1.1.7 =
-* Added dropdown select checkbox control
-* Edit form visually improved
-* Fixed widget output in case of invalid settings
-
-= 1.1.6 =
-* New Chinese translation
-* New taxonomies model for wp 3.0
-* New custom post types model for wp 3.0
-* Some widgets fixes
-
-= 1.1.5 =
-* Automatic rewrite rules flush on custom post types changes
-* Description field for custom post types
-* Custom rewrite settings for custom post types
-* Added some functions
-* Compatibility with wp 3.0 beta 2
-
-= 1.1.4 =
-* Some cosmetic changes
-* Few minor bugs fixed
-
-= 1.1.3 =
-* Singular label for custom post types
-* Few more functions for custom post types
-* Minor php warnings when some options are not set
-* Fixed custom post type with no custom taxonomies
-
-= 1.1.2 =
-* Added current new settings for taxonomies
-* Updated registration of taxonomies
-* Registering custom posts incomplete
-
-= 1.1.1 =
-* More custom post types features
-* Fixed thumbnail and excerpt features for post types
-
-= 1.1.0 =
-* Support for custom post types
-* Assign multiple post types to taxonomies
-* Some cleanup and fixes.
-
-= 1.0.2 =
-* Improved support for WordPress 3.0
-
-= 1.0.1 =
-* Initial support for WordPress 3.0
-* Some minor bugs fixed
-
-= 1.0.0 =
-* Code cleanup and completed info files
-* Fixed few minor issues
