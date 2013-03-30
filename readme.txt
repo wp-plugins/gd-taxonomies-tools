@@ -1,11 +1,12 @@
 === GD Custom Posts And Taxonomies Tools ===
 Contributors: GDragoN
 Donate link: http://www.gdcpttools.com/
-Version: 1.5.2
+Version: 1.6
 Tags: gdragon, dev4press, tools, taxonomy, custom post types, post type, custom post, custom taxonomies, taxonomies, management, widget, cloud
 Requires at least: 3.0
-Tested up to: 3.5
+Tested up to: 3.6
 Stable tag: trunk
+License: GPLv2 or later
 
 GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
 
@@ -58,10 +59,19 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 5. Taxonomy Terms List Widget
 
 == Upgrade Notice ==
-= 1.5.2 =
-Improved validation of data when saving. Few changes from testing with WordPress 3.5. Reindexing data on every update for consistency. Missing styling for the errors display. Fixed issue with registering custom query variable.
+= 1.6 =
+* Custom Post Type: all items label, show in admin bar, show in menu. Custom Taxonomy: view item label, show admin column, sort order saving. Few changes to saving and data cleanup.
 
 == Changelog ==
+= 1.6 =
+* Custom Post Type: all items label
+* Custom Post Type: show in admin bar
+* Custom Post Type: show in menu
+* Custom Taxonomy: view item label
+* Custom Taxonomy: show admin column
+* Custom Taxonomy: sort order saving
+* Few changes to saving and data cleanup
+
 = 1.5.2 =
 * Improved validation of data when saving
 * Few changes from testing with WordPress 3.5

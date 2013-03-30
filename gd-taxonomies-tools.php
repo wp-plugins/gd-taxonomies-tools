@@ -4,12 +4,12 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.gdcpttools.com/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.5.2
+Version: 1.6
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 
 == Copyright ==
-Copyright 2008 - 2012 Milan Petrovic (email: milan@gdragon.info)
+Copyright 2008 - 2013 Milan Petrovic (email: milan@gdragon.info)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -136,7 +136,7 @@ if (!class_exists('GDTaxonomiesTools')) {
             }
 
             if ($this->o['upgrade_notice_132'] == 1 && $new_install) {
-                $this->o['upgrade_notice_132'] == 0;
+                $this->o['upgrade_notice_132'] = 0;
                 update_option('gd-taxonomy-tools', $this->o);
             }
 

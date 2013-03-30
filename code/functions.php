@@ -9,6 +9,7 @@ function gdtt_generate_custom_posts_options($cpt) {
     $cpt['rewrite_feeds'] = !isset($cpt['rewrite_feeds']) ? 'yes' : $cpt['rewrite_feeds'];
     $cpt['rewrite_pages'] = !isset($cpt['rewrite_pages']) ? 'yes' : $cpt['rewrite_pages'];
     $cpt['show_in_menu'] = !isset($cpt['show_in_menu']) ? 'yes' : $cpt['show_in_menu'];
+    $cpt['show_in_admin_bar'] = !isset($cpt['show_in_admin_bar']) ? 'yes' : $cpt['show_in_admin_bar'];
     $cpt['menu_position'] = !isset($cpt['menu_position']) ? '__auto__' : $cpt['menu_position'];
     $cpt['menu_icon'] = !isset($cpt['menu_icon']) ? '' : $cpt['menu_icon'];
 
@@ -68,6 +69,7 @@ function gdtt_generate_custom_posts_options($cpt) {
         'public' => $cpt['public'],
         'rewrite' => $rewrite,
         'show_in_menu' => $cpt['show_in_menu'] == 'yes',
+        'show_in_admin_bar' => $cpt['show_in_admin_bar'] == 'yes',
         'has_archive' => $has_archive,
         'query_var' => $query_var,
         'supports' => (array)$cpt['supports'],
@@ -119,6 +121,7 @@ function gdtt_generate_custom_taxonomies_options($tax) {
     $tax['ui'] = !isset($tax['ui']) ? $tax['public'] : ($tax['ui'] == 'yes');
     $tax['nav_menus'] = !isset($tax['nav_menus']) ? $tax['public'] : $tax['nav_menus'] == 'yes';
     $tax['cloud'] = !isset($tax['cloud']) ? $tax['public'] : $tax['cloud'] == 'yes';
+    $tax['show_admin_menu'] = !isset($tax['show_admin_menu']) ? $tax['public'] : $tax['show_admin_menu'] == 'yes';
 
     if (!isset($tax['labels'])) {
         $labels = array('name' => $tax['label'], 'singular_name' => $tax['label_singular']);
@@ -140,10 +143,15 @@ function gdtt_generate_custom_taxonomies_options($tax) {
         'public' => $tax['public'],
         'show_ui' => $tax['ui'],
         'show_tagcloud' => $tax['cloud'],
+        'show_admin_menu' => $tax['show_admin_menu'],
+        'show_in_nav_menus' => $tax['nav_menus'],
         'labels' => $labels,
-        'capabilities' => $caps,
-        'show_in_nav_menus' => $tax['nav_menus']
+        'capabilities' => $caps
     );
+
+    if (isset($tax['sort']) && $tax['sort'] == 'yes') {
+        $options['sort'] = true;
+    }
 
     return $options;
 }

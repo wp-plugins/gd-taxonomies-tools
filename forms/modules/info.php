@@ -1,4 +1,4 @@
-<?php if ($gdtt->o['upgrade_to_pro_152'] != 1) { ?><div id="gdpt_server" class="postbox gdrgrid frontright">
+<?php if ($gdtt->o['upgrade_to_pro_16'] != 1) { ?><div id="gdpt_server" class="postbox gdrgrid frontright">
     <h3 class="hndle"><span>Upgrade to GD Custom Posts And Taxonomies Tools Pro</span></h3>
     <div class="inside to-upgrade">
         <p class="sub"><?php _e("Upgrade Info", "gd-taxonomies-tools"); ?></p>

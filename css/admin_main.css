@@ -361,3 +361,7 @@ a.button-gray:hover {
     font-size: 13px;
     line-height: 20px;
 }
+
+input[type="checkbox"], input[type="radio"] {
+    margin: 2px 3px 0 !important;
+}

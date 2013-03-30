@@ -25,10 +25,10 @@ foreach ($gdcpall as $cpt) {
     <td style="text-align: right;">
         <?php if (!$default) { ?>
         <a onclick="return areYouSure()" class="ttoption-del" href="<?php echo $tt_url; ?>&action=delcpt"><?php _e("delete", "gd-taxonomies-tools"); ?></a> |
-        <a class="ttoption" href="<?php echo $tt_url; ?>&action=edit"><?php _e("edit", "gd-taxonomies-tools"); ?></a> |
+        <a class="ttoption" href="<?php echo $tt_url; ?>&action=edit"><?php _e("edit", "gd-taxonomies-tools"); ?></a>
         <?php } ?>
         <?php if ($cpt_data->public && $cpt_name != "attachment") { ?>
-        <a class="ttoption" href="edit.php?post_type=<?php echo $cpt_data->name; ?>"><?php _e("open", "gd-taxonomies-tools"); ?></a>
+         | <a class="ttoption" href="edit.php?post_type=<?php echo $cpt_data->name; ?>"><?php _e("open", "gd-taxonomies-tools"); ?></a>
         <?php } ?>
     </td>
 </tr>

@@ -37,6 +37,7 @@ class gdCPTAdmin {
             $links[] = '<a href="http://www.gdcpttools.com/faq/">'.__("FAQ", "gd-taxonomies-tools").'</a>';
             $links[] = '<a target="_blank" style="color: #cc0000; font-weight: bold;" href="http://www.gdcpttools.com/">'.__("Upgrade to PRO", "gd-taxonomies-tools").'</a>';
         }
+
         return $links;
     }
 
@@ -49,7 +50,7 @@ class gdCPTAdmin {
         }
 
         if ($file == $this_plugin){
-            $settings_link = '<a href="admin.php?page=gdtaxtools_settings">' . __("Settings", "gd-taxonomies-tools") . '</a>';
+            $settings_link = '<a href="admin.php?page=gdtaxtools_settings">'.__("Settings", "gd-taxonomies-tools").'</a>';
             array_unshift($links, $settings_link);
         }
         return $links;
@@ -74,7 +75,7 @@ class gdCPTAdmin {
     function upgrade_notice() {
         global $gdtt;
 
-        if ($gdtt->o['upgrade_to_pro_152'] == 1) {
+        if ($gdtt->o['upgrade_to_pro_16'] == 1) {
             $no_thanks = add_query_arg('proupgradett', 'hide');
 
             echo '<div class="updated">';
@@ -182,7 +183,7 @@ class gdCPTAdmin {
         global $gdtt;
 
         if (isset($_GET['proupgradett']) && $_GET['proupgradett'] == 'hide') {
-            $gdtt->o['upgrade_to_pro_152'] = 0;
+            $gdtt->o['upgrade_to_pro_16'] = 0;
 
             update_option('gd-taxonomy-tools', $gdtt->o);
 
@@ -253,9 +254,9 @@ class gdCPTAdmin {
             $cpt['caps_type'] = trim(strip_tags($cpt['caps_type']));
             $cpt['capabilites'] = trim(strip_tags($cpt['capabilites']));
 
-            $cpt['archive_slug'] = trim(strtolower(gdtt_sanitize_value($cpt['archive_slug'], array('replacement' => '-'))));
-            $cpt['rewrite_slug'] = trim(strtolower(gdtt_sanitize_value($cpt['rewrite_slug'], array('replacement' => '-'))));
-            $cpt['query_slug'] = trim(strtolower(gdtt_sanitize_value($cpt['query_slug'], array('replacement' => '_'))));
+            $cpt['archive_slug'] = trim(str_replace(' ', '', strip_tags($cpt['archive_slug'])));
+            $cpt['rewrite_slug'] = trim(str_replace(' ', '', strip_tags($cpt['rewrite_slug'])));
+            $cpt['query_slug'] = trim(strtolower(gdtt_sanitize_value($cpt['query_slug'], array('replacement' => '-'))));
 
             if (!$gdtt->is_term_valid($cpt['name'])) {
                 $this->errors = 'name';
@@ -297,12 +298,8 @@ class gdCPTAdmin {
             $tax['name'] = strtolower(sanitize_user($tax['name'], true));
             $tax['domain'] = join(',', $post_types);
 
-            if (!isset($tax['rewrite_custom'])) $tax['rewrite_custom'] = '';
-            if (!isset($tax['query_custom'])) $tax['query_custom'] = '';
-            if (!isset($tax['hierarchy'])) $tax['hierarchy'] = 'no';
-
-            $tax['rewrite_custom'] = trim(strtolower(gdtt_sanitize_value($tax['rewrite_custom'], array('replacement' => '-'))));
-            $tax['query_custom'] = trim(strtolower(gdtt_sanitize_value($tax['query_custom'], array('replacement' => '_'))));
+            $tax['rewrite_custom'] = trim(str_replace(' ', '', strip_tags($tax['rewrite_custom'])));
+            $tax['query_custom'] = trim(strtolower(gdtt_sanitize_value($tax['query_custom'], array('replacement' => '-'))));
 
             if (trim($tax['labels']['name']) == '') {
                 $tax['labels']['name'] = $tax['name'];
@@ -406,60 +403,63 @@ class gdCPTAdmin {
 
             include(GDTAXTOOLS_PATH.'forms/shared/all.header.php');
             include(GDTAXTOOLS_PATH.'forms/admin/customposts.php');
-        } else if ($action == "addnew") {
+        } else if ($action == 'addnew') {
             $page_title = __("Add new Custom Posts", "gd-taxonomies-tools");
 
             include(GDTAXTOOLS_PATH.'forms/shared/all.header.php');
             include(GDTAXTOOLS_PATH.'forms/admin/custompost.add.php');
-        } else if ($action == "edit") {
+        } else if ($action == 'edit') {
             $page_title = __("Edit Custom Posts", "gd-taxonomies-tools");
             $cpt = $gdtt->find_postype($_GET['pid']);
 
-            if (!is_array($cpt["supports"])) $cpt["supports"] = array();
-            if (!is_array($cpt["taxonomies"])) $cpt["taxonomies"] = array();
-            if (!isset($cpt["description"])) $cpt["description"] = "";
-            if (!isset($cpt["rewrite_slug"])) $cpt["rewrite_slug"] = "";
-            if (!isset($cpt["rewrite_front"])) $cpt["rewrite_front"] = "no";
-            if (!isset($cpt["nav_menus"])) $cpt["nav_menus"] = "yes";
-            if (!isset($cpt["menu_position"])) $cpt["menu_position"] = "__auto__";
-            if (!isset($cpt["menu_icon"])) $cpt["menu_icon"] = "";
-            if (!isset($cpt["exclude_from_search"])) $cpt["exclude_from_search"] = "no";
-            if (!isset($cpt["publicly_queryable"])) $cpt["publicly_queryable"] = "yes";
-            if (!isset($cpt["can_export"])) $cpt["can_export"] = "yes";
-            if (!isset($cpt["active"])) $cpt["active"] = 1;
+            if (!is_array($cpt['supports'])) $cpt['supports'] = array();
+            if (!is_array($cpt['taxonomies'])) $cpt['taxonomies'] = array();
 
-            if (!isset($cpt["labels"])) {
-                $cpt["labels"] = array("name" => $cpt["label"],
-                    "singular_name" => $cpt["label_singular"],
-                    "add_new" => "", "add_new_item" => "",
-                    "edit_item" => "", "edit" => "",
-                    "new_item" => "", "view_item" => "",
-                    "search_items" => "", "not_found" => "",
-                    "not_found_in_trash" => "", "view" => "",
-                    "parent_item_colon" => "");
+            if (!isset($cpt['description'])) $cpt['description'] = '';
+            if (!isset($cpt['rewrite_slug'])) $cpt['rewrite_slug'] = '';
+            if (!isset($cpt['rewrite_front'])) $cpt['rewrite_front'] = 'no';
+            if (!isset($cpt['nav_menus'])) $cpt['nav_menus'] = 'yes';
+            if (!isset($cpt['menu_position'])) $cpt['menu_position'] = '__auto__';
+            if (!isset($cpt['menu_icon'])) $cpt['menu_icon'] = '';
+            if (!isset($cpt['exclude_from_search'])) $cpt['exclude_from_search'] = 'no';
+            if (!isset($cpt['publicly_queryable'])) $cpt['publicly_queryable'] = 'yes';
+            if (!isset($cpt['can_export'])) $cpt['can_export'] = 'yes';
+            if (!isset($cpt['active'])) $cpt['active'] = 1;
+            if (!isset($cpt['show_in_menu'])) $cpt['show_in_menu'] = 'yes';
+            if (!isset($cpt['show_in_admin_bar'])) $cpt['show_in_admin_bar'] = 'yes';
+
+            if (!isset($cpt['labels'])) {
+                $cpt['labels'] = array('name' => $cpt['label'],
+                    'singular_name' => $cpt['label_singular'],
+                    'add_new' => '', 'add_new_item' => '',
+                    'edit_item' => '', 'edit' => '', 'all_items' => '',
+                    'new_item' => '', 'view_item' => '',
+                    'search_items' => '', 'not_found' => '',
+                    'not_found_in_trash' => '', 'view' => '',
+                    'parent_item_colon' => '');
             }
 
-            if (!isset($cpt["capabilites"])) {
-                $cpt["capabilites"] = "list";
-                $cpt["caps_type"] = "post";
+            if (!isset($cpt['capabilites'])) {
+                $cpt['capabilites'] = 'list';
+                $cpt['caps_type'] = 'post';
             }
 
-            if (!isset($cpt["caps"])) {
-                $cpt["caps"] = array(
-                    "edit_post" => "edit_post",
-                    "edit_posts" => "edit_posts",
-                    "edit_others_posts" => "edit_others_posts",
-                    "publish_posts" => "publish_posts",
-                    "read_post" => "read_post",
-                    "read_private_posts" => "read_private_posts",
-                    "delete_post" => "delete_post");
+            if (!isset($cpt['caps'])) {
+                $cpt['caps'] = array(
+                    'edit_post' => 'edit_post',
+                    'edit_posts' => 'edit_posts',
+                    'edit_others_posts' => 'edit_others_posts',
+                    'publish_posts' => 'publish_posts',
+                    'read_post' => 'read_post',
+                    'read_private_posts' => 'read_private_posts',
+                    'delete_post' => 'delete_post');
             }
 
-            include(GDTAXTOOLS_PATH."forms/shared/all.header.php");
-            include(GDTAXTOOLS_PATH."forms/admin/custompost.edit.php");
+            include(GDTAXTOOLS_PATH.'forms/shared/all.header.php');
+            include(GDTAXTOOLS_PATH.'forms/admin/custompost.edit.php');
         }
 
-        include(GDTAXTOOLS_PATH."forms/shared/all.footer.php");
+        include(GDTAXTOOLS_PATH.'forms/shared/all.footer.php');
     }
 
     function admin_taxs() {
@@ -470,11 +470,11 @@ class gdCPTAdmin {
         $gdtttax = $gdtt->taxes;
         $gdtxall = $gdtt->t;
         $errors = $this->errors;
-        $action = isset($_GET["action"]) ? $_GET["action"] : "list";
+        $action = isset($_GET['action']) ? $_GET['action'] : 'list';
 
-        $post_types = get_post_types(array(), "objects");
+        $post_types = get_post_types(array(), 'objects');
 
-        if ($action == "list") {
+        if ($action == 'list') {
             $page_title = __("Taxonomies", "gd-taxonomies-tools");
 
             include(GDTAXTOOLS_PATH.'forms/shared/all.header.php');
@@ -487,43 +487,43 @@ class gdCPTAdmin {
         } else if ($action == "edit") {
             $page_title = __("Edit Taxonomy", "gd-taxonomies-tools");
             $tax = $gdtt->find_taxonomy($_GET["tid"]);
-            $tax["domain"] = explode(",", $tax["domain"]);
+            $tax['domain'] = explode(',', $tax['domain']);
 
-            if (!isset($tax["nav_menus"])) {
-                $tax["nav_menus"] = "yes";
+            if (!isset($tax['nav_menus'])) $tax['nav_menus'] = 'yes';
+            if (!isset($tax['show_admin_menu'])) $tax['show_admin_menu'] = 'yes';
+            if (!isset($tax['sort'])) $tax['sort'] = 'no';
+
+            if (!isset($tax['labels'])) {
+                $tax['labels'] = array('name' => $tax['label'],
+                    'singular_name' => $tax['label_singular'],
+                    'search_items' => '', 'popular_items' => '',
+                    'all_items' => '', 'parent_item' => '',
+                    'view_item' => '', 'edit_item' => '', 'update_item' => '',
+                    'add_new_item' => '', 'new_item_name' => '');
             }
 
-            if (!isset($tax["labels"])) {
-                $tax["labels"] = array("name" => $tax["label"],
-                    "singular_name" => $tax["label_singular"],
-                    "search_items" => "", "popular_items" => "",
-                    "all_items" => "", "parent_item" => "",
-                    "edit_item" => "", "update_item" => "",
-                    "add_new_item" => "", "new_item_name" => "");
+            if (!isset($tax['caps'])) {
+                $tax['caps'] = array(
+                    'manage_terms' => 'manage_categories',
+                    'edit_terms' => 'manage_categories',
+                    'delete_terms' => 'manage_categories',
+                    'assign_terms' => 'edit_posts');
             }
 
-            if (!isset($tax["caps"])) {
-                $tax["caps"] = array(
-                    "manage_terms" => "manage_categories",
-                    "edit_terms" => "manage_categories",
-                    "delete_terms" => "manage_categories",
-                    "assign_terms" => "edit_posts");
-            }
-
-            include(GDTAXTOOLS_PATH."forms/shared/all.header.php");
-            include(GDTAXTOOLS_PATH."forms/admin/taxonomy.edit.php");
+            include(GDTAXTOOLS_PATH.'forms/shared/all.header.php');
+            include(GDTAXTOOLS_PATH.'forms/admin/taxonomy.edit.php');
         }
 
-        include(GDTAXTOOLS_PATH."forms/shared/all.footer.php");
+        include(GDTAXTOOLS_PATH.'forms/shared/all.footer.php');
     }
 
     function admin_gopro() {
-        $response = get_site_transient('gdcpttools_gopro_15');
+        $response = get_site_transient('gdcpttools_gopro_16');
 
-        if ($response == "") {
-            $load = "http://www.dev4press.com/wp-content/plugins/gd-product-central/get_lite.php?name=gdtt";
+        if ($response == '') {
+            $load = 'http://www.dev4press.com/wp-content/plugins/gd-product-central/get_lite.php?name=gdtt';
             $response = wp_remote_retrieve_body(wp_remote_get($load));
-            set_site_transient('gdcpttools_gopro_15', $response, 604800);
+            set_site_transient('gdcpttools_gopro_16', $response, 604800);
         }
         echo($response);
     }

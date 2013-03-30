@@ -4,14 +4,14 @@ if (!defined('ABSPATH')) exit;
 
 class GDTTDefaults {
     var $default_options = array(
-        'version' => '1.5.2',
-        'date' => '2012.09.28.',
+        'version' => '1.6',
+        'date' => '2013.03.30.',
         'status' => 'Stable',
-        'build' => 1520,
+        'build' => 1600,
         'product_id' => 'gd-taxonomies-tools',
         'edition' => 'lite',
         'upgrade_notice_132' => 1,
-        'upgrade_to_pro_152' => 1,
+        'upgrade_to_pro_16' => 1,
         'force_rules_flush' => 0,
         'tax_internal' => 0,
         'cpt_internal' => 0,

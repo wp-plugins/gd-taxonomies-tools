@@ -105,8 +105,13 @@
                 </tr>
                 <tr>
                     <td width="150"><?php _e("Menu Name", "gd-taxonomies-tools"); ?>:</td>
-                    <td colspan="4">
+                    <td>
                         <input type="text" id="taxlabelsmenu_name" value="<?php echo isset($tax["labels"]["menu_name"]) ? $tax["labels"]["menu_name"] : ""; ?>" name="tax[labels][menu_name]" class="input-text-middle" />
+                    </td>
+                    <td style="width: 20px;"></td>
+                    <td width="150"><?php _e("View Item", "gd-taxonomies-tools"); ?>:</td>
+                    <td>
+                        <input type="text" id="taxlabelsview_item" value="<?php echo isset($tax["labels"]["view_item"]) ? $tax["labels"]["view_item"] : ""; ?>" name="tax[labels][view_item]" class="input-text-middle" />
                     </td>
                 </tr>
             </table>
@@ -261,6 +266,18 @@
                         </select>
                     </td>
                 </tr>
+                <tr>
+                    <td width="150">
+                        <?php _e("Post edit column", "gd-taxonomies-tools"); ?>:
+                    </td>
+                    <td>
+                        <select name="tax[show_admin_menu]" class="input-text-middle">
+                            <option value="yes"<?php echo $tax["show_admin_menu"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                            <option value="no"<?php echo $tax["show_admin_menu"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                        </select>
+                    </td>
+                    <td colspan="3"></td>
+                </tr>
             </table>
             <div class="gdsr-table-split"></div>
             <?php _e("Public setting set to NO will hide taxonomies from the admin UI.", "gd-taxonomies-tools"); ?><br/>
@@ -297,6 +314,25 @@
             <div class="inputbutton"><a href="javascript:capabilities_taxonomy()"><?php _e("Reset capabailities", "gd-taxonomies-tools"); ?></a></div>
             <div class="gdsr-table-split"></div>
             <?php _e("Do not change any of these if you are not sure what they are. All values must be filled.", "gd-taxonomies-tools"); ?>
+        </td>
+    </tr>
+    <tr><th scope="row"><?php _e("Advanced", "gd-taxonomies-tools"); ?></th>
+        <td>
+            <table cellpadding="0" cellspacing="0" class="previewtable">
+                <tr>
+                    <td width="150">
+                        <?php _e("Save Sort Order", "gd-taxonomies-tools"); ?>:
+                    </td>
+                    <td colspan="4">
+                        <select name="tax[sort]" class="input-text-middle">
+                            <option value="no"<?php echo $tax["sort"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                            <option value="yes"<?php echo $tax["sort"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="gdsr-table-split"></div>
+            <?php _e("Changing some of these settings can have undesired effects and can break your website.", "gd-taxonomies-tools"); ?> <?php _e("Do not change this if you are not sure about this. Consult WordPress documentation for more details.", "gd-taxonomies-tools"); ?>
         </td>
     </tr>
     <?php } ?>

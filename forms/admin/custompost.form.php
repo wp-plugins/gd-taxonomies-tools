@@ -149,6 +149,12 @@ $menu_positions = array(
                         <input type="text" id="cptlabelsmenu_name" value="<?php echo isset($cpt["labels"]["menu_name"]) ? $cpt["labels"]["menu_name"] : ""; ?>" name="cpt[labels][menu_name]" class="input-text-middle" />
                     </td>
                 </tr>
+                <tr>
+                    <td width="150"><?php _e("All Items", "gd-taxonomies-tools"); ?>:</td>
+                    <td colspan="4">
+                        <input type="text" id="cptlabelsall_items" value="<?php echo isset($cpt["labels"]["all_items"]) ? $cpt["labels"]["all_items"] : ""; ?>" name="cpt[labels][all_items]" class="input-text-middle" />
+                    </td>
+                </tr>
             </table>
         </td>
     </tr>
@@ -355,6 +361,17 @@ $menu_positions = array(
                         <select name="cpt[show_in_menu]" class="input-text-middle">
                             <option value="yes"<?php echo $cpt["show_in_menu"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
                             <option value="no"<?php echo $cpt["show_in_menu"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="150">
+                        <?php _e("Show in Admin Bar", "gd-taxonomies-tools"); ?>:
+                    </td>
+                    <td colspan="4">
+                        <select name="cpt[show_in_admin_bar]" class="input-text-middle">
+                            <option value="yes"<?php echo $cpt["show_in_admin_bar"] == "yes" ? ' selected="selected"' : ''; ?>><?php _e("Yes", "gd-taxonomies-tools"); ?></option>
+                            <option value="no"<?php echo $cpt["show_in_admin_bar"] == "no" ? ' selected="selected"' : ''; ?>><?php _e("No", "gd-taxonomies-tools"); ?></option>
                         </select>
                     </td>
                 </tr>
