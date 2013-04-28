@@ -63,6 +63,9 @@ You only need POEdit program that works on Windows, Linux and MacOS. Instruction
 * Custom Post Type: all items label, show in admin bar, show in menu. Custom Taxonomy: view item label, show admin column, sort order saving. Few changes to saving and data cleanup.
 
 == Changelog ==
+= 1.6.0.1 =
+* Fixed problem with undefined main plugin variable on some pages
+
 = 1.6 =
 * Custom Post Type: all items label
 * Custom Post Type: show in admin bar

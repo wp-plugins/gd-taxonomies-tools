@@ -4,10 +4,10 @@ if (!defined('ABSPATH')) exit;
 
 class GDTTDefaults {
     var $default_options = array(
-        'version' => '1.6',
-        'date' => '2013.03.30.',
+        'version' => '1.6.0.1',
+        'date' => '2013.04.28.',
         'status' => 'Stable',
-        'build' => 1600,
+        'build' => 1601,
         'product_id' => 'gd-taxonomies-tools',
         'edition' => 'lite',
         'upgrade_notice_132' => 1,
@@ -21,7 +21,6 @@ class GDTTDefaults {
     );
 
     var $default_taxonomies = array(
-        'wp29' => 3,
         'wp30' => 4,
         'wp31' => 5,
         'wp32' => 5,

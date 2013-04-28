@@ -162,10 +162,11 @@ class gdCPTAdmin {
     }
 
     function admin_head() {
-        if ($this->admin_plugin) {
-            global $gdtt;
+        global $gdtt;
 
+        if ($this->admin_plugin) {
             echo('<link rel="stylesheet" href="'.GDTAXTOOLS_URL.'css/admin_main.css" type="text/css" media="screen" />');
+
             $default_caps_cpt = json_encode($gdtt->post_type_caps);
             $default_caps_tax = json_encode($gdtt->taxonomy_caps);
 
