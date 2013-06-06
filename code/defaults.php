@@ -4,10 +4,10 @@ if (!defined('ABSPATH')) exit;
 
 class GDTTDefaults {
     var $default_options = array(
-        'version' => '1.6.0.1',
-        'date' => '2013.04.28.',
+        'version' => '1.6.1',
+        'date' => '2013.06.06.',
         'status' => 'Stable',
-        'build' => 1601,
+        'build' => 1610,
         'product_id' => 'gd-taxonomies-tools',
         'edition' => 'lite',
         'upgrade_notice_132' => 1,
@@ -26,7 +26,8 @@ class GDTTDefaults {
         'wp32' => 5,
         'wp33' => 5,
         'wp34' => 5,
-        'wp35' => 5
+        'wp35' => 5,
+        'wp36' => 5
     );
 
     var $default_posttypes = array(
@@ -35,7 +36,8 @@ class GDTTDefaults {
         'wp32' => 5,
         'wp33' => 5,
         'wp34' => 5,
-        'wp35' => 5
+        'wp35' => 5,
+        'wp36' => 5
     );
 
     var $post_type_caps = array(

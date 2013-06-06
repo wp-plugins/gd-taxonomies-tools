@@ -4,7 +4,7 @@
 Plugin Name: GD Custom Posts And Taxonomies Tools
 Plugin URI: http://www.gdcpttools.com/
 Description: GD Custom Posts And Taxonomies Tools is plugin for management and tools collection for working with custom posts and taxonomies.
-Version: 1.6.0.1
+Version: 1.6.1
 Author: Milan Petrovic
 Author URI: http://www.dev4press.com/
 

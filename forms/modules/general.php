@@ -45,7 +45,7 @@ $custom_pt = 0;
 </div>
 
 <div id="gdpt_server" class="postbox gdrgrid frontright">
-    <h3 class="hndle"><span><?php _e("Basic statistics", "gd-taxonomies-tools"); ?></span></h3>
+    <h3 class="hndle"><span><?php _e("Basic Taxonomies Statistics", "gd-taxonomies-tools"); ?></span></h3>
     <div class="inside">
         <p class="sub"><?php _e("Default Taxonomies", "gd-taxonomies-tools"); ?></p>
         <div class="table">

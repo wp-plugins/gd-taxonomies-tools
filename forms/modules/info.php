@@ -75,7 +75,7 @@
         <p class="sub"><?php _e("Plugins", "gd-taxonomies-tools"); ?></p>
         <div class="table">
             <table><tbody>
-                <tr>
+                <tr class="first">
                     <td class="first b">GD Products Center</td>
                     <td class="t"><?php _e("product management and comparison", "gd-taxonomies-tools"); ?></td>
                     <td class="t options"><a href="http://www.gdpc.me/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
@@ -104,6 +104,16 @@
                     <td class="first b">GD Affiliate Center</td>
                     <td class="t"><?php _e("ad management control", "gd-taxonomies-tools"); ?></td>
                     <td class="t options"><a href="http://www.dev4press.com/plugins/gd-affiliate-center/" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
+                </tr>
+            </tbody></table>
+        </div>
+        <p class="sub">SMARTPlugins</p>
+        <div class="table">
+            <table><tbody>
+                <tr class="first">
+                    <td class="first b">on CodeCanyon</td>
+                    <td class="t"><?php _e("wordpress and jquery plugins", "gd-taxonomies-tools"); ?></td>
+                    <td class="t options"><a href="http://d4p.me/ccp" target="_blank"><?php _e("visit", "gd-taxonomies-tools"); ?></a></td>
                 </tr>
             </tbody></table>
         </div>

@@ -1,21 +1,21 @@
 h2.gdptlogopage {
-	background: transparent url(../gfx/menu32.png) no-repeat;
-	padding: 0 0 0 38px;
-	height: 32px;
-	margin: 14px 0;
-	line-height: 30px;
-	font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
-	border: 0;
-	font-style: normal;
+    background: transparent url(../gfx/menu32.png) no-repeat;
+    padding: 0 0 0 38px;
+    height: 32px;
+    margin: 14px 0;
+    line-height: 30px;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+    border: 0;
+    font-style: normal;
 }
 
 p.sub {
-	color: #777777;
-	font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
-	font-size: 13px;
-	font-style: italic;
-	padding: 5px 10px 15px;
-	margin: -12px;
+    color: #777777;
+    font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    font-size: 13px;
+    font-style: italic;
+    padding: 5px 10px 15px;
+    margin: -12px;
 }
 
 .clear { clear: both; }
@@ -25,11 +25,11 @@ p.sub {
 .frontright { width: 500px; }
 
 .gdpttitle div.edition {
-	float: left;
-	width: 48px;
-	height: 16px;
-	margin-left: 3px;
-	margin-top: 18px;
+    float: left;
+    width: 48px;
+    height: 16px;
+    margin-left: 3px;
+    margin-top: 18px;
 }
 
 .gdpttitle div.edition.lite { background: transparent url(../gfx/lite.png) no-repeat; }
@@ -37,30 +37,30 @@ p.sub {
 .gdpttitle div.gdtitle { float: left; margin-top: 7px; }
 
 .gdpttitle span {
-	font-size: 14px;
-	vertical-align: 14px;
-	color: red;
-	font-weight: bold;
-	margin-left: -42px;
+    font-size: 14px;
+    vertical-align: 14px;
+    color: red;
+    font-weight: bold;
+    margin-left: -42px;
 }
 
 .gdrgrid .table {
-	border-bottom: 1px solid #ECECEC;
-	border-top: 1px solid #ECECEC;
-	margin: 0 -9px 10px;
-	padding: 0 10px;
-	table-layout: fixed;
+    border-bottom: 1px solid #ECECEC;
+    border-top: 1px solid #ECECEC;
+    margin: 0 -9px 10px;
+    padding: 0 10px;
+    table-layout: fixed;
 }
 
 .gdrgrid div.inside { margin: 10px; }
 
 .gdrgrid p.sub {
-	color: #777777;
-	font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
-	font-size: 13px;
-	font-style: italic;
-	padding: 5px 10px 15px;
-	margin: -12px;
+    color: #777777;
+    font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    font-size: 13px;
+    font-style: italic;
+    padding: 5px 10px 15px;
+    margin: -12px;
 }
 
 .gdrgrid table { width: 100%; }
@@ -70,18 +70,18 @@ p.sub {
 .gdrgrid table tr.first th, .gdrgrid table tr.first td { border-top: medium none; }
 
 .gdrgrid td {
-	border-top: 1px solid #ECECEC;
-	padding: 2px 0;
-	white-space: nowrap;
-	font-size: 18px;
+    border-top: 1px solid #ECECEC;
+    padding: 2px 0;
+    white-space: nowrap;
+    font-size: 18px;
 }
 
 .gdrgrid td.b, .gdrgrid th.first {
-	font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
-	font-size: 16px;
-	padding-right: 6px;
-	white-space: nowrap;
-	text-align: right;
+    font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    font-size: 16px;
+    padding-right: 6px;
+    white-space: nowrap;
+    text-align: right;
 }
 
 .gdrgrid td.first, .gdrgrid td.last { width: 1px; }
@@ -91,99 +91,99 @@ p.sub {
 .gdrgrid td.t { white-space: normal; }
 
 .gdrgrid td.t, .gdrgrid th {
-	color: #777777;
-	font-size: 12px;
-	padding-right: 12px;
-	padding-top: 6px;
+    color: #777777;
+    font-size: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
 }
 
 .gdrgrid th {
-	text-align: left;
-	background-color: #ECECEC;
-	padding: 3px 5px;
+    text-align: left;
+    background-color: #ECECEC;
+    padding: 3px 5px;
 }
 
 #gdptlogo {
-	background: transparent url(../gfx/logo.png) no-repeat;
-	height: 64px;
-	padding-left: 72px;
-	margin-top: 10px;
+    background: transparent url(../gfx/logo.png) no-repeat;
+    height: 64px;
+    padding-left: 72px;
+    margin-top: 10px;
 }
 
 #gdptlogo .gdpttitle {
-	font-size: 30px;
-	font-style: normal;
-	font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
-	padding: 0 0 3px 0;
-	border-bottom: 1px solid #DADADA;
-	color: #696969;
+    font-size: 30px;
+    font-style: normal;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+    padding: 0 0 3px 0;
+    border-bottom: 1px solid #DADADA;
+    color: #696969;
 }
 
 #gdptlogo h3 {
-	margin: 3px 0 0 0;
-	font-style: italic;
-	font-weight: normal;
+    margin: 3px 0 0 0;
+    font-style: italic;
+    font-weight: normal;
 }
 
 a.ttoption {
-	padding: 1px 3px 2px;
+    padding: 1px 3px 2px;
 }
 
 a.ttoption-del {
-	color: #cc0000;
-	padding: 1px 3px 2px;
+    color: #cc0000;
+    padding: 1px 3px 2px;
 }
 
 a.ttoption-del:hover {
-	background-color: #cc0000;
-	color: white;
+    background-color: #cc0000;
+    color: white;
 }
 
 .inputbutton{
-	-moz-border-radius-bottomleft: 3px;
-	-moz-border-radius-bottomright: 3px;
-	-moz-border-radius-topleft: 3px;
-	-moz-border-radius-topright: 3px;
-	border: 1px solid #696969 !important;
-	cursor: pointer;
-	font-family: "Lucida Grande","Lucida Sans Unicode",Tahoma,Verdana,sans-serif;
-	font-size: 12px;
-	line-height: 1.5em;
-	padding: 3px 5px;
-	text-decoration: none;
-	color: #696969;
-	background-color: #e6e6fa !important;
-	width: 120px;
-	text-align: center;
+    -moz-border-radius-bottomleft: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    border: 1px solid #696969 !important;
+    cursor: pointer;
+    font-family: "Lucida Grande","Lucida Sans Unicode",Tahoma,Verdana,sans-serif;
+    font-size: 12px;
+    line-height: 1.5em;
+    padding: 3px 5px;
+    text-decoration: none;
+    color: #696969;
+    background-color: #e6e6fa !important;
+    width: 120px;
+    text-align: center;
 }
 
 .inputred {
-	font-weight: bold;
-	color: red !important;
-	border: 1px solid #8b0000 !important;
+    font-weight: bold;
+    color: red !important;
+    border: 1px solid #8b0000 !important;
 }
 
 .gdrgrid h3 {
-	background: #333333;
-	color: white;
-	text-shadow: none;
+    background: #333333;
+    color: white;
+    text-shadow: none;
 }
 .gdrgrid h3:hover {
-	color: white;
+    color: white;
 }
 .gdsr .widefat thead, .gdsr .previewtable thead {
-	background: #333333;
+    background: #333333;
 }
 
 .gdsr .widefat thead .alt, .gdsr .previewtable thead .alt {
-	background:inherit !important;
+    background:inherit !important;
 }
 
 .gdsr .widefat thead tr th {
-	background: none;
-	color: white;
-	text-shadow: none;
-	font-size: 13px;
+    background: none;
+    color: white;
+    text-shadow: none;
+    font-size: 13px;
 }
 
 .ui-tabs .ui-tabs-nav li a { padding: .2em .6em; }
@@ -234,16 +234,16 @@ textarea, input, select { border-color: #696969; }
 }
 
 input {
-	border-color: #696969 !important;
+    border-color: #696969 !important;
 }
 
 .gdsr-major-info {
-        background-color:#F7F7F7;
-        color:#D00;
-        font-weight:bold;
-        padding:1px 6px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
+    background-color:#F7F7F7;
+    color:#D00;
+    font-weight:bold;
+    padding:1px 6px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
 
 #contextual-gopro-link-wrap, #contextual-help-link-wrap {
@@ -272,6 +272,10 @@ input {
     text-decoration: none;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
     z-index: 1;
+}
+
+#contextual-gopro-link-wrap a {
+    background: none;
 }
 
 #contextual-help-link-wrap a {
@@ -354,7 +358,7 @@ a.button-gray:hover {
     padding: 5px 0;
 }
 
-.gdtt-state-error {border: 1px solid #7a0003; background: #b80006; color: #ffffff; padding: 0pt 0.7em; margin: 10px 0; border-radius: 3px; }
+.gdtt-state-error { border: 1px solid #7a0003; background: #b80006; color: #ffffff; padding: 0pt 0.7em; margin: 10px 0; border-radius: 3px; }
 .gdtt-state-error a { color: #ffffff; }
 
 .inside.to-upgrade {
